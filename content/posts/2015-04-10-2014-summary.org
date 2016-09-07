@@ -64,6 +64,7 @@ yeah 让我们相互温暖
 
 婚礼之于我们，更多是为了满足父母虚荣演一场戏罢了。现实不允许我们造一个日光倾城的大梦，我们所能做的，只是在两代亲朋、两块地域、两种风俗之间辛苦周旋，不求华丽出彩，但求顺利过关。没有新马泰蜜月旅行，没有大房子装修一新，送走所有亲朋后，我们回到杭州，回到自己租住的十几平米的小房子里，休整一天，然后她去上班，我也去上班。
 
+#+CAPTION: 西北行
 [[/static/image/2014-xibeixing-dajiaoya.jpg]]
 
 [[http://oh-my-love.xiaohanyu.me/][所谓相行，即是人生]]。
@@ -209,7 +210,6 @@ not working on that why aren't you?"
 “再见，北京”。
 
 #+CAPTION: 2012. 阳春三月北京植物园
-
 [[/static/image/2012-beijing-zhiwuyuan.jpg]]
 
 ** 健身
