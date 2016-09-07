@@ -3,9 +3,6 @@ rvm:
   - 2.3.0
 script:
   - bash ./scripts/deploy-to-github-pages.sh
-env:
-  global:
-    GITHUB_PAGES_REPO: xiaohanyu/xiaohanyu.github.io
 notifications:
   email:
     on_failure: always

@@ -16,16 +16,9 @@ git config --global user.name "Xiao Hanyu"
 # build
 bundle install
 
-git_rev=$(git rev-parse HEAD)
-
 git clone https://github.com/${GITHUB_PAGES_REPO}.git output
-cd output
-git checkout master
 
-cd ..
 bundle exec nanoc compile
-
-cd output
 
 # deploy
 if [ -z "$(git status --porcelain)" ]; then
@@ -37,7 +30,7 @@ else
 Auto deployed by travis-ci.
 
 Projects used for this deployment:
-- https://github.com/xiaohanyu/xiaohanyu.github.io/commit/${git_rev}
+- https://github.com/${TRAVIS_REPO_SLUG}/commit/${TRAVIS_COMMIT}
 EOF
 
     git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
