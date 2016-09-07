@@ -35,5 +35,5 @@ Projects used for this deployment:
 - https://github.com/${TRAVIS_REPO_SLUG}/commit/${TRAVIS_COMMIT}
 EOF
 
-    git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
+    git push "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
 fi
