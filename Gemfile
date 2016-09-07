@@ -5,9 +5,9 @@ gem 'nanoc'
 gem 'slim'
 gem 'sass'
 gem 'pandoc-ruby'
+gem 'echoe'
 
 # nanoc plugins
-gem 'nanoc-toolbox'
 gem 'typogruby'
 
 # js/css minify
