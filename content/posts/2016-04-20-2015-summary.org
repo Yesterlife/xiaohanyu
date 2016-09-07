@@ -120,6 +120,8 @@ JavaScript 方面，15 年学习了 [[http://vuejs.org/][Vue.js]] ，了解了�
 
 #+CAPTION: 济州岛
 [[/static/image/2015-jizhoudao.jpg]]
+
+#+CAPTION: 海洋馆
 [[/static/image/2015-jizhoudao-haiyangguang.jpg]]
 
 *** 广州深圳香港
