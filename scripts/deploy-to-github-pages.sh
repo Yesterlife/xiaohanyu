@@ -21,6 +21,8 @@ git clone https://github.com/${GITHUB_PAGES_REPO}.git output
 bundle exec nanoc compile
 
 # deploy
+cd output
+
 if [ -z "$(git status --porcelain)" ]; then
     echo "There are no changes, exit with 0";
     exit 0;
