@@ -9,14 +9,10 @@ sudo apt-get update && sudo apt-get -y install jq
 wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
 sudo dpkg -i pandoc.deb
 
-# config
-git config --global user.email "xiaohanyu1988@gmail.com"
-git config --global user.name "Xiao Hanyu"
-
 # build
 bundle install
 
-git clone https://github.com/${GITHUB_PAGES_REPO}.git output
+git clone git@github.com:${GITHUB_PAGES_REPO}.git output
 
 bundle exec nanoc compile
 
@@ -35,5 +31,6 @@ Projects used for this deployment:
 - https://github.com/${TRAVIS_REPO_SLUG}/commit/${TRAVIS_COMMIT}
 EOF
 
-    git push "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
+    git push "git@github.com:${GITHUB_PAGES_REPO}.git" master:master
+    git push "git@git.coding.net:${CODING_PAGES_REPO}.git" master:master
 fi

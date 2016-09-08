@@ -1,9 +1,19 @@
 language: ruby
 sudo: required
 rvm:
-  - 2.3.0
+- 2.3.0
+before_install:
+- openssl aes-256-cbc -K $encrypted_e4331180cf0f_key -iv $encrypted_e4331180cf0f_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- tail -n 3 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name 'Xiao Hanyu'
+- git config --global user.email 'xiaohanyu1988@gmail.com'
 script:
-  - bash ./scripts/deploy-to-github-pages.sh
+- bash -x ./.travis/deploy-to-pages-service.sh
 notifications:
   email:
-    on_failure: always
+    on_failure: false
