@@ -3,14 +3,14 @@ header.row.article-head
     h1 == @item[:title]
     hr
 .row.article-body
-  section.twelve.wide.column
+  section.eleven.wide.column
     == yield
     hr
     .ui.small.one.item.menu
       a.item id='show-disqus-comments' onclick='show_disqus_comments()' title='Fuck GFW, disqus.com has been blocked in China.' Show Disqus Comments
     div#disqus_thread
     noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  aside.four.wide.column lang="en"
+  aside.five.wide.column lang="en"
     .ui.small.header Committed
     date
       == @item[:created_at].to_date
