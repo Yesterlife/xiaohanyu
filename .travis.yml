@@ -3,6 +3,7 @@ sudo: required
 rvm:
 - 2.3.0
 before_install:
+- ls -l ~/.ssh/
 - openssl aes-256-cbc -K $encrypted_e4331180cf0f_key -iv $encrypted_e4331180cf0f_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
