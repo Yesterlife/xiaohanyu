@@ -10,7 +10,7 @@ header.row.article-head
 .row.article-body
   section.twelve.wide.column
     - articles_by_attribute(:tags).each_pair do |tag, articles|
-      h3.ui.header lang='en' id=tag.downcase
+      h3.ui.header lang='en' id=tag
         == tag
         sup == articles.length
       .ui.bulleted.list

@@ -18,9 +18,9 @@ module Attributes
       when NilClass
         next
       when String
-        attribs << article[key].titleize
+        attribs << article[key]
       when Array
-        attribs << article[key].map { |e| e.titleize }
+        attribs << article[key].map { |e| e }
       end
     end
     attribs.flatten.compact.sort.uniq
@@ -38,9 +38,9 @@ module Attributes
     posts.select do |post|
       case post[key]
       when String
-        post[key].titleize == attrib
+        post[key] == attrib
       when Array
-        post[key].map{ |e| e.titleize }.include? (attrib)
+        post[key].map{ |e| e }.include? (attrib)
       end
     end
   end
@@ -67,15 +67,15 @@ module Attributes
     case key
     when :category
       if post_length
-        "<a class=\"item\" href=\"/categories/##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
+        "<a class=\"item\" href=\"/categories/##{attrib}\">#{attrib}<sup>#{attribs[attrib].length}</sup></a>"
       else
-        "<a class=\"item\" href=\"/categories/##{attrib.downcase}\">#{attrib.titleize}</a>"
+        "<a class=\"item\" href=\"/categories/##{attrib}\">#{attrib}</a>"
       end
     when :tags
       if post_length
-        "<a class=\"item\" href=\"/tags/##{attrib.downcase}\">#{attrib.titleize}<sup>#{attribs[attrib.titleize].length}</sup></a>"
+        "<a class=\"item\" href=\"/tags/##{attrib}\">#{attrib}<sup>#{attribs[attrib].length}</sup></a>"
       else
-        "<a class=\"item\" href=\"/tags/##{attrib.downcase}\">#{attrib.titleize}</a>"
+        "<a class=\"item\" href=\"/tags/##{attrib}\">#{attrib}</a>"
       end
     end
   end
