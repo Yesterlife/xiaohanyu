@@ -13,9 +13,10 @@ def summary(article)
                               :from => pandoc_ext_from[article.identifier.ext],
                               :to => :json)
   input_json = JSON.load(json_s)
-  input_json["blocks"][0..3].reject! { |elem| elem['t'] == 'Header' }
+  output_json = input_json.dup
+  output_json['blocks'] = input_json['blocks'][0..3].reject { |elem| elem['t'] == 'Header' }
 
-  return PandocRuby.convert(JSON.dump(input_json),
+  return PandocRuby.convert(JSON.dump(output_json),
                             :from => :json,
                             :to => :html5)
 end
