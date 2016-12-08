@@ -74,10 +74,10 @@ PPResume 提供专业的简历定制服务，以市面上罕见的极高品质�
 
 如果你觉得我的文案写得不错，欢迎打赏购买 [[https://item.taobao.com/item.htm?spm=a1z10.1-c.w10836671-12595401221.2.BjL3qM&id=538120928825][PDF]] 版本，来支持我继续开发 PPResume。附上 PDF 目录及样张，希望喜欢。
 
-[[/static/image/ppresume/ppresume-guide-1.jpg][/static/image/ppresume/ppresume-guide-1.jpg]]
-[[/static/image/ppresume/ppresume-guide-2.jpg][/static/image/ppresume/ppresume-guide-2.jpg]]
-[[/static/image/ppresume/ppresume-guide-3.jpg][/static/image/ppresume/ppresume-guide-3.jpg]]
-[[/static/image/ppresume/ppresume-guide-4.jpg][/static/image/ppresume/ppresume-guide-4.jpg]]
-[[/static/image/ppresume/ppresume-guide-9.jpg][/static/image/ppresume/ppresume-guide-9.jpg]]
-[[/static/image/ppresume/ppresume-guide-26.jpg][/static/image/ppresume/ppresume-guide-26.jpg]]
-[[/static/image/ppresume/ppresume-guide-27.jpg][/static/image/ppresume/ppresume-guide-27.jpg]]
+[[/static/image/ppresume/ppresume-guide-1.jpg][file:/static/image/ppresume/ppresume-guide-1.jpg]]
+[[/static/image/ppresume/ppresume-guide-2.jpg][file:/static/image/ppresume/ppresume-guide-2.jpg]]
+[[/static/image/ppresume/ppresume-guide-3.jpg][file:/static/image/ppresume/ppresume-guide-3.jpg]]
+[[/static/image/ppresume/ppresume-guide-4.jpg][file:/static/image/ppresume/ppresume-guide-4.jpg]]
+[[/static/image/ppresume/ppresume-guide-9.jpg][file:/static/image/ppresume/ppresume-guide-9.jpg]]
+[[/static/image/ppresume/ppresume-guide-26.jpg][file:/static/image/ppresume/ppresume-guide-26.jpg]]
+[[/static/image/ppresume/ppresume-guide-27.jpg][file:/static/image/ppresume/ppresume-guide-27.jpg]]
