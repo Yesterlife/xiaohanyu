@@ -40,6 +40,8 @@ route '/nojekyll' do
   '/.nojekyll'
 end
 
+ignore '/posts/LICENSE'
+
 passthrough '/static/**/*'
 passthrough '/posts/static/**/*'
 passthrough '/quotes/**/*'
