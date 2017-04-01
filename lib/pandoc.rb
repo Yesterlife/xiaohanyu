@@ -10,8 +10,9 @@ def summary(article)
   }
 
   json_s = PandocRuby.convert(article.raw_content,
-                              :from => pandoc_ext_from[article.identifier.ext],
-                              :to => :json)
+                              {:from => pandoc_ext_from[article.identifier.ext],
+                               :to => :json},
+                              :smart)
   input_json = JSON.load(json_s)
   output_json = input_json.dup
   output_json['blocks'] = input_json['blocks'][0..3].reject { |elem| elem['t'] == 'Header' }
