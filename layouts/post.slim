@@ -1,11 +1,11 @@
 header.row.article-head
   .column
     h1 == @item[:title]
-    hr
+    .ui.divider
 .row.article-body
   section.twelve.wide.column
     == yield
-    hr
+    .ui.divider
     .ui.small.one.item.menu
       a.item id='show-disqus-comments' onclick='show_disqus_comments()' title='Fuck GFW, disqus.com has been blocked in China.' Show Disqus Comments
     div#disqus_thread
