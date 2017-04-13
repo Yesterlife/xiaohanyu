@@ -32,5 +32,4 @@ Projects used for this deployment:
 EOF
 
     git push "git@github.com:${GITHUB_PAGES_REPO}.git" master:master
-    git push "git@git.coding.net:${CODING_PAGES_REPO}.git" master:master
 fi
