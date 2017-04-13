@@ -7,7 +7,7 @@ lang: cn
     article.ui.stackable.divided.grid
       header.row.article-head
         .column
-          h1 行者无疆 始于足下
+          h1.ui.header 行者无疆 始于足下
           .ui.divider
       .row.article-body
         section.eleven.wide.column
@@ -18,8 +18,6 @@ lang: cn
                 .sub.header
                   == article[:created_at].to_date
               == summary(article)
-              .ui.tiny.basic.button
-                == link_to("Read More…", article.path)
 
         aside.five.wide.column
           blockquote.words-cn

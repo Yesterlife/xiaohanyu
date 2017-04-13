@@ -44,7 +44,7 @@ hr
 blockquote
   padding: 0.6rem 1rem 0.4rem
   margin: 0 0 0.8rem
-  border-left: 3px solid #eee
+  border-left: 3px solid #009fda
   p
     line-height: 1.2rem
     margin-bottom: 0.3rem
@@ -84,13 +84,10 @@ img
     margin-top: 0.5em
 
 /* Styles for semantic-ui elrements
-.ui
-  &.alternative.segment
-    background: #FFFFFF
-  &.vertical.stripe.segment
-    padding: 4rem 0
-  &.vertical.segment
-    padding: 2rem 0
+.ui.vertical.stripe.segment
+  padding: 4rem 0
+  &:nth-of-type(even)
+    background-color: rgba(128, 128, 128, 0.08)
 
 .ui
   &.menu
@@ -122,9 +119,11 @@ img
     padding-top: 2rem
   > .ui.grid > .row
     &.article-head
-      padding-bottom: 1rem
+      padding-top: 1.5rem
     &.article-body
       padding-top: 0
+      .ui.vertical.segment:first-child
+        padding-top: 0
       > aside
         display: table
         > .ui
@@ -133,8 +132,6 @@ img
           &.list
             margin-top: 0.5rem
             margin-bottom: 0.5rem
-      .ui.header a
-        color: inherit
 
 /* Enable smallcaps and oldstyle-number OpenType features for English
 [lang='en']
