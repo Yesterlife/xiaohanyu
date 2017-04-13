@@ -14,7 +14,7 @@ header.row.article-head
         == tag
         sup == articles.length
       .ui.bulleted.list
-        - articles.each do |article|
+        - articles.reverse.each do |article|
           li.item
             .content
               .title.font-kai == link_to(article[:title], article.path)
