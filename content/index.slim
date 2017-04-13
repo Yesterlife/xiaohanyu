@@ -18,6 +18,8 @@ lang: cn
                 .sub.header
                   == article[:created_at].to_date
               == summary(article)
+              .ui.small.basic.button
+                == link_to("Read More…", article.path)
 
         aside.five.wide.column
           blockquote.words-cn
