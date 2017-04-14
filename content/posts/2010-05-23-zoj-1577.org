@@ -1,0 +1,85 @@
+简单题，题目大意是给定两个数a、b，求x、y使得gcd(x, y) = a, lcm(x, y) =
+b，问由多少对这样的(x, y)，其中gcd(x, y)为x, y的最大公约数，lcm(x,
+y)为x,y的最小公倍数。解题思路主要利用[tex]x \times y = gcd(x, y) \times
+lcm(x, y)[/tex]就行了。WA了两次是因为没看清楚题意"x and y, one line for
+each test."，太马虎了。代码如下：
+
+#+BEGIN_SRC C++
+    #include <stdio.h>
+    #include <math.h>
+
+    long gcd(long a,long b)
+    {
+        return b ? gcd(b, a%b) : a;
+    }
+
+    long lcm(long a, long b)
+    {
+        return a / gcd(a, b) * b;
+    }
+
+    int main(int argc, char *argv[])
+    {
+        long a, b;
+        long m;
+        int sum;
+        
+        while(scanf("%ld%ld", &a, &b) != EOF)
+        {
+            if (a == b)
+            {
+                sum = 1;
+            }
+            else
+            {
+                m = a * b;
+
+                sum = 0;
+                int i;
+            
+                for (i = 1; i < sqrt(m); ++i)
+                {
+                    if (((m % i) == 0) && (gcd(i, m/i) == a))
+                    {
+                        sum += 1;
+                    }
+                }
+
+                sum *= 2;
+            }    
+            printf ("%d\n",sum);
+        }
+        return 0;
+    }
+#+END_SRC
+
+ 顺便，用了两个月的[[http://gna.org/projects/fvwm-crystal/][fvwm-crystal]]，感觉虽然轻量，但是有些细节颇有不便之处，比如每次新开窗口的时候窗口的大小和位置都“不太确定”------就是有时候窗口会覆盖底下的panel、有时候整个窗口又比整个屏幕都大......恰逢前天晚上兴奋无眠，因此便邪恶的敲了下面一条命令：
+
+#+BEGIN_SRC sh
+    sudo emerge -av gnome-light    
+#+END_SRC
+
+编译过程比较顺利，又陆续装了[[http://projects.gnome.org/gdm/][gdm]],
+[[http://do.davebsd.com/][gnome-do]]等小工具，配上[[http://sourceforge.net/projects/mac4lin/][Mac4Lin]]的主题，现在整个桌面看起来还是蛮pp的：
+
+[[/user_files/cnlox/Image/screenshots/mac4lin.png]]
+
+还有一个小问题就是gtk+和QT程序风格二异。我的解决方案是安装[[http://www.kde.org/announcements/4.0/applications.php][kde的control
+center:]]
+
+#+BEGIN_SRC sh
+    sudo emerge -av systemsettings
+#+END_SRC
+
+然后在widget
+style中选择gtk+风格，如下图所示：[[/user_files/cnlox/Image/screenshots/Screenshot-Style%20%E2%80%93%20System%20Settings.png]]
+
+效果还算不错。其余的解决方案可以参考：
+
+-  [[http://en.wikipedia.org/wiki/QtCurve][QtCurve]]
+-  [[http://en.wikipedia.org/wiki/QGtkStyle][QGtkStyle]]
+-  [[http://code.google.com/p/gtk-qt-engine/][gtk-qt-engine]]
+-  [[http://wiki.archlinux.org/index.php/Uniform_Look_for_QT_and_GTK_Applications][Arch
+   Linux Wiki: Uniform Look for QT and GTK Applications]]
+
+就是这样。嘿。

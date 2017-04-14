@@ -1,0 +1,105 @@
+原来数模和acm本不是一个级别的。
+
+数模，三人一队，十天一题。
+
+原本我是学计算机的，谁曾想到那两人matlab倒也丝毫不落下风，因此我只能回到了自己的老本行------LaTeX写文档了。写文档当然要涉及到图表、公式、参考文献等等。因此我顺便进一步熟悉了下Linux环境下绘图工具的使用。
+
+简单的说，绘图工具分为两类，一类是[[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]的，另一类是[[http://en.wikipedia.org/wiki/GUI][GUI]]的。两种工具也大体代表了不同的理念，前者是WYTIWYG(What
+You Think Is What You
+Get)，所思即所得，后者是[[http://en.wikipedia.org/wiki/WYSIWYG][WYSIWYG]](What
+You See Is What You
+Get)，所见即所得。具体到应用上，前者以[[/user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png]]派系为代表，后者以MS
+Word派系为代表。
+
+我们先说第一类。和[[/user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png]]配合的绘图工具，我了解的有四个：
+
+1. [[http://www.tug.org/metapost.html][metapost]]
+2. [[http://asymptote.sourceforge.net/][asymptote]]
+3. [[http://sourceforge.net/projects/pgf/][pgf\tikz]]
+4. [[http://tug.org/PSTricks/main.cgi/][pstriks]]
+
+前两者属于离线做图工具；后两者属于在线做图工具。可能你又会问，什么叫离线做图工具？什么又叫在线做图工具？
+
+简单来说，离线做图就是单独建立文件，然后生成eps等独立的图形文件，通过\includegraphics等类似的命令将图形文件嵌入到latex文件中(这样说也许不妥，因为latex文件经过不同处理可以生成多种类型的文件如dvi、ps、pdf等等，嵌入到latex中意思是“图形”嵌入到生成的文件中)。metapost和asymptote属于这种。
+
+在线做图就是直接在TeX文件中敲相应宏包的绘图命令，经过处理后直接生成图形。pgf\tikz和pstricks属于此类。两种方式并没有优劣之别。离线做图更灵活，在线做图则更加方便。
+
+从历史上来说，metapost和pstricks历史更长久一点，而asymptote和pgf\tikz则相对年轻。
+
+语法上，metapost比较怪异；asymptote的语法仿照c++(可见c++确实是王道\^\_\^)；pgf\tikz我用过一段时间，感觉比较乱，毫无章法；pstricks基于[[http://en.wikipedia.org/wiki/Postscript][postscript]]，据说比较强大，但是我没用过，不好评价。
+
+能力上，各有所长，metapost可以解方程；asymptote的3d不错；pgf\tikz生成一些特殊的图如自动机、MindMap等效果非常好；pstricks，不知道了。其实我觉得四者精通其一即可“纵横天下”。
+
+这里附上一些Gallery，做图能力强弱，大家自己分明:
+
+1. metapost:
+   [[http://tex.loria.fr/prod-graph/zoonekynd/metapost/metapost.html][gallery1]]
+2. asymptote: [[http://asymptote.sourceforge.net/gallery/][gallery1]]
+3. pgf\tikz: [[http://www.fauskes.net/nb/pgftikzexamples/][gallery1]],
+   [[http://www.texample.net/tikz/examples/][gallery2]]
+4. pstrikcs:
+   [[http://tug.org/PSTricks/main.cgi?file=Examples/Gallery/Gallery][gallery1]],
+   [[http://www.tug.org/PSTricks/main.cgi?file=examples][gallery2]]
+
+上两张图，来猜猜是用什么画出来的。不要告诉我是photoshop、inkscape哦。
+
+[[http://tug.org/PSTricks/Examples/play0.tex][ [[/user_files/cnlox/Image/tex/heart.png]]]]
+
+[[/user_files/cnlox/Image/tex/calendar1.png]]
+
+以上是基于CLI派基于[[/user_files/cnlox/epics/70e328814c1e60cf662eea599ba7dfdac0eb55fe.png]]的绘图工具。除此之外，[[http://www.graphviz.org/][graphviz]]也是非常有用的一个小工具。与metapost等重量级的工具相比，graphviz的长处在于轻便灵活。短短几句话可以生成[[http://www.graphviz.org/doc/info/output.html][多种格式]]的文件。他自创了一种dot
+language，并且自动提供了几种layout算法。graphviz尤其适合画流程图和类图，可以看看它的[[http://www.graphviz.org/Gallery.php][gallery]]。著名的源码文档工具doxygen生成类图时调用的就是graphviz。而且graphviz还提供了python语言的调用接口[[http://networkx.lanl.gov/pygraphviz/][pygraphviz]]。
+
+提到这里，也就不能不提到emacs了。说emacs是神的编辑器，此言一点也不为过。gentoo：
+
+#+BEGIN_SRC sh
+    sudo emerge -av graphviz-dot-mode
+#+END_SRC
+
+dot语言的语法非常简练，看看我简单探索的成果：
+
+[[/user_files/cnlox/Image/screenshots/2010-05-10-041229_840x711_scrot.png]]
+
+graphviz-dot-mode，快捷键：
+
+-  C-c c: compile, 根据你想要的layout，输入相应的编译命令
+-  C-c p: preview,
+   预览图片效果(期间遇到了一个问题，用dot生成嵌入中文的ps或eps文件时，在emacs中预览是正常的，但是嵌入到latex文件中就会出现乱码，这可能是文字编码之前。
+
+还有两个工具：
+
+-  [[http://www.fauskes.net/code/dot2tex/][dot2tex]]
+-  [[http://ctan.org/tex-archive/help/Catalogue/entries/dot2texi.html][dot2texi]]
+
+可以将graphviz的dot文件转换为tex兼容的格式，直接嵌入tex文件中，具体我就没有用过了。
+
+最后一个推荐的CLI派的绘图干将就是[[http://www.gnuplot.info/][gnuplot]]了。gnuplot主要擅长数学数据的可视化，结合[[http://maxima.sourceforge.net/][maxima]]、[[http://www.gnu.org/software/octave/][octave]]等等可以形成一套完备的[[http://en.wikipedia.org/wiki/Computer_algebra_system][CAS]]系统。而且据我所知，gnuplot本身也是支持metapost接口导出的。这是gnuplot的[[http://www.gnuplot.info/screenshots/index.html#demos][gallery]]，看看什么叫数学之美。
+
+说了这么多废话，第一类总算数的差不多了。接下来再简单数数第二类。基于GUI的画图工具，汗牛充栋，大块的如gimp、inkscape等，做尔等工作，牛刀杀鸡也。
+
+还是一些小工具来得实惠。首先推荐的当然是大名鼎鼎的[[http://projects.gnome.org/dia/][dia]]了。引用其官方主页上的介绍：
+
+Dia is a gtk+ based diagram creation program released under the GPL
+license.
+
+Dia is inspired by the commercial Windows program 'Visio', though more
+geared towards informal diagrams for casual use. It can be used to draw
+many different kinds of diagrams. It currently has special objects to
+help draw entity relationship diagrams, UML diagrams, flowcharts,
+network diagrams, and many other diagrams. It is also possible to add
+support for new shapes by writing simple XML files, using a subset of
+SVG to draw the shape.
+
+It can load and save diagrams to a custom XML format (gzipped by
+default, to save space), can export diagrams to a number of formats,
+including EPS, SVG, XFIG, WMF and PNG, and can print diagrams (including
+ones that span multiple pages).
+
+有趣的是，dia还支持pgf/tikz、metapost、pstricks文件格式的导出。所以把dia当成信手涂鸦工具，导入tex文件中，倒会给一向严谨的tex添点趣味。
+
+最后一个小工具，类似于windows下的[[http://www.dynamicgeometry.com/][几何画板]]，顺手画一些几何图形还是非常赞的，这就是[[http://www.geogebra.org/cms/][Geogebra]]。我非常赞赏的两点是：
+
+-  像autocad一样，具有命令行模式，既能精确控制，又能随手泼墨；
+-  也支持多种格式的export，如metapost和pgf格式。
+
+好了，这么晚了，说了这么多废话，但愿说者无意、听者有心。安。

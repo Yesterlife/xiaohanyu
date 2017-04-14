@@ -1,0 +1,318 @@
+导师让我研究iphone下的程序开发。迫于经济窘迫，手头没有mac，四处查资料，终于搞出来了一个跨平台的解决方案，写了20多页的英文文档[[file:///tmp/moz-screenshot.png]]，美其名曰[[http://cnlox.is-programmer.com/user_files/cnlox/File/iphone_develop_cross_platform.pdf][《The
+Cross-Platform Developing Skills for Mac
+Applications》]]，认真进行了排版，给导师发了过去。可是导师太忙了没有时间看呃。于是我一股脑的跟导师倾诉了一番mac,
+objective-c,
+gnustep等等之类的东西，虽然我也不太懂。导师看我做的十分认真，比较满意，中午一起吃了饭，下午来了个学长，一起坐下交流一番。我刚想倾诉我伟大的跨平台解决方案，学长说，"现在mac
+os可以装载pc上了“。于是我就悲剧了。
+
+周五下午去公司跟学长借了盘，插进光驱，改下bios从cd启动，哇，竟然能启动，而且见到了安装界面。窃以为到这步，我的pc装苹果之路已经走完了一半。哪知这仅仅是噩梦的开始。整个下午就在网上乱逛，了解下pc安装苹果的知识，了解下多系统的安装与启动。晚上回到寝室，真刀真枪，开始干了。
+
+首先是硬盘的问题。由于我的头脑发热，整个硬盘250G，就一个archlinux，这么一来要想安装苹果先得给苹果腾点地方啊。于是找到了传说中的Gparted，但是系统正在运行，/分区和/home分区无法umount，因此更无法resize，于是就找到了[[http://gparted.sourceforge.net/livecd.php][Gparted
+Live
+CD]]。wget拖了半个小时，用brasero刻盘，第一次可能用了全速刻盘，最后出现了莫名其妙的错误，刻录失败，废了一张cd。于是又想到了伟大的ultraiso
+9.3版。咱不是有virtualbox嘛。马上去神网下了ultraiso，装上，插上u盘，打算搞鸽GParted
+Live
+USB出来。依然宣告失败。还剩一张cd，又用brasero刻录了下，这下降低了刻录速度，终于成功。reboot。
+
+加载了3、4分钟的样子，Gparted终于出来了。桌面环境采用的是fluxbox，虽然没用过。先把/home分区resize一下，成功。重启，进入archlinux，df
+-h看看文件系统，成功！！很是兴奋的样子。reboot again，又进入了GParted
+Live CD，打算给mac腾30g的空间。不知怎么的，我试探性的用了一个貌似叫new
+partition
+table的功能，谈出个窗口，我点了个确定，又一个窗口，我又点了确定，这下糟了！整个硬盘被重新格式化了，整个过程不超过1s中的时间，我想这GParted也太nb了。250g的硬盘，1s中不到就全部搞定格式化了。
+
+呜呜，我的archlinux，我的心血啊。索性，一不做，二不休，先装苹果吧。苹果的盘是ideneb的leopard
+10.5.7的版本。从晚上7点到午夜12点，总共装了不下6次。终于还是没装上。症状是安装完所有软件重启后风火轮转几圈后就黑屏无反应。可能是各种驱动的问题，但是我用手机上网，反复设置，反复选择，还是没有成功，这使我彻底失望。mac的安装确实是一个关乎rp的问题。怎么办？
+
+思前想后，还是决定装windows
+7，再重新装个linux吧。于是找室友帮忙，下载了windows
+msdn英文原版，还是用伟大的ultraiso，刻成了live
+usb，启动，开始安装。半个小时，一个华丽的启动界面出现在我的眼前------果然很绚丽。简单使用了一下，相比vista，对windows
+7确实做的非常非常不错。尤其是独具匠心的UI设计。超级任务栏，aero
+peak，动态的主题效果，重新设计的media
+center，便捷的网络vpn链接，还有许多我觉得不错但是叫不出名字的功能，真的很强大。而且运行起来比vista要轻快多了。看来MS这次是下了血本了。
+
+盗版，这个字眼对于中国的it人来说是一种挥之不去的痛。虽然我也不想用盗版，虽然我可以用linux满足自己开发、办公、学习方方面面的需要，但是某些时候环境是不一样的。譬如实验室的同组同学都在用visual
+studio
+2008做开发，这种情况下想不用盗版的MS产品恐怕都很难。据说即将面试的Visual
+Studio
+2010正版要11100+美刀。简直是不可想向了。算了。这是在中国。cc98上有几个msdn的key，也许这次rp不错，竟然能电话激活了。此时已经半夜两点多了，撑不住了，睡了。
+
+第二天早晨10点才爬起来。继续搞电脑。得装个linux。装哪个版本好呢？arch，自己配置还是蛮麻烦的。说实话现在对系统安装已经没有多大的兴趣了。每次重装系统都是把自己的精心调制的作品一点一点碾碎，然后再一点一点搭建起来。我是需要xetex最新版本的，自从用了latex后，已经完全不能习惯word。google了下，ubuntu
+9.10中的texlive貌似还停留在2007版本。算了，还是arch吧。
+
+有了上次的安装经验，这次的安装也算是轻车熟路了。但是自己又没有十全的把握与信心，于是在win7下把archlinux官网wiki上的[[http://wiki.archlinux.org/index.php/Beginners%27_Guide][Beginner's
+Guide]]打印了下来，七十多页。具体的安装过程不讲了，大体上都一样的，真想自己装的话看Beginner's
+Guide。只是记录一下安装过程中遇到的几个小问题。
+
+1、grub的引导问题。很幸运的是archlinux自动识别了win7，只需要在grub的menu.lst文件中去掉几行注释就行。这是我的menu.lst文件： 
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+# general configuration:\\
+timeout   5\\
+default   0\\
+color light-blue/black light-cyan/blue\\
+\\
+# boot sections follow\\
+# each is implicitly numbered from 0 in the order of appearance below\\
+#\\
+# TIP: If you want a 1024x768 framebuffer, add "vga=773" to your kernel
+line.\\
+#\\
+#-*\\
+\\
+# (0) Arch Linux\\
+title  Arch Linux\\
+root   (hd0,8)\\
+kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset
+vga=773\\
+initrd /kernel26.img\\
+\\
+# (1) Arch Linux\\
+title  Arch Linux Fallback\\
+root   (hd0,8)\\
+kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro\\
+initrd /kernel26-fallback.img\\
+\\
+# (2) Windows\\
+title Windows\\
+rootnoverify (hd0,0)\\
+#makeactive\\
+chainloader +1
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+2、rc.conf的问题，最重要的是要安装hal，并把它防盗rc.conf的daemons里面，否则进入gui后无法识别键盘鼠标。这是我的daemons设置：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+DAEMONS=(@syslog-ng @network @netfs @crond @hal @kdm @alsa)
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+3、语言选择问题，在rc.conf会有一个LOCALE的设置问题，建议不要更改成中文，保持默认就好。我就是看了某个教程的知道改成了zh\_CN.utf8，结果进入kde时，界面字体非常难看。也可能是我的字体还没有配置好的原因。
+
+4、localtime和UTC的选择。wiki上说如果是windows和linux双系统，还是选择localtime比较好。
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+LOCALE="en\_US.utf8"\\
+HARDWARECLOCK="localtime"\\
+USEDIRECTISA="no"\\
+TIMEZONE="Asia/Shanghai"
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+5、字体配置我选择的是WenQuanYi Micro
+Hei系列，效果还算不错的。仿雅黑字体的。
+
+6、触摸板的增强可以用gsynaptics驱动，其中有个circular
+scrolling的功能，非常的有趣。实现了mac触摸板的某些功能。自己google一下就知道了。在触摸板上画圈circular，就可以实现srolling的功能。呵呵。注意，gsynaptics的设置默认每次是不能保存的。把下面语句：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+gsynaptics-init &
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+加入到你自己主目录下的.xprofile文件中即可。
+
+7、显卡驱动的问题。我的是ati
+x1450卡。采用xf86-video-ati的开源驱动即可。但是最新的内核（2.6.31以上版本）开发了一个叫做kernal
+mode-setting的功能，会引起一些冲突，导致桌面效果无法启用。具体可以参考archlinux
+wiki上的[[http://wiki.archlinux.org/index.php/ATI][这篇文章]]。解决方法是禁用kernal
+mode-setting功能。在grub menu.lst中实现。也就是下面这句：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+kernel /vmlinuz26
+root=/dev/disk/by-uuid/06ec3189-80fa-471d-b8be-20de1d458f63 ro nomodeset
+vga=773
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+nomodeset表示禁用kernal
+mode-setting，vga=773表示启用控制台的framebuffer。至于framebuffer是什么，自己百度吧。
+
+8、xetex的字体问题。直接将下载的字体cp到/usr/share/fonts里面，最好建一个目录来存放自己的字体，然后最好
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+fc-cache -f -v
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+一下。
+
+9、okular,
+evince不能显示中文问题。据说二者都是基于poppler的，安装poppler-data即可完美解决这个问题：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+sudo pacman -S poppler-data
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+10、从普通用户到root用户gui程序无法启动的问题：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+[lox@freelox ~]$ su root\\
+Password:\\
+[root@freelox lox]# firefox\\
+No protocol specified\\
+No protocol specified\\
+Error: cannot open display: :0.0\\
+[root@freelox lox]#\\
+ 
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+解决办法是在转到root之前输入xhost +命令：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+[lox@freelox ~]$ xhost +\\
+access control disabled, clients can connect from any host\\
+[lox@freelox ~]$ su root\\
+Password:\\
+[root@freelox lox]# firefox\\
+[root@freelox lox]#\\
+ 
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+ 应该是与X11协议的实现有关。我没大看明白。自己百度吧。
+
+能想起来的问题大体就这么多，放上一张archlinux+kde的图片的，是我现在的桌面：[[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/shades_smile.gif]]
+
+[[/user_files/cnlox/Image/arch/archlinux.jpeg]]
+
+后来的后来，在win7里面装上了Visual Studio 2008, Visual
+Assist和Viemu以及Vmware 6.5，当然，全部都是中国特色的db，呃，很矛盾。
+
+周日看了一天的计算理论，教材是《Elements of the Theory of Computation:
+Second
+Edition》的中文版，张立昂、刘田译。不过质量实在不怎么样。看了三十页，就发现了至少三处错误。边看教材边做习题，打算把习题全部做完，统一给老师交上去好了。中途要画几个finite
+automata，于是又头脑发热翻了翻pgf/tikz manual，还算有点小成果。
+
+又是繁忙的一周，汇编语言要补，计算机组成的实验更要补，计算几何的期中考试，数值分析新的内容，操作系统两份报告，还有很多很多。呃。加油吧。从来没感到学业如此繁重过。

@@ -1,0 +1,13 @@
+---
+title: "终于搞定Ubuntu 9.04下XeTeX的配置了。"
+created_at: 2009-09-13
+kind: article
+category: TeX
+meta:
+  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/11264.html">is-programmer</a>
+tags:
+- emacs
+- ubuntu
+- xetex
+- latex
+- auctex

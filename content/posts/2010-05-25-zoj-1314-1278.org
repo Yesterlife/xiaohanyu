@@ -1,0 +1,98 @@
+两道题目表面上看起来很相似，解法是不一样的。
+
+1314的本质是给定数[tex]x, y[/tex]，问[tex]ax (\bmod y), a = 1, 2, \cdots
+[/tex]的周期是多少。依稀记得同余理论和不定方程的某些结论，我猜测周期应该是[tex]\frac{y}{gcd(x,
+y)}[/tex]，自己验证了下也是对的。具体证明涉及到同余和不定方程，高中的基础全忘了，叹。
+
+程序ac一波三折，先是TLE，后来发现scanf()后面没有写!=
+EOF，可是这题也没说啥时算输入结束啊......看来是经验不足了；后来又是Presentation
+Error，仔细检查发现是四个空格输出成了五个空格......叹......
+
+代码： 
+
+#+BEGIN_SRC C++
+    #include <stdio.h>
+
+    int gcd(int a, int b)
+    {
+        return b ? gcd(b, a % b) : a;
+    }
+        
+    int main(int argc, char *argv[])
+    {
+        int step, mod;
+
+        while (scanf("%d%d", &step, &mod) != EOF)
+        {
+            printf("%10d%10d", step, mod);
+            if (gcd(step, mod) == 1)
+            {
+                printf ("    Good Choice\n");
+            }
+            else
+            {
+                printf ("    Bad Choice\n");
+            }
+            printf ("\n");
+        }
+        
+        return 0;
+    }
+#+END_SRC
+
+zoj
+1278和zoj1314很像，于是我尝试着用zoj1314的方法去解决，我甚至求出了通项公式：\\
+\\
+[tex]y\_n = (Z\^{n-1}L + \frac{Z\^{n-1} - 1}{Z - 1}I )\bmod M[/tex]
+
+后来发现不行，因为这个式子的增量不是线性常数，需要另觅他法。很无耻的参考了[[http://www.cppblog.com/superman/archive/2008/05/14/49856.html][这篇博客]]，难得体会到了代码之美，用数组做标记（我不知道是不是该这样说，或者hash
+table？）的手法，某些时候确实很管用，需要进一步熟悉。
+
+代码贴一下吧......虽然是抄袭的\^~~\^：
+
+#+BEGIN_SRC C++
+    #include <iostream>
+    #include <cstring>
+    using namespace std;
+
+    int main(int argc, char *argv[])
+    {
+        int z, i, m, last, next;
+        bool judge[10000];
+
+        int count;
+        int n = 1;
+
+        while (cin >> z >> i >> m >> last)
+        {
+            if (z == 0 && i == 0 && m == 0 && last == 0)
+            {
+                break;
+            }
+
+            memset(judge, false, sizeof(judge));
+
+            count = 0;
+            while (true)
+            {
+                next = (z * last + i) % m;
+
+                if (judge[next])
+                {
+                    break;
+                }
+
+                last = next;
+                judge[next] = true;
+
+                count ++;
+            }
+
+            cout << "Case " << n++ << ": "  << count << endl;
+        }
+        
+        return 0;
+    }
+#+END_SRC
+
+加油加油啊。

@@ -1,0 +1,11 @@
+---
+title: "GAS汇编(1):起步"
+created_at: 2012-03-24
+kind: article
+category: Assembly
+meta:
+  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/32629.html">is-programmer</a>
+tags:
+- emacs
+- gas
+- assembly

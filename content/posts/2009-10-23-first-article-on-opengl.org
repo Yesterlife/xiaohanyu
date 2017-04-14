@@ -1,0 +1,138 @@
+[[/user_files/cnlox/Image/opengl/program2.jpeg]]
+
+还是蛮漂亮的。
+
+linux的opengl的开发配置可以参见[[http://hi.baidu.com/xoxoxo/blog/item/01b1a76e94a525d381cb4aaa.html][这篇文章]]。还是蛮简单的。开发环境和程序的完成大概用了一下午的时间。不过我现在还不太opengl和mesa,
+freeglut之间到底是啥关系。不管了。先用着吧。archlinux下的开发配置非常简单：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+sudo pacman -S freeglut mesa
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+ 源代码如下：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="c"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+#include <GL/glut.h>\\
+#include <stdlib.h>\\
+#include <math.h>\\
+\\
+\\
+#define PI 3.1415926\\
+#define R 1\\
+#define r (sqrt(3) / 3 * R)\\
+\\
+void redraw()\\
+{\\
+    double origin[] = {0.0, 0.0};\\
+    double colorMode1[6][3] = {       //六角星最外层顶点各自的颜色\\
+        {1, 0, 0},\\
+        {1, 1, 0},\\
+        {0, 1, 0},\\
+        {0, 1, 1},\\
+        {0, 0, 1},\\
+        {1, 0, 1}\\
+    };\\
+\\
+    double colorMode2[6][3] = {       //六角星内层顶点各自的颜色\\
+        {1, 0.5, 0},\\
+        {0.5, 1, 0},\\
+        {0, 1, 0.5},\\
+        {0, 0.5, 1},\\
+        {0.5, 0, 1},\\
+        {1, 0, 0.5}\\
+    };\\
+   \\
+    glClear(GL\_COLOR\_BUFFER\_BIT);\\
+    int i;\\
+    for (i = 0; i < 6; ++i)          // 
+把这个凹多边形分解成为六个菱形旋转变换组合而成，通过给每个顶点设定不同的颜色达到颜色渐变的效果\\
+    {\\
+        glBegin(GL\_POLYGON);\\
+        glColor3f(colorMode1[i][0], colorMode1[i][1],
+colorMode1[i][2]);\\
+        glVertex2d((R * cos(PI / 2 + (i * PI) / 3)), R * sin(PI / 2 + (i
+* PI) / 3));\\
+        glColor3f(colorMode2[(i + 5) % 6][0], colorMode2[(i + 5) %
+6][1], colorMode2[(i + 5) % 6][2]);\\
+        glVertex2d(r * cos(PI / 3 + (i * PI) / 3), r * sin(PI / 3 + (i *
+PI) / 3));\\
+        glColor3f(1.0f, 1.0f, 1.0f);\\
+        glVertex2dv(origin);\\
+        glColor3f(colorMode2[i][0], colorMode2[i][1],
+colorMode2[i][2]);\\
+        glVertex2d(r * cos(2 * PI / 3 + (i * PI) /3), r * sin(2 * PI / 3
++ (i * PI) / 3));\\
+        glEnd();\\
+    }\\
+    glutSwapBuffers();\\
+}\\
+\\
+int main (int argc,  char *argv[])\\
+{\\
+    glutInit(&argc, argv);\\
+    glutInitDisplayMode(GLUT\_RGBA | GLUT\_DOUBLE);\\
+    int windowHandle\\
+        = glutCreateWindow("Simple GLUT App");\\
+\\
+    glutDisplayFunc(redraw);\\
+\\
+    glutMainLoop();\\
+\\
+    return 0;\\
+}\\
+ 
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+编译：
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="bash"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;">
+#+END_HTML
+
+gcc -I/usr/include -L/usr/local/lib -L/usr/lib -lglut -lGLU -lGL -lX11
+-lXext -lXmu -lXi -lm filename.c -o filename
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+ 

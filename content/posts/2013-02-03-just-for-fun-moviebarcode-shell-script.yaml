@@ -1,0 +1,11 @@
+---
+title: "轻松一刻：电影条形码转换脚本"
+created_at: 2013-02-03
+kind: article
+category: Shell
+meta:
+  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/37506.html">is-programmer</a>
+tags:
+- shell
+- FFMpeg
+- graphicsmagick

@@ -1,0 +1,81 @@
+最近在搞Hadoop MapReduce，在本机配置了个Hadoop
+Pseudo环境，就琢磨着写两个Java小程序练练手。而Java程序开发的初始配置一向以麻烦著称，记得大二时开始学习Java时对那个CLASSPATH环境变量晕了好久。所以这个时候选一款顺手的IDE就是很重要的了。
+
+另一方面，对于长期生活在[[http://en.wikipedia.org/wiki/K.I.S.S][K.I.S.S]]环境的geek来说，对IDE通常是不感冒的。他们更喜欢a+b+c+d+Emacs或者Vim+w+x+y+z的组合。但是Java就不同了。Emacs虽然有[[http://jdee.sourceforge.net/][JDEE]]，但是Emacs没有好用的jsp-mode，好像也没有自动打包发布部署的功能，或者即使有，也需要极其麻烦的配置。而且Emacs的代码不全功能一向很麻烦也不太好用，对于Java巨大的类库和超长的类名就更头大了。所以在血淋淋的事实面前，我还是屈服了。好在还有个Eclipse。
+
+为什么是Eclipse而不是NetBeans?其实没啥特别的原因，就是Eclipse的界面更加和谐一点，对Java
+Swing的丑陋效果和蜗牛般的速度实在是心有余悸。Eclipse确实也是非常优秀的软件，跨平台，多语言，丰富的插件和和谐统一的插件安装系统，良好的社区支持。Emacs也是。
+
+好了，废话少说，说说今天纠结的Eclipse
+Hadoop之旅吧。我用的软件版本是Eclipse
+3.6，安装的时候顺便将eclipse-cdt也装上了：
+
+#+BEGIN_SRC sh
+    pacman -S eclipse eclipse-cdt
+#+END_SRC
+
+启动Eclipse一切正常，试着建立一个Project却发现无论如何也找不到C++的项目，照理说不应该，不过不打紧，C++和今天的主题无关。继续。
+
+Eclipse开发Hadoop MapReduce程序需要安装一个hadoop eclipse
+plugin，而根据Eclipse和Hadoop版本不同，所需选择的插件也不一样，有官方hadoop
+contrib里的jar包，有[[http://code.google.com/p/hadoop-eclipse-plugin/downloads/list][google
+code]]上的，还有[[http://www.harshj.com/2010/07/18/making-the-eclipse-plugin-work-for-hadoop/][打过patch的山寨jar]]包。而[[http://www.ibm.com/developerworks/opensource/library/os-ecfeat/][eclipse安装插件]]的方法也有很多，比如：
+
+-  安装到plugins目录
+-  [[http://wiki.eclipse.org/Equinox_p2_Getting_Started][安装到dropins目录]]
+-  [[http://blog.csdn.net/kylinsoong/archive/2009/12/28/5092919.aspx][links方式安装]]
+-  通过Help-->Install New Software的方式安装
+-  ......
+
+而我排列组合搞了一个下午后，Eclipse
+3.6的Hadoop插件还是没有装上。无奈在AUR上安装了Eclipse 3.5：
+
+#+BEGIN_SRC sh
+    yaourt -S eclipse-classic-galileo
+#+END_SRC
+
+然后将eclipse-hadoop-plugin放到plugins目录下，终于看到了可爱的小象。究竟是怎么回事呢？
+
+定位好久，还是没有任何头绪。首先是eclipse没有Linux Manual，输入eclipse
+--help也没有任何信息，所以我不知道eclipse
+CLI有没有什么可用的参数；其次是我不知道eclipse有没有自己的log，或者有我也不知道在什么位置，无法发现启动过程中的蛛丝马迹。
+
+此时已经有些心灰意冷，寻思着要不就用Eclipse
+3.5得了。无意中在网上发现了Hadoop的另一个插件，[[http://karmasphere.com/Studio-Eclipse/installation.html][Karmasphere]]，看了下介绍还是蛮强大的，而且有community和professional两个版本，前者是免费的，只是下载的时候需要简单注册下。最重要的是，这个插件有Eclipse和NetBeans两个版本，真实太令人激动了。照着教程配只好NetBeans
+6.9的开发环境，可以用，很强大。于是心情大好，继续配置Eclipse
+3.6版本，这下Eclipse 3.6无法安装插件的问题终于露出了狐狸尾巴：
+
+[[/user_files/cnlox/Image/screenshots/eclipse_dialog.png]]
+
+"Cannot complete the install because one or more required items could
+not be found. Software currently installed: Shared profile
+1.0.0.1284044641500 (SharedProfile\_SDKProfile 1.0.0.1284044641500)
+Missing requirement: Shared profile 1.0.0.1284044641500
+(SharedProfile\_SDKProfile 1.0.0.1284044641500) requires
+'org.eclipse.swt.gtk.linux.x86\_64.source [3.6.1.v3655c]' but it could
+not be found"
+
+!!!
+
+重点是"requires 'org.eclipse.swt.gtk.linux.x86\_64.source
+[3.6.1.v3655c]' but it could not be
+found"。赶紧定位下org.eclipse.swt.gtk.linux.x86\_64：
+
+#+BEGIN_SRC sh
+    % sudo updatedb && locate org.eclipse.swt.gtk.linux.x86_64
+    /usr/share/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64.source_3.6.1.v3655c.jar
+    /usr/share/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_64_3.6.1.v3655c.jar
+#+END_SRC
+
+可以肯定的推断，这个东东在系统中是存在的，虽然命名方式可能不太一样。接下来的问题就好办了很多。我怀疑是/usr/share/eclipse目录的读写权限问题。在[[https://bbs.archlinux.org/viewtopic.php?id=103140][这里]]我的想法得到了佐证。于是立马改了/usr/share/eclipse的读写权限：
+
+#+BEGIN_SRC sh
+    sudo chown -R lox:users /usr/share/eclipse
+#+END_SRC
+
+重启Eclipse
+3.6，果不其然，CDT复活了。于是又安装了Eclipse-hadoop-plugin和karmasphere的plugin，总算大功告成。
+
+最后放一张图吧：
+
+[[/user_files/cnlox/Image/screenshots/eclipse_hadoop.png]]

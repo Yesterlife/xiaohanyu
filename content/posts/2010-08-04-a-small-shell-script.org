@@ -1,0 +1,332 @@
+任务：一批视频文件，需要
+
+1. 自动化地转码成指定的格式
+2. 上传到服务器
+3. 得到文件的url地址
+
+对于转码工作，目前为止依然没有顺利的完成，由于网上资料贫乏，各种视频音频格式、编解码器、专利开源问题比较纠结，需要很长的时间理清这些关系。我重点研究了[[http://www.ffmpeg.org/][ffmpeg]]和[[http://yamdi.sourceforge.net/][yamdi]]这两个工具。但是今天用yamdi的时候发现一个很奇怪的bug------它会自动改变原始视频文件的fps和bitrate作为输出文件，非常奇怪，可能会比较棘手。
+
+对于第二个问题，经过几天的探索，顺带复习许久之前的Bash
+Scripting知识和众多的Unix Power
+Tools，终于想出了比较完善可行的方案，诞生了人生第一个比较“成形”的Shell脚本，惭愧......
+
+首先给出我的脚本和模板配置文件，然后再逐步分析------
+
+send\_file.sh：
+
+#+BEGIN_EXAMPLE
+    #!/bin/bash 
+
+    ################################################################################
+    # Purpose:  This interactive script is used for upload files onto a ftp server automatically.   
+    # Author:   Xiao Hanyu(xiaohanyu@taohua.com)
+    # Usage:    ./send_file.sh
+    # Depends: 
+    #       lftp:       used to transfer files
+    #       tree:       used to get the directory tree
+    #       sed:        used to get the filename
+    #       sort:       used to match the url and the filename into a csv file
+    # Notes:
+    #       This script need a configuration files which is set by -f parameter. 
+    #       I have given a sample configuration file: sample.conf
+    #       After running this script, it will output the [filename:url] list to a file
+    ################################################################################
+
+    # This function checks whether the necessary tools are available
+    function usage
+    {
+        cat << EOF
+    `basename $0`: A utility to send files to a remote ftp server automatically
+
+    Usage: `basename $0` [Action]
+    Example: `basename $0` -f config_file
+
+    Actions:
+        -f:         set the configuration files
+        -h:         show this help
+    EOF
+    }
+
+    # check the necessary tools
+    function check_version
+    {
+        $1 --version > /dev/null
+
+        if [ $? -ne 0 ]
+        then
+            echo "You must install $1 before executing this script."
+            echo "You can type \"sudo apt-get install $1\" to finish this task under ubuntu os."
+            echo "exit ..."
+            exit 1
+        fi
+    }
+
+    # make sure that you have permission to create a temporary file under current directory
+    function check_perm
+    {
+        touch tmp_lftp_script_file
+        if [ $? -ne "0" ]
+        then    
+            echo "You don't have permission to create temporary file under current directory."
+            echo "Type \"chmod u+w current_directory\" to give users write permissions."
+            echo "exit ..."
+            exit 1
+        else
+            rm -f tmp_lftp_script_file
+        fi
+    }
+
+    # this script use some file to store something, so 
+    # if the file exists, we backup it into file.bak, and 
+    # create a new empty file
+    function check_bak_file
+    {
+        if [ -e $1 ]
+        then
+            cp $1 $1.bak
+        fi
+
+        cat /dev/null > $1
+    }
+
+    # parse parameters
+    #   -f for configuration file
+    #   -h for command help
+    while getopts "f:h" arg
+    do  
+        case $arg in
+            f)
+                config_file=$OPTARG
+                ;;
+            h)
+                usage
+                exit 0
+                ;;
+            ?)
+                echo "!!Wrong command options!"
+                usage
+                exit 1
+                ;;
+        esac
+    done
+
+    # check whether or not configuration file exists
+    if [ -e $config_file ]
+    then    
+        # if $config_file exist, import the necessary variable
+        source $config_file
+    else
+        echo "configuration file not exist." 
+        echo "exit ..."
+        exit 1
+    fi
+
+    # check lftp version
+    echo 
+    check_version lftp
+
+    # check tree version
+    echo 
+    check_version tree
+
+    # check permission
+    check_perm
+
+    # This file containts the command executed by lftp after login ftp server"
+    lftp_script=lftp_sh
+    check_bak_file $lftp_script 
+
+    # $url_file store the [key:value] for filenames and urls
+    check_bak_file $url_file
+
+    # ftp anonymous login
+    username=${username:-"anonymous"}
+    password=${password:-"anonymous"}
+
+    # ftp default port
+    port=${port:-"21"}
+
+    # create lftp script executed by lftp 
+    echo "lftp $username:$password@$host:$port" >> $lftp_script
+    echo "ls" >> $lftp_script
+    echo "cd $rdir" >> $lftp_script
+
+    for file in $lfiles
+    do
+        if [ -d $file ]                 # if $file is a directory, we should use 'lftp mirror -R' command
+        then
+            echo "mirror -R $file" >> $lftp_script
+
+            # use $(tree -ifp --noreport $file | grep "\[" | grep -v "\[d" | tr -s ' ' | cut -d' ' -f2 | sed -e 's/\.\{1,2\}\///g') 
+            # to get all the filenames(contains relative path such "../../", "./", "../", "/", so we should use sed to get rid of these
+            for tmp_file in $(tree -ifp --noreport $file | grep "\[" | grep -v "\[d" | tr -s ' ' | cut -d' ' -f2 | sed -e 's/\.\{1,2\}\///g')
+            do
+                if [[ $rdir == "." || $rdir == "" ]]    # if $rdir==".", we shouldn't give a url like 'http://hostname/./filename'
+                then
+                    echo -e "$(basename $tmp_file | sed -e 's/\..*//g')\thttp://$host/$tmp_file" >> $url_file
+                else
+                    echo -e "$(basename $tmp_file | sed -s 's/\..*//g')\thttp://$host/$rdir/$tmp_file" >> $url_file
+                fi
+            done
+        elif [ -e $file ]
+        then 
+            echo "put $file" >> $lftp_script
+            if [[ $rdir == "." || $rdir == "" ]]
+            then
+                echo -e "$file\thttp://$host/$file" >> $url_file
+            else
+                echo -e "$file\thttp://$host/$rdir/$file" >> $url_file
+            fi
+            else
+                    echo "!!Warning: $file not exist!"
+            fi
+    done
+
+    lftp -f $lftp_script
+
+    if [ $? -ne 0 ]
+    then
+        echo "Sending file failed, please check your ftp information."
+        echo "exit ..."
+    else
+        echo "Sending file successfully!"
+    fi
+
+    # echo "rm -f $lftp_script"
+#+END_EXAMPLE
+
+sample.conf：
+
+#+BEGIN_EXAMPLE
+    ########################################
+    # Purpose: This file is the sample configuration file for the send_file utility
+    # Author: Xiao Hanyu(xiaohanyu@taohua.com)
+    # Warning:
+    #   This file use bash script grammer to config, which means, you can't leave any space around '='
+    #   Examples:
+    #       a=b     <<-->>      right grammer
+    #       b =c    <<-->>      wrong grammer
+    #       c= d    <<-->>      wrong grammer
+    #       d = f   <<-->>      wrong grammer
+    #   Second, all the variables marked '!!' is necessary, others have default values
+    #   Examples:
+    #       config_file=        #!!(necessary variable)
+    #       username=           (not necessary variable)
+    #   Third, all the parameter should be quoted by ""
+    ########################################
+
+    # username and password to login an ftp server
+    username="tiger"
+    password="tiger"
+
+    # hostname or ip of the remote ftp server
+    host="10.36.100.9"          #!! necessary variable
+
+    # port, default is 21
+    port=
+
+    # local files, you should give the right absolute path
+    # or the right relative path
+    # both files are directories are allowed
+    # files and directories are seperated by [space] or [tab]
+    lfiles="send_file.sh sh_test sample.conf ../tmp t f g h ./sh_test"
+
+    # remote directory which you upload your files into
+    rdir="videos"
+
+    # specify the url_file
+    # url_file consists of two columns: filename and urls
+    url_file="url_list"
+#+END_EXAMPLE
+
+代码的注释比较详尽了，函数名称基本也能如实反映函数的作用，我来说明下基本思路。
+
+首先是命令行选项的解析，这个根据复杂度不同有三种方法：
+
+1. 直接用$1, $2,
+   $3手工处理，暴力解析。这里你需要知道几个Bash变量，如$0代表bash脚本的名字，$1~$9分别代表着第1~9个命令行参数等等。优点是比较简单，缺点是太“简单”了。
+2. getopts，Bash内置，只支持短选项如'-a -b -c'，'-a option1 -b
+   -c'，'-abc‘，不支持长选项如'--version'这样的，使用比较简单（因为是Bash内置嘛）。
+3. getopt，外部命令，比较复杂，支持长选项，我还不会用。
+
+C++
+[[http://www.boost.org/][Boost]]库提供[[http://www.boost.org/doc/libs/1_43_0/doc/html/program_options.html][Options]]组件，用来解析命令行参数。具体的实例可以参见[[http://www.cnblogs.com/FrankTan/archive/2010/03/01/1634516.html][Bash
+Shell中命令行选项/参数处理]]。我的脚本中用的是第二种方法。
+
+第二个大问题是参数选项的问题。我们可以通过两种方式配置参数，从而让我们的脚本自动化地做出适应性的处理。第一种方法是通过命令行参数，就是上面谈的getopt/getopts，这种方法的好处就是方便直观快捷，变量解析可以用Bash内置的read或者高级一点的[[http://www.nist.gov/mel/msid/expect.cfm][TCL/Expect]]（这个我也不会[[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/embaressed_smile.gif]]），缺点在于每次敲命令的时候都要敲这一堆命令行参数，而且对于运维人员来说是一种非常不user-friendly的方式；第二种方法就是通过配置文件，让我们的Bash脚本自己解析指定的配置文件来获取相应的信息------比如ftp登录的username和password、需要上传的文件、上传的远端目录等等。
+
+配置文件的格式有多种选择，pluskid大神的[[http://blog.pluskid.org/?p=310][闲谈程序的配置文件]]是篇很不错的说明。我的脚本功能比较简单，配置文件自然也不会太复杂，因此我想出了一个非常“卑鄙无耻”的方法------就是直接将配置文件写成bash
+script变量赋值的形式，然后在脚本中通过这么一句：
+
+#+BEGIN_EXAMPLE
+    source $config_file
+#+END_EXAMPLE
+
+直接引入配置变量。我承认我太卑鄙了，当然好处是简单可行------但是对于运维人员（使用这个脚本的人来说），可能会莫名奇妙------为啥等号后面不能有空格，为啥变量赋值最好要加引号------因为他们不懂Bash
+Script的语法------所以每次写脚本的时候、想象一下假设你就是那个要使用脚本的人，怎样才算友好的脚本？------但是我没有时间研究更复杂的脚本解析了------欢迎指正。
+
+第三个大问题是ftp自动登录上传文件的问题。如果我们把平时的ftp登录操作比作用vim编辑文件，那么自动化的ftp登录就是用sed来处理文件。想象一下，我们平时登录ftp，windows下，我们会点开一个ftp软件，点击快速链接，输入username和password，然后下载上传。linux有万能的lftp命令行工具，因此实现自动化的功能，从lftp的参数选项着手是比较有希望的选择。
+
+功夫不负有心人，lftp有两种手段能够实现自动化的登录上传下载。第一种方式是通过lftp
+-f
+lftp\_script\_file的方式，-f指定一个文件lftp\_script\_file，这个文件里面包含登录lftp的命令和上传下载文件的命令。第二种方式是通过lftp的-u参数指定登
+录名密码和-e选项指定登录后执行的lftp命令。这种方式的缺点在于每执行一条命令都要登录一下ftp------不过登录ftp所耗费的时间与上传文件的时间相比几乎可以忽略不计，所以也算不上一个大的缺点。
+
+除了以上两种方式，我在扫[[http://tldp.org/LDP/abs/html/][ABS]]的时候偶然发现了[[http://tldp.org/LDP/abs/html/here-docs.html][Here
+Documents]]这个东西------这个曾经听说过但从来没有认真看过的东西，才发现这东西也有很多妙处，使用的当，同样可以实现lftp的自动登录上传。我采用的是lftp的-f选项，touch一个临时文件完成自动登录上传的。
+
+第四个问题是url提取的问题。具体来说，比如你远端ftp和http服务器的地址是hostname，远端目录是videos，本地上传文件是send\_file.sh、hpm.avi，你需要生成如下的[filename:url]的list：
+
+#+BEGIN_EXAMPLE
+    send_file    http://hostname/videos/send_file.sh
+    hpm    http://hostname/videos/hpm.avi
+#+END_EXAMPLE
+
+然后存储这个list到一个文件里面，供后面进一步的URL生成映射处理之用。这个问题是耗时最久的一个问题。我的脚本里面有这么一段：
+
+#+BEGIN_EXAMPLE
+    for file in $lfiles
+    do
+        if [ -d $file ]                 # if $file is a directory, we should use 'lftp mirror -R' command
+        then
+            echo "mirror -R $file" >> $lftp_script
+
+            # use $(tree -ifp --noreport $file | grep "\[" | grep -v "\[d" | tr -s ' ' | cut -d' ' -f2 | sed -e 's/\.\{1,2\}\///g') 
+            # to get all the filenames(contains relative path such "../../", "./", "../", "/", so we should use sed to get rid of these
+            for tmp_file in $(tree -ifp --noreport $file | grep "\[" | grep -v "\[d" | tr -s ' ' | cut -d' ' -f2 | sed -e 's/\.\{1,2\}\///g')
+            do
+                if [[ $rdir == "." || $rdir == "" ]]    # if $rdir==".", we shouldn't give a url like 'http://hostname/./filename'
+                then
+                    echo -e "$(basename $tmp_file | sed -e 's/\..*//g')\thttp://$host/$tmp_file" >> $url_file
+                else
+                    echo -e "$(basename $tmp_file | sed -s 's/\..*//g')\thttp://$host/$rdir/$tmp_file" >> $url_file
+                fi
+            done
+        elif [ -e $file ]
+        then 
+            echo "put $file" >> $lftp_script
+            if [[ $rdir == "." || $rdir == "" ]]
+            then
+                echo -e "$file\thttp://$host/$file" >> $url_file
+            else
+                echo -e "$file\thttp://$host/$rdir/$file" >> $url_file
+            fi
+            else
+                    echo "!!Warning: $file not exist!"
+            fi
+    done
+#+END_EXAMPLE
+
+其中针对目录的处理尤为复杂，比如你可以指定../../tmp这样的目录，如果你不作合适的处理，生成的URL可能是http://hostname/../../tmp/之类的东西。我最开始想的方法是递归目录的处理方法，但是写了好几个版本依然没有写出Bash的递归目录遍历。后来偶然间想到了tree，这个可以列出目录树的命令，仔细研究了它的参数选项，同时以管道的方式结合其他命令如grep（正向和反向匹配）、tr（压缩相同字符）、cut（提取某个column，可以用awk的print实现同样的功能）、sed（字符串处理，去除文件的路径和后缀），终于胜利地完成了这个任务。所谓成就感就是这么来的，哈。
+
+至此，脚本需要解决的主要问题都已经阐述完毕，其余的问题都是一些小技俩，比如检查相关依赖工具是否安装、检查用户权限、提供帮助信息等等。目前发现一个bug，还是目录上传的时候有时会出现递归上传的问题，非常奇怪。
+
+脚本的改进之处也有很多，比如：
+
+-  给出更加友好的提示帮助信息
+-  给出更健壮的配置文件语法
+-  自动检查每个文件是否上传成功，如果没有成功，能否实现断点续传
+-  支持log文件输出，便于时候分析和故障分析
+-  如果磁盘空间不够给出警告信息等等
+
+ok，到此为止，睡觉去。

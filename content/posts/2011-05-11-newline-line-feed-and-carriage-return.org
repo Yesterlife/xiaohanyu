@@ -1,0 +1,54 @@
+*数学是神造科学，计算机是人造科学*。
+
+所以在计算机的底层软件中，有着数不清的tricks，让人很无奈，但又无法避免。譬如Big-endian和Little-endian的问题，据说UNIX曾经移植到另外一台不同"endian"的机器上，结果系统启动显示的是NUXI而不是UNIX；再比如ASCII和Unicode，以及各种各样地方编码纠结的关系；连最简单的hello
+world，放到不同的平台上，生成的字符串也是不同的，考虑下面的程序：
+
+#+BEGIN_SRC C++
+    #include <iostream>
+    using namespace std;
+    int main( int argc, char *argv[])
+    {
+        cout << "Hello\nWorld";
+    }
+#+END_SRC
+
+这个程序如果在*nix平台下执行，生成的字符串的长度是11：
+
+#+BEGIN_SRC sh
+    lox@lox-pad ~/tmp> clang++ main.cxx -o main
+    lox@lox-pad ~/tmp> ./main | wc -c
+    11
+    lox@lox-pad ~/tmp> ./main | od -c
+    0000000   H   e   l   l   o  \n   W   o   r   l   d
+    0000013
+    lox@lox-pad ~/tmp> 
+#+END_SRC
+
+但是如果放到windows上执行，那么程序生成的字符串的长度是12，字符串的值是"Hello\r\nWorld"，so，what
+is '\r'？
+
+细究起来，我们发现，一个小小的newline字符也有如此多的故事，或者说，历史包袱。[[http://en.wikipedia.org/wiki/Line_feed][Wikipedia]]里面给出了完整的解释。简单来讲，'\n'和'\r'的概念来源于早期的打字机，'\n'代表"line
+feed"，表示打字机打完一整行后相对纸面向下移动一整行的距离，而'\r'则代表"carriage
+return"，就是控制打字机重新回到一行的行首，'\r\n'连在一起用才会使得打字机移动到新的一行的行首开始工作。而在后来的OS设计中，由于在TTY终端并没有实体的打印机控制操作，所以在设计上将'\r\n'进行了简化处理，只是不同的OS采取的策略不一样。我们仅以Windows、Linux、Mac这三种最流行的系统来做说明。
+
+-  Windows: '\r\n'
+-  Linux: '\n'
+-  Mac: '\r'
+
+所以Linux和Mac上的多行文本文件用Windows的Notepad打开，常常会出现多行并做一整行的现象，而Windows上的文本文件用Linux上的Vim或者Emacs等editor来访问，往往会看到奇怪的'\^M'字符，事实上这个'\^M'并不是'\^'+'M'的组合，它就是Windows中的'\r'。在Linux终端中你可以通过输入Ctrl+V
+Ctrl+M来获得'\r'这个输入。
+
+那么，我们怎样去掉这写讨厌的影响心情和版面美感的'\r'呢？方法有很多，最简单的，安装[[http://linuxcommand.org/man_pages/dos2unix1.html][dos2unix]]这个小软件，然后直接dos2unix
+filename即可，archlinux可以通过"pacman -S
+hd2u"来获取dos2unix，反过来也有[[http://en.wikipedia.org/wiki/Unix2dos][unix2dos]]这样的命令。
+
+除了dos2unix，利用Linux本身的shell工具，也可以达到目的，比如：
+
+-  sed 's/\^M//g' filename
+-  sed 's/\r//g' filename
+-  cat filename | tr -d '\r' > newfile
+-  vim: %s/\^M//g
+
+最后需要注意的是，C语言的标准库针对这种情况做了专门的规定，并针对性的规定了text
+mode和binary
+mode，这种小的trick平时不需要注意，但是没准某一天就会冒出来拷打一下你的耐心。

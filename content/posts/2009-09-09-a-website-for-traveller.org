@@ -1,0 +1,484 @@
+[[/user_files/cnlox/Image/web/traverller/traverller_design.jpeg]]
+
+这么一张图，从早晨十点一直写到晚上十点。主题就直接参考本博客了，清爽淡雅。只是实现的方式略有不同。
+
+框架采用1-2-1单列变宽布局。参考《CSS设计彻底研究》14.1节的巧妙方法，自己调节参数，花费了约三、四个小时的时间。
+
+菜单栏采用Mac风格色系，找了张图，Print
+Screen一下，用Gimp打开，用取色工具获得颜色的HTML代码表示，如下图：
+
+[[/user_files/cnlox/Image/web/traverller/gimp_color.jpeg]]
+
+导航菜单栏有个动态的折叠功能，是纯CSS代码做成的，参考的是《CSS设计彻底研究》第9章的内容。不过还有些小bug，暂不展示了。
+
+Footer加了几个小logo，也算给Gnu做个小广告，呵呵。
+
+网站存在的主要问题在于兼容性。出于美观考虑，多数div采用了圆角设计。《CSS设计彻底研究》第11章专门讲圆角设计，虽然兼容性好，但是各种方法都很麻烦，不能随心所欲。于是就琢磨CSS有没有内置的圆角设计支持，万幸，我找到了[[http://hi.baidu.com/%B9%FE%B5%CF%D7%C8/blog/item/9ff4b0a331e380a4cbefd001.html][这篇文章]]。这种设计在我的Firefox3.0＋文泉驿Micro
+Hei字体下显示效果非常好。Chrome下也凑合，Opera
+10中不能显示圆角效果，最差的是IE6，不但不支持圆角，动态的菜单也不支持。我没有IE7，没做测试。
+
+今天这么一写，对CSS的选择特性、继承特性、层叠特性、div布局熟悉了很多。“纸上得来终觉浅，觉知此事要躬行”，一点没错啊。
+
+明天开始整理网站内容。还有一周的时间，要抓紧了。
+
+最后，把源码放上来吧\^\_\^ 
+
+#+BEGIN_HTML
+  <div class="hl_result">
+#+END_HTML
+
+#+BEGIN_HTML
+  <div class="html4strict"
+  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+#+END_HTML
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">\\
+[[http://december.com/html/4/element/html.html][<html>]]\\
+[[http://december.com/html/4/element/head.html][<head>]]\\
+[[http://december.com/html/4/element/meta.html][<meta]]
+http-equiv="Content-Type" content="text/html; charset=utf-8">\\
+[[http://december.com/html/4/element/title.html][<title>]]\\
+css yuanjiao\\
+</title>\\
+[[http://december.com/html/4/element/style.html][<style]]
+type="text/css">\\
+body{\\
+background-image: url(./images/main-bg.jpg);\\
+background-repeat: no-repeat;\\
+background-color: #3da9d7;\\
+}\\
+\\
+div{\\
+border: 1px solid #dedede;\\
+-moz-border-radius: 10px;\\
+-webkit-border-radius: 10px;\\
+}\\
+\\
+#header, #footer, #container{\\
+margin:0 auto;\\
+width:75%;\\
+padding:0 0px;\\
+}\\
+\\
+#container{\\
+border: 0px;\\
+}\\
+\\
+#header{\\
+margin-bottom: 10px;\\
+}\\
+\\
+#content\_wrap{\\
+float:right;\\
+margin-right:-150px;\\
+width:100%;\\
+border: 0px;\\
+}\\
+\\
+#content{\\
+font-size: 0.8em;\\
+border: 0px;\\
+background-image: url(./images/sidebar\_background.png);\\
+padding: 5px 15px;\\
+-moz-border-radius-topleft:0px;\\
+-moz-border-radius-topright:0px;\\
+-moz-border-radius-bottomleft:10px;\\
+-moz-border-radius-bottomright:10px;\\
+-webkit-border-top-left-radius:0px;\\
+-webkit-border-top-right-radius:0px;\\
+-webkit-border-bottom-left-radius:10px;\\
+-webkit-border-bottom-right-radius:10px;\\
+}\\
+\\
+#content\_wrap #menubar{\\
+margin-right: 150px;\\
+}\\
+\\
+#content\_wrap #content{\\
+margin-right: 150px;\\
+}\\
+\\
+#menubar{\\
+padding-left: 15px;\\
+background-color: #e0e0e0;\\
+border-width: 0px 1px;\\
+-moz-border-radius-topleft: 10px;\\
+-moz-border-radius-topright: 10px;\\
+-moz-border-radius-bottomleft: 0px;\\
+-moz-border-radius-bottomright: 0px;\\
+-webkit-border-top-left-radius:10px;\\
+-webkit-border-top-right-radius:10px;\\
+-webkit-border-bottom-left-radius:0px;\\
+-webkit-border-bottom-right-radius:0px;\\
+}\\
+\\
+#sidebar{\\
+float:left;\\
+width:140px;\\
+border:0px;\\
+}\\
+\\
+#footer{\\
+margin-top: 10px;\\
+clear:both;\\
+text-align:center;\\
+}\\
+\\
+#clear{\\
+margin:0;\\
+padding:0;\\
+border:0;\\
+clear:both;\\
+}\\
+\\
+#menubar a:link, a:visited{\\
+color: black;\\
+text-decoration: none;\\
+}\\
+\\
+#menubar a:hover{\\
+color: white;\\
+background-color: #09aee6;\\
+text-decoration: underline;\\
+}\\
+\\
+#links, #navibar, #portrait{\\
+margin: 0px 0px 5px;\\
+border: 0px;\\
+}\\
+\\
+#header h1{\\
+margin: 8px;\\
+text-align: center;\\
+color: #ffffff;\\
+}\\
+\\
+#header h3{\\
+margin: 3px 15px;\\
+text-align: right;\\
+color: #ffffff;\\
+}\\
+\\
+#ul\_menu{\\
+margin: 0;\\
+padding: 0px 15px;;\\
+list-style-type: circle;\\
+}\\
+\\
+#ul\_menu li dt{\\
+margin: 0;\\
+padding: 5px;\\
+border-bottom: 1px dashed blue;\\
+}\\
+\\
+#ul\_menu li dd{\\
+font-size: 0.8em;\\
+margin: 0px;\\
+padding-left: 5px;\\
+display: none;\\
+}\\
+\\
+#ul\_menu li:hover dd{\\
+display: block;\\
+}\\
+\\
+#ul\_menu li dd a:hover, a:active{\\
+color: #ffffff;\\
+text-decoration: underline;\\
+background-color: #09aee6;\\
+}\\
+\\
+</style>\\
+</head>\\
+[[http://december.com/html/4/element/body.html][<body>]]\\
+[[http://december.com/html/4/element/div.html][<div]] id="header">\\
+[[http://december.com/html/4/element/h1.html][<h1>]]浙江大学旅行者户外运动俱乐部</h1>\\
+[[http://december.com/html/4/element/h3.html][<h3>]]行走、思考、在路上</h3>\\
+</div>\\
+[[http://december.com/html/4/element/div.html][<div]] id="container">\\
+  [[http://december.com/html/4/element/div.html][<div]]
+id="content\_wrap">\\
+    [[http://december.com/html/4/element/div.html][<div]]
+id="menubar">\\
+      [[http://december.com/html/4/element/a.html][<a]]
+href="#">Home</a>\\
+      [[http://december.com/html/4/element/a.html][<a]]
+href="#">旅行者手册</a>\\
+      [[http://december.com/html/4/element/a.html][<a]]
+href="#">酒吧</a>\\
+      [[http://december.com/html/4/element/a.html][<a]] href="#"
+s>关于</a>\\
+    </div>\\
+    [[http://december.com/html/4/element/div.html][<div]]
+id="content">\\
+      This is
+content;[[http://december.com/html/4/element/br.html][<br]]/>\\
+      This is
+content;[[http://december.com/html/4/element/br.html][<br]]/>\\
+      This is
+content;[[http://december.com/html/4/element/br.html][<br]]/>\\
+    </div>\\
+  </div>\\
+  [[http://december.com/html/4/element/div.html][<div]] id="sidebar">\\
+    [[http://december.com/html/4/element/div.html][<div]]
+id="portrait">\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="menubar">\\
+        行者无疆\\
+      </div>\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="content">\\
+      [[http://december.com/html/4/element/img.html][<img]]
+src="./images/traverller\_foot1.jpg"/>\\
+      </div>\\
+    </div>\\
+    [[http://december.com/html/4/element/div.html][<div]]
+id="navibar">\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="menubar">\\
+        本站导航\\
+      </div>\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="content">\\
+        [[http://december.com/html/4/element/ul.html][<ul]]
+id="ul\_menu">\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]旅行者说</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]旅行者成立</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]浴火永生</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]单车天涯</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]进藏日记</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]骑行手记</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]如何洗车</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]爬坡要点</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]勇者竟攀</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]攀岩知识</dt>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]驴行天下</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]徒步攻略</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]行吟游唱</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]骑马挎枪走天下</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]旅行的意义</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]技术装备</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]单车装备大全</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]shimano系列介绍</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]sram介绍</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]布袋事件</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]布袋其人</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]事情经过</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]社会帮助</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]布袋现状</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]医疗知识</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]膝盖保养</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]高原反应</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]户外资源</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]网络资源</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]杭州本地</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]书籍资源</dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]会长感悟</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]冻冻</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]巫婆</dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]]cnlox</dd>\\
+          </dl>\\
+          </li>  \\
+        </ul>\\
+      </div>\\
+    </div>\\
+    [[http://december.com/html/4/element/div.html][<div]] id="links">\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="menubar">\\
+        友情链接\\
+      </div>\\
+      [[http://december.com/html/4/element/div.html][<div]]
+id="content">\\
+        [[http://december.com/html/4/element/ul.html][<ul]]
+id="ul\_menu">\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]校内资源</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]\\
+              href="http://www.cc98.org/list.asp?boardid=147&page=1"\\
+              target="\_blank">行者无疆</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.zju88.org/agent/board.do?name=Bicycle&mode=0&page=0"
+target="\_blank">88Bicycle</a></dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]单车天下</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.chinabike.net" target="\_blank">Chinabike</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.hzbike.com" target="\_blank">骑行网hzbike</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.biketo.com" target="\_blank">自行车旅行网</a></dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]徒步登山</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.8264.com" target="\_blank">8264户外资料网</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.chinawalking.net.cn"\\
+              target="\_blank">中国徒步网</a></dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]贴心工具</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.ctrip.com" target="\_blank">携程旅行网</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://maps.google.cn" target="\_blank">Google地图</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://shenghuo.google.cn/shenghuo/"
+target="\_blank">Google生活</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.weather.com.cn/" target="\_blank">天气预报</a></dd>\\
+          </dl>\\
+          </li>\\
+          [[http://december.com/html/4/element/li.html][<li>]]\\
+          [[http://december.com/html/4/element/dl.html][<dl>]]\\
+          
+ [[http://december.com/html/4/element/dt.html][<dt>]]友情合作</dt>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.51outdoor.com" target="\_blank">天择户外</a></dd>\\
+          
+ [[http://december.com/html/4/element/dd.html][<dd>]][[http://december.com/html/4/element/a.html][<a]]
+href="http://www.lvyouzhi.com" target="\_blank">旅游志</a></dd>\\
+          </dl>\\
+          </li>\\
+        </ul>\\
+      </div>\\
+    </div>\\
+  </div>\\
+  [[http://december.com/html/4/element/div.html][<div]] id="clear">\\
+  </div> \\
+</div>\\
+[[http://december.com/html/4/element/div.html][<div]] id="footer">\\
+  [[http://december.com/html/4/element/a.html][<a]]
+href="http://www.gnu.org/software/emacs/" target="\_blank">\\
+  [[http://december.com/html/4/element/img.html][<img]]
+src="./images/emacs\_logo.jpg" width="32px"/>\\
+  </a>\\
+  [[http://december.com/html/4/element/a.html][<a]]
+href="http://www.ubuntu.org.cn/" target="\_blank">\\
+  [[http://december.com/html/4/element/img.html][<img]]
+src="./images/ubuntu\_logo.jpg" width="32px"/>\\
+  </a>\\
+  [[http://december.com/html/4/element/a.html][<a]]
+href="http://www.mozillaonline.com/" target="\_blank">\\
+  [[http://december.com/html/4/element/img.html][<img]]
+src="./images/firefox\_logo.jpg" width="32px"/>\\
+  </a>\\
+  [[http://december.com/html/4/element/a.html][<a]]
+href="http://www.w3china.org" target="\_blank">\\
+  [[http://december.com/html/4/element/img.html][<img]]
+src="./images/w3c\_logo.jpg" width="32px"/>\\
+  </a>\\
+</div>\\
+\\
+</body>\\
+</html>
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML

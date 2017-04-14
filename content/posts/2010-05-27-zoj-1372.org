@@ -1,0 +1,136 @@
+在实验室睡了一宿。昨儿一激动改了/etc/make.conf：
+
+#+BEGIN_SRC sh
+    ACCEPT_KEYWORDS="~x86"
+#+END_SRC
+
+主要是想体验一下传说中的gnome 2.30和gnome
+shell，探索半天才知道我原来的gentoo用的是stable
+version，这样一改就改成“以后要用testing version"。
+
+#+BEGIN_SRC sh
+    sudo emerge -avuND world
+#+END_SRC
+
+这下好了，乖乖，总共有573个软件包要更新，需要下载1.7G的东西。天知道这1.7G的代码在我的本本上要编译多长时间。不过，量小非君子，无毒不丈夫，索性心一横，就输了yes，让本本自己在那边呼啸去了。
+
+编译到170左右个包时出现了麻烦，libmtp无法编译，我一看是因为其依赖的libpng是1.2版本的，而gentoo
+testing
+version的libpng是1.4版本的，这样来来回回搞了许久，终于在google上找到了[[https://forums.gentoo.org/viewtopic-t-827262.html][这篇文章]]，暂且解决了这个问题。
+
+折腾期间又扫了一眼emerge man page，了解了几个有用的参数如：
+
+-  --skip-first
+-  --keep-going
+-  --resume
+
+中途还有几个blocked的包，解决方法大概是先uninstall再reinstall，一般就行了；再不行看看USE参数，略微改一下，总之，元发行版，麻烦与灵活共存。
+
+编译的过程emacs死掉了，于是再也无法打开\^~~\^......就这能干看一些题目。zoj
+1372，第一眼一看就是图论的题目。反正也是闲着，临阵磨枪，找来了算法导论，补补图论的基础知识。进一步了解了BFS和DFS，看懂了最小生成树的Prim算法，并参照着别人的代码，采用邻接矩阵的方式，还AC了。真实不容易啊。不过收获也是大大的。
+
+代码： 
+
+#+BEGIN_SRC C++
+    #include <iostream>
+    #include <string>
+    using namespace std;
+
+    const long max_points = 100;
+    const long infinity = 1000001;
+
+    int p, r, length, g[max_points][max_points];
+    bool flag;
+
+    class vertex
+    {
+    public:
+        int distance;
+        bool visited;
+    };
+
+    vertex v[max_points];
+
+    void initial()
+    {
+        for(int i = 1; i <= p; i++)
+            for(int j = 1; j <= p; j++)
+                g[i][j] = infinity;
+    }
+
+    void prim(int origin)
+    {
+        int temp_min;
+        int temp_v = 0;
+        int sum = 0;
+
+        for(int i = 1; i <= p; i++)
+        {
+            v[i].distance = g[i][origin];
+            v[i].visited = false;
+        }
+
+        v[origin].distance = 0;
+        v[origin].visited = true;
+
+        sum++;
+
+        while (sum < p)
+        {
+            temp_min = infinity;
+            for(int i = 1; i <= p; i++)
+                if(v[i].visited == false && v[i].distance < temp_min)
+                {
+                    temp_min = v[i].distance;
+                    temp_v = i;
+                }
+            
+            if(temp_min < infinity)
+            {
+                length += v[temp_v].distance;
+                v[temp_v].visited = true;
+                sum++;
+            }
+            else
+            {
+                flag = true;
+                break;
+            }
+
+            for(int i = 1; i <= p; i++)
+            {
+                if(v[i].visited == false && v[i].distance > g[i][temp_v])
+                {
+                    v[i].distance = g[i][temp_v];
+                }
+            }
+        }
+    }
+
+    int main(int argc, char *argv[])
+    {
+        int a, b, c;
+
+        while(cin >> p)
+        {
+            if(p == 0)
+                break;
+            cin >> r;
+
+            initial();
+
+            for(int i = 0; i < r; i++)
+            {
+                cin >> a >> b >> c;
+                if(c < g[a][b])
+                    g[a][b] = g[b][a] = c;
+            }
+            length = 0;
+            prim(1);
+
+            cout << length << endl;
+        }
+
+        return 0;
+    } 
+#+END_SRC

@@ -1,0 +1,162 @@
+百度离职后，随着递归式学习的深入，我的涉猎从Lisp/Scheme/SICP，到APUE，最近又转入到了汇编语言上。老实说，汇编这种文物级的东西，在一般的计算机编程中是绝难碰到的。但是计算机工程学到一定层次，瓶颈所在，就会发现，总是有那么几样东西，诸如汇编、C、算法、编译原理、体系结构、操作系统、网络数据库等，这些基础知识绕不过，躲不开，而能否跨越这些坎，从某种意义上决定了一个程序员能否从合格到优秀、从优秀到卓越。
+
+最早接触汇编还是在大一上一门计算机硬件基础的导论课上，我原以为这课既然叫计算机硬件基础，讲的应该都是软驱硬盘主板鼠标等如何拆卸组装选购的科普杂事。要知道，那个时候的我刚刚学会在Windows
+XP控制面板里面装卸软件。给我们讲课的是一个老头，用的是自己编写的教材。老头最津津乐道的事情是在90年代中期自己花了400块钱买了一个32M的U盘，却因为U盘容量太大而束手无策，不知道该存些啥东西。这课开始几次讲得确实是硬盘、鼠标组成科普原理啥的，后来讲着讲着就拐到了16bit
+DOS下的debug汇编编程，mov ax,
+bx这种，结果可想而知，我们全班同学一下子就晕的不行，弃考了一小半，剩余勉强坚持到最后的，又挂了好几个。
+
+大二下又上了一门汇编语言的通识课，仍旧是16bit
+DOS，仍旧是不得要领。直到大三，上了专业的汇编课，硬着头皮，在Linux+Dosemu+masm5.0的环境下编了一个300多行的软件模拟浮点数算数指令的汇编程序，这才对16bit汇编中的一些基本概念诸如段、寻址方式、中断等等，
+有了一个初步的了解。不过说实话，大学里的汇编学习和实际脱节太远，多数的汇编教育还停留在16bit
+DOS环境下，用得教材以清华的那本《IBM》居多，做得实验也都是Window
+98DOS子系统下步进电机、控制电灯明暗这种实验，一到实际编程，32bit和64bit的保护模式下编程，加上复杂的MMX指令，浮点数指令，就傻眼了。
+
+本文介绍Linux平台下32bit的GAS汇编语言编程，GAS是GCC编译器的汇编器。之所以采用这套工具，主要的原因在于GCC工具链非常成熟，GAS配合Emacs、GDB，加上Shell命令行，和objdump、od等工具，对于我这个Linux
+fans和命令行控有莫大的吸引力，工作效率自不必说，谁用谁知道。
+
+x86汇编编程有两种截然不同的语法风格，我们常见的是Intel语法风格，类似这种：
+
+#+BEGIN_EXAMPLE
+    mov eax, 32
+#+END_EXAMPLE
+
+而GAS汇编采用的是AT&T的语法风格：
+
+#+BEGIN_EXAMPLE
+    movl $32, %eax
+#+END_EXAMPLE
+
+讲GAS汇编的书籍并不多，以下两本都是好书：
+
+-  "[[http://book.douban.com/subject/2039913/][Professional Assembly
+   Language]]"
+-  "[[http://book.douban.com/subject/1787855][Programming From The
+   Ground
+   Up]]"，此书还有一个非常好的配套的网站，[[http://savannah.nongnu.org/]]
+
+我粗略的看完了第一本，第二本正在进行中，这样的学习已经让我对C语言中很多高级的概念，诸如指针、编译连接过程、内存布局和分布有了比较深入的理解。
+
+不过对于计算机的学习，光说不练是远远不够的。书本上看懂并不代表就能快速写出准确、实用、高效的程序来。我学习一门计算机语言，往往都会去找一本评价较好的书籍，把书上所有的示例代码看懂，自己亲自敲一遍。这不，刚刚起步，就碰到了两个小问题，记录下来，作为GAS汇编学习的起点。
+
+首先是Emacs编辑器的问题。Emacs本身对汇编语言编辑功能的支持远比不上对其余高级编程语言的支持。一个内建的ASM
+Mode，乃是[[http://en.wikipedia.org/wiki/Eric_S._Raymond][ESR]]的大作，粗略看了下，两百多行的代码，功能有限，要命的是还有个小bug，那就是默认的注释符号为';'，而不是gas汇编接受的'#'。恰好这个月花费了大量精力研习了emacs
+manual和elisp
+manual，因此不自量力写了两个小函数，专门用于gas汇编语言的注释，（代码很初级，elisp高手轻拍）：
+
+#+BEGIN_SRC lisp
+    (defun gas-comment-region (start end)
+      "comment region for AT&T syntax assembly language
+    The default comment-char for gas is ';', we need '#' instead"
+      (interactive "r")
+      (setq end (copy-marker end t))
+      (save-excursion
+        (goto-char start)
+        (while (< (point) end)
+          (beginning-of-line)
+          (insert "# ")
+          (next-line))
+        (goto-char end)))
+
+    (defun gas-uncomment-region (start end)
+      "uncomment region for AT&T syntax assembly language
+    the inversion of gas-comment-region"
+      (interactive "r")
+      (setq end (copy-marker end t))
+      (save-excursion
+        (goto-char start)
+        (while (< (point) end)
+          (beginning-of-line)
+          (if (equal (char-after) ?#)
+              (delete-char 1))
+          (next-line))
+        (goto-char end)))
+#+END_SRC
+
+希望随着学习emacs和elisp的深入，自己能够写出一个稍微好一点的gas汇编的major-mode（顺便，前两天给emacs的包管理工具[[https://github.com/dimitri/el-get][el-get]]提供了一rcp被接受了，这是我认真学习计算机以来第一次为开源项目做出点实际的贡献，开心）。
+
+第二个问题是64位下写32位汇编程序的问题。这其中涉及到两个问题。其一是32位汇编和64位汇编的内在区别问题，包括语法层面上的，和机器层面上的，这个我还没有发言权，[[http://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf][这里]]有一篇文档，详述了x86下64位汇编和32汇编的区别。而由于我上面提到的两本好书中，采用的都是32位的汇编，而32位向64位的迁移并不是无缝的，外加上我现在对64位汇编了解有限，因此如何在64位平台下编写、汇编、连接32位汇编，就是我们要解决的第二个问题。
+
+要解决这个问题，就要对c程序的整个编译流程有一个稍微详细点的了解，光靠编译器点击一个按钮自动编译，是解决不了这个问题的。这个我不再具体展开，[[http://book.douban.com/subject/3652388/][《程序员的自我修养》]]是这方面难得的一本好书，我粗略看过一遍，但一直不敢在豆瓣打上“看过”的标签，因为没有对计算机体系结构、汇编语言和C语言的深刻了解，是不可能深刻理解并“看过”此书的。
+
+下面给出一个示例程序，来自于《Professional Assembly Language》
+
+#+BEGIN_EXAMPLE
+            .section .data
+    output:
+            .asciz "The processor Vendor ID is '%s'\n"
+
+            .section .bss
+            .lcomm buffer, 12
+
+            .section .text
+            .globl _start
+    _start:
+            movl $0, %eax
+            cpuid
+            movl $buffer, %edi
+            movl %ebx, (%edi)
+            movl %edx, 4(%edi)
+            movl %ecx, 8(%edi)
+
+            pushl $buffer
+            pushl $output
+            call printf
+
+            addl $8, %esp
+
+            movl $4, %eax
+            movl $1, %ebx
+            movl $output, %ecx
+            movl $33, %edx
+            int $0x80
+
+            pushl $1
+            call exit
+#+END_EXAMPLE
+
+这个程序很简单，主要是调用cpuid指令得到CPU本身的一些信息，然后调用C标准库中的函数打印出来，之后利用linux系统调用write打印出一个字符串，最后再次调用C标准库中的exit函数，状态码为1。我们来验证下此程序的编译、连接和运行过程，主要的汇编、连接指令是：
+
+-  sudo pacman -S gcc-multilib binutils-multilib gcc-libs-multilib
+   lib32-glibc
+
+   -  安装必须的32位编译器和运行库
+
+-  as -g -o cpuid2.o cpuid2.s --32
+
+   -  --32: 生成32位的.o文件
+   -  -g: 生成gdb调试信息，便于程序的调试
+
+-  ld --dynamic-linker /lib/ld-linux.so.2 cpuid2.o -o cpuid2 -m
+   elf\_i386 -L/usr/lib32 -lc
+
+   -  --dynamic-linker /lib/ld-linux.so.2: 采用动态连接
+   -  -m elf\_i386: 生成32位的程序
+   -  -L：讲lib32-glibc的库加入库搜索路径
+   -  -lc: 连接标准c语言库，printf必须
+
+#+BEGIN_SRC sh
+    % uname -m 
+    x86_64
+    % as -g -o cpuid2.o cpuid2.s --32
+    % file cpuid2.o
+    cpuid2.o: ELF 32-bit LSB relocatable, Intel 80386, version 1 (SYSV), not stripped
+    % ld --dynamic-linker /lib/ld-linux.so.2  cpuid2.o -o cpuid2 -m elf_i386 -L/usr/lib32 -lc
+    % file cpuid2
+    cpuid2: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), not stripped
+    % ./cpuid2 
+    The processor Vendor ID is 'GenuineIntel'
+    The processor Vendor ID is '%s'
+    % echo $?
+    1
+    % ls -l
+    total 24
+    drwxr-xr-x  2 lox users 4096 Mar 24 12:07 .
+    drwxr-xr-x 19 lox users 4096 Feb 29 20:08 ..
+    -rwxr-xr-x  1 lox users 2675 Mar 24 12:07 cpuid2
+    -rw-r--r--  1 lox users 1464 Mar 24 12:07 cpuid2.o
+    -rw-r--r--  1 lox users  414 Mar 23 18:18 cpuid2.s
+    -rw-r--r--  1 lox users  348 Mar 23 10:46 cpuid.s
+    % 
+#+END_SRC
+
+OK，就这么多，至于Makefile、gas程序调试等话题，容我后续再叙。

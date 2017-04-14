@@ -1,0 +1,13 @@
+---
+title: "一个Shell Script的诞生"
+created_at: 2010-08-04
+kind: article
+category: Shell
+meta:
+  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/19656.html">is-programmer</a>
+tags:
+- sed
+- grep
+- bash
+- script
+- lftp
