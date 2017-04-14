@@ -1,7 +1,7 @@
 require 'yaml'
 require 'net/http'
 
-list = YAML::load(File.open('urls.yaml').read)
+list = YAML::load(File.open('url_list.yaml').read)
 tags_fix = YAML::load(File.open('tags_fix.yaml').read)
 
 list.each do |item|
