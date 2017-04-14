@@ -1,10 +1,11 @@
 ---
 title: "gcc: converting to execution character set"
-created_at: 2011-05-11
+created_at: 2011-05-11T20:42:29+08:00
+updated_at: 2017-04-14T17:29:58+08:00
 kind: article
 category: C++
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/26665.html">is-programmer</a>
 tags:
 - enca
 - iconv
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/26665.html">is-programmer</a>.

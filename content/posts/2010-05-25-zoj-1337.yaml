@@ -1,10 +1,11 @@
 ---
 title: "zoj 1337"
-created_at: 2010-05-25
+created_at: 2010-05-25T01:47:42+08:00
+updated_at: 2017-04-14T17:30:36+08:00
 kind: article
 category: Algorithm
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/18383.html">is-programmer</a>
 tags:
 - ZOJ
 - Algorithm
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/18383.html">is-programmer</a>.

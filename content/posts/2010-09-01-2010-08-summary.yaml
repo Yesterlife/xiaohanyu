@@ -1,11 +1,12 @@
 ---
 title: "8月的总结"
-created_at: 2010-09-01
+created_at: 2010-09-01T10:29:50+08:00
+updated_at: 2017-04-14T17:30:25+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/20976.html">is-programmer</a>
 tags:
-- FFMpeg
-- mencoder
-- ssh
+- FFmpeg
+- MEncoder
+- SSH
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/20976.html">is-programmer</a>.

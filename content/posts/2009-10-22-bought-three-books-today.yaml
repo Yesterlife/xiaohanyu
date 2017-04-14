@@ -1,13 +1,14 @@
 ---
 title: "今天买了三本书"
-created_at: 2009-10-22
+created_at: 2009-10-22T06:36:01+08:00
+updated_at: 2017-04-14T17:30:57+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/12287.html">is-programmer</a>
 tags:
-- c++
-- unix
-- cdlatex
+- C++
+- UNIX
+- CDLaTeX
 - PGF
 - TikZ
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/12287.html">is-programmer</a>.

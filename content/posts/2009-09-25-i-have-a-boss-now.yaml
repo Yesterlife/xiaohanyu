@@ -1,10 +1,11 @@
 ---
 title: "咱也是有老板的人了"
-created_at: 2009-09-25
+created_at: 2009-09-25T21:45:11+08:00
+updated_at: 2017-04-14T17:30:59+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/11689.html">is-programmer</a>
 tags:
-- iphone
-- gnustep
+- iPhone
+- GNUstep
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/11689.html">is-programmer</a>.

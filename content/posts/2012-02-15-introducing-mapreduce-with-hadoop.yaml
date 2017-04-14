@@ -1,12 +1,13 @@
 ---
 title: "闲谈MapReduce(1): Hadoop初探"
-created_at: 2012-02-15
+created_at: 2012-02-15T00:47:51+08:00
+updated_at: 2017-04-14T17:29:52+08:00
 kind: article
 category: CloudComputing
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/32110.html">is-programmer</a>
 tags:
 - Scheme
 - MapReduce
-- lisp
+- Lisp
 - Hadoop
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/32110.html">is-programmer</a>.

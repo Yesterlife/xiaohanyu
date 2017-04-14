@@ -1,9 +1,10 @@
 ---
 title: "我说的这句话是假话"
-created_at: 2010-04-23
+created_at: 2010-04-23T08:06:46+08:00
+updated_at: 2017-04-14T17:30:42+08:00
 kind: article
 category: Math
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/17355.html">is-programmer</a>
 tags:
-- mathematics
+- Mathematics
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/17355.html">is-programmer</a>.

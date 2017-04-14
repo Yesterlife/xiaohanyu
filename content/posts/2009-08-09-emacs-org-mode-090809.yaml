@@ -1,10 +1,11 @@
 ---
 title: "Emacs org-mode 090809"
-created_at: 2009-08-09
+created_at: 2009-08-09T17:24:18+08:00
+updated_at: 2017-04-14T17:31:07+08:00
 kind: article
 category: Emacs
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/10350.html">is-programmer</a>
 tags:
-- emacs
-- org-mode
+- Emacs
+- Org-mode
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/10350.html">is-programmer</a>.

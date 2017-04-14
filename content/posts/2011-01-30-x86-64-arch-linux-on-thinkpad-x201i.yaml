@@ -1,11 +1,12 @@
 ---
 title: "x86-64 Arch Linux on ThinkPad x201i"
-created_at: 2011-01-30
+created_at: 2011-01-30T10:38:52+08:00
+updated_at: 2017-04-14T17:30:04+08:00
 kind: article
 category: Linux
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/24172.html">is-programmer</a>
 tags:
 - x86_64
-- archlinux
-- thinkpad
+- ArchLinux
+- ThinkPad
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/24172.html">is-programmer</a>.

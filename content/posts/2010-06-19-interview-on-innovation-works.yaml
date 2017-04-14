@@ -1,10 +1,11 @@
 ---
 title: "创新工厂电面小记"
-created_at: 2010-06-19
+created_at: 2010-06-19T20:54:21+08:00
+updated_at: 2017-04-14T17:30:31+08:00
 kind: article
 category: Work
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/18949.html">is-programmer</a>
 tags:
-- php
-- javascript
+- PHP
+- JavaScript
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/18949.html">is-programmer</a>.

@@ -1,11 +1,12 @@
 ---
 title: "夜半听歌"
-created_at: 2010-03-19
+created_at: 2010-03-19T13:04:47+08:00
+updated_at: 2017-04-14T17:30:49+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/16150.html">is-programmer</a>
 tags:
-- gentoo
-- linux
-- fvwm-crystal
+- Gentoo
+- Linux
+- FVWM-Crystal
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/16150.html">is-programmer</a>.

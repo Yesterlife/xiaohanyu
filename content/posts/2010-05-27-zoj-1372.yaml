@@ -1,10 +1,11 @@
 ---
 title: "zoj 1372, minimal spanning tree, prim algorithm"
-created_at: 2010-05-27
+created_at: 2010-05-27T00:32:22+08:00
+updated_at: 2017-04-14T17:30:34+08:00
 kind: article
 category: Algorithm
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/18424.html">is-programmer</a>
 tags:
 - ZOJ
 - Algorithm
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/18424.html">is-programmer</a>.

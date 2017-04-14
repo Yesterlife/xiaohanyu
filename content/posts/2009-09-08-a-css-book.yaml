@@ -1,10 +1,11 @@
 ---
 title: "CSS设计彻底研究"
-created_at: 2009-09-08
+created_at: 2009-09-08T08:40:23+08:00
+updated_at: 2017-04-14T17:31:04+08:00
 kind: article
 category: Web
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/11117.html">is-programmer</a>
 tags:
-- html
-- css
+- HTML
+- CSS
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/11117.html">is-programmer</a>.

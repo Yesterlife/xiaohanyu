@@ -1,11 +1,12 @@
 ---
 title: "About framebuffer"
-created_at: 2010-06-10
+created_at: 2010-06-10T02:47:18+08:00
+updated_at: 2017-04-14T17:30:32+08:00
 kind: article
 category: Linux
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/18815.html">is-programmer</a>
 tags:
-- mplayer
-- framebuffer
-- fbgrab
+- MPlayer
+- Framebuffer
+- FBGrab
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/18815.html">is-programmer</a>.

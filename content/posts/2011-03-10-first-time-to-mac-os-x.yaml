@@ -1,11 +1,12 @@
 ---
 title: "Mac OS X遭遇记"
-created_at: 2011-03-10
+created_at: 2011-03-10T21:56:24+08:00
+updated_at: 2017-04-14T17:30:02+08:00
 kind: article
 category: Linux
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/25177.html">is-programmer</a>
 tags:
-- mac
-- virtualbox
+- Mac
+- VirtualBox
 - VMware
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/25177.html">is-programmer</a>.

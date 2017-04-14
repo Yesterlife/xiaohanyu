@@ -1,12 +1,13 @@
 ---
 title: "放浪形骸之功，略有小成"
-created_at: 2010-03-27
+created_at: 2010-03-27T08:57:59+08:00
+updated_at: 2017-04-14T17:30:47+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/16359.html">is-programmer</a>
 tags:
 - Verilog
-- emacs
-- ibut
-- xorg
+- Emacs
+- IBus
+- Xorg
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/16359.html">is-programmer</a>.

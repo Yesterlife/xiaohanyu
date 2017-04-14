@@ -1,11 +1,12 @@
 ---
 title: "兔年伊始"
-created_at: 2011-02-23
+created_at: 2011-02-23T15:08:54+08:00
+updated_at: 2017-04-14T17:30:03+08:00
 kind: article
 category: Life
-meta:
-  - html: Imported from <a href="http://cnlox.is-programmer.com/posts/24684.html">is-programmer</a>
 tags:
-- java
-- ANT
+- Java
+- Ant
 - Hadoop
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/24684.html">is-programmer</a>.
