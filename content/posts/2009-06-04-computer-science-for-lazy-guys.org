@@ -1,273 +1,229 @@
 ** Contents
-   :PROPERTIES:
-   :CUSTOM_ID: contents
-   :END:
-
 #+BEGIN_HTML
   <div class="mulu">
 #+END_HTML
 
-[[sec1][序]]
-[[sec2][计算机是懒人的科学]]
-[[sec3][几个小软件]]
+[[sec1][序  ]]
+[[sec2][ 计算机是懒人的科学  ]]
+[[sec3][ 几个小软件  ]]
 [[sec4][Emacs]]
 [[sec5][Firefox]]
 [[sec6][LaTex]]
-[[sec7][让开发自动化]]
-[[sec8][原来生活可以更美好]]
-[[sec9][学习资源]]
+[[sec7][ 让开发自动化  ]]
+[[sec8][ 原来生活可以更美好  ]]
+[[sec9][ 学习资源  ]]
 
 #+BEGIN_HTML
   </div>
 #+END_HTML
 
-** <<sec1>>[[sec1][序]]
-   :PROPERTIES:
-   :CUSTOM_ID: 序
-   :END:
-
-折腾计算机两年多了，现在才算懂了点门道。从最开始的开机关机，到最初战战兢兢通宵装
-xp系统，到Vmware带来的神奇，到luckweb的丰富，到Fedora 8的一丝不惑，再到
-Ubuntu的博爱，我终于走进了GNU的大门。自由与开放的广阔世界，GNU，GNU is
+**  序
+折腾计算机两年多了，现在才算懂了点门道。从最开始的开机关机，到最初战战兢兢通宵装 
+xp 系统，到 VMware 带来的神奇，到 luckweb 的丰富，到 Fedora 8 的一丝不惑，再到 
+Ubuntu 的博爱，我终于走进了 GNU 的大门。自由与开放的广阔世界，GNU，GNU is
 Not Unix， 我越发感到，这，就是我需要的世界。
 
 本文会教你：
 
--  如何配置一个Ubuntu下完整，轻巧，高效的c(c++, Java)开发环境
--  如何维护和保持代码和文档的一致性
--  如何配置一个舒服的LaTex+CJK的文档办公环境
--  如何高效的使用Ubuntu系统
--  经典学习资源推荐
+- 如何配置一个 Ubuntu 下完整，轻巧，高效的  c(c++, Java) 开发环境  
+-  如何维护和保持代码和文档的一致性  
+-  如何配置一个舒服的 LaTex+CJK 的文档办公环境  
+-  如何高效的使用 Ubuntu 系统  
+-  经典学习资源推荐 
 
-本文不会教你：
+ 本文不会教你：
 
--  什么叫GNU， Ubuntu, Emacs......
--  基本的Bash命令
--  基本的Emacs，Vim操作
+- 什么叫 GNU， Ubuntu, Emacs......
+- 基本的 Bash 命令  
+-  基本的 Emacs，Vim操作  
 
-** <<sec2>>[[sec2][计算机是懒人的科学]]
-   :PROPERTIES:
-   :CUSTOM_ID: 计算机是懒人的科学
-   :END:
-
-计算机是懒人的科学。这点从计算机的发明就可以看的出来。众所周知，ENIAC的诞生是为
-了计算，是为了弥补人脑的不足，减轻计算负担。
+**  计算机是懒人的科学 
+ 计算机是懒人的科学。这点从计算机的发明就可以看的出来。众所周知，ENIAC的诞生是为 
+ 了计算，是为了弥补人脑的不足，减轻计算负担。
 
 为了批量的计算，人们发明了机器语言；
 
 为了简化机器语言，人们又发明了汇编语言；
 
-为了进一步简化，人们发明了c，写了Unix；
+为了进一步简化，人们发明了 c，写了 UNIX；
 
-为了更好的软件重构和代码重用，人们又发明了c++;
+为了更好的软件重构和代码重用，人们又发明了  c++;
 
-人们发现c++简直太tmd的复杂了，于是就发明了Java。
+ 人们发现 C++ 简直太 tmd 的复杂了，于是就发明了 Java。
 
-为了更好的维护程序文档，人们发明了docbook。
+为了更好的维护程序文档，人们发明了 docbook。
 
-为了更好的排版质量，Knuth大人冲冠一怒，整整十年，发明了伟大的Tex排版系统。
+为了更好的排版质量，Knuth大人冲冠一怒，整整十年，发明了伟大的 Tex 排版系统。
 
-后来Leslie　Lamport说：Knuth你那个Tex系统简直太tmd的难用了，于是他就写了个
-LaTex，极大地简化了Tex的使用，使得一个初学者在半天的时间内也能排出具有国际水准的
-文档来。
+后来Leslie　Lamport说：Knuth你那个 Tex 系统简直太 tmd 的难用了，于是他就写了个 
+LaTex，极大地简化了 Tex 的使用，使得一个初学者在半天的时间内也能排出具有国际水准的 
+ 文档来。
 
-后来中国人发现这LaTex先天不支持中文，于是就有人站出来发明了CCT，德国人还发明了
+后来中国人发现这 LaTeX 先天不支持中文，于是就有人站出来发明了 CCT，德国人还发明了 
 CJK(Chinese, Japanese, Korean)。
 
-后来人们又发现CJK生成字体太tmd的麻烦了，于是有勇士站出来，写了xetex，直接调用系
-统字体，这下好了。世界清静了^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.1][1]]}。
+后来人们又发现 CJK 生成字体太 tmd 的麻烦了，于是有勇士站出来，写了 XeTeX，直接调用系 
+ 统字体，这下好了。世界清静了 ^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.1][1]]}。
 
-为了更高效的编辑文本，人们就发明了vim和Emacs。
+为了更高效的编辑文本，人们就发明了 vim 和 Emacs。
 
-后来人们又给Emacs增添了很多乱七八糟的功能，于是Emacs成了一中生活。
+后来人们又给 Emacs 增添了很多乱七八糟的功能，于是 Emacs 成了一中生活。
 
-人们发现文件管理真是件无聊的事情，于是就发明了sh脚本语言。
+人们发现文件管理真是件无聊的事情，于是就发明了 sh 脚本语言。
 
-人们发现程序的Api文档撰写麻烦死了，于是Java有了Javadoc，C++有了Doxygen^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.2][2]]}
+人们发现程序的 API 文档撰写麻烦死了，于是 Java 有了 Javadoc，C++有了  Doxygen^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.2][2]]}
 
-再后来的后来，cnlox发现Emacs
-muse这个记笔记的好东西，于是就用muse写了这么一篇东
-西，记录下来最近的一些心得和学习笔记。\^\_\^
+ 再后来的后来，cnlox发现 Emacs
+muse 这个记笔记的好东西，于是就用 muse 写了这么一篇东 
+ 西，记录下来最近的一些心得和学习笔记。\^\_\^
 
-** <<sec3>>[[sec3][几个小软件]]
-   :PROPERTIES:
-   :CUSTOM_ID: 几个小软件
-   :END:
+** 几个小软件  
+*** yakuake
+ 用*nix的人进入系统第一件事往往就是开一个 terminal，然后在那里打开 Emacs，开 firefox
+ 等等。yakuake的使用十分方便，初次安装完毕后，默认用 F12 键调出，像一幕卷帘挂在屏幕 
+ 上，不用的时候，F12调走，自动隐藏，既不占用任务栏，又免除了 Alt+Tab 切换的麻烦。
 
-*** [[http://yakuake.uv.ro/][yakuake]]
-    :PROPERTIES:
-    :CUSTOM_ID: yakuake
-    :END:
-
-用*nix的人进入系统第一件事往往就是开一个terminal，然后在那里打开Emacs，开firefox
-等等。yakuake的使用十分方便，初次安装完毕后，默认用F12键调出，像一幕卷帘挂在屏幕
-上，不用的时候，F12调走，自动隐藏，既不占用任务栏，又免除了Alt+Tab切换的麻烦。
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install yakuake
-#+END_EXAMPLE
+#+END_SRC
 
-*** [[http://do.davebsd.com/][gnome-do]]
-    :PROPERTIES:
-    :CUSTOM_ID: gnome-do
-    :END:
+*** gnome-do
+Mac下有 QuickSilver，Windows下有 Launchy，三个程序的设计思想是差不多的，就是程序的 
+ 快速启动器，免除从菜单中搜索的麻烦。谁用谁知道。
 
-Mac下有QuickSilver，Windows下有Launchy，三个程序的设计思想是差不多的，就是程序的
-快速启动器，免除从菜单中搜索的麻烦。谁用谁知道。
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install gnome-do
-#+END_EXAMPLE
+#+END_SRC
 
-*** [[http://packages.debian.org/sid/dwww][dwww]]
-    :PROPERTIES:
-    :CUSTOM_ID: dwww
-    :END:
+*** dwww
+我想信大多数玩 linuxer 都是爱折腾不安分的人。Ubuntu虽然打着博爱的口号，其易用性堪 
+ 比 Windows，依然难免会遇到各种各样的问题，此时程序本身的文档就成了最好的解决问题 
+ 的良师益友。
 
-我想信大多数玩linuxer都是爱折腾不安分的人。Ubuntu虽然打着博爱的口号，其易用性堪
-比Windows，依然难免会遇到各种各样的问题，此时程序本身的文档就成了最好的解决问题
-的良师益友。
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install dwww info2www swish++
-#+END_EXAMPLE
+#+END_SRC
 
-安装完后打开浏览器访问[[http://localhost/dwww]]
-或者直接在终端调用即可^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.3][3]]}。
+安装完后打开浏览器访问  [[http://localhost/dwww]]
+ 或者直接在终端调用即可 ^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.3][3]]}。
 
-顺便提一下，dhelp和devhelp也是类似的软件，大家可以装着用用。
+顺便提一下，dhelp和 devhelp 也是类似的软件，大家可以装着用用。
 
 *** nautilus-open-terminal
-    :PROPERTIES:
-    :CUSTOM_ID: nautilus-open-terminal
-    :END:
+在 nautilus 中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端－cd到 
+ 当前目录，不过有了  nautilus-open-terminal 后，打开终端后 pwd 就是当前目录，非常方便。
 
-在nautilus中管理文件时，常常会希望在当前位置开个终端，以前的方法是：开终端－cd到
-当前目录，不过有了nautilus-open-terminal后，打开终端后pwd就是当前目录，非常方便。
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install nautilus-open-terminal
-#+END_EXAMPLE
+#+END_SRC
 
-** <<sec4>>[[sec4][Emacs]]
-   :PROPERTIES:
-   :CUSTOM_ID: emacs
-   :END:
+** Emacs
+这个话题太沉重，我现在还不动 elisp，无法进行太过详细的描述，先列下一个单子，容以 
+ 后慢慢到来：
 
-这个话题太沉重，我现在还不动elisp，无法进行太过详细的描述，先列下一个单子，容以
-后慢慢到来：
+- gnus
+- ecb
+- emms
+- ibuffer
+- imaxima
+- gnuplot
+- cc-mode
+- jde
+- cscope
+- muse
+- dired
+- auctex
+- outline-mode
+- eshell
+- version control
+- planner
+- Emacs Make A Computer Slow......
 
--  gnus
--  ecb
--  emms
--  ibuffer
--  imaxima
--  gnuplot
--  cc-mode
--  jde
--  cscope
--  muse
--  dired
--  auctex
--  outline-mode
--  eshell
--  version control
--  planner
--  Emacs Make A Computer Slow......
+** Firefox
+Emacs和  [[http://www.mozilla.com/][Firefox]] 是我在 Ubuntu 平台下应用最多的两个软件。具体我就不介绍了，都是可扩展 
+ 性极强的软件。推荐几个扩展吧：
 
-** <<sec5>>[[sec5][Firefox]]
-   :PROPERTIES:
-   :CUSTOM_ID: firefox
-   :END:
-
-Emacs和[[http://www.mozilla.com/][Firefox]]是我在Ubuntu平台下应用最多的两个软件。具体我就不介绍了，都是可扩展
-性极强的软件。推荐几个扩展吧：
-
--  [[http://firefox.exxile.net/aios/index.php][All-in-One Sidebar]]
+- [[http://firefox.exxile.net/aios/index.php][All-in-One Sidebar]]
    一体化工作条。
--  [[http://getfirebug.com/][Firebug]] 网页开发工具。
--  [[https://addons.mozilla.org/zh-CN/firefox/addon/6366][FireGestures]]
+- [[http://getfirebug.com/][Firebug]] 网页开发工具。
+- [[https://addons.mozilla.org/zh-CN/firefox/addon/6366][FireGestures]]
    鼠标手势！
--  DownThemAll 下载工具。
--  Flashgot(not flashget\^\_\^)
--  [[http://labs.mozilla.com/2008/08/introducing-ubiquity/][Ubiquity]]
+- DownThemAll 下载工具。
+- Flashgot(not flashget\^\_\^)
+- [[http://labs.mozilla.com/2008/08/introducing-ubiquity/][Ubiquity]]
    无所不在，统一。
 
-** <<sec6>>[[sec6][LaTex]]
-   :PROPERTIES:
-   :CUSTOM_ID: latex
-   :END:
+** LaTex
+LaTex的中文化配置一直是件很麻烦的事情。尤其是在 Linux 下。在 Windows 下有 CTex 网站制 
+ 作的 CTex 套装，直接安装一般没有太大的问题。但是在  [[file:///home/lox/muse/publish/myhtml/Ubuntu/index.html][Ubuntu]] 下，LaTex装完后一般并不能 
+ 直接用于中文，需要生成一堆的字体和配置一堆的参数，Baidu上随便一搜一大堆，下面是 
+ 我的配置方法  :
 
-LaTex的中文化配置一直是件很麻烦的事情。尤其是在Linux下。在Windows下有CTex网站制
-作的CTex套装，直接安装一般没有太大的问题。但是在[[file:///home/lox/muse/publish/myhtml/Ubuntu/index.html][Ubuntu]]下，LaTex装完后一般并不能
-直接用于中文，需要生成一堆的字体和配置一堆的参数，Baidu上随便一搜一大堆，下面是
-我的配置方法:
+ 首先安装 texlive 套装，硬盘充裕的话安装全套支持好了  ,
 
-首先安装texlive套装，硬盘充裕的话安装全套支持好了,
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install texlive-full latex-beamer
-#+END_EXAMPLE
+#+END_SRC
 
-然后安装cjk支持，
+ 然后安装 cjk 支持，
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install latex-cjk-all
-#+END_EXAMPLE
+#+END_SRC
 
 其实现在已经可以使用中文了。
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     \documentclass{article}
      \usepackage{CJK}
      \begin{document}
      \begin{CJK}{UTF8}{gbsn}
-     欢迎来到CJK！这里使用的是CJK宏包里有的文鼎宋体。
+     欢迎来到 CJK！这里使用的是 CJK 宏包里有的文鼎宋体。
      \end{CJK}
      \end{document}
-#+END_EXAMPLE
+#+END_SRC
 
-但是gbsn字体过于简陋，比如说朱熔基的'熔'字就显示不出来，这怎么能行呢？
-而且现在有很多latex文档都是用LaTex＋CJK生成的，以后万一遇上这种情况，会很麻烦。
-网上的方法多是自己编译字体配置参数，我看的头都大了。不过好在最后找到一种方法------
-网上搜索生成好的[[ftp://202.38.75.75/pub/linux_soft/texlive/YueWang-zhfonts-final_1.01.tar.bz2][YueWang-zhfonts-final\_1.01.tar.bz2]]，复制到主目录
+但是 gbsn 字体过于简陋，比如说朱熔基的  ' 熔'字就显示不出来，这怎么能行呢？
+而且现在有很多 LaTeX 文档都是用LaTex＋CJK生成的，以后万一遇上这种情况，会很麻烦。
+网上的方法多是自己编译字体配置参数，我看的头都大了。不过好在最后找到一种方法  ------
+ 网上搜索生成好的 [[ftp://202.38.75.75/pub/linux_soft/texlive/YueWang-zhfonts-final_1.01.tar.bz2][YueWang-zhfonts-final\_1.01.tar.bz2]]，复制到主目录  
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo texhash
-#+END_EXAMPLE
+#+END_SRC
 
-然后就看人品了。我那天下载字体包就下载了一个下午，都是下载到一半就停住了，不知道
-怎么回事。
+ 然后就看人品了。我那天下载字体包就下载了一个下午，都是下载到一半就停住了，不知道 
+ 怎么回事。
 
-下面是我写LaTex文档的一个简单模板，供大家参考。
+下面是我写 LaTeX 文档的一个简单模板，供大家参考。
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     \documentclass[a4paper, 11pt, openany]{article}
      \usepackage[top=2.5cm, bottom=3cm, left=2cm, right=2cm]{geometry}
-                                          % 控制页边距
-     \usepackage{enumerate}               % 控制项目列表
-     \usepackage{multicol}                % 多栏显示
+                                          % 控制页边距  
+     \usepackage{enumerate}               %  控制项目列表  
+     \usepackage{multicol}                %  多栏显示  
      
      \usepackage{graphicx}
      
      \usepackage{indentfirst}
-     \usepackage[perpage,symbol]{footmisc}% 脚注控制
-     \usepackage[sf]{titlesec}            % 控制标题
-     \usepackage{titletoc}                % 控制目录
-     \usepackage{fancyhdr}                % 页眉页脚
-     \usepackage{type1cm}                 % 控制字体大小
-     \usepackage{indentfirst}             % 首行缩进
-     \usepackage{makeidx}                 % 建立索引
-     \usepackage{textcomp}                % 千分号等特殊符号
-     \usepackage{layouts}                 % 打印当前页面格式
-     \usepackage{bbding}                  % 一些特殊符号
-     \usepackage{cite}                    % 支持引用
-     \usepackage{color,xcolor}            % 支持彩色文本、底色、文本框等
-     \usepackage{listings}                % 粘贴源代码
-     \lstloadlanguages{}                  % 所要粘贴代码的编程语言
+     \usepackage[perpage,symbol]{footmisc}%  脚注控制  
+     \usepackage[sf]{titlesec}            %  控制标题  
+     \usepackage{titletoc}                %  控制目录  
+     \usepackage{fancyhdr}                %  页眉页脚  
+     \usepackage{type1cm}                 %  控制字体大小  
+     \usepackage{indentfirst}             %  首行缩进  
+     \usepackage{makeidx}                 %  建立索引  
+     \usepackage{textcomp}                %  千分号等特殊符号  
+     \usepackage{layouts}                 %  打印当前页面格式  
+     \usepackage{bbding}                  %  一些特殊符号  
+     \usepackage{cite}                    %  支持引用  
+     \usepackage{color,xcolor}            %  支持彩色文本、底色、文本框等  
+     \usepackage{listings}                %  粘贴源代码  
+     \lstloadlanguages{}                  %  所要粘贴代码的编程语言  
      
-     %%%%设置listings宏包的一些全局样式%%%%
-     %%%%参见http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%
+     %%%% 设置 listings 宏包的一些全局样式  %%%%
+     %%%% 参见  http://hi.baidu.com/shawpinlee/blog/item/9ec431cbae28e41cbe09e6e4.html%%%%
      \lstset{numbers=left,
      numberstyle=\tiny,
      keywordstyle=\color{blue!70}, commentstyle=\color{red!50!green!50!blue!50},
@@ -275,210 +231,178 @@ LaTex的中文化配置一直是件很麻烦的事情。尤其是在Linux下。�
      rulesepcolor=\color{red!20!green!20!blue!20},
      escapechar=`,
      xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
-     breaklines,                          %这条命令可以让LaTeX自动将长的代码行换行排版
-     extendedchars=false                  %这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+     breaklines,                          % 这条命令可以让 LaTeX 自动将长的代码行换行排版  
+     extendedchars=false                  % 这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题  
      }
      
      \usepackage{latexsym}
-     \usepackage{amsmath}                 % AMS LaTeX宏包
-     \usepackage{amssymb}                 % 用来排版漂亮的数学公式
+     \usepackage{amsmath}                 % AMS LaTeX 宏包  
+     \usepackage{amssymb}                 %  用来排版漂亮的数学公式  
      \usepackage{amsbsy}
      \usepackage{amsthm}
      \usepackage{amsfonts}
-     \usepackage{mathrsfs}                % 英文花体字体
-     \usepackage{bm}                      % 数学公式中的黑斜体
-     \usepackage{relsize}                 % 调整公式字体大小：\mathsmaller, \mathlarger
-     \usepackage{caption2}                % 浮动图形和表格标题样式
+     \usepackage{mathrsfs}                %  英文花体字体  
+     \usepackage{bm}                      %  数学公式中的黑斜体  
+     \usepackage{relsize}                 %  调整公式字体大小：\mathsmaller, \mathlarger
+     \usepackage{caption2}                % 浮动图形和表格标题样式  
      
      \usepackage{CJKutf8}
-     \makeindex                           % 生成索引
-     \pagestyle{fancy}                    % 页眉页脚风格
-     %\fancyhf{}                           % 清空当前页眉页脚的默认设置
+     \makeindex                           %  生成索引  
+     \pagestyle{fancy}                    %  页眉页脚风格  
+     %\fancyhf{}                           %  清空当前页眉页脚的默认设置  
      
      
      \usepackage{CJK}
      \begin{document}
      \begin{CJK*}{UTF8}{song}
      \CJKindent
-     \sloppy\CJKspace                     % 中英文混排的断行
-     \CJKtilde                            % 重新定义~，用~隔开中英文
+     \sloppy\CJKspace                     %  中英文混排的断行  
+     \CJKtilde                            %  重新定义 ~，用 ~ 隔开中英文  
      
-     %%%%%%%%%% 一些新定义 %%%%%%%%%%
-     \newcommand{\song}{\CJKfamily{song}} % 宋体
-     \newcommand{\hei}{\CJKfamily{hei}}   % 黑体
-     \newcommand{\fs}{\CJKfamily{fs}}     % 仿宋
-     \newcommand{\kai}{\CJKfamily{kai}}   % 楷体
+     %%%%%%%%%%  一些新定义   %%%%%%%%%%
+     \newcommand{\song}{\CJKfamily{song}} %  宋体  
+     \newcommand{\hei}{\CJKfamily{hei}}   %  黑体  
+     \newcommand{\fs}{\CJKfamily{fs}}     %  仿宋  
+     \newcommand{\kai}{\CJKfamily{kai}}   %  楷体  
      
-     %%%%%%%%%% 定理类环境的定义 %%%%%%%%%%
-     %% 必须在导入中文环境之后
-     \newtheorem{example}{例}             % 整体编号
-     \newtheorem{algorithm}{算法}
-     \newtheorem{theorem}{定理}[section]  % 按 section 编号
-     \newtheorem{definition}{定义}
-     \newtheorem{axiom}{公理}
-     \newtheorem{property}{性质}
-     \newtheorem{proposition}{命题}
-     \newtheorem{lemma}{引理}
-     \newtheorem{corollary}{推论}
-     \newtheorem{remark}{注解}
-     \newtheorem{condition}{条件}
-     \newtheorem{conclusion}{结论}
-     \newtheorem{assumption}{假设}
+     %%%%%%%%%%  定理类环境的定义   %%%%%%%%%%
+     %%  必须在导入中文环境之后  
+     \newtheorem{example}{ 例 }             % 整体编号  
+     \newtheorem{algorithm}{ 算法  }
+     \newtheorem{theorem}{ 定理  }[section]  %  按 section 编号  
+     \newtheorem{definition}{ 定义  }
+     \newtheorem{axiom}{ 公理  }
+     \newtheorem{property}{ 性质  }
+     \newtheorem{proposition}{ 命题  }
+     \newtheorem{lemma}{ 引理  }
+     \newtheorem{corollary}{ 推论  }
+     \newtheorem{remark}{ 注解  }
+     \newtheorem{condition}{ 条件  }
+     \newtheorem{conclusion}{ 结论  }
+     \newtheorem{assumption}{ 假设  }
      
-     %%%%%%%%%% 一些重定义 %%%%%%%%%%
-     %% 必须在导入中文环境之后
-     \renewcommand{\contentsname}{目录}     % 将Contents改为目录
-     \renewcommand{\abstractname}{摘\ \ 要} % 将Abstract改为摘要
-     \renewcommand{\refname}{参考文献}       % 将References改为参考文献
-     \renewcommand{\indexname}{索引}
-     \renewcommand{\figurename}{图}
-     \renewcommand{\tablename}{表}
-     \renewcommand{\appendixname}{附录}
-     \renewcommand{\proofname}{\hei 证明}
-     \renewcommand{\algorithm}{\hei 算法}
+     %%%%%%%%%%  一些重定义   %%%%%%%%%%
+     %%  必须在导入中文环境之后  
+     \renewcommand{\contentsname}{ 目录  }     %  将Contents改为目录  
+     \renewcommand{\abstractname}{ 摘 \ \ 要  } %  将Abstract改为摘要  
+     \renewcommand{\refname}{ 参考文献  }       %  将References改为参考文献  
+     \renewcommand{\indexname}{ 索引  }
+     \renewcommand{\figurename}{ 图 }
+     \renewcommand{\tablename}{表  }
+     \renewcommand{\appendixname}{ 附录  }
+     \renewcommand{\proofname}{\hei  证明  }
+     \renewcommand{\algorithm}{\hei  算法  }
      
-     %%%%%%%%%% 重定义字号命令 %%%%%%%%%%
-     \newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}       % 一号, 1.4倍行距
-     \newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}       % 二号, 1.25倍行距
-     \newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      % 小二, 单倍行距
-     \newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}      % 三号, 1.5倍行距
-     \newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}     % 小三, 1.5倍行距
-     \newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}       % 四号, 1.5倍行距
-     \newcommand{\bansi}{\fontsize{13pt}{19.5pt}\selectfont}     % 半四, 1.5倍行距
-     \newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}      % 小四, 1.5倍行距
-     \newcommand{\dawu}{\fontsize{11pt}{11pt}\selectfont}        % 大五, 单倍行距
-     \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
+     %%%%%%%%%%  重定义字号命令   %%%%%%%%%%
+     \newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}       %  一号  , 1.4 倍行距  
+     \newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}       %  二号  , 1.25 倍行距  
+     \newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      %  小二  ,  单倍行距  
+     \newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}      %  三号  , 1.5 倍行距  
+     \newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}     %  小三  , 1.5 倍行距  
+     \newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}       %  四号  , 1.5 倍行距  
+     \newcommand{\bansi}{\fontsize{13pt}{19.5pt}\selectfont}     %  半四  , 1.5 倍行距  
+     \newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}      %  小四  , 1.5 倍行距  
+     \newcommand{\dawu}{\fontsize{11pt}{11pt}\selectfont}        %  大五  ,  单倍行距  
+     \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   %  五号  ,  单倍行距  
      
-     %%%%%%%%%% 论文标题、作者等 %%%%%%%%%%
-     \title{\LaTeX测试文档}
+     %%%%%%%%%%  论文标题、作者等   %%%%%%%%%%
+     \title{\LaTeX 测试文档  }
      \author{Lox Freeman}
-     \date{2009年5月31日}
+     \date{2009 年5月 31 日 }
      \maketitle
      \tableofcontents
      
-     这是\LaTeX中文文档。
+     这是  \LaTeX 中文文档。
      \newpage
      \end{CJK*}
      \end{document}
-#+END_EXAMPLE
+#+END_SRC
 
-** <<sec7>>[[sec7][让开发自动化]]
-   :PROPERTIES:
-   :CUSTOM_ID: 让开发自动化
-   :END:
-
+** 让开发自动化  
 *** git
-    :PROPERTIES:
-    :CUSTOM_ID: git
-    :END:
-
-git是一种分布式版本控制工具，是Linus为了管理Linux内核源代码而发明的版本控制工具。
-什么是git？为什么用git？这个问题我解释不清楚。网上已经有了答案，请看[[http://linuxtoy.org/docs/guide/ch28s02.html][这里]]。
+git 是一种分布式版本控制工具，是 Linus 为了管理 Linux 内核源代码而发明的版本控制工具。
+什么是 git？为什么用 git？这个问题我解释不清楚。网上已经有了答案，请看  [[http://linuxtoy.org/docs/guide/ch28s02.html][ 这里 ]]。
 
 *** doxygen
-    :PROPERTIES:
-    :CUSTOM_ID: doxygen
-    :END:
+Java有 Javadoc 作为 API 文档声称工具，C++呢？没错，就是大名鼎鼎的 doxygen。
 
-Java有Javadoc作为API文档声称工具，C++呢？没错，就是大名鼎鼎的doxygen。
-
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     sudo apt-get install doxygen, doxygen-gui, doxymacs, doxygen-doc;
-#+END_EXAMPLE
+#+END_SRC
 
-doxygen使用非常简单，首先进入源代码目录，运行doxywizard生成一个Doxyfile^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.4][4]]}，根据
-个人需要钩选相应的选项，然后运行doxygen即可。具体的代码例子可以看doxygen自带的文
-档^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.5][5]]}。[[http://www.fmddlmyy.cn/text21.html][这里]]有个中文的入门介绍。简单的说，doxygen能够：
+doxygen使用非常简单，首先进入源代码目录，运行 doxywizard 生成一个 Doxyfile^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.4][4]]}，根据 
+ 个人需要钩选相应的选项，然后运行 doxygen 即可。具体的代码例子可以看 doxygen 自带的文 
+ 档 ^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.5][5]]}。[[http://www.fmddlmyy.cn/text21.html][这里  ]] 有个中文的入门介绍。简单的说，doxygen能够：
 
--  保持代码和Api文档的一致性。
--  支持多种格式(latex, html, pdf, docbook,
-   chm^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.6][6]]})等格式文档的输出。
--  支持多种语言。
--  支持风格多样的注解方式(Javadoc风格，QTdoc风格)。
--  支持多种编程语言(c, c++, Java, Python等等)。
--  支持函数调用图和类继承图等图形的生成。
+- 保持代码和 API 文档的一致性。
+- 支持多种格式  (latex, html, pdf, docbook,
+   chm^{[[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fn.6][6]]}) 等格式文档的输出。
+- 支持多种语言。
+- 支持风格多样的注解方式  (Javadoc 风格，QTdoc风格 )。
+- 支持多种编程语言  (c, c++, Java, Python 等等 )。
+- 支持函数调用图和类继承图等图形的生成。
 
-有了这个，以后写大程序的API文档就简单多了。\^\_\^。
+有了这个，以后写大程序的 API 文档就简单多了。\^\_\^。
 
-** <<sec8>>[[sec8][原来生活可以更美好]]
-   :PROPERTIES:
-   :CUSTOM_ID: 原来生活可以更美好
-   :END:
-
-#+BEGIN_EXAMPLE
+** 原来生活可以更美好  
+#+BEGIN_SRC
     sudo apt-get install sl tree fortunes
-#+END_EXAMPLE
+#+END_SRC
 
 Enjoy them.
 
-** <<sec9>>[[sec9][学习资源]]
-   :PROPERTIES:
-   :CUSTOM_ID: 学习资源
-   :END:
-
+**  学习资源  
 *** LaTex
-    :PROPERTIES:
-    :CUSTOM_ID: latex-1
-    :END:
+- [[http://zzg34b.w3.c361.com/][LaTex 编辑部  ]]  非常好的在线学习资源。
+- [[http://tobi.oetiker.ch/lshort/lshort.pdf][lshort]]
+   非常好的 LaTeX 入门教材，看完了基本可以应付绝大部分的问题。
+- [[http://latex.yo2.cn/][LaTex学习  ]]  非常好的 LaTeX 学习博客。
+- [[http://www.ctan.org/get/info/lnotes/lnotes.pdf][lnotes]]
+   中国人写的 LaTeX 笔记，行文非常风趣，针对中文做了进一步讲解，推荐。
+- [[http://cohomo.blogbus.com/]] 非常好的一个博客。
 
--  [[http://zzg34b.w3.c361.com/][LaTex编辑部]] 非常好的在线学习资源。
--  [[http://tobi.oetiker.ch/lshort/lshort.pdf][lshort]]
-   非常好的LaTex入门教材，看完了基本可以应付绝大部分的问题。
--  [[http://latex.yo2.cn/][LaTex学习]] 非常好的LaTex学习博客。
--  [[http://www.ctan.org/get/info/lnotes/lnotes.pdf][lnotes]]
-   中国人写的LaTex笔记，行文非常风趣，针对中文做了进一步讲解，推荐。
--  [[http://cohomo.blogbus.com/]] 非常好的一个博客。
-
-*** [[file:///home/lox/muse/publish/myhtml/Emacs/index.html][Emacs]]
-    :PROPERTIES:
-    :CUSTOM_ID: emacs-1
-    :END:
-
--  [[http://download.csdn.net/source/178380][Sams Teach Yourself Emacs
-   in 24 Hours]] 我觉得比Emacs manual更容易作为入门文档。
--  [[http://www.ibm.com/developerworks/search/searchResults.jsp?searchType=1&searchSite=dWChina&pageLang=zh&langEncoding=UTF8&searchScope=dW&query=emacs&Search.x=0&Search.y=0&Search=%25E6%2590%259C%25E7%25B4%25A2][IBM
+*** Emacs
+- [[http://download.csdn.net/source/178380][Sams Teach Yourself Emacs
+   in 24 Hours]] 我觉得比 Emacs manual 更容易作为入门文档。
+- [[http://www.ibm.com/developerworks/search/searchResults.jsp?searchType=1&searchSite=dWChina&pageLang=zh&langEncoding=UTF8&searchScope=dW&query=emacs&Search.x=0&Search.y=0&Search=%25E6%2590%259C%25E7%25B4%25A2][IBM
    DeveloperWorks]] 非常丰富的学习资源。
--  [[http://www.emacswiki.org/][Emacs Wiki]]
-   建议先了解Emacs的基本知识后在看。
--  [[http://learn.tsinghua.edu.cn:8080/2005211356/][叶文彬的个人主页]]
-   对Emacs卓有建树，难得。
--  [[http://people.ku.edu/%7Esyliu/shredderyin/][王垠的个人主页]]
-   用GNU很大程度上是看了他的文章。
+- [[http://www.emacswiki.org/][Emacs Wiki]]
+   建议先了解 Emacs 的基本知识后在看。
+- [[http://learn.tsinghua.edu.cn:8080/2005211356/][叶文彬的个人主页  ]]
+    对Emacs卓有建树，难得。
+- [[http://people.ku.edu/%7Esyliu/shredderyin/][王垠的个人主页  ]]
+    用GNU很大程度上是看了他的文章。
 
 *** Linux
-    :PROPERTIES:
-    :CUSTOM_ID: linux
-    :END:
-
--  [[http://linuxtoy.org/docs/guide/][开源世界旅行手册]]
-   推荐新手看，非常好的入门文档。
--  [[http://www.linuxgem.org/][LinuxGem]] 简洁大方。
--  [[http://www.linuxsir.org/][LinuxSir]] 不错的中文Linux论坛。
--  [[http://www.gentoo.org/doc/zh_cn/index.xml][Gentoo中文文档]]
+- [[http://linuxtoy.org/docs/guide/][开源世界旅行手册  ]]
+    推荐新手看，非常好的入门文档。
+- [[http://www.linuxgem.org/][LinuxGem]] 简洁大方。
+- [[http://www.linuxsir.org/][LinuxSir]] 不错的中文 Linux 论坛。
+- [[http://www.gentoo.org/doc/zh_cn/index.xml][Gentoo中文文档 ]]
    Gentoo，Gentoo。
--  [[http://wiki.ubuntu.org.cn/index.php?title=%E9%A6%96%E9%A1%B5&variant=zh-cn][Ubuntu中文wiki]]
-   入门很不错。
+- [[http://wiki.ubuntu.org.cn/index.php?title=%E9%A6%96%E9%A1%B5&variant=zh-cn][Ubuntu中文  wiki]]
+    入门很不错。
 
 *Footnotes*
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.1][1.]]
-个人觉得xetex目前还不太成熟，网上很多东西还是基于LaTex+CJK的。
+个人觉得 XeTeX 目前还不太成熟，网上很多东西还是基于 LaTex+CJK 的。
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.2][2.]]
-当然doxygen可以用于多种语言。
+当然 doxygen 可以用于多种语言。
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.3][3.]]
-dwww貌似不支持Arch，其余的我没有做过测试。欢迎指教。
+dwww貌似不支持 Arch，其余的我没有做过测试。欢迎指教。
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.4][4.]]
-doxygen -g也可以生成Doxyfile，但是不如doxywizard直观方便。
+doxygen -g也可以生成 Doxyfile，但是不如 doxywizard 直观方便。
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.5][5.]]
-运行dwww，搜索doxygen即可。
+运行 dwww，搜索 doxygen 即可。
 
 [[file:///home/lox/muse/publish/html/Ubuntu/UbuntuTips.html#fnr.6][6.]]
 chm是微软专有文档格式，Linux下只能查看，无法制作生成。
 
- 
+ 
 
- 
+ 

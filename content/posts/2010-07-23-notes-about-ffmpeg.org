@@ -1,25 +1,21 @@
 <<table-of-contents>>
 ** Table of Contents
-   :PROPERTIES:
-   :CUSTOM_ID: table-of-contents
-   :END:
-
 <<text-table-of-contents>>
 
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-1][1 ffmpeg
-   264编码支持]]
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2][2 ffmpeg
-   参数选项简要说明]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-1][1 ffmpeg
+   264编码支持  ]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2][2 ffmpeg
+    参数选项简要说明  ]]
 
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.1][2.1 main
       options]]
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.2][2.2
-      视频剪辑相关参数]]
+       视频剪辑相关参数  ]]
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3][2.3 video
       options]]
 
       -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3.1][2.3.1
-         crop options(视频剪裁选项说明)]]
+         crop options( 视频剪裁选项说明  )]]
       -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.3.2][2.3.2
          pad and filter options]]
 
@@ -33,38 +29,34 @@
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-2.8][2.8 preset
       files]]
 
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-3][3 ffmpeg
-   用法示例(see
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-3][3 ffmpeg
+    用法示例  (see
    http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs for
    more examples)]]
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-4][4 ffmpeg learning
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-4][4 ffmpeg learning
    resources]]
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5][5 Related tools]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5][5 Related tools]]
 
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5.1][5.1
       transcode]]
    -  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-5.2][5.2
       mencode(from mplayer)]]
 
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-6][6
-   yamdi给视频增加关键帧]]
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-7][7
-   ffmpegthumbnailer截取视频的thumbnail]]
--  [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-8][8
-   Youku的一些探索]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-6][6
+   yamdi 给视频增加关键帧  ]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-7][7
+   ffmpegthumbnailer 截取视频的  thumbnail]]
+- [[file:///home/lox/study/ffmpeg/ffmpeg.html#sec-8][8
+   Youku 的一些探索  ]]
 
 #+BEGIN_HTML
   <div id="outline-container-1" class="outline-2">
 #+END_HTML
 
-** 1 ffmpeg 264编码支持
-   :PROPERTIES:
-   :CUSTOM_ID: sec-1
-   :END:
-
+** 1 ffmpeg 264 编码支持  
 <<text-1>>
 
--  See [[http://ubuntuforums.org/showthread.php?t=786095]] for
+- See [[http://ubuntuforums.org/showthread.php?t=786095]] for
    configuration of ffmpeg and libx264 on ubuntu 10.04
 
 #+BEGIN_HTML
@@ -75,25 +67,17 @@
   <div id="outline-container-2" class="outline-2">
 #+END_HTML
 
-** 2 ffmpeg 参数选项简要说明
-   :PROPERTIES:
-   :CUSTOM_ID: sec-2
-   :END:
-
+** 2 ffmpeg  参数选项简要说明  
 #+BEGIN_HTML
   <div id="outline-container-2.1" class="outline-3">
 #+END_HTML
 
 *** 2.1 main options
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.1
-    :END:
-
 <<text-2.1>>
 
--  -i filename: 指定输入文件
--  -y: Overwrite output files
--  -target: Specify target file type ("vcd", "svcd", "dvd", "dv",
+- -i filename:  指定输入文件  
+- -y: Overwrite output files
+- -target: Specify target file type ("vcd", "svcd", "dvd", "dv",
    "dv50", "pal-vcd", "ntsc-svcd", ... ). All the format options
    (bitrate, codecs, buffer sizes) are then set automatically. It is one
    of the most useful options of ffmpeg. It instructs ffmpeg to just "do
@@ -107,16 +91,12 @@
   <div id="outline-container-2.2" class="outline-3">
 #+END_HTML
 
-*** 2.2 视频剪辑相关参数
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.2
-    :END:
-
+*** 2.2  视频剪辑相关参数  
 <<text-2.2>>
 
--  -ss: 设定剪辑开始时间[支持[hh:mm:ss[.xxx]]格式
--  -t: 设定剪辑长度[支持[hh:mm:ss[.xxx]]格式
--  -fs: 设定文件大小限制
+- -ss:  设定剪辑开始时间  [ 支持  [hh:mm:ss[.xxx]] 格式  
+- -t:  设定剪辑长度  [ 支持  [hh:mm:ss[.xxx]] 格式  
+- -fs:  设定文件大小限制  
 
 #+BEGIN_HTML
   </div>
@@ -127,30 +107,26 @@
 #+END_HTML
 
 *** 2.3 video options
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.3
-    :END:
-
 <<text-2.3>>
 
--  -b bitrate: 设定比特率(默认为200kb/s)
--  -r fps: frame rate(默认为25)
--  -s size: set frame size
+- -b bitrate:  设定比特率  ( 默认为  200kb/s)
+- -r fps: frame rate( 默认为  25)
+- -s size: set frame size
 
    -  wxh(width x height) or
    -  abbreviations(qcif(176x144), vga(640x480), wvga(852x480)
 
--  -aspect aspect: 设定aspect ratio(4:3, 16:9, 30:9, 1:3 or 1.333, 1.777
+- -aspect aspect:  设定  aspect ratio(4:3, 16:9, 30:9, 1:3 or 1.333, 1.777
    etc.)
--  -sameq: use same video quality as source (implies VBR).
--  -vcodec: codec: force video codec to codec. Use the copy special
+- -sameq: use same video quality as source (implies VBR).
+- -vcodec: codec: force video codec to codec. Use the copy special
    value to tell that the raw codec data must be copied as is.
--  -newvideo: add a new video stream to the current output stream.
--  -pass n
-   选择处理遍数（1或者2）。两遍编码非常有用。第一遍生成统计信息，第二遍生成精确的请求的码率
--  -map input_{streamid[}:sync_{streamid]}: Set stream mapping from
+- -newvideo: add a new video stream to the current output stream.
+- -pass n
+    选择处理遍数（1或者 2）。两遍编码非常有用。第一遍生成统计信息，第二遍生成精确的请求的码率  
+- -map input_{streamid[}:sync_{streamid]}: Set stream mapping from
    input streams to output streams.
--  -itsoffset offset Set the input time offset in seconds.
+- -itsoffset offset Set the input time offset in seconds.
    "[-]hh:mm:ss[.xxx]" syntax is also supported. This option affects all
    the input files that follow it.
 
@@ -158,18 +134,14 @@
   <div id="outline-container-2.3.1" class="outline-4">
 #+END_HTML
 
-**** 2.3.1 crop options(视频剪裁选项说明)
-     :PROPERTIES:
-     :CUSTOM_ID: sec-2.3.1
-     :END:
-
+**** 2.3.1 crop options( 视频剪裁选项说明  )
 <<text-2.3.1>>
 
--  -crop x:y:width:height: Crop the input video to x:y:width:height.
--  -croptop
--  -cropbottom
--  -cropleft
--  -cropright
+- -crop x:y:width:height: Crop the input video to x:y:width:height.
+- -croptop
+- -cropbottom
+- -cropleft
+- -cropright
 
 #+BEGIN_HTML
   </div>
@@ -180,15 +152,11 @@
 #+END_HTML
 
 **** 2.3.2 pad and filter options
-     :PROPERTIES:
-     :CUSTOM_ID: sec-2.3.2
-     :END:
-
 <<text-2.3.2>>
 
--  -vf filter\_graph
--  -vf
-   pad=width:height:x:y:color(这个命令可以给裁剪后的视频增加上下两个pad，形成电影似的效果)
+- -vf filter\_graph
+- -vf
+   pad=width:height:x:y:color( 这个命令可以给裁剪后的视频增加上下两个 pad，形成电影似的效果  )
 
 #+BEGIN_HTML
   </div>
@@ -203,19 +171,15 @@
 #+END_HTML
 
 *** 2.4 audio options
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.4
-    :END:
-
 <<text-2.4>>
 
--  -ar freq: set the audio sampling frequency(default=44100Hz)
--  -ab bitrate: 设定比特率(默认为64K)
--  -aq q: set the audio quality
--  -ac channels: set the number of audio channels(default=1)
--  -acodec codec: force audio codec to codec. Use the copy special value
+- -ar freq: set the audio sampling frequency(default=44100Hz)
+- -ab bitrate:  设定比特率  ( 默认为  64K)
+- -aq q: set the audio quality
+- -ac channels: set the number of audio channels(default=1)
+- -acodec codec: force audio codec to codec. Use the copy special value
    to specify that the raw codec data must be copied as is.
--  -newaudio: add a new audio track to the output file. If you want to
+- -newaudio: add a new audio track to the output file. If you want to
    specify parameters, do so before -newaudio (-acodec, -ab, etc..).
 
 #+BEGIN_HTML
@@ -227,14 +191,10 @@
 #+END_HTML
 
 *** 2.5 subtitle options
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.5
-    :END:
-
 <<text-2.5>>
 
--  -scodec codec: force subtitle codec ('copy' to copy stream).
--  -newsubtitle: add a new subtitle stream to the current output stream.
+- -scodec codec: force subtitle codec ('copy' to copy stream).
+- -newsubtitle: add a new subtitle stream to the current output stream.
 
 #+BEGIN_HTML
   </div>
@@ -245,15 +205,11 @@
 #+END_HTML
 
 *** 2.6 disable options
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.6
-    :END:
-
 <<text-2.6>>
 
--  -an: disable audio recording.
--  -vn: disable video recording.
--  -sn: disable subtitle recording.
+- -an: disable audio recording.
+- -vn: disable video recording.
+- -sn: disable subtitle recording.
 
 #+BEGIN_HTML
   </div>
@@ -264,15 +220,11 @@
 #+END_HTML
 
 *** 2.7 frames
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.7
-    :END:
-
 <<text-2.7>>
 
--  -dframes number: set the number of data frames to record
--  -vframes number: set the number of video frames to record
--  -aframes number: set the number of audio frames to record
+- -dframes number: set the number of data frames to record
+- -vframes number: set the number of video frames to record
+- -aframes number: set the number of audio frames to record
 
 #+BEGIN_HTML
   </div>
@@ -283,16 +235,12 @@
 #+END_HTML
 
 *** 2.8 preset files
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.8
-    :END:
-
 <<text-2.8>>
 
--  -vpre
--  -apre
--  -spre
--  -fpre
+- -vpre
+- -apre
+- -spre
+- -fpre
 
 #+BEGIN_HTML
   </div>
@@ -306,42 +254,38 @@
   <div id="outline-container-3" class="outline-2">
 #+END_HTML
 
-** 3 ffmpeg 用法示例(see
+** 3 ffmpeg  用法示例  (see
 [[http://www.catswhocode.com/blog/19-ffmpeg-commands-for-all-needs]] for
 more examples)
-   :PROPERTIES:
-   :CUSTOM_ID: sec-3
-   :END:
-
 <<text-3>>
 
--  Basic Usage: /ffmpeg [input options] -i [input file] [output options]
+- Basic Usage: /ffmpeg [input options] -i [input file] [output options]
    [output file]/
--  Normally the minimum one should specify in an ffmpeg command line
+- Normally the minimum one should specify in an ffmpeg command line
    would be something like: /ffmpeg -i INFILE -acodec ACODEC -ab 96k
    -vcodec VCODEC -b 500k OUTFILE/ ...replacing the capitalised values
    as appropriate. When using x264, we need to add some extra bits as
    the defaults are bad.
--  Getting infos from a video file: /ffmpeg -i video.avi/
--  Turn X images to a video sequence: /ffmpeg -f image2 -i image%d.jpg
+- Getting infos from a video file: /ffmpeg -i video.avi/
+- Turn X images to a video sequence: /ffmpeg -f image2 -i image%d.jpg
    video.mpg/
--  Turn a video to X images: /ffmpeg -i video.mpg image%d.jpg/
--  Extracting sound from a video, and save it as Mp3: /ffmpeg -i
+- Turn a video to X images: /ffmpeg -i video.mpg image%d.jpg/
+- Extracting sound from a video, and save it as Mp3: /ffmpeg -i
    source\_video.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3/
--  Convert .avi video to .mpg: /ffmpeg -i video\_origine.avi
+- Convert .avi video to .mpg: /ffmpeg -i video\_origine.avi
    video\_finale.mpg/
--  Convert .avi to animated gif(uncompressed): /ffmpeg -i
+- Convert .avi to animated gif(uncompressed): /ffmpeg -i
    video\_origine.avi -pix\_fmt rgb24 gif\_anime.gif/
--  Mix a video with a sound file: /ffmpeg -i son.wav -i
+- Mix a video with a sound file: /ffmpeg -i son.wav -i
    video\_origine.avi video\_finale.mpg/
--  Compress .avi to VCD mpeg2 NTSC format: /ffmpeg -i video\_origine.avi
+- Compress .avi to VCD mpeg2 NTSC format: /ffmpeg -i video\_origine.avi
    -target ntsc-vcd video\_finale.mpg/
--  Multi-pass encoding with ffmpeg: /ffmpeg -i fichierentree -pass 2
+- Multi-pass encoding with ffmpeg: /ffmpeg -i fichierentree -pass 2
    -passlogfile ffmpeg2pass fichiersortie-2/
--  Crop top 30 pixels and bottom 30 pixels to get a new video file:
+- Crop top 30 pixels and bottom 30 pixels to get a new video file:
    /ffmpeg -i input\_file.flv -croptop 30 -cropbottom 30 -target
    ntsc-dvd -aspect 16:9 output\_file.mpg/
--  Delaying the audio or the video: /ffmpeg -i input_{1} -itsoffset
+- Delaying the audio or the video: /ffmpeg -i input_{1} -itsoffset
    00:00:03.5 -i input_{2} .........../
 
 #+BEGIN_HTML
@@ -353,26 +297,22 @@ more examples)
 #+END_HTML
 
 ** 4 ffmpeg learning resources
-   :PROPERTIES:
-   :CUSTOM_ID: sec-4
-   :END:
-
 <<text-4>>
 
--  [[http://howto-pages.org/ffmpeg/][Using ffmpeg to manipulate audio
+- [[http://howto-pages.org/ffmpeg/][Using ffmpeg to manipulate audio
    and video files]]: you should see this page at first
--  [[http://rodrigopolo.com/ffmpeg/cheats.html][Video/Audio Encoding
+- [[http://rodrigopolo.com/ffmpeg/cheats.html][Video/Audio Encoding
    Cheat Sheet]], then you must know this cheat sheet
--  [[http://linuxers.org/tutorial/ffmpeg-tutorial-beginners][A FFmpeg
+- [[http://linuxers.org/tutorial/ffmpeg-tutorial-beginners][A FFmpeg
    Tutorial For Beginners]], so so a tutorial after you see the first
    tutorial
--  [[http://rob.opendot.cl/index.php/useful-stuff/ffmpeg-x264-encoding-guide/#respond][Some
+- [[http://rob.opendot.cl/index.php/useful-stuff/ffmpeg-x264-encoding-guide/#respond][Some
    useful parameters related to h264 using ffmpeg]], to be studied.
--  [[http://dranger.com/ffmpeg/ffmpeg.html][How to Write a Video Player
+- [[http://dranger.com/ffmpeg/ffmpeg.html][How to Write a Video Player
    in Less Than 1000 Lines]], deep into the ffmpeg source code
--  [[http://electron.mit.edu/%7Egsteele/ffmpeg/][Making movies from
+- [[http://electron.mit.edu/%7Egsteele/ffmpeg/][Making movies from
    image files using ffmpeg/mencoder]], enjoy it.
--  [[http://wiki.multimedia.cx/index.php?title=Category:FFmpeg][Category:FFmpeg]],
+- [[http://wiki.multimedia.cx/index.php?title=Category:FFmpeg][Category:FFmpeg]],
    a wiki about ffmpeg.
 
 #+BEGIN_HTML
@@ -384,19 +324,11 @@ more examples)
 #+END_HTML
 
 ** 5 Related tools
-   :PROPERTIES:
-   :CUSTOM_ID: sec-5
-   :END:
-
 #+BEGIN_HTML
   <div id="outline-container-5.1" class="outline-3">
 #+END_HTML
 
 *** 5.1 transcode
-    :PROPERTIES:
-    :CUSTOM_ID: sec-5.1
-    :END:
-
 #+BEGIN_HTML
   </div>
 #+END_HTML
@@ -406,10 +338,6 @@ more examples)
 #+END_HTML
 
 *** 5.2 mencode(from mplayer)
-    :PROPERTIES:
-    :CUSTOM_ID: sec-5.2
-    :END:
-
 #+BEGIN_HTML
   </div>
 #+END_HTML
@@ -422,22 +350,18 @@ more examples)
   <div id="outline-container-6" class="outline-2">
 #+END_HTML
 
-** 6 yamdi给视频增加关键帧
-   :PROPERTIES:
-   :CUSTOM_ID: sec-6
-   :END:
-
+** 6 yamdi 给视频增加关键帧 
 <<text-6>>
 
--  Yet Another MetaData Injector， see [[http://yamdi.sourceforge.net/]]
--  options:
+- Yet Another MetaData Injector， see [[http://yamdi.sourceforge.net/]]
+- options:
 
-   -  -i: 输入文件
-   -  -o: 输出文件
+   -  -i: 输入文件  
+   -  -o:  输出文件  
    -  -x: An XML file with the resulting metadata information.
    -  -l: Adds the onLastSecond event(?).
 
--  other tools:
+- other tools:
 
    -  flvtool2: written by Ruby, slow, need more memory
    -  flvmdi: not open source
@@ -450,15 +374,11 @@ more examples)
   <div id="outline-container-7" class="outline-2">
 #+END_HTML
 
-** 7 ffmpegthumbnailer截取视频的thumbnail
-   :PROPERTIES:
-   :CUSTOM_ID: sec-7
-   :END:
-
+** 7 ffmpegthumbnailer 截取视频的  thumbnail
 <<text-7>>
 
--  ubuntu: sudo apt-get install ffmpegthumbnailer
--  options:
+- ubuntu: sudo apt-get install ffmpegthumbnailer
+- options:
 
    -  -i<s>: input file
    -  -o<s>: output file
@@ -480,19 +400,15 @@ more examples)
   <div id="outline-container-8" class="outline-2">
 #+END_HTML
 
-** 8 [[http://www.youku.com/][Youku]]的一些探索
-   :PROPERTIES:
-   :CUSTOM_ID: sec-8
-   :END:
-
+** Youku 的一些探索  
 <<text-8>>
 
--  Youku网站上的大部分视频都是分段的，一般每段视频在5-10分钟之内
--  目前Youku网上的视频格式大概有三种：
+- Youku 网站上的大部分视频都是分段的，一般每段视频在  5-10 分钟之内  
+-  目前 Youku 网上的视频格式大概有三种：
 
-   -  高清mp4格式(h264编码)
-   -  高清flv格式(h264编码)
-   -  普通flv格式(应该是h263编码)
+   -  高清 mp4 格式  (h264 编码  )
+   -   高清 flv 格式  (h264 编码  )
+   -   普通 flv 格式  ( 应该是 h263 编码 )
 
 #+BEGIN_HTML
   </div>

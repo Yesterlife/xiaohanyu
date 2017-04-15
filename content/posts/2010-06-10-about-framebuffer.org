@@ -1,6 +1,6 @@
-[[http://en.wikipedia.org/wiki/Linux_penguin][[[/user_files/cnlox/Image/linux/linux-penguin-small.jpg]]]]初次接触[[http://en.wikipedia.org/wiki/Framebuffer][framebuffer]]这
-个概念是在去年的9月，那个时候安装archlinux，进入X后觉得console好丑，quark一来，在grub启动的menu.lst上加了一句
-vga=792，瞬间console就变成1024*768的分辨率了。先是感到惊喜，再叹quark的神通，三来意识到自己和别人的差距。关于怎样开启framebuffer，grub的配置文件注释里面有很好的说明，这里是我的部分配置menu.lst：
+[[http://en.wikipedia.org/wiki/Linux_penguin][[[/user_files/cnlox/Image/linux/linux-penguin-small.jpg]]]]初次接触  [[http://en.wikipedia.org/wiki/Framebuffer][framebuffer]] 这
+个概念是在去年的 9 月，那个时候安装 ArchLinux，进入 X 后觉得 console 好丑，quark一来，在 grub 启动的  menu.lst 上加了一句 
+vga=792，瞬间 console 就变成  1024*768 的分辨率了。先是感到惊喜，再叹 quark 的神通，三来意识到自己和别人的差距。关于怎样开启 Framebuffer，grub的配置文件注释里面有很好的说明，这里是我的部分配置 menu.lst：
 
 #+BEGIN_SRC sh
     #  FRAMEBUFFER RESOLUTION SETTINGS
@@ -34,17 +34,17 @@ vga=792，瞬间console就变成1024*768的分辨率了。先是感到惊喜，�
     initrd /initrd
 #+END_SRC
 
-恰好今天下午 做嵌入式系统的实验，LCD
-显示缓冲区体验，要求编程序载入一张图片到LCD显示缓冲区，我回到实验室琢磨琢磨，看到了gentoo开机启动时的那只小企鹅图片，tux，想到开机的时候没有启动X，屏幕上显示出了tux图片，那么可以肯定的是，这张图片一定是通过某种驱动直接“写到显存"里面。而在grub的启动是否采用framebuffer，则和这只tux的”生死“有着直接的联系，因此我敢肯定，framebuffer肯定是这次实验的突破口之一。说干就干，回到实验室查了很多资料，对Framebuffer的相关知识做一次小总结。
+恰好今天下午   做嵌入式系统的实验，LCD
+显示缓冲区体验，要求编程序载入一张图片到 LCD 显示缓冲区，我回到实验室琢磨琢磨，看到了 Gentoo 开机启动时的那只小企鹅图片，tux，想到开机的时候没有启动 X，屏幕上显示出了 tux 图片，那么可以肯定的是，这张图片一定是通过某种驱动直接“写到显存  " 里面。而在 grub 的启动是否采用 Framebuffer，则和这只 tux 的”生死“有着直接的联系，因此我敢肯定，framebuffer肯定是这次实验的突破口之一。说干就干，回到实验室查了很多资料，对 Framebuffer 的相关知识做一次小总结。
 
-FrameBuffer 是出现在 2.2.xx
-内核当中的一种驱动程序接口。这种接口将显示设备抽象为帧缓冲区。用户可以将它看成是显示内存的一个映像，将其映射到进程地址空间之后，就可以直接进行读
-写操作，而写操作可以立即反应在屏幕上。该驱动程序的设备文件一般是
+FrameBuffer 是出现在   2.2.xx
+ 内核当中的一种驱动程序接口。这种接口将显示设备抽象为帧缓冲区。用户可以将它看成是显示内存的一个映像，将其映射到进程地址空间之后，就可以直接进行读 
+ 写操作，而写操作可以立即反应在屏幕上。该驱动程序的设备文件一般是 
 /dev/fb0、/dev/fb1
-等等（具体内容请参见：[[http://www.ibm.com/developerworks/cn/linux/embed/minigui/guide/part8/][基于
-Linux 和 MiniGUI 的嵌入式系统软件开发指南]]）。
+等等（具体内容请参见：[[http://www.ibm.com/developerworks/cn/linux/embed/minigui/guide/part8/][基于 
+Linux  和 MiniGUI 的嵌入式系统软件开发指南 ]]）。
 
-Framebuffer需要内核的支持，如果没有/dev/fb0类似的文件，恐怕要重新编译内核了。我们可以做两个简单的小实验，看看frambuffer究竟有怎样的魔力：
+Framebuffer需要内核的支持，如果没有  /dev/fb0 类似的文件，恐怕要重新编译内核了。我们可以做两个简单的小实验，看看 frambuffer 究竟有怎样的魔力：
 
 #+BEGIN_SRC C++
     cat /dev/fb0 > screenshot
@@ -62,13 +62,13 @@ Framebuffer需要内核的支持，如果没有/dev/fb0类似的文件，恐怕�
     clear
 #+END_SRC
 
-是不是有点中病毒的感觉？其实，最简单的理解，/dev/fb0是屏幕显示区域内存的一个抽象，前面先把这部分“内存”保存到screenshot里面，然后再将screenshot里面的”内存“拷贝回去，就实现了屏幕的还原。不过，由于我们使用的GUI和CLI的自动刷新，整个屏幕并不能实现100%的“还原”。
+是不是有点中病毒的感觉？其实，最简单的理解，/dev/fb0是屏幕显示区域内存的一个抽象，前面先把这部分“内存”保存到 screenshot 里面，然后再将 screenshot 里面的”内存“拷贝回去，就实现了屏幕的还原。不过，由于我们使用的 GUI 和CLI的自动刷新，整个屏幕并不能实现  100% 的“还原”。
 
 一切皆文件，the great
 [[http://en.wikipedia.org/wiki/Unix_philosophy][Unix
-Philosophy]]，通过读写/dev/fb0，我们可以得到对显示屏100%的控制！进一步的讨论可以参考[[http://对FrameBuffer的一夜hack][对FrameBuffer的一夜hack]]。由此，我的嵌入式实验算是基本达到了第二个要求：写入LCD的缓冲区。载入图片是个复杂问题，毕竟图片的格式五花八门，有损压缩、无损压缩；位图、矢量图等等，就连最简单的bmp位图，想要载入，恐怕也要了解bmp图形文件格式，颇费一番周折。此时我又想起来去年的图形学程序，最后一个project就是载入bmp文件作为纹理贴到一个teapot上面，整个程序下来有600行，不便贴出，给出我当时做的[[/user_files/cnlox/File/opengl/opengl_load_bmp_texture.rar][作业]]，其中载入bmp文件的代码可以作为参考。
+Philosophy]]，通过读写 /dev/fb0，我们可以得到对显示屏  100% 的控制！进一步的讨论可以参考  [[http:// 对FrameBuffer的一夜  hack][ 对FrameBuffer的一夜 hack]]。由此，我的嵌入式实验算是基本达到了第二个要求：写入 LCD 的缓冲区。载入图片是个复杂问题，毕竟图片的格式五花八门，有损压缩、无损压缩；位图、矢量图等等，就连最简单的 bmp 位图，想要载入，恐怕也要了解 bmp 图形文件格式，颇费一番周折。此时我又想起来去年的图形学程序，最后一个 project 就是载入 bmp 文件作为纹理贴到一个 teapot 上面，整个程序下来有 600 行，不便贴出，给出我当时做的  [[/user_files/cnlox/File/opengl/opengl_load_bmp_texture.rar][ 作业 ]]，其中载入 bmp 文件的代码可以作为参考。
 
-至于copy两个文件的c语言程序，我也写了两个，采用的是C语言的标准IO和Linux系统调用IO两种方式：
+至于 copy 两个文件的 c 语言程序，我也写了两个，采用的是 C 语言的标准 IO 和Linux系统调用 IO 两种方式：
 
 ANSI IO:
 
@@ -197,26 +197,26 @@ Linux IO:
     }
 #+END_SRC
 
-至于两种IO有什么样的区别和联系，我写了一份[[/user_files/cnlox/File/linux/os8.pdf][文档]]，可以作为入门参考。更进一步的了解已经远远跑题，可以参看[[http://jserv.sayya.org/][jserv]]的[[http://jserv.sayya.org/helloworld/][HackingHelloWorld]]系列。
+至于两种 IO 有什么样的区别和联系，我写了一份  [[/user_files/cnlox/File/linux/os8.pdf][ 文档 ]]，可以作为入门参考。更进一步的了解已经远远跑题，可以参看  [[http://jserv.sayya.org/][jserv]] 的 [[http://jserv.sayya.org/helloworld/][HackingHelloWorld]]系列。
 
 OK，本次实验超额完成！120分！\^\_\^
 
 --------------
 
-言归正传，事实上，有了framebuffer，Linux的console可以变得无所不能！
+言归正传，事实上，有了 Framebuffer，Linux的 console 可以变得无所不能！
 
 先上一张图：
 
 [[http://cs2.swfc.edu.cn/~wanghuan/xueruini/GNU/Gentoo.html][[[/user_files/cnlox/Image/linux/gentoo_fb.png]]]]
 
-在gentoo下，这种效果需要fbsplash的支持，参照[[http://en.gentoo-wiki.com/wiki/Fbsplash][Gentoo
-Wiki]]（其实当初装gentoo的时候，自己也折腾过这个，但是一直没有启动起来，不明原因，大概是内核版本的问题，可能同样是内核版本的问题，我的[[http://www.google.com.hk/url?sa=t&source=web&cd=1&ved=0CBQQFjAA&url=http%3A%2F%2Fwww.bootchart.org%2F&ei=na4PTKLSLcaDcLa7xN8M&usg=AFQjCNF_z7mk6sxD0yhLlR0r973R7n4-fw][bootchart]]也无法启动[[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/icon_question.gif]]）。还有一个类似的项目叫[[http://splashy.alioth.debian.org/wiki/start][splashy]]，不过貌似发展比较缓慢，而且应用也不多。
+在 Gentoo 下，这种效果需要 fbsplash 的支持，参照 [[http://en.gentoo-wiki.com/wiki/Fbsplash][Gentoo
+Wiki]]（其实当初装 Gentoo 的时候，自己也折腾过这个，但是一直没有启动起来，不明原因，大概是内核版本的问题，可能同样是内核版本的问题，我的  [[http://www.google.com.hk/url?sa=t&source=web&cd=1&ved=0CBQQFjAA&url=http%3A%2F%2Fwww.bootchart.org%2F&ei=na4PTKLSLcaDcLa7xN8M&usg=AFQjCNF_z7mk6sxD0yhLlR0r973R7n4-fw][bootchart]] 也无法启动 [[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/icon_question.gif]]）。还有一个类似的项目叫 [[http://splashy.alioth.debian.org/wiki/start][splashy]]，不过貌似发展比较缓慢，而且应用也不多。
 
-可能你觉得这就是极限了吧......非也非也！其实有framebuffer，再加上mplayer，我们甚至可以在这样的终端下看视频！！
+可能你觉得这就是极限了吧  ...... 非也非也！其实有 Framebuffer，再加上 MPlayer，我们甚至可以在这样的终端下看视频！！
 
 [[http://v.youku.com/v_show/id_XMTE5Njc2MDg0.html][[[/user_files/cnlox/Image/linux/mplayer_fb.jpeg]]]]
 
-mplayer本身是支持多种VIDEO OUTPUT OPTIONS，其中的一种就是framebuffer:
+mplayer本身是支持多种 VIDEO OUTPUT OPTIONS，其中的一种就是  framebuffer:
 
 #+BEGIN_SRC C++
            fbdev (Linux only)
@@ -232,7 +232,7 @@ mplayer本身是支持多种VIDEO OUTPUT OPTIONS，其中的一种就是framebuf
                           Explicitly choose the fbdev device name to use (default: /dev/fb0).
 #+END_SRC
 
-终端截图需要fbgrab的支持。我们在一个终端以super user权限运行：
+ 终端截图需要 FBGrab 的支持。我们在一个终端以 super user 权限运行：
 
 #+BEGIN_SRC sh
     sudo mplayer -vo fbdev2 videoname
@@ -246,8 +246,8 @@ mplayer本身是支持多种VIDEO OUTPUT OPTIONS，其中的一种就是framebuf
 
 注意：
 
--  mplayer -vo选项需要为fbdev2，fbdev不行
--  fbgrab生成的png格式图像需要转换成jpeg格式才能得到满意的效果，否则视频区域一片透明，这可能与图像压缩算法有关（具体我就不知道了[[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/icon_confused.gif]]）。
+- mplayer -vo选项需要为 fbdev2，fbdev不行  
+- fbgrab 生成的 png 格式图像需要转换成 jpeg 格式才能得到满意的效果，否则视频区域一片透明，这可能与图像压缩算法有关（具体我就不知道了 [[http://cnlox.is-programmer.com/javascripts/fckeditor/editor/images/smiley/chito/icon_confused.gif]]）。
 
 差不多了，All about
 framebuffer。下一次，写一写如何打造高效快捷的终端环境，敬请期待！

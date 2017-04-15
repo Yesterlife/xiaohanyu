@@ -1,18 +1,14 @@
 <<table-of-contents>>
 ** Contents
-   :PROPERTIES:
-   :CUSTOM_ID: contents
-   :END:
-
 <<text-table-of-contents>>
 
--  [[sec-1][1 旅行者手册撰写]]
+- [[sec-1][1 旅行者手册撰写  ]]
 
-   -  [[sec-1.1][1.1 目录结构]]
+   -  [[sec-1.1][1.1  目录结构  ]]
 
-      -  [[sec-1.1.1][1.1.1 序（我为什么写这个手册）]]
-      -  [[sec-1.1.2][1.1.2 旅行者说（主要记载旅行者的历史)]]
-      -  [[sec-1.1.3][1.1.3 单车天涯（主要列举一些骑行游记）]]
+      -  [[sec-1.1.1][1.1.1  序（我为什么写这个手册）]]
+      -  [[sec-1.1.2][1.1.2 旅行者说（主要记载旅行者的历史  )]]
+      -  [[sec-1.1.3][1.1.3  单车天涯（主要列举一些骑行游记）]]
       -  [[sec-1.1.4][1.1.4 骑行手记（主要记载一些骑行技术）]]
       -  [[sec-1.1.5][1.1.5 勇者竟攀（攀岩相关）]]
       -  [[sec-1.1.6][1.1.6 驴行天下（主要记载一些徒步相关的东西）]]
@@ -22,40 +18,36 @@
       -  [[sec-1.1.10][1.1.10 医疗知识（普及户外相关的医疗知识）]]
       -  [[sec-1.1.11][1.1.11 户外资源（网络、杭州户外店、书籍等）]]
       -  [[sec-1.1.12][1.1.12 会长感悟（个人心得）]]
-      -  [[sec-1.1.13][1.1.13 附录]]
+      -  [[sec-1.1.13][1.1.13 附录  ]]
 
--  [[sec-2][2 LPI认证]]
+- [[sec-2][2 LPI 认证  ]]
 
-   -  [[sec-2.1][2.1 初步资料查阅，明确考试要求、时间和范围]]
+   -  [[sec-2.1][2.1  初步资料查阅，明确考试要求、时间和范围 ]]
 
--  [[sec-3][3 Books]]
+- [[sec-3][3 Books]]
 
    -  [[sec-3.1][3.1 《C++ Gui Programming with Qt4》]]
    -  [[sec-3.2][3.2 《C++ Primer 3rd
-      Edition》深入阅读，争取全部概览一遍并做完习题]]
-   -  [[sec-3.3][3.3 《计算机算法设计与分析》概览]]
+      Edition》深入阅读，争取全部概览一遍并做完习题 ]]
+   -  [[sec-3.3][3.3 《计算机算法设计与分析》概览  ]]
 
--  [[sec-4][4 Programming]]
+- [[sec-4][4 Programming]]
 
-   -  [[sec-4.1][4.1 浙江大学校车查询系统]]
+   -  [[sec-4.1][4.1  浙江大学校车查询系统  ]]
 
-      -  [[sec-4.1.1][4.1.1 优化数据库，重新设计数据库结构]]
-      -  [[sec-4.1.2][4.1.2 学习xml，寻求xml数据转换之道]]
-      -  [[sec-4.1.3][4.1.3 开始尝试系统的Qt版本]]
+      -  [[sec-4.1.1][4.1.1  优化数据库，重新设计数据库结构  ]]
+      -  [[sec-4.1.2][4.1.2  学习 XML，寻求 XML 数据转换之道  ]]
+      -  [[sec-4.1.3][4.1.3  开始尝试系统的 Qt 版本  ]]
 
--  [[sec-5][5 English]]
+- [[sec-5][5 English]]
 
-   -  [[sec-5.1][5.1 上海口译考试基本资料查阅]]
+   -  [[sec-5.1][5.1  上海口译考试基本资料查阅  ]]
 
 #+BEGIN_HTML
   <div id="outline-container-1" class="outline-2">
 #+END_HTML
 
-** 1 TODO 旅行者手册撰写
-   :PROPERTIES:
-   :CUSTOM_ID: sec-1
-   :END:
-
+** 1 TODO  旅行者手册撰写  
 <<text-1>>
 DEADLINE: 2009-08-31 Mon
 
@@ -63,20 +55,12 @@ DEADLINE: 2009-08-31 Mon
   <div id="outline-container-1.1" class="outline-3">
 #+END_HTML
 
-*** 1.1 目录结构
-    :PROPERTIES:
-    :CUSTOM_ID: sec-1.1
-    :END:
-
+*** 1.1  目录结构  
 #+BEGIN_HTML
   <div id="outline-container-1.1.1" class="outline-4">
 #+END_HTML
 
-**** 1.1.1 序（我为什么写这个手册）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.1
-     :END:
-
+**** 1.1.1  序（我为什么写这个手册）
 <<text-1.1.1>>
 DEADLINE: 2009-08-15 Sat
 
@@ -88,15 +72,11 @@ DEADLINE: 2009-08-15 Sat
   <div id="outline-container-1.1.2" class="outline-4">
 #+END_HTML
 
-**** 1.1.2 旅行者说（主要记载旅行者的历史)
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.2
-     :END:
-
+**** 1.1.2 旅行者说（主要记载旅行者的历史 )
 <<text-1.1.2>>
 DEADLINE: 2009-08-15 Sat
 
--  《远方眼中：旅行者传》
+- 《远方眼中：旅行者传》
 
 #+BEGIN_HTML
   </div>
@@ -107,14 +87,10 @@ DEADLINE: 2009-08-15 Sat
 #+END_HTML
 
 **** 1.1.3 单车天涯（主要列举一些骑行游记）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.3
-     :END:
-
 <<text-1.1.3>>
 DEADLINE: 2009-08-18 Tue
 
--  《弦歌初弓滇藏之行》
+- 《弦歌初弓滇藏之行》
 
 #+BEGIN_HTML
   </div>
@@ -125,16 +101,12 @@ DEADLINE: 2009-08-18 Tue
 #+END_HTML
 
 **** 1.1.4 骑行手记（主要记载一些骑行技术）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.4
-     :END:
-
 <<text-1.1.4>>
 DEADLINE: 2009-08-22 Sat
 
--  爬坡要点
--  下坡要点
--  如何应对雨天
+- 爬坡要点  
+-  下坡要点  
+-  如何应对雨天  
 
 #+BEGIN_HTML
   </div>
@@ -144,11 +116,7 @@ DEADLINE: 2009-08-22 Sat
   <div id="outline-container-1.1.5" class="outline-4">
 #+END_HTML
 
-**** 1.1.5 勇者竟攀（攀岩相关）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.5
-     :END:
-
+**** 1.1.5  勇者竟攀（攀岩相关）
 <<text-1.1.5>>
 DEADLINE: 2009-08-23 Sun
 
@@ -161,13 +129,9 @@ DEADLINE: 2009-08-23 Sun
 #+END_HTML
 
 **** 1.1.6 驴行天下（主要记载一些徒步相关的东西）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.6
-     :END:
-
 <<text-1.1.6>>
 
--  《穿越天山，狼塔之旅》
+- 《穿越天山，狼塔之旅》
 
 #+BEGIN_HTML
   </div>
@@ -178,10 +142,6 @@ DEADLINE: 2009-08-23 Sun
 #+END_HTML
 
 **** 1.1.7 行吟游唱（收集个人心得感悟）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.7
-     :END:
-
 #+BEGIN_HTML
   </div>
 #+END_HTML
@@ -191,16 +151,12 @@ DEADLINE: 2009-08-23 Sun
 #+END_HTML
 
 **** 1.1.8 技术装备（普及入门装备知识）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.8
-     :END:
-
 <<text-1.1.8>>
 DEADLINE: 2009-08-20 Thu
 
--  单车装备大全
--  shimano套件入门
--  sram品牌介绍
+- 单车装备大全  
+- shimano 套件入门  
+- sram 品牌介绍  
 
 #+BEGIN_HTML
   </div>
@@ -210,18 +166,14 @@ DEADLINE: 2009-08-20 Thu
   <div id="outline-container-1.1.9" class="outline-4">
 #+END_HTML
 
-**** 1.1.9 布袋事件（回顾整个事件，强调安全出行）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.9
-     :END:
-
+**** 1.1.9  布袋事件（回顾整个事件，强调安全出行）
 <<text-1.1.9>>
 DEADLINE: 2009-08-26 Wed
 
--  事件过程（时间表）
--  社会帮助
--  事件启示
--  相关资源
+- 事件过程（时间表）
+- 社会帮助  
+-  事件启示  
+-  相关资源  
 
 #+BEGIN_HTML
   </div>
@@ -231,14 +183,10 @@ DEADLINE: 2009-08-26 Wed
   <div id="outline-container-1.1.10" class="outline-4">
 #+END_HTML
 
-**** 1.1.10 医疗知识（普及户外相关的医疗知识）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.10
-     :END:
-
+**** 1.1.10  医疗知识（普及户外相关的医疗知识）
 <<text-1.1.10>>
 
--  膝盖保养与锻炼
+- 膝盖保养与锻炼  
 
 #+BEGIN_HTML
   </div>
@@ -248,17 +196,13 @@ DEADLINE: 2009-08-26 Wed
   <div id="outline-container-1.1.11" class="outline-4">
 #+END_HTML
 
-**** 1.1.11 户外资源（网络、杭州户外店、书籍等）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.11
-     :END:
-
+**** 1.1.11  户外资源（网络、杭州户外店、书籍等）
 <<text-1.1.11>>
 
--  单车网络资源
--  杭州户外店简介
--  户外书籍
--  视频
+- 单车网络资源  
+-  杭州户外店简介  
+-  户外书籍  
+-  视频  
 
 #+BEGIN_HTML
   </div>
@@ -268,16 +212,12 @@ DEADLINE: 2009-08-26 Wed
   <div id="outline-container-1.1.12" class="outline-4">
 #+END_HTML
 
-**** 1.1.12 会长感悟（个人心得）
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.12
-     :END:
-
+**** 1.1.12  会长感悟（个人心得）
 <<text-1.1.12>>
 
--  冻冻
--  巫婆
--  cnlox
+- 冻冻  
+-  巫婆  
+- cnlox
 
 #+BEGIN_HTML
   </div>
@@ -287,13 +227,9 @@ DEADLINE: 2009-08-26 Wed
   <div id="outline-container-1.1.13" class="outline-4">
 #+END_HTML
 
-**** 1.1.13 附录
-     :PROPERTIES:
-     :CUSTOM_ID: sec-1.1.13
-     :END:
-
+**** 1.1.13  附录  
 <<text-1.1.13>>
- 
+ 
 
 #+BEGIN_HTML
   </div>
@@ -311,20 +247,12 @@ DEADLINE: 2009-08-26 Wed
   <div id="outline-container-2" class="outline-2">
 #+END_HTML
 
-** 2 TODO LPI认证
-   :PROPERTIES:
-   :CUSTOM_ID: sec-2
-   :END:
-
+** 2 TODO LPI 认证  
 #+BEGIN_HTML
   <div id="outline-container-2.1" class="outline-3">
 #+END_HTML
 
-*** 2.1 TODO 初步资料查阅，明确考试要求、时间和范围
-    :PROPERTIES:
-    :CUSTOM_ID: sec-2.1
-    :END:
-
+*** 2.1 TODO  初步资料查阅，明确考试要求、时间和范围 
 <<text-2.1>>
 DEADLINE: 2009-08-10 Mon
 
@@ -340,25 +268,13 @@ DEADLINE: 2009-08-10 Mon
   <div id="outline-container-3" class="outline-2">
 #+END_HTML
 
-**  
-   :PROPERTIES:
-   :CUSTOM_ID: section-1
-   :END:
-
+**  
 ** 3 TODO Books
-   :PROPERTIES:
-   :CUSTOM_ID: sec-3
-   :END:
-
 #+BEGIN_HTML
   <div id="outline-container-3.1" class="outline-3">
 #+END_HTML
 
 *** 3.1 TODO 《C++ Gui Programming with Qt4》
-    :PROPERTIES:
-    :CUSTOM_ID: sec-3.1
-    :END:
-
 <<text-3.1>>
 DEADLINE: 2009-08-31 Mon
 
@@ -371,11 +287,7 @@ DEADLINE: 2009-08-31 Mon
 #+END_HTML
 
 *** 3.2 TODO 《C++ Primer 3rd
-Edition》深入阅读，争取全部概览一遍并做完习题
-    :PROPERTIES:
-    :CUSTOM_ID: sec-3.2
-    :END:
-
+Edition》深入阅读，争取全部概览一遍并做完习题 
 <<text-3.2>>
 DEADLINE: 2009-09-30 Wed
 
@@ -387,11 +299,7 @@ DEADLINE: 2009-09-30 Wed
   <div id="outline-container-3.3" class="outline-3">
 #+END_HTML
 
-*** 3.3 TODO 《计算机算法设计与分析》概览
-    :PROPERTIES:
-    :CUSTOM_ID: sec-3.3
-    :END:
-
+*** 3.3 TODO 《计算机算法设计与分析》概览  
 <<text-3.3>>
 DEADLINE: 2009-09-30 Wed
 
@@ -407,25 +315,13 @@ DEADLINE: 2009-09-30 Wed
   <div id="outline-container-4" class="outline-2">
 #+END_HTML
 
-**  
-   :PROPERTIES:
-   :CUSTOM_ID: section-2
-   :END:
-
+**  
 ** 4 Programming
-   :PROPERTIES:
-   :CUSTOM_ID: sec-4
-   :END:
-
 #+BEGIN_HTML
   <div id="outline-container-4.1" class="outline-3">
 #+END_HTML
 
-*** 4.1 TODO 浙江大学校车查询系统
-    :PROPERTIES:
-    :CUSTOM_ID: sec-4.1
-    :END:
-
+*** 4.1 TODO  浙江大学校车查询系统  
 <<text-4.1>>
 SCHEDULED: 2009-08-20 Thu
 
@@ -433,11 +329,7 @@ SCHEDULED: 2009-08-20 Thu
   <div id="outline-container-4.1.1" class="outline-4">
 #+END_HTML
 
-**** 4.1.1 优化数据库，重新设计数据库结构
-     :PROPERTIES:
-     :CUSTOM_ID: sec-4.1.1
-     :END:
-
+**** 4.1.1  优化数据库，重新设计数据库结构  
 #+BEGIN_HTML
   </div>
 #+END_HTML
@@ -446,11 +338,7 @@ SCHEDULED: 2009-08-20 Thu
   <div id="outline-container-4.1.2" class="outline-4">
 #+END_HTML
 
-**** 4.1.2 学习xml，寻求xml数据转换之道
-     :PROPERTIES:
-     :CUSTOM_ID: sec-4.1.2
-     :END:
-
+**** 4.1.2  学习 XML，寻求 XML 数据转换之道  
 <<text-4.1.2>>
 SCHEDULED: 2009-09-01 Tue
 
@@ -462,11 +350,7 @@ SCHEDULED: 2009-09-01 Tue
   <div id="outline-container-4.1.3" class="outline-4">
 #+END_HTML
 
-**** 4.1.3 开始尝试系统的Qt版本
-     :PROPERTIES:
-     :CUSTOM_ID: sec-4.1.3
-     :END:
-
+**** 4.1.3  开始尝试系统的 Qt 版本  
 <<text-4.1.3>>
 SCHEDULED: 2009-09-01 Tue
 
@@ -486,25 +370,13 @@ SCHEDULED: 2009-09-01 Tue
   <div id="outline-container-5" class="outline-2">
 #+END_HTML
 
-**  
-   :PROPERTIES:
-   :CUSTOM_ID: section-3
-   :END:
-
+**  
 ** 5 English
-   :PROPERTIES:
-   :CUSTOM_ID: sec-5
-   :END:
-
 #+BEGIN_HTML
   <div id="outline-container-5.1" class="outline-3">
 #+END_HTML
 
-*** 5.1 TODO 上海口译考试基本资料查阅
-    :PROPERTIES:
-    :CUSTOM_ID: sec-5.1
-    :END:
-
+*** 5.1 TODO  上海口译考试基本资料查阅 
 <<text-5.1>>
 SCHEDULED: 2009-09-02 Wed
 
@@ -517,10 +389,10 @@ SCHEDULED: 2009-09-02 Wed
 #+END_HTML
 
 <<postamble>>
-Author: Lox Freeman 
+Author: Lox Freeman 
 
 Date: 2009-08-09 09:27:36 CST
 
 HTML generated by org-mode 6.14 in emacs 23
 
- 
+ 

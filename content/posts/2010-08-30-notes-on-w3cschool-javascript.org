@@ -1,100 +1,88 @@
 <<table-of-contents>>
 ** Table of Contents
-   :PROPERTIES:
-   :CUSTOM_ID: table-of-contents
-   :END:
-
 <<text-table-of-contents>>
 
--  [[sec-1][1 简介]]
+- [[sec-1][1 简介  ]]
 
-   -  [[sec-1.1][1.1 什么是Javascript]]
-   -  [[sec-1.2][1.2 真实的名称是ECMAScript]]
+   -  [[sec-1.1][1.1  什么是  Javascript]]
+   -  [[sec-1.2][1.2  真实的名称是  ECMAScript]]
 
--  [[sec-2][2 如何实现JavaScript]]
--  [[sec-3][3 把JavaScript放置到何处]]
--  [[sec-4][4 JavaScript语句]]
+- [[sec-2][2  如何实现  JavaScript]]
+- [[sec-3][3  把JavaScript放置到何处  ]]
+- [[sec-4][4 JavaScript 语句  ]]
 
-   -  [[sec-4.1][4.1 JavaScript语句]]
+   -  [[sec-4.1][4.1 JavaScript 语句  ]]
 
--  [[sec-5][5 JavaScript注释]]
--  [[sec-6][6 JavaScript变量]]
--  [[sec-7][7 JavaScript运算符]]
--  [[sec-8][8 JavaScript比较和逻辑运算符]]
--  [[sec-9][9 JavaScript If...Else语句]]
--  [[sec-10][10 JavaScript消息框]]
+- [[sec-5][5 JavaScript 注释  ]]
+- [[sec-6][6 JavaScript 变量  ]]
+- [[sec-7][7 JavaScript 运算符  ]]
+- [[sec-8][8 JavaScript 比较和逻辑运算符  ]]
+- [[sec-9][9 JavaScript If...Else 语句  ]]
+- [[sec-10][10 JavaScript 消息框  ]]
 
-   -  [[sec-10.1][10.1 警告框]]
-   -  [[sec-10.2][10.2 确认框]]
-   -  [[sec-10.3][10.3 提示框]]
+   -  [[sec-10.1][10.1  警告框  ]]
+   -  [[sec-10.2][10.2  确认框  ]]
+   -  [[sec-10.3][10.3  提示框  ]]
 
--  [[sec-11][11 JavaScript函数]]
+- [[sec-11][11 JavaScript 函数  ]]
 
-   -  [[sec-11.1][11.1 JavaScript函数]]
-   -  [[sec-11.2][11.2 如何定义函数]]
+   -  [[sec-11.1][11.1 JavaScript 函数  ]]
+   -  [[sec-11.2][11.2  如何定义函数  ]]
 
-      -  [[sec-11.2.1][11.2.1 创建函数的语法：]]
-      -  [[sec-11.2.2][11.2.2 JavaScript变量的生存期]]
+      -  [[sec-11.2.1][11.2.1  创建函数的语法：]]
+      -  [[sec-11.2.2][11.2.2 JavaScript变量的生存期  ]]
 
--  [[sec-12][12 JavaScript For循环]]
--  [[sec-13][13 JavaScript While循环]]
--  [[sec-14][14 JavaScript Break和Continue语句]]
--  [[sec-15][15 JavaScript事件]]
--  [[sec-16][16 JavaScript Try...Catch语句]]
--  [[sec-17][17 JavaScript特殊字符]]
--  [[sec-18][18 JavaScript指导方针]]
--  [[sec-19][19 JavaScript对象简介]]
--  [[sec-20][20 JavaScript字符串(String)对象]]
+- [[sec-12][12 JavaScript For 循环  ]]
+- [[sec-13][13 JavaScript While 循环  ]]
+- [[sec-14][14 JavaScript Break 和Continue语句  ]]
+- [[sec-15][15 JavaScript 事件  ]]
+- [[sec-16][16 JavaScript Try...Catch 语句  ]]
+- [[sec-17][17 JavaScript 特殊字符  ]]
+- [[sec-18][18 JavaScript 指导方针  ]]
+- [[sec-19][19 JavaScript 对象简介  ]]
+- [[sec-20][20 JavaScript 字符串  (String) 对象  ]]
 
-   -  [[sec-20.1][20.1 String对象的方法]]
-   -  [[sec-20.2][20.2 String对象的属性]]
+   -  [[sec-20.1][20.1 String 对象的方法  ]]
+   -  [[sec-20.2][20.2 String 对象的属性 ]]
 
--  [[sec-21][21 JavaScript Date（日期）对象]]
+- [[sec-21][21 JavaScript Date（日期）对象  ]]
 
-   -  [[sec-21.1][21.1 Date对象的方法]]
+   -  [[sec-21.1][21.1 Date 对象的方法  ]]
 
--  [[sec-22][22 JavaScript数组]]
+- [[sec-22][22 JavaScript 数组  ]]
 
-   -  [[sec-22.1][22.1 Array对象的方法]]
+   -  [[sec-22.1][22.1 Array 对象的方法 ]]
 
--  [[sec-23][23 JavaScript Boolean（逻辑）对象]]
+- [[sec-23][23 JavaScript Boolean（逻辑）对象  ]]
 
-   -  [[sec-23.1][23.1 Boolean对象的方法]]
+   -  [[sec-23.1][23.1 Boolean 对象的方法 ]]
 
--  [[sec-24][24 JavaScript Math（算数）对象]]
--  [[sec-25][25 JavaScript HTML DOM对象]]
+- [[sec-24][24 JavaScript Math（算数）对象  ]]
+- [[sec-25][25 JavaScript HTML DOM 对象  ]]
 
-   -  [[sec-25.1][25.1 HTML DOM对象]]
+   -  [[sec-25.1][25.1 HTML DOM 对象  ]]
 
 #+BEGIN_HTML
   <div id="outline-container-1" class="outline-2">
 #+END_HTML
 
-** 1 简介
-   :PROPERTIES:
-   :CUSTOM_ID: sec-1
-   :END:
-
+** 1  简介  
 <<text-1>>
- 
+ 
 
 #+BEGIN_HTML
   <div id="outline-container-1.1" class="outline-3">
 #+END_HTML
 
-*** 1.1 什么是Javascript
-    :PROPERTIES:
-    :CUSTOM_ID: sec-1.1
-    :END:
-
+*** 1.1  什么是  Javascript
 <<text-1.1>>
 
--  JavaScript被设计用来向HTML页面添加交互行为。
--  JavaScript是一种脚本语言（脚本语言是一种轻量级的编程语言）。
--  JavaScript由数行可执行计算机代码组成。
--  JavaScript通常被直接嵌入 HTML 页面。
--  JavaScript是一种解释性语言（就是说，代码执行不进行预编译）。
--  所有的人无需购买许可证均可使用JavaScript。
+- JavaScript 被设计用来向 HTML 页面添加交互行为。
+- JavaScript是一种脚本语言（脚本语言是一种轻量级的编程语言）。
+- JavaScript由数行可执行计算机代码组成。
+- JavaScript通常被直接嵌入  HTML  页面。
+- JavaScript是一种解释性语言（就是说，代码执行不进行预编译）。
+- 所有的人无需购买许可证均可使用 JavaScript。
 
 #+BEGIN_HTML
   </div>
@@ -104,20 +92,16 @@
   <div id="outline-container-1.2" class="outline-3">
 #+END_HTML
 
-*** 1.2 真实的名称是ECMAScript
-    :PROPERTIES:
-    :CUSTOM_ID: sec-1.2
-    :END:
-
+*** 1.2 真实的名称是  ECMAScript
 <<text-1.2>>
 
--  JavaScript的正式名称是"ECMAScript"。这个标准由ECMA组织发展和维护。
--  ECMA-262是正式的JavaScript标准。这个标准基于JavaScript(Netscape)和JScript(Microsoft)。
--  Netscape(Navigator 2.0)的Brendan
-   Eich发明了这门语言，从1996年开始，已经出现在所有的Netscape和Microsoft浏览器中。
--  ECMA-262的开发始于1996年，在1997年7月，ECMA会员大会采纳了它的首个版本。
--  在1998年，该标准成为了国际ISO标准(ISO/IEC 16262)。
--  这个标准仍然处于发展之中。
+- JavaScript 的正式名称是 "ECMAScript"。这个标准由 ECMA 组织发展和维护。
+- ECMA-262是正式的 JavaScript 标准。这个标准基于  JavaScript(Netscape) 和 JScript(Microsoft)。
+- Netscape(Navigator 2.0)的 Brendan
+   Eich 发明了这门语言，从 1996 年开始，已经出现在所有的 Netscape 和Microsoft浏览器中。
+- ECMA-262的开发始于 1996 年，在 1997 年7月，ECMA会员大会采纳了它的首个版本。
+- 在 1998 年，该标准成为了国际 ISO 标准 (ISO/IEC 16262)。
+- 这个标准仍然处于发展之中。
 
 #+BEGIN_HTML
   </div>
@@ -131,17 +115,13 @@
   <div id="outline-container-2" class="outline-2">
 #+END_HTML
 
-** 2 如何实现JavaScript
-   :PROPERTIES:
-   :CUSTOM_ID: sec-2
-   :END:
-
+** 2 如何实现  JavaScript
 <<text-2>>
 
--  <script>标签嵌入JavaScript
+- <script> 标签嵌入  JavaScript
 -  与老的浏览器打交道：
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
        <script type="text/javascript">
@@ -151,7 +131,7 @@
        </script>
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
 #+BEGIN_HTML
   </div>
@@ -161,18 +141,14 @@
   <div id="outline-container-3" class="outline-2">
 #+END_HTML
 
-** 3 把JavaScript放置到何处
-   :PROPERTIES:
-   :CUSTOM_ID: sec-3
-   :END:
-
+** 3 把 JavaScript 放置到何处  
 <<text-3>>
 
--  位于 head
-   部分的脚本：当脚本被调用时，或者当事件被触发时，脚本就会被执行。当你把脚本放置到
-   head 部分后，就可以确保在需要使用脚本之前，它已经被载入了。
+-  位于  head
+    部分的脚本：当脚本被调用时，或者当事件被触发时，脚本就会被执行。当你把脚本放置到 
+   head  部分后，就可以确保在需要使用脚本之前，它已经被载入了。
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <head>
        <script type="text/javascript">
@@ -180,12 +156,12 @@
        </script>
        </head>
        ....
-   #+END_EXAMPLE
+   #+END_SRC
 
--  位于 body 部分的脚本：在页面载入时脚本就会被执行。当你把脚本放置于
-   body 部分后，它就会生成页面的内容。
+- 位于  body  部分的脚本：在页面载入时脚本就会被执行。当你把脚本放置于 
+   body  部分后，它就会生成页面的内容。
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <head>
        </head>
@@ -196,13 +172,13 @@
        </script>
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  使用外部JavaScript
+- 使用外部  JavaScript
 
    -  <script src="javascript.js">....<script>
-   -  您可以把 .js
-      文件放到网站目录中通常存放脚本的子目录中，这样更容易管理和维护。
+   -   您可以把   .js
+       文件放到网站目录中通常存放脚本的子目录中，这样更容易管理和维护。
 
 #+BEGIN_HTML
   </div>
@@ -212,26 +188,18 @@
   <div id="outline-container-4" class="outline-2">
 #+END_HTML
 
-** 4 JavaScript语句
-   :PROPERTIES:
-   :CUSTOM_ID: sec-4
-   :END:
-
+** 4 JavaScript语句  
 <<text-4>>
- 
+ 
 
 #+BEGIN_HTML
   <div id="outline-container-4.1" class="outline-3">
 #+END_HTML
 
-*** 4.1 JavaScript语句
-    :PROPERTIES:
-    :CUSTOM_ID: sec-4.1
-    :END:
-
+*** 4.1 JavaScript 语句  
 <<text-4.1>>
 
--  浏览器把行末作为语句的结尾
+-  浏览器把行末作为语句的结尾  
 -  分号是可选的，通过使用分号，可以在一行中写多条语句。
 
 #+BEGIN_HTML
@@ -246,15 +214,11 @@
   <div id="outline-container-5" class="outline-2">
 #+END_HTML
 
-** 5 JavaScript注释
-   :PROPERTIES:
-   :CUSTOM_ID: sec-5
-   :END:
-
+** 5 JavaScript注释  
 <<text-5>>
 
 -  单行注释：//comments
--  多行注释：/*comments*/
+- 多行注释：/*comments*/
 
 #+BEGIN_HTML
   </div>
@@ -264,34 +228,30 @@
   <div id="outline-container-6" class="outline-2">
 #+END_HTML
 
-** 6 JavaScript变量
-   :PROPERTIES:
-   :CUSTOM_ID: sec-6
-   :END:
-
+** 6 JavaScript变量  
 <<text-6>>
 
--  变量对大小写敏感（y和Y是两个不同的变量）
--  变量必须以字母或下划线开始
--  可以通过var语句来声明JavaScript变量
--  可以在声明它们时向变量赋值
--  如果您所赋值的变量还未进行过声明，该变量会自动声明
+-  变量对大小写敏感（y和 Y 是两个不同的变量）
+- 变量必须以字母或下划线开始  
+-  可以通过 var 语句来声明 JavaScript 变量  
+-  可以在声明它们时向变量赋值  
+-  如果您所赋值的变量还未进行过声明，该变量会自动声明  
 
-   -  这些语句：
+   -   这些语句：
 
-      #+BEGIN_EXAMPLE
+      #+BEGIN_SRC
           x=5;
           carname="Volvo"; 
-      #+END_EXAMPLE
+      #+END_SRC
 
    -  与这些语句的效果相同：
 
-      #+BEGIN_EXAMPLE
+      #+BEGIN_SRC
           var x=5;
           var carname="Volvo"; 
-      #+END_EXAMPLE
+      #+END_SRC
 
--  如果您再次声明了JavaScript变量，该变量也不会丢失其原始值。
+- 如果您再次声明了 JavaScript 变量，该变量也不会丢失其原始值。
 
 #+BEGIN_HTML
   </div>
@@ -301,11 +261,7 @@
   <div id="outline-container-7" class="outline-2">
 #+END_HTML
 
-** 7 JavaScript运算符
-   :PROPERTIES:
-   :CUSTOM_ID: sec-7
-   :END:
-
+** 7 JavaScript运算符  
 <<text-7>>
 
 -  如果把数字与字符串相加，结果将成为字符串。
@@ -318,15 +274,11 @@
   <div id="outline-container-8" class="outline-2">
 #+END_HTML
 
-** 8 JavaScript比较和逻辑运算符
-   :PROPERTIES:
-   :CUSTOM_ID: sec-8
-   :END:
-
+** 8 JavaScript比较和逻辑运算符 
 <<text-8>>
 
--  ==：等于
--  ===：全等
+- ==：等于 
+- ===：全等  
 
 #+BEGIN_HTML
   </div>
@@ -336,17 +288,13 @@
   <div id="outline-container-9" class="outline-2">
 #+END_HTML
 
-** 9 JavaScript If...Else语句
-   :PROPERTIES:
-   :CUSTOM_ID: sec-9
-   :END:
-
+** 9 JavaScript If...Else 语句  
 <<text-9>>
 
--  if
--  if ... else
--  if ... else if ... else
--  switch
+- if
+- if ... else
+- if ... else if ... else
+- switch
 
 #+BEGIN_HTML
   </div>
@@ -356,28 +304,20 @@
   <div id="outline-container-10" class="outline-2">
 #+END_HTML
 
-** 10 JavaScript消息框
-   :PROPERTIES:
-   :CUSTOM_ID: sec-10
-   :END:
-
+** 10 JavaScript 消息框  
 <<text-10>>
- 
+ 
 
 #+BEGIN_HTML
   <div id="outline-container-10.1" class="outline-3">
 #+END_HTML
 
-*** 10.1 警告框
-    :PROPERTIES:
-    :CUSTOM_ID: sec-10.1
-    :END:
-
+*** 10.1  警告框  
 <<text-10.1>>
 
 -  警告框经常用于确保用户可以得到某些信息。
--  当警告框出现后，用户需要点击确定按钮才能继续进行操作。
--  alert("文本")
+- 当警告框出现后，用户需要点击确定按钮才能继续进行操作。
+- alert("文本  ")
 
 #+BEGIN_HTML
   </div>
@@ -387,17 +327,13 @@
   <div id="outline-container-10.2" class="outline-3">
 #+END_HTML
 
-*** 10.2 确认框
-    :PROPERTIES:
-    :CUSTOM_ID: sec-10.2
-    :END:
-
+*** 10.2  确认框  
 <<text-10.2>>
 
 -  确认框用于使用户可以验证或者接受某些信息。
--  当确认框出现后，用户需要点击确定或者取消按钮才能继续进行操作。
--  如果用户点击确认，那么返回值为true。如果用户点击取消，那么返回值为false。
--  confirm("文本")
+- 当确认框出现后，用户需要点击确定或者取消按钮才能继续进行操作。
+- 如果用户点击确认，那么返回值为 true。如果用户点击取消，那么返回值为 false。
+- confirm("文本  ")
 
 #+BEGIN_HTML
   </div>
@@ -407,17 +343,13 @@
   <div id="outline-container-10.3" class="outline-3">
 #+END_HTML
 
-*** 10.3 提示框
-    :PROPERTIES:
-    :CUSTOM_ID: sec-10.3
-    :END:
-
+*** 10.3  提示框  
 <<text-10.3>>
 
 -  提示框经常用于提示用户在进入页面前输入某个值。
--  当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。
--  如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为null。
--  prompt("文本", "默认值")
+- 当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。
+- 如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。
+- prompt("文本  ", " 默认值  ")
 
 #+BEGIN_HTML
   </div>
@@ -431,28 +363,20 @@
   <div id="outline-container-11" class="outline-2">
 #+END_HTML
 
-** 11 JavaScript函数
-   :PROPERTIES:
-   :CUSTOM_ID: sec-11
-   :END:
-
+** 11 JavaScript 函数  
 <<text-11>>
- 
+ 
 
 #+BEGIN_HTML
   <div id="outline-container-11.1" class="outline-3">
 #+END_HTML
 
-*** 11.1 JavaScript函数
-    :PROPERTIES:
-    :CUSTOM_ID: sec-11.1
-    :END:
-
+*** 11.1 JavaScript 函数  
 <<text-11.1>>
 
 -  将脚本编写为函数，就可以避免页面载入时执行该脚本。
--  函数包含着一些代码，这些代码只能被事件激活，或者在函数被调用时才会执行。
--  函数在页面起始位置定义，即 <head> 部分。
+- 函数包含着一些代码，这些代码只能被事件激活，或者在函数被调用时才会执行。
+- 函数在页面起始位置定义，即  <head>  部分。
 
 #+BEGIN_HTML
   </div>
@@ -462,30 +386,22 @@
   <div id="outline-container-11.2" class="outline-3">
 #+END_HTML
 
-*** 11.2 如何定义函数
-    :PROPERTIES:
-    :CUSTOM_ID: sec-11.2
-    :END:
-
+*** 11.2 如何定义函数  
 <<text-11.2>>
- 
+ 
 
 #+BEGIN_HTML
   <div id="outline-container-11.2.1" class="outline-4">
 #+END_HTML
 
-**** 11.2.1 创建函数的语法：
-     :PROPERTIES:
-     :CUSTOM_ID: sec-11.2.1
-     :END:
-
+**** 11.2.1  创建函数的语法：
 <<text-11.2.1>>
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     function func(var1, var2, ...)
     {
         \\statements
     }
-#+END_EXAMPLE
+#+END_SRC
 
 #+BEGIN_HTML
   </div>
@@ -495,15 +411,11 @@
   <div id="outline-container-11.2.2" class="outline-4">
 #+END_HTML
 
-**** 11.2.2 JavaScript变量的生存期
-     :PROPERTIES:
-     :CUSTOM_ID: sec-11.2.2
-     :END:
-
+**** 11.2.2 JavaScript变量的生存期  
 <<text-11.2.2>>
 
--  全局变量
--  局部变量
+-  全局变量  
+-  局部变量  
 
 #+BEGIN_HTML
   </div>
@@ -521,13 +433,9 @@
   <div id="outline-container-12" class="outline-2">
 #+END_HTML
 
-** 12 JavaScript For循环
-   :PROPERTIES:
-   :CUSTOM_ID: sec-12
-   :END:
-
+** 12 JavaScript For 循环  
 <<text-12>>
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     <html>
     <body>
 
@@ -542,7 +450,7 @@
 
     </body>
     </html>
-#+END_EXAMPLE
+#+END_SRC
 
 #+BEGIN_HTML
   </div>
@@ -552,13 +460,9 @@
   <div id="outline-container-13" class="outline-2">
 #+END_HTML
 
-** 13 JavaScript While循环
-   :PROPERTIES:
-   :CUSTOM_ID: sec-13
-   :END:
-
+** 13 JavaScript While 循环  
 <<text-13>>
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     <html>
     <body>
     <script type="text/javascript">
@@ -572,7 +476,7 @@
     </script>
     </body>
     </html>
-#+END_EXAMPLE
+#+END_SRC
 
 #+BEGIN_HTML
   </div>
@@ -582,19 +486,15 @@
   <div id="outline-container-14" class="outline-2">
 #+END_HTML
 
-** 14 JavaScript Break和Continue语句
-   :PROPERTIES:
-   :CUSTOM_ID: sec-14
-   :END:
-
+** 14 JavaScript Break 和Continue语句  
 <<text-14>>
 
--  break语句：使用break语句来终止循环。
--  continue语句：使用continue语句来终止当前的循环，然后从下一个值继续执行。
+- break 语句：使用 break 语句来终止循环。
+- continue语句：使用 continue 语句来终止当前的循环，然后从下一个值继续执行。
 
-JavaScript For...In声明
+JavaScript For...In声明  
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
     <html>
     <body>
 
@@ -613,7 +513,7 @@ JavaScript For...In声明
 
     </body>
     </html>
-#+END_EXAMPLE
+#+END_SRC
 
 #+BEGIN_HTML
   </div>
@@ -623,47 +523,43 @@ JavaScript For...In声明
   <div id="outline-container-15" class="outline-2">
 #+END_HTML
 
-** 15 JavaScript事件
-   :PROPERTIES:
-   :CUSTOM_ID: sec-15
-   :END:
-
+** 15 JavaScript 事件  
 <<text-15>>
 
--  *事件是可以被JavaScript侦测到的行为。*
--  事件举例：
+- * 事件是可以被 JavaScript 侦测到的行为。*
+- 事件举例：
 
-   -  鼠标点击
-   -  页面或图像载入
-   -  鼠标悬浮于页面的某个热点之上
-   -  在表单中选取输入框
-   -  确认表单
-   -  键盘按键
+   -  鼠标点击  
+   -   页面或图像载入  
+   -   鼠标悬浮于页面的某个热点之上  
+   -   在表单中选取输入框  
+   -   确认表单  
+   -   键盘按键  
 
--  JavaScript事件参考
-   | 属性          | 当以下情况发生时，出现此事件     | FF   | N   | IE   |
+- JavaScript 事件参考 
+   |  属性           |  当以下情况发生时，出现此事件       | FF   | N   | IE   |
    |---------------+----------------------------------+------+-----+------|
-   | onabort       | 图像加载被中断                   | 1    | 3   | 4    |
-   | onblur        | 元素失去焦点                     | 1    | 2   | 3    |
-   | onchange      | 用户改变域的内容                 | 1    | 2   | 3    |
-   | onclick       | 鼠标点击某个对象                 | 1    | 2   | 3    |
-   | ondblclick    | 鼠标双击某个对象                 | 1    | 4   | 4    |
-   | onerror       | 当加载文档或图像时发生某个错误   | 1    | 3   | 4    |
-   | onfocus       | 元素获得焦点                     | 1    | 2   | 3    |
-   | onkeydown     | 某个键盘的键被按下               | 1    | 4   | 3    |
-   | onkeypress    | 某个键盘的键被按下或按住         | 1    | 4   | 3    |
-   | onkeyup       | 某个键盘的键被松开               | 1    | 4   | 3    |
-   | onload        | 某个页面或图像被完成加载         | 1    | 2   | 3    |
-   | onmousedown   | 某个鼠标按键被按下               | 1    | 4   | 4    |
-   | onmousemove   | 鼠标被移动                       | 1    | 6   | 3    |
-   | onmouseout    | 鼠标从某元素移开                 | 1    | 4   | 4    |
-   | onmouseover   | 鼠标被移到某元素之上             | 1    | 2   | 3    |
-   | onmouseup     | 某个鼠标按键被松开               | 1    | 4   | 4    |
-   | onreset       | 重置按钮被点击                   | 1    | 3   | 4    |
-   | onresize      | 窗口或框架被调整尺寸             | 1    | 4   | 4    |
-   | onselect      | 文本被选定                       | 1    | 2   | 3    |
-   | onsubmit      | 提交按钮被点击                   | 1    | 2   | 3    |
-   | onunload      | 用户退出页面                     | 1    | 2   | 3    |
+   | onabort       |  图像加载被中断                    | 1    | 3   | 4    |
+   | onblur        |  元素失去焦点                      | 1    | 2   | 3    |
+   | onchange      |  用户改变域的内容                  | 1    | 2   | 3    |
+   | onclick       |  鼠标点击某个对象                  | 1    | 2   | 3    |
+   | ondblclick    |  鼠标双击某个对象                  | 1    | 4   | 4    |
+   | onerror       |  当加载文档或图像时发生某个错误    | 1    | 3   | 4    |
+   | onfocus       |  元素获得焦点                      | 1    | 2   | 3    |
+   | onkeydown     |  某个键盘的键被按下                | 1    | 4   | 3    |
+   | onkeypress    |  某个键盘的键被按下或按住          | 1    | 4   | 3    |
+   | onkeyup       |  某个键盘的键被松开                | 1    | 4   | 3    |
+   | onload        |  某个页面或图像被完成加载          | 1    | 2   | 3    |
+   | onmousedown   |  某个鼠标按键被按下                | 1    | 4   | 4    |
+   | onmousemove   |  鼠标被移动                        | 1    | 6   | 3    |
+   | onmouseout    |  鼠标从某元素移开                  | 1    | 4   | 4    |
+   | onmouseover   |  鼠标被移到某元素之上              | 1    | 2   | 3    |
+   | onmouseup     |  某个鼠标按键被松开                | 1    | 4   | 4    |
+   | onreset       |  重置按钮被点击                    | 1    | 3   | 4    |
+   | onresize      |  窗口或框架被调整尺寸              | 1    | 4   | 4    |
+   | onselect      |  文本被选定                        | 1    | 2   | 3    |
+   | onsubmit      |  提交按钮被点击                    | 1    | 2   | 3    |
+   | onunload      |  用户退出页面                       | 1    | 2   | 3    |
 
 #+BEGIN_HTML
   </div>
@@ -673,13 +569,9 @@ JavaScript For...In声明
   <div id="outline-container-16" class="outline-2">
 #+END_HTML
 
-** 16 JavaScript Try...Catch语句
-   :PROPERTIES:
-   :CUSTOM_ID: sec-16
-   :END:
-
+** 16 JavaScript Try...Catch 语句  
 <<text-16>>
- 
+ 
 
 #+BEGIN_HTML
   </div>
@@ -689,23 +581,19 @@ JavaScript For...In声明
   <div id="outline-container-17" class="outline-2">
 #+END_HTML
 
-** 17 JavaScript特殊字符
-   :PROPERTIES:
-   :CUSTOM_ID: sec-17
-   :END:
-
+** 17 JavaScript 特殊字符  
 <<text-17>>
-| 代码   | 输出     |
+|  代码    |  输出       |
 |--------+----------|
-| \'     | 单引号   |
-| \"     | 双引号   |
-| \&     | 和号     |
-| \\     | 反斜杠   |
-| \n     | 换行符   |
-| \r     | 回车符   |
-| \t     | 制表符   |
-| \b     | 退格符   |
-| \f     | 换页符   |
+| \'     |  单引号     |
+| \"     |  双引号     |
+| \&     |  和号       |
+| \\     |  反斜杠     |
+| \n     |  换行符     |
+| \r     |  回车符     |
+| \t     |  制表符     |
+| \b     |  退格符     |
+| \f     |  换页符     |
 
 #+BEGIN_HTML
   </div>
@@ -715,16 +603,12 @@ JavaScript For...In声明
   <div id="outline-container-18" class="outline-2">
 #+END_HTML
 
-** 18 JavaScript指导方针
-   :PROPERTIES:
-   :CUSTOM_ID: sec-18
-   :END:
-
+** 18 JavaScript 指导方针  
 <<text-18>>
 
--  JavaScript对大小写敏感
--  JavaScript会忽略多余的空格
--  您可以在文本字符串内部使用反斜杠对代码进行折行
+- JavaScript 对大小写敏感  
+- JavaScript 会忽略多余的空格  
+-  您可以在文本字符串内部使用反斜杠对代码进行折行  
 
 #+BEGIN_HTML
   </div>
@@ -734,15 +618,11 @@ JavaScript For...In声明
   <div id="outline-container-19" class="outline-2">
 #+END_HTML
 
-** 19 JavaScript对象简介
-   :PROPERTIES:
-   :CUSTOM_ID: sec-19
-   :END:
-
+** 19 JavaScript 对象简介  
 <<text-19>>
 
--  JavaScript是面向对象的编程语言(OOP)。
--  对象拥有属性和方法。
+- JavaScript 是面向对象的编程语言 (OOP)。
+- 对象拥有属性和方法。
 
    -  属性：属性指与对象有关的值。
    -  方法：方法指对象可以执行的行为（或者可以完成的功能）。
@@ -755,16 +635,12 @@ JavaScript For...In声明
   <div id="outline-container-20" class="outline-2">
 #+END_HTML
 
-** 20 JavaScript字符串(String)对象
-   :PROPERTIES:
-   :CUSTOM_ID: sec-20
-   :END:
-
+** 20 JavaScript字符串  (String) 对象  
 <<text-20>>
 
--  计算字符串的长度
+-  计算字符串的长度  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -777,11 +653,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  indexOf()方法
+- indexOf() 方法  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -796,11 +672,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  match()方法
+- match() 方法  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -816,11 +692,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  replace()方法
+- replace() 方法  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -832,29 +708,25 @@ JavaScript For...In声明
        </script>
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
 #+BEGIN_HTML
   <div id="outline-container-20.1" class="outline-3">
 #+END_HTML
 
-*** 20.1 String对象的方法
-    :PROPERTIES:
-    :CUSTOM_ID: sec-20.1
-    :END:
-
+*** 20.1 String 对象的方法  
 <<text-20.1>>
 
--  JavaScript的字符串是不可变的
--  String类定义的方法都不能改变字符串的内容
-   | 方法                  | 描述                                                   | FF   | N   | IE   |
+- JavaScript 的字符串是不可变的  
+- String 类定义的方法都不能改变字符串的内容 
+   |  方法                   |  描述                                                     | FF   | N   | IE   |
    |-----------------------+--------------------------------------------------------+------+-----+------|
-   | anchor()              | 创建 HTML 锚。                                         | 1    | 2   | 3    |
+   | anchor()              |  创建  HTML  锚。                                         | 1    | 2   | 3    |
    | big()                 | 用大号字体显示字符串。                                 | 1    | 2   | 3    |
-   | blink()               | 显示闪动字符串。                                       | 1    | 2   |      |
+   | blink()               | 显示闪动字符串。                                       | 1    | 2   |      |
    | bold()                | 使用粗体显示字符串。                                   | 1    | 2   | 3    |
    | charAt()              | 返回在指定位置的字符。                                 | 1    | 2   | 3    |
-   | charCodeAt()          | 返回在指定的位置的字符的 Unicode 编码。                | 1    | 4   | 4    |
+   | charCodeAt()          | 返回在指定的位置的字符的  Unicode  编码。                | 1    | 4   | 4    |
    | concat()              | 连接字符串。                                           | 1    | 4   | 4    |
    | fixed()               | 以打字机文本显示字符串。                               | 1    | 2   | 3    |
    | fontcolor()           | 使用指定的颜色来显示字符串。                           | 1    | 2   | 3    |
@@ -882,7 +754,7 @@ JavaScript For...In声明
    | toUpperCase()         | 把字符串转换为大写。                                   | 1    | 2   | 3    |
    | toSource()            | 代表对象的源代码。                                     | 1    | 4   | -    |
    | toString()            | 返回字符串。                                           | -    | -   | -    |
-   | valueOf()             | 返回某个字符串对象的原始值                             | 1    | 2   | 4    |
+   | valueOf()             | 返回某个字符串对象的原始值                               | 1    | 2   | 4    |
 
 #+BEGIN_HTML
   </div>
@@ -892,17 +764,13 @@ JavaScript For...In声明
   <div id="outline-container-20.2" class="outline-3">
 #+END_HTML
 
-*** 20.2 String对象的属性
-    :PROPERTIES:
-    :CUSTOM_ID: sec-20.2
-    :END:
-
+*** 20.2 String 对象的属性  
 <<text-20.2>>
-| 属性          | 描述                         | FF   | N   | IE   |
+|  属性           |  描述                           | FF   | N   | IE   |
 |---------------+------------------------------+------+-----+------|
-| constructor   | 对创建该对象的函数的引用     | 1    | 4   | 4    |
-| length        | 字符串的长度                 | 1    | 2   | 3    |
-| prototype     | 允许您向对象添加属性和方法   | 1    | 2   | 4    |
+| constructor   |  对创建该对象的函数的引用      | 1    | 4   | 4    |
+| length        |  字符串的长度                  | 1    | 2   | 3    |
+| prototype     |  允许您向对象添加属性和方法    | 1    | 2   | 4    |
 
 #+BEGIN_HTML
   </div>
@@ -916,16 +784,12 @@ JavaScript For...In声明
   <div id="outline-container-21" class="outline-2">
 #+END_HTML
 
-** 21 JavaScript Date（日期）对象
-   :PROPERTIES:
-   :CUSTOM_ID: sec-21
-   :END:
-
+** 21 JavaScript Date（日期）对象  
 <<text-21>>
 
--  返回当日的日期和时间
+-  返回当日的日期和时间  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -937,11 +801,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  getTime()
+- getTime()
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -960,11 +824,11 @@ JavaScript For...In声明
        </script>
 
        </body>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  setFullYear()
+- setFullYear()
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -978,11 +842,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  toUTCString()
+- toUTCString()
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -995,11 +859,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  时钟
+-  时钟  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <head>
        <script type="text/javascript">
@@ -1032,68 +896,64 @@ JavaScript For...In声明
        <div id="txt"></div>
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
 #+BEGIN_HTML
   <div id="outline-container-21.1" class="outline-3">
 #+END_HTML
 
-*** 21.1 Date对象的方法
-    :PROPERTIES:
-    :CUSTOM_ID: sec-21.1
-    :END:
-
+*** 21.1 Date 对象的方法  
 <<text-21.1>>
-| 方法                   | 描述                                                                   | FF   | N   | IE   |
+|  方法                    |  描述                                                                     | FF   | N   | IE   |
 |------------------------+------------------------------------------------------------------------+------+-----+------|
-| Date()                 | 返回当日的日期和时间                                                   | 1    | 2   | 3    |
-| getDate()              | 从Date对象返回一个月中的某一天 (1 ~ 31)                                | 1    | 2   | 3    |
-| getDay()               | 从Date对象返回一周中的某一天 (0 ~ 6)                                   | 1    | 2   | 3    |
-| getMonth()             | 从Date对象返回月份 (0 ~ 11)                                            | 1    | 2   | 3    |
-| getFullYear()          | 从Date对象以四位数字返回年份                                           | 1    | 4   | 4    |
-| getYear()              | 从Date对象以两位或四位数字返回年份。                                   | 1    | 2   | 3    |
-| getHours()             | 返回Date对象的小时 (0 ~ 23)                                            | 1    | 2   | 3    |
-| getMinutes()           | 返回Date对象的分钟 (0 ~ 59)                                            | 1    | 2   | 3    |
-| getSeconds()           | 返回Date对象的秒数 (0 ~ 59))                                           | 1    | 2   | 3    |
-| getMilliseconds()      | 返回Date对象的毫秒(0 ~ 999)                                            | 1    | 4   | 4    |
-| getTime()              | 返回 1970 年 1 月 1 日至今的毫秒数                                     | 1    | 2   | 3    |
-| getTimezoneOffset()    | 返回本地时间与格林威治标准时间的分钟差 (GMT)                           | 1    | 2   | 3    |
-| getUTCDate()           | 根据世界时从Date对象返回月中的一天 (1 ~ 31)                            | 1    | 4   | 4    |
-| getUTCDay()            | 根据世界时从Date对象返回周中的一天 (0 ~ 6)                             | 1    | 4   | 4    |
-| getUTCMonth()          | 根据世界时从Date对象返回月份 (0 ~ 11)                                  | 1    | 4   | 4    |
-| getUTCFullYear()       | 根据世界时从Date对象返回四位数的年份                                   | 1    | 4   | 4    |
-| getUTCHours()          | 根据世界时返回Date对象的小时 (0 ~ 23)                                  | 1    | 4   | 4    |
-| getUTCMinutes()        | 根据世界时返回Date对象的分钟 (0 ~ 59)                                  | 1    | 4   | 4    |
-| getUTCSeconds()        | 根据世界时返回Date对象的秒钟 (0 ~ 59)                                  | 1    | 4   | 4    |
-| getUTCMilliseconds()   | 根据世界时返回Date对象的毫秒(0 ~ 999)                                  | 1    | 4   | 4    |
-| parse()                | 返回1970年1月1日午夜到指定日期（字符串）的毫秒数                       | 1    | 2   | 3    |
-| setDate()              | 设置Date对象中月的某一天 (1 ~ 31))                                     | 1    | 2   | 3    |
-| setMonth()             | 设置Date对象中月份 (0 ~ 11))                                           | 1    | 2   | 3    |
-| setFullYear()          | 设置Date对象中的年份（四位数字）                                       | 1    | 4   | 4    |
-| setYear()              | 设置Date对象中的年份（两位或四位数字）。                               | 1    | 2   | 3    |
-| setHours()             | 设置Date对象中的小时 (0 ~ 23)                                          | 1    | 2   | 3    |
-| setMinutes()           | 设置Date对象中的分钟 (0 ~ 59)                                          | 1    | 2   | 3    |
-| setSeconds()           | 设置Date对象中的秒钟 (0 ~ 59)                                          | 1    | 2   | 3    |
-| setMilliseconds()      | 设置Date对象中的毫秒 (0 ~ 999)                                         | 1    | 4   | 4    |
-| setTime()              | 通过向或从1970年1月1日午夜添加或减去指定数目的毫秒来计算日期和时间     | 1    | 2   | 3    |
-| setUTCDate()           | 根据世界时设置Date对象中月份的一天 (1 ~ 31)                            | 1    | 4   | 4    |
-| setUTCMonth()          | 根据世界时设置Date对象中的月份 (0 ~ 11)                                | 1    | 4   | 4    |
-| setUTCFullYear()       | 根据世界时设置Date对象中年份（四位数字）                               | 1    | 4   | 4    |
-| setUTCHours()          | 根据世界时设置Date对象中小时 (0 ~ 23)                                  | 1    | 4   | 4    |
-| setUTCMinutes()        | 根据世界时设置Date对象中分钟 (0 ~ 59)                                  | 1    | 4   | 4    |
-| setUTCSeconds()        | 根据世界时设置Date对象中秒钟 (0 ~ 59)                                  | 1    | 4   | 4    |
-| setUTCMilliseconds()   | 根据世界时设置Date对象中毫秒S(0 ~ 999)                                 | 1    | 4   | 4    |
-| toSource()             | 代表对象的源代码                                                       | 1    | 4   | -    |
-| toString()             | 把Date对象转换为字符串。                                               | 1    | 2   | 4    |
-| toTimeString()         | 把Date对象的时间部分转换为字符串。                                     | 1    | 2   | 4    |
-| toDateString()         | 把Date对象的日期部分转换为字符串。                                     | 1    | 2   | 4    |
-| toGMTString()          | 根据格林威治时间，把Date对象转换为字符串。                             | 1    | 2   | 3    |
-| toUTCString()          | 根据世界时，把Date对象转换为字符串。                                   | 1    | 4   | 4    |
-| toLocaleString()       | 根据本地时间格式，把Date对象转换为字符串。                             | 1    | 2   | 3    |
-| toLocaleTimeString()   | 根据本地时间格式，把Date对象的时间部分转换为字符串                     | 1    | 2   | 3    |
-| toLocaleDateString()   | 根据本地时间格式，把Date对象的日期部分转换为字符串                     | 1    | 2   | 3    |
-| UTC()                  | 根据世界时，获得一个日期，然后返回1970年1月1日午夜到该日期的毫秒数。   | 1    | 2   | 3    |
-| valueOf()              | 返回Date对象的原始值。                                                 | 1    | 2   | 4    |
+| Date()                 |  返回当日的日期和时间                                                     | 1    | 2   | 3    |
+| getDate()              |  从Date对象返回一个月中的某一天   (1 ~ 31)                                | 1    | 2   | 3    |
+| getDay()               |  从Date对象返回一周中的某一天   (0 ~ 6)                                   | 1    | 2   | 3    |
+| getMonth()             |  从Date对象返回月份   (0 ~ 11)                                            | 1    | 2   | 3    |
+| getFullYear()          |  从Date对象以四位数字返回年份                                             | 1    | 4   | 4    |
+| getYear()              |  从Date对象以两位或四位数字返回年份。                                   | 1    | 2   | 3    |
+| getHours()             | 返回 Date 对象的小时   (0 ~ 23)                                            | 1    | 2   | 3    |
+| getMinutes()           |  返回 Date 对象的分钟   (0 ~ 59)                                            | 1    | 2   | 3    |
+| getSeconds()           |  返回 Date 对象的秒数   (0 ~ 59))                                           | 1    | 2   | 3    |
+| getMilliseconds()      |  返回 Date 对象的毫秒  (0 ~ 999)                                            | 1    | 4   | 4    |
+| getTime()              |  返回  1970  年 1 月  1  日至今的毫秒数                                       | 1    | 2   | 3    |
+| getTimezoneOffset()    |  返回本地时间与格林威治标准时间的分钟差   (GMT)                           | 1    | 2   | 3    |
+| getUTCDate()           |  根据世界时从 Date 对象返回月中的一天   (1 ~ 31)                            | 1    | 4   | 4    |
+| getUTCDay()            |  根据世界时从 Date 对象返回周中的一天   (0 ~ 6)                             | 1    | 4   | 4    |
+| getUTCMonth()          |  根据世界时从 Date 对象返回月份   (0 ~ 11)                                  | 1    | 4   | 4    |
+| getUTCFullYear()       |  根据世界时从 Date 对象返回四位数的年份                                     | 1    | 4   | 4    |
+| getUTCHours()          |  根据世界时返回 Date 对象的小时   (0 ~ 23)                                  | 1    | 4   | 4    |
+| getUTCMinutes()        |  根据世界时返回 Date 对象的分钟   (0 ~ 59)                                  | 1    | 4   | 4    |
+| getUTCSeconds()        |  根据世界时返回 Date 对象的秒钟   (0 ~ 59)                                  | 1    | 4   | 4    |
+| getUTCMilliseconds()   |  根据世界时返回 Date 对象的毫秒  (0 ~ 999)                                  | 1    | 4   | 4    |
+| parse()                |  返回 1970 年1月 1 日午夜到指定日期（字符串）的毫秒数                         | 1    | 2   | 3    |
+| setDate()              |  设置 Date 对象中月的某一天   (1 ~ 31))                                     | 1    | 2   | 3    |
+| setMonth()             |  设置 Date 对象中月份   (0 ~ 11))                                           | 1    | 2   | 3    |
+| setFullYear()          |  设置 Date 对象中的年份（四位数字）                                       | 1    | 4   | 4    |
+| setYear()              | 设置 Date 对象中的年份（两位或四位数字）。                               | 1    | 2   | 3    |
+| setHours()             | 设置 Date 对象中的小时   (0 ~ 23)                                          | 1    | 2   | 3    |
+| setMinutes()           |  设置 Date 对象中的分钟   (0 ~ 59)                                          | 1    | 2   | 3    |
+| setSeconds()           |  设置 Date 对象中的秒钟   (0 ~ 59)                                          | 1    | 2   | 3    |
+| setMilliseconds()      |  设置 Date 对象中的毫秒   (0 ~ 999)                                         | 1    | 4   | 4    |
+| setTime()              |  通过向或从 1970 年1月 1 日午夜添加或减去指定数目的毫秒来计算日期和时间       | 1    | 2   | 3    |
+| setUTCDate()           |  根据世界时设置 Date 对象中月份的一天   (1 ~ 31)                            | 1    | 4   | 4    |
+| setUTCMonth()          |  根据世界时设置 Date 对象中的月份   (0 ~ 11)                                | 1    | 4   | 4    |
+| setUTCFullYear()       |  根据世界时设置 Date 对象中年份（四位数字）                               | 1    | 4   | 4    |
+| setUTCHours()          | 根据世界时设置 Date 对象中小时   (0 ~ 23)                                  | 1    | 4   | 4    |
+| setUTCMinutes()        |  根据世界时设置 Date 对象中分钟   (0 ~ 59)                                  | 1    | 4   | 4    |
+| setUTCSeconds()        |  根据世界时设置 Date 对象中秒钟   (0 ~ 59)                                  | 1    | 4   | 4    |
+| setUTCMilliseconds()   |  根据世界时设置 Date 对象中毫秒  S(0 ~ 999)                                 | 1    | 4   | 4    |
+| toSource()             |  代表对象的源代码                                                         | 1    | 4   | -    |
+| toString()             |  把Date对象转换为字符串。                                               | 1    | 2   | 4    |
+| toTimeString()         | 把 Date 对象的时间部分转换为字符串。                                     | 1    | 2   | 4    |
+| toDateString()         | 把 Date 对象的日期部分转换为字符串。                                     | 1    | 2   | 4    |
+| toGMTString()          | 根据格林威治时间，把 Date 对象转换为字符串。                             | 1    | 2   | 3    |
+| toUTCString()          | 根据世界时，把 Date 对象转换为字符串。                                   | 1    | 4   | 4    |
+| toLocaleString()       | 根据本地时间格式，把 Date 对象转换为字符串。                             | 1    | 2   | 3    |
+| toLocaleTimeString()   | 根据本地时间格式，把 Date 对象的时间部分转换为字符串                       | 1    | 2   | 3    |
+| toLocaleDateString()   |  根据本地时间格式，把 Date 对象的日期部分转换为字符串                       | 1    | 2   | 3    |
+| UTC()                  |  根据世界时，获得一个日期，然后返回 1970 年1月 1 日午夜到该日期的毫秒数。   | 1    | 2   | 3    |
+| valueOf()              | 返回 Date 对象的原始值。                                                 | 1    | 2   | 4    |
 
 #+BEGIN_HTML
   </div>
@@ -1107,16 +967,12 @@ JavaScript For...In声明
   <div id="outline-container-22" class="outline-2">
 #+END_HTML
 
-** 22 JavaScript数组
-   :PROPERTIES:
-   :CUSTOM_ID: sec-22
-   :END:
-
+** 22 JavaScript数组  
 <<text-22>>
 
--  创建数组
+-  创建数组  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
 
@@ -1134,11 +990,11 @@ JavaScript For...In声明
 
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
--  For...In声明
+- For...In 声明  
 
-   #+BEGIN_EXAMPLE
+   #+BEGIN_SRC
        <html>
        <body>
        <script type="text/javascript">
@@ -1155,34 +1011,30 @@ JavaScript For...In声明
        </script>
        </body>
        </html>
-   #+END_EXAMPLE
+   #+END_SRC
 
 #+BEGIN_HTML
   <div id="outline-container-22.1" class="outline-3">
 #+END_HTML
 
-*** 22.1 Array对象的方法
-    :PROPERTIES:
-    :CUSTOM_ID: sec-22.1
-    :END:
-
+*** 22.1 Array 对象的方法  
 <<text-22.1>>
-| 方法               | 描述                                                             | FF   | N   | IE    |
+|  方法                |  描述                                                               | FF   | N   | IE    |
 |--------------------+------------------------------------------------------------------+------+-----+-------|
-| concat()           | 连接两个或更多的数组，并返回结果。                               | 1    | 4   | 4     |
+| concat()           |  连接两个或更多的数组，并返回结果。                               | 1    | 4   | 4     |
 | join()             | 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。   | 1    | 3   | 4     |
-| pop()              | 删除并返回数组的最后一个元素                                     | 1    | 4   | 5.5   |
-| push()             | 向数组的末尾添加一个或更多元素，并返回新的长度。                 | 1    | 4   | 5.5   |
+| pop()              | 删除并返回数组的最后一个元素                                       | 1    | 4   | 5.5   |
+| push()             |  向数组的末尾添加一个或更多元素，并返回新的长度。                 | 1    | 4   | 5.5   |
 | reverse()          | 颠倒数组中元素的顺序。                                           | 1    | 3   | 4     |
-| shift()            | 删除并返回数组的第一个元素                                       | 1    | 4   | 5.5   |
-| slice()            | 从某个已有的数组返回选定的元素                                   | 1    | 4   | 4     |
-| sort()             | 对数组的元素进行排序                                             | 1    | 3   | 4     |
-| splice()           | 删除元素，并向数组添加新元素。                                   | 1    | 4   | 5.5   |
-| toSource()         | 代表对象的源代码                                                 | 1    | 4   | -     |
-| toString()         | 把数组转换为字符串，并返回结果。                                 | 1    | 3   | 4     |
+| shift()            | 删除并返回数组的第一个元素                                         | 1    | 4   | 5.5   |
+| slice()            |  从某个已有的数组返回选定的元素                                     | 1    | 4   | 4     |
+| sort()             |  对数组的元素进行排序                                               | 1    | 3   | 4     |
+| splice()           |  删除元素，并向数组添加新元素。                                   | 1    | 4   | 5.5   |
+| toSource()         | 代表对象的源代码                                                   | 1    | 4   | -     |
+| toString()         |  把数组转换为字符串，并返回结果。                                 | 1    | 3   | 4     |
 | toLocaleString()   | 把数组转换为本地数组，并返回结果。                               | 1    | 3   | 4     |
 | unshift()          | 向数组的开头添加一个或更多元素，并返回新的长度。                 | 1    | 4   | 6     |
-| valueOf()          | 返回数组对象的原始值                                             | 1    | 2   | 4     |
+| valueOf()          | 返回数组对象的原始值                                              | 1    | 2   | 4     |
 
 #+BEGIN_HTML
   </div>
@@ -1196,31 +1048,23 @@ JavaScript For...In声明
   <div id="outline-container-23" class="outline-2">
 #+END_HTML
 
-** 23 JavaScript Boolean（逻辑）对象
-   :PROPERTIES:
-   :CUSTOM_ID: sec-23
-   :END:
-
+** 23 JavaScript Boolean（逻辑）对象  
 <<text-23>>
 
--  Boolean 对象是 JavaScript 的一种基本数据类型。
--  Boolean 对象是一个把布尔值打包的布尔对象。
+- Boolean  对象是  JavaScript  的一种基本数据类型。
+- Boolean 对象是一个把布尔值打包的布尔对象。
 
 #+BEGIN_HTML
   <div id="outline-container-23.1" class="outline-3">
 #+END_HTML
 
-*** 23.1 Boolean对象的方法
-    :PROPERTIES:
-    :CUSTOM_ID: sec-23.1
-    :END:
-
+*** 23.1 Boolean对象的方法  
 <<text-23.1>>
-| 方法         | 描述                                 | FF   | N   | IE   |
+|  方法          |  描述                                   | FF   | N   | IE   |
 |--------------+--------------------------------------+------+-----+------|
-| toSource()   | 代表对象的源代码                     | 1    | 4   | -    |
-| toString()   | 把逻辑值转换为字符串，并返回结果。   | 1    | 4   | 4    |
-| valueOf()    | 返回Boolean对象的原始值              | 1    | 4   | 4    |
+| toSource()   |  代表对象的源代码                       | 1    | 4   | -    |
+| toString()   |  把逻辑值转换为字符串，并返回结果。   | 1    | 4   | 4    |
+| valueOf()    | 返回 Boolean 对象的原始值               | 1    | 4   | 4    |
 
 #+BEGIN_HTML
   </div>
@@ -1234,24 +1078,20 @@ JavaScript For...In声明
   <div id="outline-container-24" class="outline-2">
 #+END_HTML
 
-** 24 JavaScript Math（算数）对象
-   :PROPERTIES:
-   :CUSTOM_ID: sec-24
-   :END:
-
+** 24 JavaScript Math（算数）对象  
 <<text-24>>
 
--  JavaScript提供8种可被Math对象访问的算数值：
-   | 含义                | 算数值           |
+- JavaScript 提供 8 种可被 Math 对象访问的算数值：
+   | 含义                 |  算数值             |
    |---------------------+------------------|
-   | 常数                | Math.E           |
-   | 圆周率              | Math.PI          |
-   | 2的平方根           | Math.SQRT2       |
-   | 1/2的平方根         | Math.SQRT1_{2}   |
-   | 2的自然对数         | Math.LN2         |
-   | 10的自然对数        | Math.LN10        |
-   | 以2为底的e的对数    | Math.LOG2E       |
-   | 以10为底的e的对数   | Math.LOG10E      |
+   |  常数                  | Math.E           |
+   |  圆周率                | Math.PI          |
+   | 2 的平方根             | Math.SQRT2       |
+   | 1/2 的平方根           | Math.SQRT1_{2}   |
+   | 2 的自然对数           | Math.LN2         |
+   | 10 的自然对数          | Math.LN10        |
+   |  以2为底的 e 的对数      | Math.LOG2E       |
+   |  以10为底的 e 的对数     | Math.LOG10E      |
 
 #+BEGIN_HTML
   </div>
@@ -1261,28 +1101,20 @@ JavaScript For...In声明
   <div id="outline-container-25" class="outline-2">
 #+END_HTML
 
-** 25 JavaScript HTML DOM对象
-   :PROPERTIES:
-   :CUSTOM_ID: sec-25
-   :END:
-
+** 25 JavaScript HTML DOM 对象  
 #+BEGIN_HTML
   <div id="outline-container-25.1" class="outline-3">
 #+END_HTML
 
-*** 25.1 HTML DOM对象
-    :PROPERTIES:
-    :CUSTOM_ID: sec-25.1
-    :END:
-
+*** 25.1 HTML DOM 对象  
 <<text-25.1>>
-| 对象        | 描述                                                     |
+|  对象         |  描述                                                       |
 |-------------+----------------------------------------------------------|
-| Window      | JavaScript层级中的顶层对象。Window对象表示浏览器窗口。   |
+| Window      | JavaScript 层级中的顶层对象。Window对象表示浏览器窗口。   |
 | Navigator   | 包含客户端浏览器的信息。                                 |
 | Screen      | 包含客户端显示屏的信息。                                 |
-| History     | 包含了浏览器窗口访问过的 URL。                           |
-| Location    | 包含了当前URL的信息。                                    |
+| History     | 包含了浏览器窗口访问过的  URL。                           |
+| Location    | 包含了当前 URL 的信息。                                    |
 
 #+BEGIN_HTML
   </div>
@@ -1293,4 +1125,4 @@ JavaScript For...In声明
 #+END_HTML
 
 <<postamble>>
- 
+ 

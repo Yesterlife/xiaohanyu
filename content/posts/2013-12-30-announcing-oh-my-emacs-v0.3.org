@@ -12,32 +12,32 @@ for a condensed feature list.
 
 Several features worth mentioning (v0.1->v0.3):
 
--  code refactoring:
+- code refactoring:
 
    -  Oh-my-emacs splits all its modules into two levels: =core= and
       =modules=. Files in =core= are required by default, while files in
       =modules= are optional. You can load necessary module when you
       really need it.
 
--  ome-org module:
+- ome-org module:
 
    -  Upgrade =org-mode= to latest 8.x branch. This brings us a more
       powerful export engine.
 
--  ome-cc module:
+- ome-cc module:
 
    -  Oh-my-emacs support auto-complete for C/C++ macros! Combined with
       =pkg-config=, oh-my-emacs cc module can be used as a perfect C/C++
       working environment with perfect semantic completion for functions
       and macros for any installed libs recognizable by =pkg-config=.
 
--  ome-java module:
+- ome-java module:
 
    -  Oh-my-emacs provide semantic completion for Java projects via
       emacs-eclim. Though not perfect(and a little heavy), this is a
       workable solution now.
 
--  ome-lisp module:
+- ome-lisp module:
 
    -  The original ubiquitous ome-lisp module has been split to four
       modules:
@@ -47,23 +47,23 @@ Several features worth mentioning (v0.1->v0.3):
       -  ome-clojure module
       -  ome-scheme module
 
--  documentation:
+- documentation:
 
    -  Add a table to specify the system requirments and el-get packages.
       Thus you can install necessary system tools to make oh-my-emacs
       modules work as expected.
 
--  compatibility:
+- compatibility:
 
    -  Improve compatibility for Mac OS X.
 
--  completion:
+- completion:
 
    -  Add semantic completion for scheme (via =ac-geiser=)
    -  Add completion table to show you the currrent semantic completion
       support for various programming languages.
 
--  miscs:
+- miscs:
 
    -  Basic support for JavaScript, Ruby, OCaml.
    -  Move some unstale packages to ome-experimental module, load as you
@@ -79,4 +79,4 @@ you'll get a tuned Emacs OS, and it works almost everywhere.
 It's time for new year, and I hope you enjoy this gift. Any feedback
 will be appreciated. Thanks!
 
- 
+ 
