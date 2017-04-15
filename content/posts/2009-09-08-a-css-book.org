@@ -1,4 +1,5 @@
-[[http://product.dangdang.com/product.aspx?product_id=20126610][[[/user_files/cnlox/Image/web/css/css_in_depth.jpg]]]]
+#+CAPTION: CSS 设计彻底研究
+[[/static/image/2009/css_in_depth.jpg][file:/static/image/2009/css_in_depth.jpg]]
 
 非常不错的一本书。不同于一般书籍的说教式，这本书是由浅入深，边讲边实验，并结合
 [[http://www.csszengarden.com/][CSS Zend Garden]] 某些实例，深入分析，阅毕让人有种醍醐灌顶、恍然大悟的感觉。
