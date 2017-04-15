@@ -1,45 +1,31 @@
-#+BEGIN_HTML
-  <div class="hl_result">
-#+END_HTML
+偶然逛 [[http://luckweb.8866.org][缘网]]，下载了 "73首经典英文歌曲（[[https://en.wikipedia.org/wiki/Monkey%2527s_Audio][ape]] 格式）"，竟然有 2G 之大。[[http://baike.baidu.com/view/8754.html][百度之 ]]，原
+来 ape 是一种无损压缩格式，据说音质较好。但迫于硬盘空间，73 首，2 GB，未免太浪费
+了。而且 Linux 下的众多音乐软件对 ape 格式支持都不好：[[https://amarok.kde.org/][Amarok]] 不支持，[[http://www.exaile.org/][Exaile]] 勉强
+可以播放，[[https://wiki.gnome.org/Apps/Videos][Totem]] 可以播放，但是 Totem 是放电影的东西，放音乐毕竟是越俎代庖，有点
+力不从心。唯一的想法就是格式转换。但是音频格式转换可不想图像格式转换那样，有个
+[[https://www.imagemagick.org/][ImagMagick]] 魔法师。网上的很多方案说要修改源下载插件。不过我对玉泉 10 元 VPN 的翻
+墙能力实在没有信心。还是寻找校内源的解决方案。所幸，找到一款软件，[[http://soundconverter.org/][SoundConverter]]，
+完美解决了这个问题：
 
- 偶然逛  [[http://luckweb.8866.org][ 缘网 ]]，下载了“73首经典英文歌曲  (ape 格式 )“，竟然有 2G 之大。[[http://baike.baidu.com/view/8754.html][百度之 ]]，原来 ape 是一种无损压缩格式，据说音质较好。但迫于硬盘空间，73首，2G，未免太浪费了。而且 Linux 下的众多音乐软件对 ape 格式支持都不好：amarok不支持，exaile勉强可以播放，totem可以播放，但是 totem 是放电影的东西，放音乐毕竟是越俎代庖，有点力不从心。唯一的想法就是格式转换。但是音频格式转换可不想图像格式转换那样，有个 imagemagick 魔法师。网上的很多方案说要修改源下载插件。不过我对玉泉 10 元vpn的翻墙能力实在没有信心。还是寻找校内源的解决方案。所幸，找到一款软件，soundconverter，完美解决了这个问题： 
-
-#+BEGIN_HTML
-  </div>
-#+END_HTML
-
-#+BEGIN_HTML
-  <div class="hl_result">
-#+END_HTML
-
-#+BEGIN_HTML
-  <div class="bash"
-  style="border: 1px solid rgb(191, 208, 217); margin: 8px; padding: 0px; background: rgb(221, 238, 255) none repeat scroll 0% 0%; color: rgb(0, 0, 0); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-#+END_HTML
-
+#+BEGIN_SRC sh
 sudo apt-get install soundconverter
+#+END_SRC
 
-#+BEGIN_HTML
-  </div>
-#+END_HTML
-
-#+BEGIN_HTML
-  </div>
-#+END_HTML
-
- 软件启动界面如下：
+软件启动界面如下：
 
 [[/user_files/cnlox/Image/screenshot_of_soundconverter/soundconverter_start.png]]
 
-可以在  Edit-Preferences 里面设置一些转换格式选项：
+可以在 ~Edit-Preferences~ 里面设置一些转换格式选项：
 
 [[/user_files/cnlox/Image/screenshot_of_soundconverter/sounconverter_preferences.png]]
 
-接下来就是等待啦。73首 2G 的ape格式的歌曲转换成 ogg 格式总共花半个小时左右，期间 cpu 占用很高。[[http://baike.baidu.com/view/660357.html%20target=][ogg格式  ]] 是一种开放无限制的格式，是 mp3 格式的强有力的竞争对手。
+接下来就是等待啦。73首 2 GB 的 ape 格式的歌曲转换成 ogg 格式总共花半个小时左右，
+期间 cpu 占用很高。[[http://baike.baidu.com/view/660357.html][ogg格式]] 是一种开放无限制的格式，是 mp3 格式的强有力的竞争对手。
 
-接下来，rhythmbox、exaile、amarok，随你怎么样。
+接下来，[[https://wiki.gnome.org/Apps/Rhythmbox][Rhythmbox]]、Exaile、Amarok，随你怎么样。
 
-今天顺便解决了一个困扰很久的小问题，就是我的 SCIM 智能拼音输入法选字编号不知怎么设置的都从 6 开始了，怪别扭的，好在有万能的 [[http://forum.ubuntu.com.cn/viewtopic.php?f=48&p=1232431][ubuntu
-forum]]，如下图，去掉 Use tone 前面的选项，重启一下 SCIM 就行了。
+今天顺便解决了一个困扰很久的小问题，就是我的 SCIM 智能拼音输入法选字编号不知怎么
+设置的都从 6 开始了，怪别扭的，好在有万能的 [[http://forum.ubuntu.com.cn/viewtopic.php?f=48&p=1232431][Ubuntu forum]]，如下图，去掉 Use tone
+前面的选项，重启一下 SCIM 就行了。
 
 [[/user_files/cnlox/Image/scim/scim_setup.png]]
