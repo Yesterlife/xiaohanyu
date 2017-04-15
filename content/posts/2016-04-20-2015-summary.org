@@ -119,10 +119,10 @@ JavaScript 方面，15 年学习了 [[http://vuejs.org/][Vue.js]] ，了解了�
 前面几天我们主要是游览海岸线附近的村镇和景点，最后一天我们决定深入岛中心——去爬汉拿山。天气不错，往返 20 公里，火山岩路和木板路交替，耗时约 9 个小时，还是有些挑战性的。登顶汉拿山，旅途也随之结束。下山，公交，登机，浦东机场摆渡，大巴到上海南站，两个小时卧铺回杭，天已微亮矣。
 
 #+CAPTION: 济州岛
-[[/static/image/2015-jizhoudao.jpg][file:/static/image/2015-jizhoudao.jpg]]
+[[/static/image/2015/jizhoudao.jpg][file:/static/image/2015/jizhoudao.jpg]]
 
 #+CAPTION: 海洋馆
-[[/static/image/2015-jizhoudao-haiyangguang.jpg][file:/static/image/2015-jizhoudao-haiyangguang.jpg]]
+[[/static/image/2015/jizhoudao-haiyangguang.jpg][file:/static/image/2015/jizhoudao-haiyangguang.jpg]]
 
 *** 广州深圳香港
 
@@ -137,14 +137,14 @@ JavaScript 方面，15 年学习了 [[http://vuejs.org/][Vue.js]] ，了解了�
 香港两日，太平山，蜡像馆，星光大道，维港夜色，匆匆旅途终作别。
 
 #+CAPTION: 广州、深圳、香港
-[[/static/image/2015-guangzhou-shenzhen-xianggang.jpg][file:/static/image/2015-guangzhou-shenzhen-xianggang.jpg]]
+[[/static/image/2015/guangzhou-shenzhen-xianggang.jpg][file:/static/image/2015/guangzhou-shenzhen-xianggang.jpg]]
 
 *** 浙闽自驾
 
 10 月国庆，和妞一起，沿浙闽两省海岸线，经宁波象山、温州洞头、福建霞浦三地，耗时 5 天，行程 1000 km，花费约 3000 RMB。令人印象最为深刻的当属福建霞浦的大片滩途和海上城市。
 
 #+CAPTION: 浙江、福建沿海
-[[/static/image/2015-ningbo-wenzhou-xiapu.jpg][file:/static/image/2015-ningbo-wenzhou-xiapu.jpg]]
+[[/static/image/2015/ningbo-wenzhou-xiapu.jpg][file:/static/image/2015/ningbo-wenzhou-xiapu.jpg]]
 
 ** 经济
 
