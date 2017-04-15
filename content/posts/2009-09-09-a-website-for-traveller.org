@@ -1,4 +1,5 @@
-[[/user_files/cnlox/Image/web/traverller/traverller_design.jpeg]]
+#+CAPTION: 旅行者网站设计
+[[/static/image/2009/traveller_design.jpg][file:/static/image/2009/traveller_design.jpg]]
 
 这么一张图，从早晨十点一直写到晚上十点。主题就直接参考本博客了，清爽淡雅。只是实
 现的方式略有不同。
@@ -9,7 +10,9 @@
 菜单栏采用 Mac 风格色系，找了张图， =Print Screen= 一下，用 GIMP 打开，用取色工
 具获得颜色的 HTML 代码表示，如下图：
 
-[[/user_files/cnlox/Image/web/traverller/gimp_color.jpeg]]
+#+CAPTION: GIMP Color Pick
+[[/static/image/2009/gimp_color_pick.jpg][file:/static/image/2009/gimp_color_pick.jpg]]
+
 
 导航菜单栏有个动态的折叠功能，是纯 CSS 代码做成的，参考的是《CSS设计彻底研究》第
 9 章的内容。不过还有些小 bug，暂不展示了。
