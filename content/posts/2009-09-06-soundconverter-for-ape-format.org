@@ -13,11 +13,13 @@ sudo apt-get install soundconverter
 
 软件启动界面如下：
 
-[[/user_files/cnlox/Image/screenshot_of_soundconverter/soundconverter_start.png]]
+#+CAPTION: SoundConverter Start
+[[/static/image/2009/soundconverter_start.png][file:/static/image/2009/soundconverter_start.png]]
 
 可以在 ~Edit-Preferences~ 里面设置一些转换格式选项：
 
-[[/user_files/cnlox/Image/screenshot_of_soundconverter/sounconverter_preferences.png]]
+#+CAPTION: SoundConverter Preference
+[[/static/image/2009/soundconverter_preference.png][file:/static/image/2009/soundconverter_preference.png]]
 
 接下来就是等待啦。73首 2 GB 的 ape 格式的歌曲转换成 ogg 格式总共花半个小时左右，
 期间 cpu 占用很高。[[http://baike.baidu.com/view/660357.html][ogg格式]] 是一种开放无限制的格式，是 mp3 格式的强有力的竞争对手。
@@ -28,4 +30,5 @@ sudo apt-get install soundconverter
 设置的都从 6 开始了，怪别扭的，好在有万能的 [[http://forum.ubuntu.com.cn/viewtopic.php?f=48&p=1232431][Ubuntu forum]]，如下图，去掉 Use tone
 前面的选项，重启一下 SCIM 就行了。
 
-[[/user_files/cnlox/Image/scim/scim_setup.png]]
+#+CAPTION: SoundConverter Preference
+[[/static/image/2009/scim_setup.png][file:/static/image/2009/scim_setup.png]]
