@@ -9,7 +9,7 @@
 
 #+BEGIN_SRC latex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Name: XeTeX+xeCJK日常使用模板
+% Name: XeTeX + xeCJK日常使用模板
 % Author: Lox Freeman
 % Email: xiaohanyu1988@gmail.com
 %
