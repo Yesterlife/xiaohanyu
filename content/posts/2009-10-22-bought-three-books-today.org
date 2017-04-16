@@ -11,7 +11,7 @@
 ——写一个 iPhone 下的 “Hello world” 程序。坦白的说，有些时候我是很随意的，有些时
 候又过于吹毛求疵。这么一个任务，我看了网上的数十篇文章，下载了十几篇 pdf 电子书，
 经过筛选总结最后写出了一份精美的带有目录，索引的达 27 页的英文文档。题目叫
-[[/user_files/cnlox/File/iphone_develop_cross_platform.pdf][The Cross-Platform Developing Skills for Mac Applications]] 给导师发了过去。可是导
+[[http://xiaohanyu.me/static/asset/2009/iphone_develop_cross_platform.pdf][The Cross-Platform Developing Skills for Mac Applications]] 给导师发了过去。可是导
 师实在是太忙了。没有时间看我的文档。只是今天中午交谈的时候看到文档，简介大气，还
 是称赞了一下，呵呵。
 
