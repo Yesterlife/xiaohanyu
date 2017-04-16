@@ -16,7 +16,7 @@ git config --global user.name "Xiao Hanyu"
 # build
 bundle install
 
-git clone git@github.com:${GITHUB_PAGES_REPO}.git output
+git clone "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" output
 
 bundle exec nanoc compile
 
@@ -29,11 +29,11 @@ if [ -z "$(git status --porcelain)" ]; then
 else
     git add .
     git commit -F- <<EOF
-Auto deployed by travis-ci.
+Auto deployed by circle-ci.
 
 Projects used for this deployment:
 - https://github.com/${TRAVIS_REPO_SLUG}/commit/${TRAVIS_COMMIT}
 EOF
 
-    git push "git@github.com:${GITHUB_PAGES_REPO}.git" master:master
+    git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
 fi
