@@ -7,3 +7,6 @@ deployment:
     branch: master
     commands:
       - bash -x ./.circle/deploy-to-pages-service.sh
+test:
+  override:
+    - "true"
