@@ -32,7 +32,7 @@ else
 Auto deployed by circle-ci.
 
 Projects used for this deployment:
-- https://github.com/${TRAVIS_REPO_SLUG}/commit/${TRAVIS_COMMIT}
+- https://github.com/xiaohanyu/xiaohanyu/commit/${CIRCLE_SHA1}
 EOF
 
     git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
