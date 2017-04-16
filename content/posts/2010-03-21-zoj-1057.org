@@ -1,90 +1,79 @@
-编程还是很菜。很简单的题，基本的输入输出格式弄了很久。没脸见人了。zoj的选拔标准有变，我看能否在两个月之内拿下三百道题。还得把 lpi 考掉，恐怕要顺延到暑假了。加油加油。
+编程还是很菜。很简单的题，基本的输入输出格式弄了很久。没脸见人了。ZOJ 的选拔标准
+有变，我看能否在两个月之内拿下三百道题。还得把 LPI 考掉，恐怕要顺延到暑假了。加
+油加油。
 
-晚上的计算机体系结构实验搞的很崩溃，硬件的课程，该怎么办呢。也不知道对自己以后能有多大的帮助，目前策略是得过且过  ...... 组了个队，同组的竟然是个 04 级的，令我颇为差异。看来，计算机的毕业也不是那么简单。
+晚上的计算机体系结构实验搞的很崩溃，硬件的课程，该怎么办呢。也不知道对自己以后能
+有多大的帮助，目前策略是得过且过……组了个队，同组的竟然是个 04 级的，令我颇为差异。
+看来，计算机的毕业也不是那么简单。
 
-is-programmer博客系统越来越强大了。最近加入的代码高亮真的是非常的棒！赞！
+is-programmer 博客系统越来越强大了。最近加入的代码高亮真的是非常的棒！赞！
 
-顺便，86版五笔初有小成，逐渐转移到五笔输入法，效率之上的生活！ 
+顺便，86 版五笔初有小成，逐渐转移到五笔输入法，效率之上的生活！
 
-#+BEGIN_SRC C++
-    #include <iostream>
-    using namespace std;
+#+BEGIN_SRC cpp
+#include <iostream>
+using namespace std;
 
-    int main(int argc, char *argv[])
-    {
-        int cases;
+int main(int argc, char *argv[])
+{
+  int cases;
 
-        const int max_size = 20;
+  const int max_size = 20;
 
-        int a[max_size];
-        int b[max_size];
+  int a[max_size];
+  int b[max_size];
 
-        int sum_a;
-        int sum_b;
+  int sum_a;
+  int sum_b;
 
-        int times = 0;
-        while (cin >> cases)
-        {
-            if (cases == 0)
-            {
-                break;
-            }
-            else
-            {
-                times++;
-                
-                if (times >= 2)
-                {
-                    cout << endl << endl;
-                }
-            }
-            
-            sum_a = sum_b = 0;
-
-            for (int i = 0; i < cases; ++i)
-            {
-                cin >> a[i];
-            }
-
-            for (int i = 0; i < cases; ++i)
-            {
-                cin >> b[i];
-            }
-
-            for (int i = 0; i < cases; ++i)
-            {
-                if (a[i] == 1 && b[i] == 2)
-                {
-                    sum_a += 6;
-                }
-                else if (a[i] == 2 && b[i] == 1)
-                {
-                    sum_b += 6;
-                }
-                else if (a[i] - b[i] == 1)
-                {
-                    sum_b += a[i] + b[i];
-                }
-                else if (b[i] - a[i] == 1)
-                {
-                    sum_a += a[i] + b[i];
-                }
-                else if (a[i] - b[i] >= 2)
-                {
-                    sum_a += a[i];
-                }
-                else if (b[i] - a[i] >= 2)
-                {
-                    sum_b += b[i];
-                }
-                else;
-            }
-
-            cout << "A has " << sum_a << " points. B has " << sum_b << " points.";
-        }
-
-        return 0;
+  int times = 0;
+  while (cin >> cases) {
+    if (cases == 0) {
+      break;
     }
-#+END_SRC
+    else {
+      times++;
 
- 
+      if (times >= 2) {
+        cout << endl << endl;
+      }
+    }
+
+    sum_a = sum_b = 0;
+
+    for (int i = 0; i < cases; ++i) {
+      cin >> a[i];
+    }
+
+    for (int i = 0; i < cases; ++i) {
+      cin >> b[i];
+    }
+
+    for (int i = 0; i < cases; ++i) {
+      if (a[i] == 1 && b[i] == 2) {
+        sum_a += 6;
+      }
+      else if (a[i] == 2 && b[i] == 1) {
+        sum_b += 6;
+      }
+      else if (a[i] - b[i] == 1) {
+        sum_b += a[i] + b[i];
+      }
+      else if (b[i] - a[i] == 1) {
+        sum_a += a[i] + b[i];
+      }
+      else if (a[i] - b[i] >= 2) {
+        sum_a += a[i];
+      }
+      else if (b[i] - a[i] >= 2) {
+        sum_b += b[i];
+      }
+      else;
+    }
+
+    cout << "A has " << sum_a << " points. B has " << sum_b << " points.";
+  }
+
+  return 0;
+}
+#+END_SRC
