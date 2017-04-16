@@ -46,5 +46,5 @@ Ubuntu 带给人便利，也让人变傻，以至于遇到问题时不知如何�
 
 最后上张图吧。
 
-#+CAPTION: Arch Linux
-[[/static/image/2009/archlinux.png][file:/static/image/2009/archlinux.png]]
+#+CAPTION: Arch Linux + GNOME
+[[/static/image/2009/arch_linux_gnome.png][file:/static/image/2009/arch_linux_gnome.png]]
