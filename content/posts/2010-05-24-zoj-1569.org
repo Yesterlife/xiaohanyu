@@ -1,104 +1,90 @@
-题意很明确，给定一个数列 [tex]a\_i(i = 0, 2, \cdots, n)[/tex]，
-对于 [tex]m[/tex]，求有多少个 partial sum 能被 m 整除，所谓 partial
-sum 是 [tex]\sum\_{i = j}\^{k} a\_i, j, k \in 1, \cdots n}[/tex]。
+题意很明确，给定一个数列 $a\_i(i = 0, 2, \cdots, n)$ ，对于 $m$ ，求有多少个
+partial sum 能被 $m$ 整除，所谓 partial sum 是 $\sum\_{i = j}^{k} a\_i, j, k
+\in 1, \cdots n}$ 。
 
-想法也很简单。第一种方法是求出所有的 partial
-sum，然后分别判断是否能被 m 整除，[tex]O(n\^3)[/tex]的复杂度。
+想法也很简单。第一种方法是求出所有的 partial sum，然后分别判断是否能被 $m$ 整除，
+$O(n^3)$ 的复杂度。
 
-第二种想法是设定 [tex]\sigma\_j = \sum\_{i=0}\^{j} a\_i, j = 0, 1, 2,
-\cdots, n}, \delta\_{ij} = \sigma\_j - \sigma\_k = \sum\_{i =
-k+1}\^{j}a\_i[/tex]，判断  [tex]\delta\_{ij}[/tex] 能否被  [tex]m[/tex] 整除。[tex]O(n\^2)[/tex]复杂度。照此想法编程，确是 TLE：
+第二种想法是设定 $\sigma\_j = \sum\_{i=0}^{j} a\_i, j = 0, 1, 2, \cdots, n},
+\delta\_{ij} = \sigma\_j - \sigma\_k = \sum\_{i = k+1}^{j}a\_i$，判断
+$\delta\_{ij}$ 能否被 $m$ 整除。$O(n^2)$ 复杂度。照此想法编程，确是 TLE：
 
-#+BEGIN_SRC C++
-    #include <stdio.h>
+#+BEGIN_SRC c
+#include <stdio.h>
 
-    #define max_len 10001
+#define max_len 10001
 
-    int main(int argc, char *argv[])
-    {
-        int n, m;
-        int inta[max_len];
-        int sum[max_len+1];
-        
-        while (scanf("%d%d", &n, &m) != EOF)
-        {
-            int i, j;
+int main(int argc, char *argv[]) {
+  int n, m;
+  int inta[max_len];
+  int sum[max_len+1];
 
-            for (i = 0; i < n; ++i)
-            {
-                scanf("%d", &inta[i]);
-            }
+  while (scanf("%d%d", &n, &m) != EOF) {
+    int i, j;
 
-            for (i = 0; i <= n; ++i)
-            {
-                sum[i] = 0;
-                for (j = 0; j < i; ++j)
-                {
-                    sum[i] += inta[j];
-                }
-            }
-
-            int num = 0;
-            for (i = 0; i < n; ++i)
-            {
-                for (j = i + 1; j <= n; ++j)
-                {
-                    if (((sum[j] - sum[i]) % m) == 0)
-                    {
-                        num++;
-                    }
-                }
-            }
-            printf ("%d\n",num);
-        }
-        
-        return 0;
+    for (i = 0; i < n; ++i) {
+      scanf("%d", &inta[i]);
     }
+
+    for (i = 0; i <= n; ++i) {
+      sum[i] = 0;
+      for (j = 0; j < i; ++j) {
+        sum[i] += inta[j];
+      }
+    }
+
+    int num = 0;
+    for (i = 0; i < n; ++i) {
+      for (j = i + 1; j <= n; ++j) {
+        if (((sum[j] - sum[i]) % m) == 0) {
+          num++;
+        }
+      }
+    }
+    printf ("%d\n",num);
+  }
+
+  return 0;
+}
 #+END_SRC
 
-不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从 [tex]O(n\^3)
--> O(n\^2) -> O(n \log(n)) ->
-O(n)[/tex]，在此百度如下两篇文章，茅塞顿开：
+不得不另寻出路。依稀记得当初算法课上关于最大子段和的问题，其复杂度也是一点点从
+$O(n^3) -> O(n^2) -> O(n \log(n)) -> O(n)$ ，在此百度如下两篇文章，茅塞顿开：
 
 - [[http://hi.baidu.com/hi_chf/blog/item/50017817903f0e11972b43e9.html]]
 - [[http://bloodybat.blog.hexun.com/2788438_d.html]]
 
- 大体思路是继续第二种想法，设 [tex]\phi\_j = \sigma\_j \bmod
-m[/tex]，如果存在 [tex]j\_k, k = 1, 2, \cdots,
-n[/tex]，那么  [tex]\phi\_{j\_k} -
-\phi\_{j\_s}[/tex] 表示一个符合条件的 partial sum，此类 partial
-sum 可以利用组合数公式  [tex]c(n, 2) =
-\frac{n(n-1)}{2}[/tex] 求出。最后注意考虑 0 这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下： 
+大体思路是继续第二种想法，设 $\phi\_j = \sigma\_j \bmod m$ ，如果存在 $j\_k, k =
+1, 2, \cdots, n$ ，那么 $\phi\_{j\_k} - \phi\_{j\_s}$ 表示一个符合条件的 partial
+sum，此类 partial sum 可以利用组合数公式 $c(n, 2) = \frac{n(n-1)}{2}$ 求出。最后
+注意考虑 0 这个特殊数字的情况。程序参照上面两篇博客整理下，代码如下：
 
-#+BEGIN_SRC C++
-    #include <string.h>
-    #include <stdio.h>
+#+BEGIN_SRC c
+#include <string.h>
+#include <stdio.h>
 
-    int c_sum[5001];
+int c_sum[5001];
 
-    int main ()
-    {
-        int i, n, m;
-        int temp, sum, num;
-        
-        while (scanf("%d %d", &n, &m) != EOF)
-        {
-            sum = 0, num = 0;
-            memset(c_sum, 0, sizeof(int) * (m + 1));
-            for (i = 0; i < n; i++)
-            {
-                scanf("%d", &temp);
-                sum = (sum + temp) % m;
-                if (!sum)
-                    num++;
-                c_sum[sum]++;
-            }
-            for (i = 0; i < m; i++)
-                num += c_sum[i] * (c_sum[i] - 1) / 2;
-            printf ("%d\n", num);
-        }
-        return 0;
+int main(int argc, char *argv[]) {
+  int i, n, m;
+  int temp, sum, num;
+
+  while (scanf("%d %d", &n, &m) != EOF) {
+    sum = 0, num = 0;
+    memset(c_sum, 0, sizeof(int) * (m + 1));
+    for (i = 0; i < n; i++) {
+      scanf("%d", &temp);
+      sum = (sum + temp) % m;
+      if (!sum)
+        num++;
+      c_sum[sum]++;
     }
+    for (i = 0; i < m; i++)
+      num += c_sum[i] * (c_sum[i] - 1) / 2;
+    printf ("%d\n", num);
+  }
+  return 0;
+}
 #+END_SRC
 
 路漫漫其修远兮，加油加油。
