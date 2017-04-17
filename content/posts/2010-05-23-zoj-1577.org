@@ -1,6 +1,6 @@
-简单题，题目大意是给定两个数 ~a~ 、~b~ ，求 ~x~ 、 ~y~ 使得 ~gcd(x, y) = a,
-lcm(x, y) = b~ ，问由多少对这样的 ~(x, y)~ ，其中 ~gcd(x, y)~ 为 ~x~ 、 ~y~ 的最
-大公约数， ~lcm(x, y)~ 为 ~x~ 、 ~y~ 的最小公倍数。解题思路主要利用 $x \times y
+简单题，题目大意是给定两个数 $a$ 、 $b$ ，求 $x$ 、 $y$ 使得 $gcd(x, y) = a$ ,
+$lcm(x, y) = b$ ，问由多少对这样的 $(x, y)$ ，其中 $gcd(x, y)$ 为 $x$ 、 $y$ 的最
+大公约数， $lcm(x, y)$ 为 $x$ 、 $y$ 的最小公倍数。解题思路主要利用 $x \times y
 = gcd(x, y) \times lcm(x, y)$ 就行了。WA 了两次是因为没看清楚题意 "x and y, one
 line for each test."，太马虎了。代码如下：
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 }
 #+END_SRC
 
-顺便，用了两个月的 [[http://gna.org/projects/fvwm-crystal/][fvwm-crystal]]，感觉虽然轻量，但是有些细节颇有不便之处，比如每
+顺便，用了两个月的 [[http://gna.org/projects/fvwm-crystal/][FVWM-Crystal]]，感觉虽然轻量，但是有些细节颇有不便之处，比如每
 次新开窗口的时候窗口的大小和位置都“不太确定”——就是有时候窗口会覆盖底下的
 panel、有时候整个窗口又比整个屏幕都大……恰逢前天晚上兴奋无眠，因此便邪恶的
 敲了下面一条命令：
