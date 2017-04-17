@@ -1,66 +1,56 @@
-模拟递归问题。直接递归肯定不行，最容易想到的方法就是用数组模拟。中途遇到了一个问题，就是 c++
-iostream 库的效率问题。用 cin >> a >> b >> c 时，TLE；换成  scanf("%d%d%d",
-&a, &b,
-&c) 时，AC，时间 80ms。[[http://acm.zju.edu.cn/onlinejudge/showProblemStatus.do?problemId=168][status]]中最前面的都是 60ms，看来优化空间不大。关于 c 库和 C++ 库的输入输出，还有待研  
+模拟递归问题。直接递归肯定不行，最容易想到的方法就是用数组模拟。中途遇到了一个问
+题，就是 C++ iostream 库的效率问题。用 ~cin >> a >> b >> c~ 时，TLE；换成
+~scanf("%d%d%d", &a, &b, &c)~ 时，AC，时间 80 ms。[[http://acm.zju.edu.cn/onlinejudge/showProblemStatus.do?problemId=168][status]]中最前面的都是 60ms，看
+来优化空间不大。关于 C 库和 C++ 库的输入输出，还有待研究。
 
-#+BEGIN_SRC C++
-    /**
-     * @file   zoj1168.c
-     * @author  <lox@freelox>
-     * @date   Wed May 19 18:59:59 2010
-     * 
-     * @brief  zoj1168,  模拟问题。直接查表解决。
-     * 但是需要注意的是，此题目用 scanf 系列，AC，时间 80ms，用 C++ 的cin流，则 TLE，
-     * 莫非 cin 和scanf真有那么大的时间消耗差别？
-     */
+#+BEGIN_SRC cpp
+/**
+ ,* @file   zoj1168.c
+ ,* @author <lox@freelox>
+ ,* @date   Wed May 19 18:59:59 2010
+ ,*
+ ,* @brief  zoj1168, 模拟问题。直接查表解决。
+ ,* 但是需要注意的是，此题目用 scanf 系列，AC，时间 80ms，用 C++ 的cin流，则 TLE，
+ ,* 莫非 cin 和scanf真有那么大的时间消耗差别？
+ ,*/
 
 
-    #include <stdio.h>
+#include <stdio.h>
 
-    int main(int argc, char *argv[])
-    {
-        int w[21][21][21];
+int main(int argc, char *argv[]) {
+  int w[21][21][21];
 
-        int a, b, c;
-        
-        for (a = 0; a <= 20; a++)
-        {
-            for (b = 0; b <= 20; b++)
-            {
-                for (c = 0; c <= 20; c++)
-                {
-                    if (a == 0 || b == 0 || c == 0)
-                    {
-                        w[a][b][c] = 1;
-                    }
-                    else if (a < b && b < c)
-                    {
-                        w[a][b][c] = w[a][b][c-1] + w[a][b-1][c-1] - w[a][b-1][c];
-                    }
-                    else
-                        w[a][b][c] = w[a-1][b][c] + w[a-1][b-1][c] + w[a-1][b][c-1] - w[a-1][b-1][c-1];
-                }
-            }
+  int a, b, c;
+
+  for (a = 0; a <= 20; a++) {
+    for (b = 0; b <= 20; b++) {
+      for (c = 0; c <= 20; c++) {
+        if (a == 0 || b == 0 || c == 0) {
+          w[a][b][c] = 1;
         }
-
-        while (scanf("%d%d%d", &a, &b, &c))
-        {
-            if (a == -1 && b == -1 && c == -1)
-            {
-                return 0;
-            }
-            if (a <= 0 || b <= 0 || c <= 0)
-            {
-                printf("w(%d, %d, %d) = %d\n",a,b,c,w[0][0][0]);
-            }
-            else if (a > 20 || b > 20 || c > 20)
-            {
-                printf("w(%d, %d, %d) = %d\n",a,b,c,w[20][20][20]);
-            }
-            else
-                printf("w(%d, %d, %d) = %d\n",a,b,c,w[a][b][c]);
+        else if (a < b && b < c) {
+          w[a][b][c] = w[a][b][c-1] + w[a][b-1][c-1] - w[a][b-1][c];
         }
-        
-        return 0;
+        else
+          w[a][b][c] = w[a-1][b][c] + w[a-1][b-1][c] + w[a-1][b][c-1] - w[a-1][b-1][c-1];
+      }
     }
+  }
+
+  while (scanf("%d%d%d", &a, &b, &c)) {
+    if (a == -1 && b == -1 && c == -1) {
+      return 0;
+    }
+    if (a <= 0 || b <= 0 || c <= 0) {
+      printf("w(%d, %d, %d) = %d\n",a,b,c,w[0][0][0]);
+    }
+    else if (a > 20 || b > 20 || c > 20) {
+      printf("w(%d, %d, %d) = %d\n",a,b,c,w[20][20][20]);
+    }
+    else
+      printf("w(%d, %d, %d) = %d\n",a,b,c,w[a][b][c]);
+  }
+
+  return 0;
+}
 #+END_SRC
