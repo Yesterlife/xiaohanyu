@@ -1,82 +1,54 @@
-<<content>>
-Today I'm happy to announce
-[[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]] v0.3.
+Today I'm happy to announce [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]] v0.3.
 
-It has been three months since I first released oh-my-emacs from my
-homebrew messy dotemacs project to public. To my suprise, oh-my-emacs
-has attracted many interests from all over the world.
+It has been three months since I first released oh-my-emacs from my homebrew
+messy dotemacs project to public. To my suprise, oh-my-emacs has attracted many
+interests from all over the world.
 
 The v0.3 version of oh-my-emacs contains various improvements, check its
-[[https://github.com/xiaohanyu/oh-my-emacs/blob/master/CHANGELOG.org#v03][CHANGELOG]]
-for a condensed feature list.
+[[https://github.com/xiaohanyu/oh-my-emacs/blob/master/CHANGELOG.org#v03][CHANGELOG]] for a condensed feature list.
 
 Several features worth mentioning (v0.1->v0.3):
 
 - code refactoring:
-
-   -  Oh-my-emacs splits all its modules into two levels: =core= and
-      =modules=. Files in =core= are required by default, while files in
-      =modules= are optional. You can load necessary module when you
-      really need it.
-
-- ome-org module:
-
-   -  Upgrade =org-mode= to latest 8.x branch. This brings us a more
-      powerful export engine.
-
-- ome-cc module:
-
-   -  Oh-my-emacs support auto-complete for C/C++ macros! Combined with
-      =pkg-config=, oh-my-emacs cc module can be used as a perfect C/C++
-      working environment with perfect semantic completion for functions
-      and macros for any installed libs recognizable by =pkg-config=.
-
-- ome-java module:
-
-   -  Oh-my-emacs provide semantic completion for Java projects via
-      emacs-eclim. Though not perfect(and a little heavy), this is a
-      workable solution now.
-
-- ome-lisp module:
-
-   -  The original ubiquitous ome-lisp module has been split to four
-      modules:
-
-      -  ome-emacs-lisp module
-      -  ome-common-lisp module
-      -  ome-clojure module
-      -  ome-scheme module
-
+  - oh-my-emacs splits all its modules into two levels: ~core~ and ~modules~.
+    Files in ~core~ are required by default, while files in ~modules~ are
+    optional. You can load necessary module when you really need it
+- ~ome-org~ module:
+  - Upgrade ~org-mode~ to latest 8.x branch. This brings us a more powerful
+    export engine
+- ~ome-cc~ module:
+  - oh-my-emacs support auto-complete for C/C++ macros! Combined with
+    ~pkg-config~, oh-my-emacs cc module can be used as a perfect C/C++ working
+    environment with perfect semantic completion for functions and macros for
+    any installed libs recognizable by ~pkg-config~
+- ~ome-java~ module:
+  - oh-my-emacs provide semantic completion for Java projects via emacs-eclim.
+    Though not perfect (and a little heavy), this is a workable solution now
+- ~ome-lisp~ module:
+  - The original ubiquitous ome-lisp module has been split to four modules:
+    - ~ome-emacs-lisp~ module
+    - ~ome-common-lisp~ module
+    - ~ome-clojure~ module
+    - ~ome-scheme~ module
 - documentation:
-
-   -  Add a table to specify the system requirments and el-get packages.
-      Thus you can install necessary system tools to make oh-my-emacs
-      modules work as expected.
-
+  - Add a table to specify the system requirments and el-get packages. Thus you
+    can install necessary system tools to make oh-my-emacs modules work as
+    expected
 - compatibility:
-
-   -  Improve compatibility for Mac OS X.
-
+  - Improve compatibility for Mac OS X
 - completion:
-
-   -  Add semantic completion for scheme (via =ac-geiser=)
-   -  Add completion table to show you the currrent semantic completion
-      support for various programming languages.
-
+  - Add semantic completion for scheme (via [[https://github.com/xiaohanyu/ac-geiser][ac-geiser]])
+  - Add completion table to show you the currrent semantic completion support
+    for various programming languages
 - miscs:
+  - Basic support for JavaScript, Ruby, OCaml
+  - Move some unstale packages to ome-experimental module, load as you need
 
-   -  Basic support for JavaScript, Ruby, OCaml.
-   -  Move some unstale packages to ome-experimental module, load as you
-      need.
+Five months of spare time work, 200 git commits, 120 github stars and 35 github
+issues, all of the above work forms a less than 50MB tarball, which contains 50
+~el-get~ packages, 1000 lines of emacs-lisp code, 4000 lines of documentation,
+hundreds of reference web links, just [[https://s.yunio.com/xYpK_z][download]] and extract this tarball, you'll
+get a tuned Emacs OS, and it works almost everywhere.
 
-Five months of spare time work, 200 git commits, 120 github stars and 35
-github issues, all of the above work forms a less than 50MB tarball,
-which contains 50 =el-get= packages, 1000 lines of emacs-lisp code, 4000
-lines of documentation, hundreds of reference web links, just
-[[https://s.yunio.com/xYpK_z][download]] and extract this tarball,
-you'll get a tuned Emacs OS, and it works almost everywhere.
-
-It's time for new year, and I hope you enjoy this gift. Any feedback
-will be appreciated. Thanks!
-
- 
+It's time for new year, and I hope you enjoy this gift. Any feedback will be
+appreciated. Thanks!
