@@ -1,71 +1,65 @@
-毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 a[i]，寻找四个数字  i,
-j, k, m,  使得 a[m]=a[i]+a[j]+a[k]，并求出 max(a[m])。
+毕竟是做题经验不足，开始看题被唬住了。题目大意是给定一个数据 ~a[i]~ ，寻找四个数
+字 ~i~ 、 ~j~ 、 ~k~ 、 ~m~ ， 使得 ~a[m] = a[i] + a[j] + a[k]~ ，并求出
+~max(a[m])~ 。
 
-最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为  O(n\^3) 级别的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是 50ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化的可能。只是我不知道罢了。暂且放下。
+最容易想到的是暴力算法。求出每个三元组的和，然后再搜索，复杂度为 $O(n^{3})$ 级别
+的。但是我觉得应该会有更好的解法，就去百度上查。事实上最终我用的也是这种暴力方法。
+参考别人代码，结合 STL。思路大体上是先排序，然后再二分搜索。最后通过的时间是
+50 ms。看了下本题目的 status，前面的高人通过时间都是 0ms，由此看来本题肯定有优化
+的可能。只是我不知道罢了。暂且放下。
 
 STL应用太过生疏，仿函数和函数指针的应用还经常混淆。需要加强。
 
-#+BEGIN_SRC C++
-    #include <iostream>
-    #include <algorithm>
-    #include <functional>
-    using namespace std;
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <algorithm>
+#include <functional>
+using namespace std;
 
-    int main(int argc, char *argv[])
-    {
-        int inta[1000], n, wi;
+int main(int argc, char *argv[]) {
+    int inta[1000], n, wi;
 
-        while ((cin >> n) && n)
-        {
-            int i, j, m, u;
-            wi = 536870912;
-            for (i = 0; i < n; ++i)
-            {
-                cin >> inta[i];
-            }
+    while ((cin >> n) && n) {
+        int i, j, m, u;
+        wi = 536870912;
+        for (i = 0; i < n; ++i) {
+            cin >> inta[i];
+        }
 
-            sort(inta, inta+n);
-            
-            if (n < 4)
-            {
-                goto END;
-            }
+        sort(inta, inta+n);
 
-            for (i = n - 1; i >= 0; i--)
-                for (m = n - 1; m >= 0; m--)
-                {
-                    if (i == m)
-                    {
+        if (n < 4) {
+            goto END;
+        }
+
+        for (i = n - 1; i >= 0; i--)
+            for (m = n - 1; m >= 0; m--) {
+                if (i == m) {
+                    continue;
+                }
+                for (j = m - 1; j > 0; j--) {
+                    if (j == i) {
                         continue;
                     }
-                    for (j = m - 1; j > 0; j--)
-                    {
-                        if (j == i)
-                        {
-                            continue;
-                        }
 
-                        u = inta[i] - inta[m] - inta[j];
+                    u = inta[i] - inta[m] - inta[j];
 
-                        if (u != inta[i] && u != inta[m] && u != inta[j])
-                        {
-                            if (binary_search(inta, inta+n, u))
-                            {
-                                wi = inta[i];
-                                goto END;
-                            }
+                    if (u != inta[i] && u != inta[m] && u != inta[j]) {
+                        if (binary_search(inta, inta + n, u)) {
+                            wi = inta[i];
+                            goto END;
                         }
                     }
                 }
-          END:
-            if (wi == 536870912)
-            {
-                cout << "no solution" << endl;
             }
-            else
-                cout << wi << endl;
+      END:
+        if (wi == 536870912) {
+            cout << "no solution" << endl;
         }
-        
-        return 0;
+        else
+            cout << wi << endl;
     }
+
+    return 0;
+}
 #+END_SRC
