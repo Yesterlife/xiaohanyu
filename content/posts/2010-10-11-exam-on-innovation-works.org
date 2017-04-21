@@ -1,0 +1,83 @@
+慕开复之名，一个小时的笔试，十一道题目，不算多，时间还算充裕。
+
+选择题/填空题
+
+- 关于 c union type，求下列程序的输出结果（具体程序既不清楚了，考点在于 union
+   type 的内存分布）
+
+#+BEGIN_SRC c
+#include <stdio.h>
+
+union u
+{
+  int i;
+  char x[2];
+} a;
+
+int main()
+{
+  a.x[0] = '1';
+  a.x[1] = '2';
+  printf("%d\n", a.i);
+  return 0;
+}
+#+END_SRC
+
+- 关于什么叫数据库主键。
+
+- 关于路由器和交换机的区别，哪个用来连接不同网段、分隔子网或者是分隔不同网段、连接子网。
+
+- 进程和线程的区别（调度、控制、共享内存、通讯方式）。
+
+- 排序复杂度哪个不是 $O(n \lg n)$（二分插入排序、快速排序、归并排序、堆排序）。
+
+- KMP 算法填空（略微记得一点原理，忘差不多了……）。
+
+- 有 5 道工序，其中有一道工序不能放在最后，问有多少种排列方法（$5!-4! = 96$)。
+
+- 内存分页算法的缺页次数（先进先出、最近最少、理想页面置换算法，完全不会……）。
+
+- TCP 和 UDP 的区别
+
+- 递归函数：
+
+#+BEGIN_SRC c
+int f(int n)
+{
+  if (n == 0)
+    return 3;
+  else
+    return f(n - 2) + f(n - 1);
+}
+#+END_SRC
+
+求 ~f(10)~ （我的答案是没结果，应该是唬人的题目）
+
+编程题
+
+给定一个字符串，字符串中可能含有包含 src_cpp{'('}, src_cpp{')'}, src_cpp{'['},
+src_cpp{']'}，判定条件如下：
+
+- src_cpp{'('} 和 src_cpp{')'} 、 src_cpp{'['} 和 src_cpp{']'} 个数相等；
+- src_cpp{'('} 和 src_cpp{')'} 、 src_cpp{'['} 和 src_cpp{']'} 完全配对，不能出现
+  嵌套情况。
+
+如符合以上两条，则返回 True，否则返回 False。
+
+Example：
+
+src_cpp{"a(ab)[aa(ba)[aa]b]"} 为 True，而 src_c{"a((a)、ab(a[bbb)]c"} 为 False。
+
+解决方案：
+
+如果熟悉 stack 表达式求值算法，这道题目应该不在话下。设定两个计数器 src_cpp{m}
+和 src_cpp{n} ， src_cpp{m} 记录 src_cpp{'('} 和 src_cpp{')'} 的个数的差值，
+src_cpp{n} 记录 src_cpp{'['} 和 src_cpp{']'} 个数的差值，再设定一个 STL
+src_cpp{stack<char> par}。
+
+每当读到 src_cpp{'('} 或 src_cpp{'['} ，就执行 push 操作 src_cpp{par.push('(')} ，
+src_cpp{par.push('[')} ，同时 src_cpp{m++, n++}；每当读到 src_cpp{')'} 或
+src_cpp{']'}，就判断下栈顶元素和当前元素是否配对，如果配对，则
+src_cpp{par.pop()}，否则直接返回 False，同时 src_cpp{m--，n--}。
+
+最后判断 src_cpp{m} 和 src_cpp{n} 是否为零即可。代码略去。
