@@ -10,7 +10,7 @@
 Rhythmbox，Exaile。而我自己装的 RealPlayer 有声音，MPlayer 也有声音。在 KDE 桌面
 环境下，一首歌的前二十秒通常是没有声音的，忽然之间就会来了声音。太 tn 的诡异了。
 
-Arch 的软件库比 Ubuntu 的要小很多。我想要的 dwww，emacs-jde 都没有官方支持。至于
+Arch 的软件库比 Ubuntu 的要小很多。我想要的 dwww，Emacs JDEE 都没有官方支持。至于
 传说中的 AUR，鉴于浙大玉泉故步自封的内网环境，我还没有尝试过。希望能够带来惊喜。
 
 三是系统时间的问题。我的系统时间总是错误。查验过 BIOS，BIOS的时间是正确的。但是
