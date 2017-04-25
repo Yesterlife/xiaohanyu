@@ -5,9 +5,10 @@ updated_at: 2017-04-14T16:08:52+08:00
 kind: article
 category: Technology
 tags:
-  - Nanoc
-  - Ruby
-  - Pandoc
-  - Emacs
+- Nanoc
+- Ruby
+- Pandoc
+- Emacs
+- Outdated
 meta: 
   html: null
