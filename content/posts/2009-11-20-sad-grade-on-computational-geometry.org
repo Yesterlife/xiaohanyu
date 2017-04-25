@@ -1,0 +1,428 @@
+计算几何悲剧归……
+
+感觉考试很难。当然与自己复习不当也有关系。昨天从hjc冰窖一般的图书馆回到温暖的寝
+室后身体就一直没缓过劲，感觉有些胸闷气短，看书愣是看不下去，虽然我明知道考试在即，
+而自己还没怎么复习。觉得自己平时的 assignment 交了，midterm 考的个人感觉也还行，
+怎么着也不会挂。结果今天看了考卷就知道悲剧了。midterm 都是书上的概念，考卷却都是
+乱七八糟没怎么见过的东西。也罢，东拼拼西凑凑，蒙了不少。但愿老师宽宏大量，我给您
+烧高香了。
+
+看来，以后不能乱选课，选了课以后不能随便跷课。
+
+而且我也发现，学术这条路我差不多走到尽头了。尽管这两个月自己很努力，但是似乎成效
+不大。而我对每周按部就班的上课又提不起兴趣，一门普通的如计算几何，计算机组成等课
+程就把我搞的焦头烂额，叫苦不迭。呃……
+
+我的学习基本属于兴趣驱动。兴趣来了，就会去看很多很多的东西，哪怕它与课程不相关，
+甚至因此耽误了复习，导致成绩低下等等。算了，还是尽快毕业吧。
+
+考试周几日一直在 HJC，奈何遇上冰冻天气，在 HJC 图书馆冻的不行，叫苦不迭，不过大
+概低温使人清醒，使人难于犯困，所以效率还是有保障的。第一天复习了汇编语言，看的是
+清华大学那本经典的《IBM PC机汇编语言教程》，基本熟悉了程序的结构，各种模式。但是
+让我写一个象样的程序还有些小困难。汇编很难，难就难在将人脑变成电脑来使用。对此我
+兴趣不大。希望课程能够得过且过吧。
+
+后三天主攻图形学，看 OpenGL。三天的研究颇有成效，一股成就感油然而生，上几张图吧：
+
+#+CAPTION: OpenGL Triangle
+[[/static/image/2009/opengl1.png][file:/static/image/2009/opengl1.png]]
+
+这张图看上去很炫，其实是在GL_SINGLE单缓冲模式下让一个三角形以一定的速率旋转而成。
+在这个过程中不要清除GL_COLOR_BUFFER_BIT就行了。
+
+#+CAPTION: OpenGL Circle
+[[/static/image/2009/opengl9.png][file:/static/image/2009/opengl9.png]]
+
+一个三角形的三个顶点绕v=(1,1,1)旋转而成。不要清除GL_COLOR_BUFFER_BIT。
+
+#+CAPTION: OpenGL Bug Texture
+[[/static/image/2009/opengl11.png][file:/static/image/2009/opengl11.png]]
+
+加了小虫子的纹理填充（不知道这样说是不是正确）。
+
+#+CAPTION: OpenGL Color Cube
+[[/static/image/2009/opengl13.png][file:/static/image/2009/opengl13.png]]
+
+一个三维的立体 cube。我觉得很漂亮。呵呵。
+
+#+CAPTION: OpenGL Cube and Sphere
+[[/static/image/2009/opengl15.png][file:/static/image/2009/opengl15.png]]
+
+球体和正方体都可以旋转并且同时放大或者缩小。键盘控制旋转方向。
+
+#+CAPTION: OpenGL Teapot
+[[/static/image/2009/opengl_teapot.png][file:/static/image/2009/opengl_teapot.png]]
+
+图形学第三次作业，我自己加了个功能，就是可以让茶壶跳起来，呵呵。也是由键盘控制的。
+蛮有趣的。顺便把源码发上来，做个备份好了：
+
+#+BEGIN_SRC c
+/**
+ ,* @file   opengl_exp3.c
+ ,* @author  <lox@freelox>
+ ,* @date   Wed Nov 18 18:01:43 2009
+ ,*
+ ,* @brief  This program illustrate the opengl 3d transformation, such as modelview transformation, projection
+ ,* transformation, and some opengl animation skills
+ ,*
+ ,*
+ ,*/
+
+#include <GL/glut.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdio.h>
+
+#define PERS 0                  /**< define the perspecive projection method */
+#define ORTHO 1                 /**< define the orthogonal projection method */
+
+#define WIRE 0                  /**< draw the object with wire */
+#define SOLID 1                 /**< draw the object with solid fill color */
+
+static int winWidth = 0;        /**< the new view width */
+static int winHeight = 0;       /**< the new view height */
+
+static int projection = PERS;   /**< determine whether perspective or orthogonal */
+static int drawMethod = 1;      /**< determine the draw method */
+
+static float cameraX = 0;       /**< the x position of the camera */
+static float cameraY = 1.0;     /**< the y position of the camera */
+static float cameraZ = 10;      /**< the z position of the camera */
+
+static float teapotX = 0.0;     /**< the x position of the teapot */
+static float teapotY = 1.2;     /**< the y position of the teapot */
+static float teapotZ = 0.0;     /**< the z position of the teapot */
+static float teapotRotateY = 0.0; /**< the rotation degree of the teapot along y axis  */
+
+/**
+ ,* I myself add a jump function to the teapot use i and ty[15]
+ ,*/
+
+int i = 0;
+float ty[15] = {1.3, 1.4, 1.6, 1.9, 2.3, 3.0, 3.3, 3.4, 3.42, 3.4, 3.3, 3.0, 2.3, 1.5, 1.2};
+
+/**
+ ,* @brief just init the background color
+ ,*
+ ,*/
+void init() {
+  glClearColor(0.0, 0.0, 0.0, 0.0);
+}
+
+/**
+ ,* @brief draw one leg of the Desk
+ ,*
+ ,*/
+void drawLeg() {
+  glPushMatrix();
+  glScalef(1.0, 3.0, 1.0);
+  glutSolidCube(1.0);
+  glPopMatrix();
+}
+
+/**
+ ,* @brief draw the desktop
+ ,*
+ ,*/
+void drawDesktop() {
+  glPushMatrix();
+  glScalef(5.0, 1.0, 4.0);
+  glutSolidCube(1.0);
+  glPopMatrix();
+}
+
+/**
+ ,* @brief draw the whole desk through drawing four legs and one desktop
+ ,*
+ ,* @see drawDesktop
+ ,* @see drawLeg
+ ,*/
+void drawDesk() {
+  glPushMatrix();
+  drawDesktop();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(-1.5, -2, -1);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(1.5, -2, -1);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(1.5, -2, 1);
+  drawLeg();
+  glPopMatrix();
+
+  glPushMatrix();
+  glTranslatef(-1.5, -2, 1);
+  drawLeg();
+  glPopMatrix();
+}
+
+/**
+ ,* @brief draw the whole scene
+ ,*
+ ,* @see drawDesk()
+ ,*/
+void drawScene() {
+  drawDesk();
+  glPushMatrix();
+  glTranslatef(teapotX, teapotY, teapotZ);
+  glRotatef(teapotRotateY, 0.0, 1.0, 0.0);
+  glutSolidTeapot(1.0);
+  glPopMatrix();
+}
+
+/**
+ ,* @brief display the three sides of the desktop
+ ,*
+ ,* @see drawScene();
+ ,*/
+void display() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+  glColor3f(1.0, 1.0, 1.0);
+  glLoadIdentity();
+
+  gluLookAt(cameraX, cameraY, cameraZ, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0);
+
+  if(drawMethod == SOLID) {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  }
+  else {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  }
+
+  glEnable(GL_DEPTH_TEST);
+
+  glEnable(GL_LIGHTING);
+  GLfloat white[] = {1.0, 1.0, 1.0, 1.0};
+  GLfloat light_pos[] = {3,5,5,1};
+
+  glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, white);
+  glEnable(GL_LIGHT0);
+
+  drawScene();
+
+  glFlush();
+
+  glutSwapBuffers();
+}
+
+/**
+ ,* @brief update the viewport of the whole scene when press a special key
+ ,*
+ ,* @param width the width of the new viewport
+ ,* @param height the height of the new viewport
+ ,*/
+void updateView(int width, int height) {
+  glViewport(0, 0, (GLint)width, (GLint)height);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+
+  if (projection == PERS) {
+    glFrustum(-1.0, 1.0, -1.0, 1.0, 0.5, 40.0);
+  }
+  else if (projection == ORTHO) {
+    glOrtho(-10.0, 10.0, -10.0, 10.0, 0.5, 40.0);
+  }
+  else {
+    projection = PERS;
+  }
+
+  glMatrixMode(GL_MODELVIEW);
+}
+
+/**
+ ,* @brief glut reshape function
+ ,*
+ ,* @param width
+ ,* @param height
+ ,* @see updateView()
+ ,*/
+void reshape(int width, int height) {
+  if (height == 0) {
+    height = 1;
+  }
+
+  winWidth = width;
+  winHeight = height;
+
+  updateView(winWidth, winHeight);
+}
+
+/**
+ ,* @brief glut idle function
+ ,*
+ ,*/
+void idle() {
+  glutPostRedisplay();
+}
+
+/**
+ ,* @brief control the keyboard interactive actions
+ ,*
+ ,* @param key the key which pressed
+ ,* @param x the x mouse position
+ ,* @param y the y mouse position
+ ,*/
+
+void keyboard(unsigned char key, int x, int y) {
+  switch(key) {
+  case 27:
+  case 'q':                   /**< press q or ESC to quit this program */
+    exit(0);
+    break;
+
+  case 'p':                   /**< press x to switch between perspective and oothogonal view */
+    projection = (projection + 1) % 2;
+    updateView(winWidth, winHeight);
+    break;
+
+  case 't':
+    drawMethod = (drawMethod + 1) % 2;
+    break;
+
+  case 'a':                   /**< press a to adjust camera position along negative x axis */
+    cameraX--;
+    break;
+
+  case 'd':
+    cameraX++;
+    break;
+
+  case 'w':
+    cameraY++;
+    break;
+
+  case 's':
+    cameraY--;
+    break;
+
+  case 'z':
+    cameraZ++;
+    break;
+
+  case 'c':
+    cameraZ--;
+    break;
+    /**
+     ,* operations about teapot
+     ,*
+     ,*/
+  case 'l':                   /**< move the teapot along positive x axis */
+    if (teapotX >= 2.5) {    /**< the teapot cannot be moved out of the desktop */
+      teapotX -= 2.5;
+    }
+    teapotX += 0.1;
+    break;
+
+  case 'j':
+    if (teapotX <= -2.5) {
+      teapotX += 2.5;
+    }
+    teapotX -= 0.1;
+    break;
+
+  case 'i':
+    if (teapotZ >= 2.0) {
+      teapotZ -= 2.0;
+    }
+    teapotZ += 0.1;
+    break;
+
+  case 'k':
+    if (teapotZ <= -2.0) {
+      teapotZ += 2.0;
+    }
+    teapotZ -= 0.1;
+    break;
+
+  case 'e':
+    teapotRotateY ++;
+    break;
+
+  case 'o':                   /**< make the teapot jump on the desktop */
+    teapotY = ty[i++];
+    if (i >= 15) {
+      i -= 15;
+    }
+  }
+
+  glutPostRedisplay();
+}
+
+/**
+ ,* @brief main function
+ ,*
+ ,* @param argc
+ ,* @param argv
+ ,*
+ ,* @return 0
+ ,*/
+int main(int argc, char** argv) {
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+
+  glutInitWindowSize(500, 500);
+  glutInitWindowPosition(100, 100);
+
+  glutCreateWindow("Simple opengl 3d modelview program");
+
+  init();
+
+  glutDisplayFunc(display);
+  glutReshapeFunc(reshape);
+  glutKeyboardFunc(keyboard);
+  glutIdleFunc(idle);
+
+  glutMainLoop();
+
+  return 0;
+}
+#+END_SRC
+
+思路还是蛮清晰的。理解起来也不是很难。这三天看了很多的资料，觉得自学的好处就是可
+以接触大量的资料，从多方面对同一个问题有更好的理解，但是缺点就是太耗费时间了。有
+些问题老师一句话就可以点明白，但是自己探索却要好长时间。不过我很享受这种探索的乐
+趣。
+
+前几日耗费了一天多的时间看完了开复自传《世界以你不同》，感慨颇多。毫无疑问，开复
+是幸运的，他有着良好的家庭条件，及早的接受了美国先进的教育，在那里又碰到了很多对
+他未来起着决定性作用的好老师，如教他英语的中学老师，他的大学课上说了那句“make a
+difference"的哲学老师，“不同意却支持他”的博士导师。正是这些人将开复推向了人生的
+顶峰。最喜欢的是开复的座右铭：
+
+#+BEGIN_QUOTE
+用勇气去改变那些可以改变的事情，用胸怀来接纳那些不能改变的事情，用智慧来辨别两者的不同。
+#+END_QUOTE
+
+说的非常好。开复精彩的一生就是这句话的写照。做任何事情总是“lead my heart”，这样
+的人活的潇洒、惬意。
+
+但是并不是所有人都能像开复一样。所以我觉得人生二字，唯机遇与奋斗两字。机遇是先天
+的，可遇而不可求，奋斗是后天的，自己可以掌控。你不可能指望偏远山区一个放牛的娃子
+去做科学研究，也不能指望有了机遇坐山吃空就能如何如何。哪些是机遇哪些需要奋斗，这
+需要用智慧来辨别。
+
+每次去 88 逛 work、careerlife 版块，就会给自己点压力。我告诉自己，要通过自己的努
+力，找到一份自己喜欢的工作，可能的话开创一片属于自己的事业。在海边有自己的一幢房
+子，落地大窗，听着海浪的声音入睡。四十岁之前赚足够多的钱，留下一部分，剩下的捐给
+需要钱的人，然后辞职，追随我心，去做自己想做的事情。这件事情可能是旅行，可能是慈
+善，可能是教育，或者是自己的事业。等等。
+
+网上有句话，当今的中国是政治精英、文化精英、经济精英三足鼎立，想想还是蛮形象的。
+自己该选择那个呢？政治自己是干不来了。对所谓的马列毛邓着实感到恶心。文化，经济，
+如果二者选一，我还是选择后者吧。我已经失去了对学术探索的热情和雄心了。
+
+两个月之前，浙大海归博士涂序新跳楼自杀，引起来学术界的轩然大波。越长大越孤单，随
+着年龄的增大，社会也在逐渐掀开那层层的面纱。当代中国人活的太辛苦了。我只能这么说，
+这么说是因为我只知道中国。我觉得中国人活的很辛苦。别的国家我没有去过，没有切身感
+受。所以我喜欢旅行，我想要看看这大千世界。
+
+又罗嗦了这么多。吃饭去了。
