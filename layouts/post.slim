@@ -26,7 +26,7 @@ header.row.article-head
     .ui.small.header Category
     .ui.list
       .item
-        a href="/categories##{@item[:category].downcase}"
+        a href="/categories##{@item[:category]}"
           .ui.label
             = @item[:category]
             sup == articles_with_attribute(:category, @item[:category]).length
@@ -35,7 +35,7 @@ header.row.article-head
     .ui.list
       - @item[:tags].each do |tag|
         .item
-          a href="/tags##{tag.downcase}"
+          a href="/tags##{tag}"
             .ui.label
               = tag
               sup == articles_with_attribute(:tags, tag).length
