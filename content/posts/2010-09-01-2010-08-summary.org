@@ -79,7 +79,7 @@ don't know"，在此一并罗列出来：
 翻完潦草不堪的 Notebook，想想这一个月看的东西还真挺杂的。除了以上这些，中途走神
 看了看 [[http://book.douban.com/subject/2334288/][《大话设计模式》]]的前面几章；看了《[[http://book.douban.com/subject/2295097/][Learning Python]]》的大部分——但是还没有动
 手写过程序……感觉书比较啰嗦，一个知识点反反复复的说来说去；看了 [[http://www.w3cschool.cn/][w3cschool.cn]] 的部
-分在线教程，重点看了 [[http://cnlox.is-programmer.com/posts/20887.html][JavaScript]]，边看边用 Emacs Org-mode 做笔记，还是挺好用的；
+分在线教程，重点看了 [[http://xiaohanyu.me/posts/2010-08-30-notes-on-w3cschool-javascript/][JavaScript]]，边看边用 Emacs Org-mode 做笔记，还是挺好用的；
 阿里内网也有非常多宝贵的资源，上班时间没事，我自己下载了历年来各种培训资料、内部
 试题、新人手册大概 300 M 左右，看了一半左右，留了个大概印象；看的过程中走神，不
 知道怎么就点到了 [[http://www.qconbeijing.com/][QCon Beijing 2009]] 的网站，又发现了一个宝库，流着口水下载了所有

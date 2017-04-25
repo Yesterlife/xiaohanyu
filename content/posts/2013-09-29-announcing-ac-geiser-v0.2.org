@@ -7,7 +7,7 @@ el-get package 的整合测试。不过话说回来，这两个月以来真心�
 文章了。连我都有些佩服自己的耐心了。
 
 我想，oh-my-emacs 之所以受到了一些的关注，归根到底，还是 oh-my-emacs 确实解决了
-一些现实中的问题吧。[[http://cnlox.is-programmer.com/posts/40749.html][上篇博文]]中我曾经提到，基于 [[https://github.com/auto-complete/auto-complete][auto-complete]] 的语义补全是
+一些现实中的问题吧。[[http://xiaohanyu.me/posts/2013-09-14-announcing-oh-my-emacs-v0.2/][上篇博文]]中我曾经提到，基于 [[https://github.com/auto-complete/auto-complete][auto-complete]] 的语义补全是
 oh-my-emacs 最看重的目标之一。
 
 也正是基于这个宏伟的目标，我又花了一个晚上的时间，折腾出 [[https://github.com/xiaohanyu/ac-geiser][ac-geiser]]，"an Emacs
