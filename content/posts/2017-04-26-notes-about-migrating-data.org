@@ -7,7 +7,7 @@
 不会提供这个选项，否则用户迁移起来太容易，对一个 UGC 产品来说可不是什么太好的事
 情。
 
-因为要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy & Paste，稍
+因此要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy & Paste，稍
 微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。
 
 首先是拿到 126 篇文章的的一些基础数据：
@@ -121,8 +121,8 @@ conky: conky
 - 分析文章的 metadata，包括：
   - ~title~ -- 文章标题
   - ~created_at~ -- 创建时间
-  - tags
-  - category
+  - ~tags~
+  - ~category~
   - 原文章的 URL
 - 用 [[http://pandoc.org/][Pandoc]] 将抓取下的 HTML 转换成 Org-mode 格式[1]
 - 确定迁移后的文章的 URL
@@ -139,7 +139,7 @@ conky: conky
 ---
 title: "计算机是懒人的科学"
 created_at: 2009-06-04T05:41:13+08:00
-updated_at: 2014-04-26T17:31:07+08:00
+updated_at: 2017-04-26T17:31:07+08:00
 kind: article
 category: Linux
 tags:
