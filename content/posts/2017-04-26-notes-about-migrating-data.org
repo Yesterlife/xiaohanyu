@@ -1,0 +1,339 @@
+我发现我以前的 [[http://cnlox.is-programmer.com/][Blog]] 还是有挺多访问流量的，以前写的文章虽然有一半是流水帐，但毕竟
+还是记录了自己的成长，因此还是有点“敝帚自珍”的。is-programmer 最近也不是太稳定，
+说不定哪天就挂了，因此我又花了快两周的时间，把原有 Blog 上的 126 篇文章全部迁移
+了过来。这里草记下数据迁移过程，仅做备忘。
+
+一般而言，[[https://en.wikipedia.org/wiki/User-generated_content][UGC]] 平台只有在关闭的时候才会提供一个数据导出的选项，默认情况下，一般都
+不会提供这个选项，否则用户迁移起来太容易，对一个 UGC 产品来说可不是什么太好的事
+情。
+
+因为要拿到我原有的 126 篇文章的数据，比较土的办法就是一篇一篇地 Copy & Paste，稍
+微高级一些的方法就是写个小爬虫，把数据爬下来，再做处理。
+
+首先是拿到 126 篇文章的的一些基础数据：
+- 标题
+- URL
+
+方式是通过 Wget 和 Bash 的 src_sh{for} 循环：
+
+#+BEGIN_SRC sh
+$ for i in `seq 1 26`; do wget -c http://cnlox.is-programmer.com/\?page\=$i -O $i.html; done
+
+$ ls
+1.html    11.html   13.html   15.html   17.html   19.html   20.html   22.html   24.html   26.html   4.html    6.html    8.html
+10.html   12.html   14.html   16.html   18.html   2.html    21.html   23.html   25.html   3.html    5.html    7.html    9.html
+
+$ for i in `seq 1 26`; do grep link_to_post $i.html; done > urls.html
+#+END_SRC
+
+这样我们拿到了一个 =urls.html=
+
+#+BEGIN_SRC html
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/44972.html">Goodbye and Thanks to is-programmer</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/43206.html">2013, 青春绝版</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/42237.html">Announcing oh-my-emacs v0.3</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/40912.html"> Announcing ac-geiser v0.1</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/40749.html">Announcing oh-my-emacs v0.1</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/39883.html">OpenStack开发杂谈</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/37506.html">轻松一刻：电影条形码转换脚本</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/37288.html">慎言多思</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/37276.html">李彦宏的“罪己诏”</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/37030.html">2012，静水深流</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/37022.html">陪床记</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/35867.html">Emacs as a Python IDE</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/35680.html">读行记：孤单是一个人的狂欢</a></h2>
+<h2 class="link_to_post"><a href="http://cnlox.is-programmer.com/posts/34489.html">偷得浮生半年闲</a></h2>
+<!-- ... -->
+#+END_SRC
+
+我通过 [[http://vim.wikia.com/wiki/Macros][Vim Macro]]，把这个文件的内容变成 [[http://yaml.org/][YAML]] 格式，并加入一个额外的
+~english_title~ 字段，这个字段会变成新的文章的 [[https://en.wikipedia.org/wiki/URL][URL Path]] 的一部分：
+
+#+BEGIN_SRC yaml
+# url_list.yaml
+- url: http://cnlox.is-programmer.com/posts/44972.html
+  title: Goodbye and Thanks to is-programmer.com
+  english-title: goodbye-and-thanks-to-is-programmer
+- url: http://cnlox.is-programmer.com/posts/43206.html
+  title: 2013, 青春绝版
+  english-title: 2013-summary
+- url: http://cnlox.is-programmer.com/posts/42237.html
+  title: Announcing oh-my-emacs v0.3
+  english-title: announcing-oh-my-emacs-v0.3
+- url: http://cnlox.is-programmer.com/posts/40912.html
+  title: Announcing ac-geiser v0.1
+  english-title: announcing-ac-geiser-v0.2
+- url: http://cnlox.is-programmer.com/posts/40749.html
+  title: Announcing oh-my-emacs v0.1
+  english-title: announcing-oh-my-emacs-v0.2
+- url: http://cnlox.is-programmer.com/posts/39883.html
+  title: OpenStack开发杂谈
+  english-title: misc-thoughts-on-openstack-development
+- url: http://cnlox.is-programmer.com/posts/37506.html
+  title: 轻松一刻：电影条形码转换脚本
+  english-title: just-for-fun-moviebarcode-shell-script
+- url: http://cnlox.is-programmer.com/posts/37288.html
+  title: 慎言多思
+  english-title: fewer-words-more-thoughts
+- url: http://cnlox.is-programmer.com/posts/37276.html
+  title: 李彦宏的“罪己诏”
+  english-title: thoughts-on-baidu
+- url: http://cnlox.is-programmer.com/posts/37030.html
+  title: 2012，静水深流
+  english-title: 2012-summary
+- url: http://cnlox.is-programmer.com/posts/37022.html
+  title: 陪床记
+  english-title: for-my-father
+# ...
+#+END_SRC
+
+我原有的 Blog 文章，每一篇都会有一些 tag，但是这些 tag 的拼写有很多是错误的，因
+此我又将所有的 tag 爬取下来并 fix，也是保存成 YAML 格式以方便程序读取：
+
+#+BEGIN_SRC yaml
+# tags_fix.yaml
+amarok: Amarok
+animal: Animal
+apache: Apache
+api: API
+archlinux: Arch Linux
+assembly: Assembly
+auctex: AUCTeX
+avl: AVL
+baidu: Baidu
+budai: Budai
+c#: C#
+c++: C++
+cc98: CC98
+ccl: CCL
+cdlatex: CDLaTeX
+cmake: CMAKE
+cocoa: Cocoa
+colinux: coLinux
+compiler: Compiler
+conky: conky
+# ...
+#+END_SRC
+
+基础工作做好之后，接下来就是写程序，根据 =url_list.yaml= 来对每一篇文章进行批量
+化的处理：
+- 抓取文章内容
+- 分析文章的 metadata，包括：
+  - ~title~ -- 文章标题
+  - ~created_at~ -- 创建时间
+  - tags
+  - category
+  - 原文章的 URL
+- 用 [[http://pandoc.org/][Pandoc]] 将抓取下的 HTML 转换成 Org-mode 格式[1]
+- 确定迁移后的文章的 URL
+- 修正 Tag
+- 保存文件
+
+所以 is-programmer 抓取下来的文章，最后会被保存成一个
+=YYYY-MM-DD-some-title.org= 文件和 =YYYY-MM-DD-some-title.yaml= 文件，以符合
+[[https://nanoc.ws][Nanoc]] 的要求[2]。
+
+保存后的 YAML 文件大约如下：
+
+#+BEGIN_SRC yaml
+---
+title: "计算机是懒人的科学"
+created_at: 2009-06-04T05:41:13+08:00
+updated_at: 2014-04-26T17:31:07+08:00
+kind: article
+category: Linux
+tags:
+- Ubuntu
+- LaTeX
+- Emacs
+- Firefox
+- Outdated
+meta:
+  html: Imported from <a href="http://cnlox.is-programmer.com/posts/8790.html">is-programmer</a>.
+#+END_SRC
+
+程序是用 Ruby 写的，主要还是用了 Ruby 中内建的 [[https://ruby-doc.org/core-2.3.0/Regexp.html][Regexp]]。正则表达式是非常强大和方
+便的工具，但是每种语言、工具的实现都在一些细节处有一些细小的差距，所以实际应用时，
+耐心的调试和文档查询工作是少不了的。
+
+程序清单如下[3]：
+
+#+BEGIN_SRC ruby
+# spider.rb
+require 'yaml'
+require 'net/http'
+
+list = YAML::load(File.open('url_list.yaml').read)
+tags_fix = YAML::load(File.open('tags_fix.yaml').read)
+
+list.each do |item|
+  uri = URI(item['url'])
+  html = Net::HTTP.get(uri)
+  tags_re = /<a href="\/tag\/[\S]*">([\S]*)<\/a>/
+  tags = html.scan(tags_re).flatten
+
+  category_re = /<div id="article_header">.*<a href="\/categories\/[\d]*\/posts">([\S]*)<\/a>.*<\/div>/m
+  category = html.scan(category_re).flatten[0]
+
+  date_re = /posted.*@ (.* \+0800)/
+  created_at = DateTime.parse(html.scan(date_re).flatten[0])
+  updated_at = DateTime.now
+
+  title = item['title']
+
+  yaml = <<YAML
+---
+title: "#{item["title"]}"
+created_at: #{created_at.to_s}
+updated_at: #{updated_at.to_s}
+kind: article
+category: #{category}
+tags:
+YAML
+
+  tags.each do |tag|
+    yaml += "- #{tags_fix[tag].force_encoding(Encoding::UTF_8)}\n"
+  end
+
+  yaml += <<YAML
+meta:
+  html: Imported from <a href="#{item['url']}">is-programmer</a>.
+YAML
+
+  yaml_file = "posts/" + created_at.strftime('%Y-%m-%d') + "-" + item["english-title"] + ".yaml"
+
+  File.open(yaml_file, 'w') do |f|
+    f.write(yaml)
+  end
+
+  org_file = "posts/" + created_at.strftime('%Y-%m-%d') + "-" + item["english-title"] + ".org"
+  article_content_re = /<div id=.article_content.>(.*)<\/div>.*<div id=.article_bar.>/m
+  article_content = html.scan(article_content_re).flatten[0]
+
+  File.open('/tmp/test.html', 'w') do |f|
+    f.write(article_content)
+  end
+
+  `pandoc /tmp/test.html -o #{org_file}`
+end
+#+END_SRC
+
+再之后，可以通过一些初级的正则替换，来完成一些最基本的文本修正工作。我这里最主要
+是通过 Ruby 的 Regexp，给文章中的中英文混排的英文单词两边加入了一个合适的半角空
+格。Ruby 的 Regexp 可以通过 ~/(\p{Han})/~ 来直接匹配汉字，实在是非常方便。
+程序清单如下：
+
+#+BEGIN_SRC ruby
+# article_fix.rb
+require 'yaml'
+
+def fix_english_word(content)
+  alpha_re = /(\p{Han})([[:ascii:]]+?)(\p{Han})/
+  word_fix = YAML::load(File.open('tags_fix.yaml').read)
+  new_word_fix = {}
+  word_fix.each_pair do |key, value|
+    new_word_fix[key.downcase] = value
+  end
+
+  content.gsub(alpha_re) do
+    if new_word_fix.has_key?($2.downcase)
+      fix_word = new_word_fix[$2.downcase]
+    else
+      fix_word = $2
+    end
+    $1 + ' ' + fix_word +  ' ' + $3
+  end
+end
+
+def fix_english_word_with_punct(content)
+  alpha_re = /(\p{Han})([[:ascii:]]+?)(\p{Punct})/
+  word_fix = YAML::load(File.open('tags_fix.yaml').read)
+  new_word_fix = {}
+  word_fix.each_pair do |key, value|
+    new_word_fix[key.downcase] = value
+  end
+
+  content.gsub(alpha_re) do
+    if new_word_fix.has_key?($2.downcase)
+      fix_word = new_word_fix[$2.downcase]
+    else
+      fix_word = $2
+    end
+    $1 + ' ' + fix_word +  $3
+  end
+end
+
+def fix_bullet_point(content)
+  content.gsub(/^-\s+/, '- ')
+end
+
+def fix_org_properties(content)
+  content.gsub(/.*PROPERTIES.*\n\s+:CUSTOM_ID:.*\n.*END.*\n\n/, '')
+end
+
+def fix_org_section_title(content)
+  content.gsub(/(^\*{1,4})\s*.*\[.*\]\[(.*)\]\]/, '\1 \2')
+end
+
+def fix_source_code(content)
+  content.gsub('BEGIN_EXAMPLE', 'BEGIN_SRC').
+    gsub('END_EXAMPLE', 'END_SRC').
+    gsub(' ', ' ')
+end
+
+def main(file)
+  content = ''
+  File.open(file) do |f|
+    content = f.read
+  end
+
+  content =
+    fix_english_word_with_punct(
+      fix_english_word(
+        fix_bullet_point(
+          fix_org_properties(
+            fix_org_section_title(
+              fix_source_code(content)
+            )
+          )
+        )
+      )
+    )
+
+  File.open(file, 'w') do |f|
+    f.write(content)
+  end
+end
+
+if __FILE__ == $0
+  main(ARGV[0])
+end
+#+END_SRC
+
+再之后就是十分枯燥的工作了，我主要是按照这份文案排版[[http://ppresume.com/notes/guide-zh.html][方案]]来修正很多的文字错误，前
+后大概花了有 10 天的时间：
+
+#+CAPTION: Git 修订文章记录
+[[/static/image/2017/type_fix.png][file:/static/image/2017/type_fix.png]]
+
+加上调试程序，总共大约是花了两周的时间，于现在的我而言，是相当大的时间成本，这也
+是我迟迟没有动手做这个事的原因。不过好在下了决心后，快刀斩乱麻，坚持下也就完成了。
+
+修订文章的过程中，又从头到尾回顾了下自己过去七八年的工作生活经历，文章中很多唠叨
+的琐事，若不是当时动笔叨扰一下，已然完全记不得了；还有些观点年少轻狂，现在再读也
+会哑然无言，略感羞愧，不过这毕竟是曾经的自己，因此除了一些必要的文法修正，内容依
+然保持原样。
+
+当我写下第一篇[[http://xiaohanyu.me/posts/2009-06-04-computer-science-for-lazy-guys/][文章]]时，我还只是个 20 岁出头的少年，刚刚挂了很多课，刚刚一只脚踏入
+计算机学习的大门；现如今当我有了足够的能力可以自己从前端到后端建立一个中小型网站
+写出还可以的文章之时，已近而立。这些年做了很多的选择，相对的，人生也少了很多选
+择——或者说是迷茫吧。而随着这种迷茫的消逝相伴而来的，是人生的选择面在逐渐减小。小
+十年的青春韶华，只落下几篇文章几万文字，想来不免要感慨——人生于世，大概就如那大河
+之水，或早或晚都要归于大海吧。
+
+[1] 实际上也可以转换成 Markdown 或者其它任何方便编辑的文本标记格式，我个人是更喜
+欢使用 Org-mode。
+
+[2] 这个站点从创建之初就采用了 Nanoc，体验非常棒，具体可以参考我以前写的两篇[[http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/][文]][[http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/][章]]。
+
+[3] Pandoc 的代码语法高亮，对 Ruby 的 [[https://ruby-doc.org/core-2.3.0/doc/syntax/literals_rdoc.html#label-Here+Documents][heredoc]] 解析好像是有 bug。
