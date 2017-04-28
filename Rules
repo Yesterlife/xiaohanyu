@@ -67,6 +67,7 @@ compile '/{index,about}.*' do
   case item[:extension]
   when /slim|html/
     filter :slim
+    filter :han
   end
   layout item[:layout] || '/default.*'
 end
