@@ -1,0 +1,904 @@
+** 缘起
+
+16 年 10 月 27 日，我用 Google 搜索 "Haskell QuickCheck"，没想到 Google 放了一小
+段网页动画，然后就弹出一句 "You are speaking our language. Up for a challenge?"
+
+#+CAPTION: Google foo.bar invitation
+[[/static/image/2017/google_foobar_invitation.png][file:/static/image/2017/google_foobar_invitation.png]]
+
+我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了
+"I want to play"，紧接着就进入了一个算法闯关游戏。
+
+游戏的模式有点类似于传统的 Online Judge，但是又不完全一样；交互界面模仿了 UNIX
+Shell：你可以通过命令来请求（ ~request~ ）一个新的 Challenge、 提交 （ ~submit~
+）代码、验证（ ~verify~ ）代码正确与否。
+
+整个 foo.bar 游戏分为 5 个 level，题目的难度随着 level 的增长会逐渐增加。
+
+我个人经历中，level 1 有 1 道题目，level 2 有 2 道，level 3 有 3 道。level 1 和
+level 2 的题目十分简单，每个题目会给 24--48 个小时的做答时间，考的主要是一些基础
+的编程概念；level 3 会考一些简单的算法，每个题目会给 96 个小时的做答时间；level
+4 的题目就比较难了，会考一些不常见的算法。
+
+#+CAPTION: Google foo.bar welcome page
+[[/static/image/2017/google_foobar_page.png][file:/static/image/2017/google_foobar_welcome.png]]
+
+#+CAPTION: Google foo.bar code editor
+[[/static/image/2017/google_foobar_code_editor.png][file:/static/image/2017/google_foobar_code_editor.png]]
+
+#+CAPTION: Google foo.bar verify
+[[/static/image/2017/google_foobar_verify.png][file:/static/image/2017/google_foobar_verify.png]]
+
+#+CAPTION: Google foo.bar progress
+[[/static/image/2017/google_foobar_progress.png][file:/static/image/2017/google_foobar_progress.png]]
+
+我大概花了 4--6 个小时的时间完成了 level 1--3 的 6 道题目——其中有 30% 的时间花在
+英文阅读理解上，50% 的时间编码，剩下 20% 的时间 debug 一些 test case。由于
+foo.bar 并没有 [[https://en.wikipedia.org/wiki/Non-disclosure_agreement][NDA]] 的限制，我这里贴出 level 3 的 3 个题目以及我个人的测试代码，
+供读者参考：
+
+------
+
+Problem 1 in level 3:
+
+#+BEGIN_EXAMPLE
+Queue To Do
+===========
+
+You're almost ready to make your move to destroy the LAMBCHOP doomsday device,
+but the security checkpoints that guard the underlying systems of the LAMBCHOP
+are going to be a problem. You were able to take one down without tripping any
+alarms, which is great! Except that as Commander Lambda's assistant, you've
+learned that the checkpoints are about to come under automated review, which
+means that your sabotage will be discovered and your cover blown - unless you
+can trick the automated review system.
+
+To trick the system, you'll need to write a program to return the same security
+checksum that the guards would have after they would have checked all the
+workers through. Fortunately, Commander Lambda's desire for efficiency won't
+allow for hours-long lines, so the checkpoint guards have found ways to quicken
+the pass-through rate. Instead of checking each and every worker coming through,
+the guards instead go over everyone in line while noting their security IDs,
+then allow the line to fill back up. Once they've done that they go over the
+line again, this time leaving off the last worker. They continue doing this,
+leaving off one more worker from the line each time but recording the security
+IDs of those they do check, until they skip the entire line, at which point they
+XOR the IDs of all the workers they noted into a checksum and then take off for
+lunch. Fortunately, the workers' orderly nature causes them to always line up in
+numerical order without any gaps.
+
+For example, if the first worker in line has ID 0 and the security checkpoint
+line holds three workers, the process would look like this:
+
+0 1 2 /
+3 4 / 5
+6 / 7 8
+
+where the guards' XOR (^) checksum is 0^1^2^3^4^6 == 2.
+
+Likewise, if the first worker has ID 17 and the checkpoint holds four workers,
+the process would look like:
+
+17 18 19 20 /
+21 22 23 / 24
+25 26 / 27 28
+29 / 30 31 32
+
+which produces the checksum 17^18^19^20^21^22^23^25^26^29 == 14.
+
+All worker IDs (including the first worker) are between 0 and 2000000000
+inclusive, and the checkpoint line will always be at least 1 worker long.
+
+With this information, write a function answer(start, length) that will cover
+for the missing security checkpoint by outputting the same checksum the guards
+would normally submit before lunch. You have just enough time to find out the ID
+of the first worker to be checked (start) and the length of the line (length)
+before the automatic review occurs, so your program must generate the proper
+checksum with just those two values.
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+# solution for problem 1 in level 3
+def answer(start, length):
+    worker_list = [(start + (length - l) * length,
+                    start + (length - l) * length + l)
+                   for l in range(length, 0, -1)]
+
+    reduced_xor = [xor_range(start, end) for start, end in worker_list]
+
+    return reduce(lambda x, y: x ^ y, reduced_xor)
+
+def xor_range(start, end):
+    # inclusive start and exclusive end
+    if (end - start) == 0:
+        return 0
+    if (end - start) == 1:
+        return start
+    if (end - start) <= 4:
+        return reduce(lambda x, y: x ^ y, range(start, end))
+    else:
+        begin_range = (start, start / 4 * 4 + 4)
+        end_range = (end / 4 * 4, end)
+        return xor_range(*begin_range) ^ xor_range(*end_range)
+
+# print(answer(0, 3))
+# print(answer(17, 4))
+# print(answer(17, 250))
+# print(answer(17, 2500))
+#+END_SRC
+
+Problem 2 in level 3:
+
+#+BEGIN_EXAMPLE
+Bomb, Baby!
+===========
+
+You're so close to destroying the LAMBCHOP doomsday device you can taste it! But
+in order to do so, you need to deploy special self-replicating bombs designed
+for you by the brightest scientists on Bunny Planet. There are two types: Mach
+bombs (M) and Facula bombs (F). The bombs, once released into the LAMBCHOP's
+inner workings, will automatically deploy to all the strategic points you've
+identified and destroy them at the same time.
+
+But there's a few catches. First, the bombs self-replicate via one of two
+distinct processes: Every Mach bomb retrieves a sync unit from a Facula bomb;
+for every Mach bomb, a Facula bomb is created; Every Facula bomb spontaneously
+creates a Mach bomb.
+
+For example, if you had 3 Mach bombs and 2 Facula bombs, they could either
+produce 3 Mach bombs and 5 Facula bombs, or 5 Mach bombs and 2 Facula bombs. The
+replication process can be changed each cycle.
+
+Second, you need to ensure that you have exactly the right number of Mach and
+Facula bombs to destroy the LAMBCHOP device. Too few, and the device might
+survive. Too many, and you might overload the mass capacitors and create a
+singularity at the heart of the space station - not good!
+
+And finally, you were only able to smuggle one of each type of bomb - one Mach,
+one Facula - aboard the ship when you arrived, so that's all you have to start
+with. (Thus it may be impossible to deploy the bombs to destroy the LAMBCHOP,
+but that's not going to stop you from trying!)
+
+You need to know how many replication cycles (generations) it will take to
+generate the correct amount of bombs to destroy the LAMBCHOP. Write a function
+answer(M, F) where M and F are the number of Mach and Facula bombs needed.
+Return the fewest number of generations (as a string) that need to pass before
+you'll have the exact number of bombs necessary to destroy the LAMBCHOP, or the
+string"impossible"if this can't be done! M and F will be string representations
+of positive integers no larger than 10^50. For example, if M = "2" and F = "1",
+one generation would need to pass, so the answer would be "1". However, if M =
+"2" and F = "4", it would not be possible.
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit solution.java
+
+Test cases
+==========
+
+Inputs:
+    (string) M = "2"
+    (string) F = "1"
+Output:
+    (string) "1"
+
+Inputs:
+    (string) M = "4"
+    (string) F = "7"
+Output:
+    (string) "4"
+
+Use verify [file] to test your solution and see how it does. When you are
+finished editing your code, use submit [file] to submit your answer. If your
+solution passes the test cases, it will be removed from your home folder.
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+# solution for problem 2 in level 3
+def answer(M, F):
+    m = int(M)
+    f = int(F)
+
+    if m * f == 0:
+        return "impossible"
+
+    g = gcd(m, f)
+    if g != 1 and (abs(m - f) % g == 0):
+        return "impossible"
+
+    return str(answer_helper(m, f))
+
+def answer_helper(m, f):
+    if m == 1:
+        return f - 1
+    elif f == 1:
+        return m - 1
+    else:
+        if m < f:
+            return answer_helper(f, m)
+        else:
+            return (m / f) + answer_helper(m - m / f * f, f)
+
+def gcd(x, y):
+    if y == 0:
+        return x
+    else:
+        return gcd(y, x % y)
+
+# print(answer("1", "1"))
+# print(answer("2", "1"))
+# print(answer("4", "7"))
+# print(answer("9", "37"))
+# print(answer("2", "38"))
+# print(answer("2978183212347123467888", "8832131497"))
+# print(answer("0", "100"))
+# print(answer("9", "9"))
+# print(answer("0", "0"))
+# print(answer("1", "1"))
+# print(answer("2", "2"))
+# print(answer("12", "9"))
+#+END_SRC
+
+Problem 3 in level 3:
+
+#+BEGIN_EXAMPLE
+Fuel Injection Perfection
+=========================
+
+Commander Lambda has asked for your help to refine the automatic quantum
+antimatter fuel injection system for her LAMBCHOP doomsday device. It's a great
+chance for you to get a closer look at the LAMBCHOP - and maybe sneak in a bit
+of sabotage while you're at it - so you took the job gladly.
+
+Quantum antimatter fuel comes in small pellets, which is convenient since the
+many moving parts of the LAMBCHOP each need to be fed fuel one pellet at a time.
+However, minions dump pellets in bulk into the fuel intake. You need to figure
+out the most efficient way to sort and shift the pellets down to a single pellet
+at a time.
+
+The fuel control mechanisms have three operations:
+
+1) Add one fuel pellet
+2) Remove one fuel pellet
+3) Divide the entire group of fuel pellets by 2 (due to the destructive energy
+released when a quantum antimatter pellet is cut in half, the safety controls
+will only allow this to happen if there is an even number of pellets)
+
+Write a function called answer(n) which takes a positive integer as a string and
+returns the minimum number of operations needed to transform the number of
+pellets to 1. The fuel intake control panel can only display a number up to 309
+digits long, so there won't ever be more pellets than you can express in that
+many digits.
+
+For example:
+answer(4) returns 2: 4 -> 2 -> 1
+answer(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit solution.java
+
+Test cases
+==========
+
+Inputs:
+    (string) n = "4"
+Output:
+    (int) 2
+
+Inputs:
+    (string) n = "15"
+Output:
+    (int) 5
+
+Use verify [file] to test your solution and see how it does. When you are
+finished editing your code, use submit [file] to submit your answer. If your
+solution passes the test cases, it will be removed from your home folder.
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+# solution for problem 3 in level 3
+def answer(n):
+    # your code here
+    n = int(n)
+
+    table = {1: 0, 2: 1}
+
+    def answer_helper(n):
+        if n in table:
+            return table[n]
+
+        if n % 2 != 0:
+            table[n] = min(answer_helper((n + 1) / 2) + 2,
+                           answer_helper((n - 1) / 2) + 2)
+        else:
+            table[n] = answer_helper(n / 2) + 1
+
+        return table[n]
+
+    return answer_helper(n)
+
+# for n in range(1, 65):
+#     print("%s: %s" % (n, answer(n)))
+#+END_SRC
+
+------
+
+实际上做完了 level 3，就可以等 Google recruiter 回复了。而 Level 3 中难度最大的
+一题目，也就是考了一个简单的 [[https://en.wikipedia.org/wiki/Dynamic_programming][DP]] 而已——事实上也不需要太复杂的 DP，稍微对
+Functional Programming 中常见的 [[https://en.wikipedia.org/wiki/Memoization][Memoization]] 手法有个印象，就能搞定了。
+
+#+CAPTION: Google foo.bar recruiter
+[[/static/image/2017/google_foobar_recruiter.png][file:/static/image/2017/google_foobar_recruiter.png]]
+
+我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了[[https://en.wikipedia.org/wiki/Network_flow][网络流]]的
+大坑里，Google 也知道这类题比较难[1]，因此给了 168 个小时的做答时间。于是我又翻
+开了那本尘封已久的《算法导论》，简单扫了下网络流那一章，最后花了几天的时间写了个
+[[https://en.wikipedia.org/wiki/Ford%25E2%2580%2593Fulkerson_algorithm][Ford-Fulkerson Algorithm]] 的 Python 实现。
+
+------
+
+Problem 1 in level 4:
+
+#+BEGIN_EXAMPLE
+Escape Pods
+===========
+
+You've blown up the LAMBCHOP doomsday device and broken the bunnies out of
+Lambda's prison - and now you need to escape from the space station as quickly
+and as orderly as possible! The bunnies have all gathered in various locations
+throughout the station, and need to make their way towards the seemingly endless
+amount of escape pods positioned in other parts of the station. You need to get
+the numerous bunnies through the various rooms to the escape pods.
+Unfortunately, the corridors between the rooms can only fit so many bunnies at a
+time. What's more, many of the corridors were resized to accommodate the
+LAMBCHOP, so they vary in how many bunnies can move through them at a time.
+
+Given the starting room numbers of the groups of bunnies, the room numbers of
+the escape pods, and how many bunnies can fit through at a time in each
+direction of every corridor in between, figure out how many bunnies can safely
+make it to the escape pods at a time at peak.
+
+Write a function answer(entrances, exits, path) that takes an array of integers
+denoting where the groups of gathered bunnies are, an array of integers denoting
+where the escape pods are located, and an array of an array of integers of the
+corridors, returning the total number of bunnies that can get through at each
+time step as an int. The entrances and exits are disjoint and thus will never
+overlap. The path element path[A][B] = C describes that the corridor going from
+A to B can fit C bunnies at each time step. There are at most 50 rooms connected
+by the corridors and at most 2000000 bunnies that will fit at a time.
+
+For example, if you have:
+entrances = [0, 1]
+exits = [4, 5]
+path = [
+  [0, 0, 4, 6, 0, 0],  # Room 0: Bunnies
+  [0, 0, 5, 2, 0, 0],  # Room 1: Bunnies
+  [0, 0, 0, 0, 4, 4],  # Room 2: Intermediate room
+  [0, 0, 0, 0, 6, 6],  # Room 3: Intermediate room
+  [0, 0, 0, 0, 0, 0],  # Room 4: Escape pods
+  [0, 0, 0, 0, 0, 0],  # Room 5: Escape pods
+]
+
+Then in each time step, the following might happen:
+0 sends 4/4 bunnies to 2 and 6/6 bunnies to 3
+1 sends 4/5 bunnies to 2 and 2/2 bunnies to 3
+2 sends 4/4 bunnies to 4 and 4/4 bunnies to 5
+3 sends 4/6 bunnies to 4 and 4/6 bunnies to 5
+
+So, in total, 16 bunnies could make it to the escape pods at 4 and 5 at each
+time step.  (Note that in this example, room 3 could have sent any variation of
+8 bunnies to 4 and 5, such as 2/6 and 6/6, but the final answer remains the
+same.)
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit solution.java
+
+Test cases
+==========
+
+Inputs:
+    (int list) entrances = [0]
+    (int list) exits = [3]
+    (int) path = [[0, 7, 0, 0], [0, 0, 6, 0], [0, 0, 0, 8], [9, 0, 0, 0]]
+Output:
+    (int) 6
+
+Inputs:
+    (int list) entrances = [0, 1]
+    (int list) exits = [4, 5]
+    (int) path = [[0, 0, 4, 6, 0, 0], [0, 0, 5, 2, 0, 0], [0, 0, 0, 0, 4, 4], [0, 0, 0, 0, 6, 6], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
+Output:
+    (int) 16
+
+Use verify [file] to test your solution and see how it does. When you are
+finished editing your code, use submit [file] to submit your answer. If your
+solution passes the test cases, it will be removed from your home folder.
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+import decimal
+inf = decimal.Decimal("Infinity")
+
+def answer(entrances, exits, path):
+    transform(entrances, exits, path)
+    flow = 0
+    length = len(path)
+    flows = [[0 for i in range(length)] for j in range(length)]
+    start = 0
+    end = length - 1
+    while True:
+        ap_flow, parents = bfs(start, end, path, flows)
+        if ap_flow == 0:
+            break
+        flow += ap_flow
+        v = end
+        while v != start:
+            u = parents[v]
+            flows[u][v] += ap_flow
+            flows[v][u] -= ap_flow
+            v = u
+    return flow
+
+def bfs(start, end, path, flows):
+    global inf
+    length = len(path)
+    parents = [-1] * length     # parent table for reverse tracing path
+    parents[start] = -2         # differentiate start point from others
+
+    queue = []
+    queue.append(start)
+    while queue and parents[end] == -1:
+        u = queue.pop(0)
+        for v in range(length):
+            cf = path[u][v] - flows[u][v]
+            if cf > 0 and parents[v] == -1:
+                queue.append(v)
+                parents[v] = u
+
+    if parents[end] == -1:      # if t can not been reached
+        return 0, parents
+
+    v = end
+    delta = inf
+    while v != start:
+        u = parents[v]
+        cf = path[u][v] - flows[u][v]
+        delta = min(delta, cf)
+        v = u
+
+    return delta, parents
+
+def transform(entrances, exits, path):
+    # transform multi-source, multi-sink flow network to single-source,
+    # single-sink flow network
+    global inf
+    length = len(path)
+    entrances = [i + 1 for i in entrances]
+    exits = [i + 1 for i in exits]
+    for row in path:
+        row.insert(0, 0)
+        row.append(0)
+    start_row = [0] * (length + 2)
+    for i in entrances:
+        start_row[i] = inf
+    path.insert(0, start_row)
+    end_row = [0] * (length + 2)
+    for i in exits:
+        path[i][-1] = inf
+    path.append(end_row)
+    return entrances, exits, path
+#+END_SRC
+
+------
+
+测试通过后做第 8 道题目，到这里我一眼扫完题目，已经连题目要考什么算法都看不出来
+了，加上也没有再多的时间来继续“玩”这个游戏，索性就放弃了。
+
+------
+
+Problem 2 in level 4:
+
+#+BEGIN_EXAMPLE
+Running with Bunnies
+====================
+
+You and your rescued bunny prisoners need to get out of this collapsing death
+trap of a space station - and fast! Unfortunately, some of the bunnies have been
+weakened by their long imprisonment and can't run very fast. Their friends are
+trying to help them, but this escape would go a lot faster if you also pitched
+in. The defensive bulkhead doors have begun to close, and if you don't make it
+through in time, you'll be trapped! You need to grab as many bunnies as you can
+and get through the bulkheads before they close.
+
+The time it takes to move from your starting point to all of the bunnies and to
+the bulkhead will be given to you in a square matrix of integers. Each row will
+tell you the time it takes to get to the start, first bunny, second bunny, ...,
+last bunny, and the bulkhead in that order. The order of the rows follows the
+same pattern (start, each bunny, bulkhead). The bunnies can jump into your arms,
+so picking them up is instantaneous, and arriving at the bulkhead at the same
+time as it seals still allows for a successful, if dramatic, escape. (Don't
+worry, any bunnies you don't pick up will be able to escape with you since they
+no longer have to carry the ones you did pick up.) You can revisit different
+spots if you wish, and moving to the bulkhead doesn't mean you have to
+immediately leave - you can move to and from the bulkhead to pick up additional
+bunnies if time permits.
+
+In addition to spending time traveling between bunnies, some paths interact with
+the space station's security checkpoints and add time back to the clock. Adding
+time to the clock will delay the closing of the bulkhead doors, and if the time
+goes back up to 0 or a positive number after the doors have already closed, it
+triggers the bulkhead to reopen. Therefore, it might be possible to walk in a
+circle and keep gaining time: that is, each time a path is traversed, the same
+amount of time is used or added.
+
+Write a function of the form answer(times, time_limit) to calculate the most
+bunnies you can pick up and which bunnies they are, while still escaping through
+the bulkhead before the doors close for good. If there are multiple sets of
+bunnies of the same size, return the set of bunnies with the lowest prisoner IDs
+(as indexes) in sorted order. The bunnies are represented as a sorted list by
+prisoner ID, with the first bunny being 0. There are at most 5 bunnies, and
+time_limit is a non-negative integer that is at most 999.
+
+For instance, in the case of
+[
+  [0, 2, 2, 2, -1],  # 0 = Start
+  [9, 0, 2, 2, -1],  # 1 = Bunny 0
+  [9, 3, 0, 2, -1],  # 2 = Bunny 1
+  [9, 3, 2, 0, -1],  # 3 = Bunny 2
+  [9, 3, 2, 2,  0],  # 4 = Bulkhead
+]
+
+and a time limit of 1, the five inner array rows designate the starting point,
+bunny 0, bunny 1, bunny 2, and the bulkhead door exit respectively. You could
+take the path:
+
+Start End Delta Time Status
+    -   0     -    1 Bulkhead initially open
+    0   4    -1    2
+    4   2     2    0
+    2   4    -1    1
+    4   3     2   -1 Bulkhead closes
+    3   4    -1    0 Bulkhead reopens; you and the bunnies exit
+
+With this solution, you would pick up bunnies 1 and 2. This is the best
+combination for this space station hallway, so the answer is [1, 2].
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit solution.java
+
+Test cases
+==========
+
+Inputs:
+    (int) times = [[0, 1, 1, 1, 1], [1, 0, 1, 1, 1], [1, 1, 0, 1, 1], [1, 1, 1, 0, 1], [1, 1, 1, 1, 0]]
+    (int) time_limit = 3
+Output:
+    (int list) [0, 1]
+
+Inputs:
+    (int) times = [[0, 2, 2, 2, -1], [9, 0, 2, 2, -1], [9, 3, 0, 2, -1], [9, 3, 2, 0, -1], [9, 3, 2, 2, 0]]
+    (int) time_limit = 1
+Output:
+    (int list) [1, 2]
+
+Use verify [file] to test your solution and see how it does. When you are
+finished editing your code, use submit [file] to submit your answer. If your
+solution passes the test cases, it will be removed from your home folder.
+#+END_EXAMPLE
+
+------
+
+** Recruiter 电话面试
+
+做完 level 3 之后，我就忙我的事情去了，虽然我那时并没有找份全职工作的计划，但是
+对 Google recruiter 的回复还是有些小期待的。果不其然，11 月 8 日，收到了 Google
+recruiter 的邮件：
+
+#+CAPTION: Google foo.bar recruiter first email
+[[/static/image/2017/google_foobar_recruiter_first_email.jpg][file:/static/image/2017/google_foobar_recruiter_first_email.jpg]]
+
+于是花了一天的时间，更新了下简历，回复了邮件。接下来 Google recruiter 问了下个人
+倾向于什么岗位，可选 SRE 或者 SWE，我的答复是 SRE。
+
+然后在 11 月 24 日收到了 Google recruiter 的电话，全程英文聊了约半个小时：
+- 一是了解个人情况
+- 二是告知了 SRE 岗位 Head Count 十分紧张，需要等 17 年才可能有“坑”
+- 三是问了我 20 多个照本宣科的关于计算机基础知识的题目
+- 最后告诉我说即便是 google foo.bar 通过了，还要有两轮电话面试……
+
+而我在网上查到的资料是，有人通过了 foobar 之后，Google 直接就给了 onsite：
+
+#+BEGIN_QUOTE
+Google’s recruiting process is well documented online, and from this point my
+experience was pretty typical. The only difference is that I didn’t need to go
+through a technical phone screen since I had already demonstrated some
+proficiency with coding through the foo.bar exercises.
+
+--- https://thehustle.co/the-secret-google-interview-that-landed-me-a-job
+#+END_QUOTE
+
+我个人推想是，相较于“本土”求职者，海外求职者一次 onsite 的成本比较高，因为
+onsite 要谨慎一些。
+
+电话聊完之后，recruiter 发送了一个 self-rating form 给我，让你自助式地评估下自己
+的技术水准，形式如下：
+
+#+CAPTION: Google foo.bar self-rating form
+[[/static/image/2017/google_foobar_self_rating_form.png][file:/static/image/2017/google_foobar_self_rating_form.png]]
+
+与此同时，recruiter 还发送了一份长达 6 页的非常详尽的求职面试指南文档《Guide to
+Getting an SRE job with Google》，内容包含了岗位需求、面试要求、考查题目范围、样
+例面试题目等等。
+
+#+CAPTION: Google foo.bar SRE guide
+[[/static/image/2017/google_foobar_sre_guide.png][file:/static/image/2017/google_foobar_sre_guide.png]]
+
+还有一个非常贴心的细节是，Google 安排面试时，会特别问你有没有一些身体上的
+disability，是否需要一些特别的协助，诸如“documents in an alternate format, a
+sign language interpreter, or specialized equipment.”等等
+
+#+CAPTION: Google foo.bar self-rating form
+[[/static/image/2017/google_foobar_celebrate_difference.jpg][file:/static/image/2017/google_foobar_celebrate_difference.jpg]]
+
+我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比
+实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先，
+不是没有原因的——一个公司对面试者展现出足够的尊重，换来的必然也是面试者对面试的重
+视。相对而言，这种相互之间的尊重其实也很大程度上降低了双方的成本，一举两得。
+
+
+** 第一轮技术电话面试
+
+12 月 9 日，来自 Google Sydney 的第一轮电面。限于 NDA，这里我不能透露具体题目的
+内容。面试约一个小时，全程英文，问了三个题目，包括一个大数估算题、一个操作系统概
+念题、一个算法题。Google 邮件中有一个 Google Docs 的链接用来共享屏幕写代码的，但
+是实际上面试中并没有用到，可能是面试官不喜欢吧。
+
+Anyway，这轮面试表现还不错，特别是第二道题目的表现远超面试官的预期，面试官说这道
+题我的表现是他面过的所有求职者中最棒的，因此面试快结束的时候面试官告诉我说他这一
+轮会刷掉相当多的人，过了他这一轮后一定要多去"study, study, study, practice,
+practice, practice"——事后想想，应该就是去多刷刷 LeetCode 吧……
+
+** 第二轮技术电话面试
+
+1 月 13 日，来自 Google Sydney 的第二轮电面，仍然是全程英文。面试约一个小时，考
+了 Bash/Python/C 的知识。这次又没有用上 Google Docs 链接，所有题目都是面试官“口
+述”的……最后的 C 语言题目还涉及到了位运算的一些考点，我听了第一遍完全没听明白，反
+复了 5 分钟之后，其中充斥着诸如 "Pardon"、"Left bracket"、"Oh, I'm sorry"、
+"Ampersand"、"Question mark"、"Exclamation mark" 之类的单词，最后总算搞明白了题
+意，不难，很快给出了答复。
+
+这轮面试我自我感觉题目都不难，都是很基础的知识，但是英文听说能力要求非常高。好在
+我自己英文能力还可以，虽然开始时会有些紧张，但只要说顺了，后面的听说就都很顺畅，
+毫无滞碍。我没有去特别考过 TOFEL 和 GRE，也没有特别训练过，想来应该还是自己多年
+坚持英文读写实践的积攒下的功底。
+
+
+** Sydney onsite
+
+1 月 16 日收到了 Google recruiter 的邮件，告知电话面试通过，可以去 Sydney Office
+onsite 了。考虑到 2 月要过个春节长假，加上办签证需要一些时间，以及自己也需要一些
+时间从日常工作状态切换到面试找工作状态，所以和 Google recruiter 联系，暂时把
+onsite 的时间约到了 3 月初。
+
+#+CAPTION: Google foo.bar onsite email
+[[/static/image/2017/google_foobar_onsite_email.png][file:/static/image/2017/google_foobar_onsite_email.png]]
+
+Google 的 onsite 流程安排得非常完备：
+- Google 会报销往返机票、3 天的 4 星级酒店、签证费用，以及每天 50 AUD 的餐费补助
+- 会有专门的第三方，负责和你联系行程安排、预订机票酒店
+- onsite 结束之后，会有专门的第三方，来根据你的 invoice，来报销（reimburse）你的
+  餐费
+
+还有一个非常有意思的细节，Google Sydney 专门做了一个导航[[https://sites.google.com/site/sydneyofficedirections/][页面]]，告诉你从机场到
+Office 的交通方式和路线。虽然这些都不是什么太重要的事情，但是 Google 的招聘在细
+节方面做得真的是非常棒，远超我的预期。
+
+我原本是打算安排一个月的时间认真准备下 onsite 面试的，但事与愿违。一来我当时原本
+就没有找一份全职工作的计划，Google foo.bar 这个游戏也一直是抱着玩玩的态度，但是
+Google 的招聘体验实在是太好，同时也想到如果能去 Google SRE 体验下 Google 的基础
+设施，于我而言也是不错的职业选择，因此就玩到了 onsite；二来我个人平时非常忙，有
+很多自己的事情，拿出一个月的时间来“刷题”，于我而言时间成本太大了；三来是过了个春
+节；四是春节后我随手在豆瓣上写的一篇[[https://www.douban.com/note/606247970/][文章]]引起了广泛的关注，各种交流回复又耗掉了我
+大量的时间。所以到最后，我大概只剩下 10 天左右的时间，来“全职”准备这些 onsite 面
+试。我也没做别的事情，就是读了读《算法导论》和刘新宇先生的新书《[[https://book.douban.com/subject/26931430/][算法新解]]》，并提
+交了一些 [[https://github.com/liuxinyu95/AlgoXY/commits?author=xiaohanyu][Patch]]——而最重要的传说中的 LeetCode，我一道题也没有刷……这可能是导致最终
+面试失败的重要原因之一吧。
+
+3 月 11 日从杭州出发飞 Sydney，航程 10+ 小时，算起来自己还是第一次坐这么长时间的航班。
+12 日上午到 Sydney，见了见朋友，在 Darling Harbour 和悉尼歌剧院周边逛了逛，晚上
+宿 Darling Harbour 旁边的酒店，睡得很不错。
+
+3 月 12 日早起步行去 Google Sydney office，领了访客证之后被 recruiter 带着去会议
+室。面试之前还是有些紧张——可能是自己一个人在家工作久了，出去交流，而且还是全英文，
+因此心率有些高。去了趟洗手间，洗了把脸挠挠头平静了下心情，就“上战场”了。
+
+好在第一轮面试的第一道题不难，我听完了就有了思路，因此有了一个还不错的开端，这之
+后加起来总共 5 轮面试，都没有出现过于紧张的情况。面试完后自评感觉还是不错的，觉
+得应该是有 offer 了。
+
+说下具体的 onsite 面试流程吧。限于 NDA，我这里并不能透露具体的题目内容，只会说明
+下考查的大概范围。Google 的 onsite 面试共有 5 轮，每轮 45 分钟，一般会从上午 10
+点开始，上午 2--3 轮，然后 recruiter 会带你去 Google 那天下闻名的食堂吃个午饭，
+让你休整下放松下心情，饭后回到会议室再面 2--3 轮。
+
+SRE 岗 5 轮面试大致考查如下方向：
+- Coding & Algorithm
+- System Design
+- Troubleshooting
+- Networking
+- Linux/UNIX system
+
+其中，Coding & Algorithm 方面，编程语言不限，选择自己擅长的就好（我个人推荐用
+Python，写起来比 C++/Java 要快很多）；Linux/UNIX system 方面，文件系统、内存、系
+统调用、进程调度方面都有可能考，而且几乎没有办法准备，也没有办法刷题，靠的是平时
+的积累；SRE 岗还会考一些 Shell Script 方面的细节问题；Networking 方面考的不多，
+需要你对 Web Application 的常见网络架构有一个基础的理解，经典的题目有“从浏览器输
+入一个 URL 到页面渲染完成，其中发生了什么？”、“DNS 的基本原理”等等；
+Troubleshooting考查的是现实工作场景中如何 debug 的能力；System design 会考查在
+45 分钟之内从无到有写一个具有良好 API 接口、满足基础性能要求的一个 library/class
+层面上的小程序。
+
+这里还有一些让我印象十分深刻的细节：
+- 会议室的桌子上有一个小的电子设备，上面会显示你当前的 onsite 进度，诸如当前面试
+  官是谁，下一轮是谁，每轮面试开始和结束的时间等等。
+- 面试者有一个电脑，上面会预先打开并设置好 5 个浏览器的 Tab，每个 Tab 都是一个
+  Google Docs 文档，分别对应 5 轮 onsite 面试。
+- 与此同时，面试者的电脑屏幕会同步投射到会议室里的两块液晶屏上，这样面试官和面试
+  者既可以在自己电脑屏幕，也可以在液晶屏上，看到写代码的流程。
+- 基本上，Google 的面试官会把面试时间和节奏控制得非常好，而且不会迟到；在此轮面
+  试结束前的 5 分钟，下一轮面试的面试官就在会议室外面等待了。
+- Google 会保证面试者在 onsite 期间，在任何一个时间点都有人陪伴——这可能是为了保
+  密要求——Google 的 office 是禁止拍照的。我在 onsite 午饭后，我的面试官因为一些
+  临时事件要迟到几分钟，因此 recruiter 在把我送到会议室就马上就找来了另一位工程
+  师陪我闲聊了一段时间。
+- 每一轮面试结束，面试官都会把你在 Google Docs 上写下的东西备份下来，用来做后续
+  的评估。
+- 除了 Google Docs，会议室里还有两个白板，可以用来写代码，也可以用来画图讨论。
+- 我经历的 5 轮面试 6 个面试官中，有一半看上去像 35 岁以上的[2]。
+- 有一个面试官看了我的简历，说："Ah, you're a Chinese, then you can speak more
+  languages than me. I'm a native English speaker and I can only speak English."
+- 有一轮面试是两个面试官，其中一个面试官主导面试，另一个面试官在旁边记录一些东
+  西——我猜有可能是见习面试官在学习该如何面试吧。同样是这轮面试，我在 Google Docs
+  上写代码，由于是写 Python，会有“缩进”的问题，面试官一边提醒我说"Don't care
+  about indentation"，同时又在 Google Docs 里帮我设置了写代码用的等宽字体。
+- 所有的饮料都是免费的，:-)
+- 午饭自助餐也是免费的，果汁是大厨现榨的，:-)
+
+就 onsite 面试整体的考查思路来看，大体上还是需要面试者尽可能地主动，不断地去
+push 面试官给出一些 hint 或者正确错误与否的 feedback，在这个基础上尽可能地去优化
+解决方案——这个优化可能上算法复杂度上的优化，可能是 Test Case 的覆盖，可能是架构
+上的优化等等吧。我自我感觉，onsite 面试中，比较忌讳长时间的“冷场”，你可以跟面试
+官请求一两分钟来思考，但是过了这一两分钟，无论有什么样的思考，一定要说出来，让面
+试官看到你的思考过程，而不是思考十几分钟，最后给出一个答案——这个答案很可能是错的。
+
+这样的面试风格和考查思路也让面试者的体力和脑力消耗非常大——一是需要精力和脑力高度
+集中，这种状态维持下来是非常累的；二是 onsite 面试，无论是写代码、还是手头可能的
+软硬件设备，以及周边的环境，都和平时的工作状态差异太大，这就让临场发挥和心理素质
+成为一个非常重要的决定面试结果的因素；三是人在解决问题时，多数都是一个人静心思考，
+而 onsite 面试则是需要在有限的时间有限的资源限制下并且在外部不断 push 的同时解决
+一个可能未知的问题，有时会难免紧张；特别是碰到没有思路的题目卡壳之后，状态会变得
+非常差。
+
+我的 onsite 面试从上午 10 点开始，一直持续到下午 15:00，除了中间和 recruiter 一
+起吃了顿午饭休整了半小时外，中途没有任何休息。面试结束走出 Google office 的时候，
+感觉人有些晃晃忽忽的，于是就在路边长椅休息了 30 分钟，晒晒太阳。我当时自评感觉还
+是蛮不错的——有一道算法题，给出了 brute force 的代码后也给最优解决方案的思路，但
+是限于时间并没有给出最终的优化版的代码，这个应该是比较大的瑕疵；还有个小瑕疵是，
+Troubleshooting 题，由于以前没有碰到过类似的题目的解答思路，在前面绕了很长时间，
+给出了很多“正确但无用”的大段阐述。相比较而言，别的题目都是面试官主动问面试者问题，
+而面试者需要给出答案；但是 Troubleshooting 更多的是需要面试者去问面试官问题，面
+试官给出每个问题的答案，面试者通过这些信息，逐渐缩小 Troubleshooting 的目标，最
+终定位到问题所在。我一开始完全没有理解到 Troubleshooting 正确的解题思路和交流方
+式，一直傻傻地等着面试官问我问题，而面试官也在一直等着我问他问题，这样他好给出答
+案，推进 Troubleshooting 的过程，就这样耽误了很长时间。等到我后来明白了应对
+Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所剩不多了，所以到最后这
+个题也没有答得特别好。我后来和一个同样面试过 Google 的朋友前辈探讨了下这个问题，
+他说“我所经历的面试，都是要竭力揣测和理解面试官的心思，他想考什么知识点。而我面
+试别人的的时候总是在竭力理解对方想说什么，生怕错过对方的闪光点”。
+
+剩下其余别的题目，我自评都没有太大的问题，所以我想如果 Google 不是标准太严苛并且
+不刻意卡人的话，我应该是通过 onsite 了。不过很可惜，几周之后还是收到了 Google 的
+据信：
+
+#+CAPTION: Google foo.bar rejection
+[[/static/image/2017/google_foobar_rejection.png][file:/static/image/2017/google_foobar_rejection.png]]
+
+据信里据说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是"you
+didn't make much progress in the system design" 实在是让我有些莫名其妙，我最终也
+没想起来 system design 哪里出了差错。不过木已成舟，我倒并没有特别在意这个结果，
+相较于很多公司面试后杳无音信的“默据”，Google 的这个 "constructive feedback"已经
+算是不错的了。还有，再怎么说，蹭了机票酒店在澳洲玩了一圈，怎么着也不是个亏本的买
+卖，对吧？
+
+** 总结
+
+1 轮 foo.bar，2.5 轮电话面试，5 轮 onsite 面试，持续 4 个月，总体耗时 3--4 周，
+尽管没有拿到 offer，但这依然是一段很有意思的经历，引发了我很多思考。
+
+整个应聘的流程，至少接触了 4 位 recruiter，8 个面试官，2 个第三方服务者，算上人
+力的时间成本，加上 onsite 的机票酒店餐饮签证成本，最后再考虑下 onsite 的通过率，
+我估计 Google 要招聘到一个合格的员工，成本至少是在十万人民币级别的。可见顶尖的人
+才是相当贵的，这还仅仅只是招聘成本。
+
+话说回来，于我而言，自信一点地说，虽然 Google 这加起来 8.5 轮的技术面试考查足够
+广泛，但是这依然只覆盖到了我的所有计算机知识储备的 1/10 左右。在前端
+CSS/JavaScript、Functional Programming (Lisp/Scheme)、Web Development
+(Django/Flask/HTTP/RESTful)，Automation Tools (Ansible/Jenkins/CI)、
+Emacs/Vim/Git、LaTeX/TikZ 等等我日常工作中广泛使用的技术或工具，Google 的面试都
+没有考查。
+
+所以如何准确地评估一个人的技术能力，是招聘中的最大难题。就现在的 IT 技术招聘体制
+而言，大多数公司采用的无非就是在一定的时间和资源限制下，解决一些面试官心中有明确
+标准答案的 puzzles——但是这种选拔真得能很好的反应一个面试者在实际工作中的能力么？
+无妨举几个例子。
+
+[[https://brew.sh/][Homebrew]] 是 macOS 上应用最广泛的包管理器，用 Ruby 实现，截止到 2017 年 4 月，在
+Github 上有 7000+ 个 star、13000+ 个 commit、540+ 个 contributor。其作者 [[https://github.com/mxcl][Max
+Howell]] 去 Google 面试时，因为一道基础的 Invert Binary Tree 的算法 puzzle 没有答
+好而被据，事后 Max Howell 在 Twitter 上说：
+
+#+BEGIN_QUOTE
+Google: 90% of our engineers use the software you wrote (Homebrew), but you
+can’t invert a binary tree on a whiteboard so fuck off.
+#+END_QUOTE
+
+这个事情在[[https://www.zhihu.com/question/31202353][知乎]]、[[https://www.quora.com/Whats-the-logic-behind-Google-rejecting-Max-Howell-the-author-of-Homebrew-for-not-being-able-to-invert-a-binary-tree][Quora]]、[[https://news.ycombinator.com/item?id=9695102][HackerNews]] 以及很多社区引起了相当广泛的讨论。
+
+[[http://david.heinemeierhansson.com/][DHH]]，[[http://rubyonrails.org/][Rails]] 的作者，发 Twitter 说：
+
+#+BEGIN_QUOTE
+Hello, my name is David. I would fail to write bubble sort on a whiteboard. I
+look code up on the internet all the time. I don't do riddles.
+#+END_QUOTE
+
+相关讨论：[[https://news.ycombinator.com/item?id=13739329][HackerNews]]。
+
+Quora 上还有一个非常有意思的讨论：[[https://www.quora.com/Can-every-CS-professor-pass-Googles-interview][Can every CS professor pass Google's
+interview?]]，推荐看看，很有意思。有一个 UIUC 的 PhD 是这样说的：
+
+#+BEGIN_QUOTE
+No, as far as software engineering positions are concerned.
+
+Interviewing Google-style, coding on whiteboards, and other skills and knowledge
+needed for software engineering positions are learned skills. Professors
+generally do not gain these skills during the course of their jobs.
+
+I would be willing to bet several thousand dollars that at least half of my CS
+professors at UIUC would fail the normal Google software engineer interview
+process, especially the older ones. Most of them would never pursue such a
+position in any case.
+
+--- https://www.quora.com/Can-every-CS-professor-pass-Googles-interview/answer/Shane-Ryoo
+#+END_QUOTE
+
+而事实上，这几年关于 [[https://medium.com/@evnowandforever/f-you-i-quit-hiring-is-broken-bb8f3a48d324][Hiring Is Broken]] 的[[https://news.ycombinator.com/item?id=11579757][讨论]]不绝于耳，以至于 Github 有人专门建立
+了一个项目，就叫 [[https://github.com/poteto/hiring-without-whiteboards][hiring-without-whiteboards]]。这个项目列出了几百家不采用白板写代
+码面试方式的公司——我仔细看了下，这些公司更多的时采用更接近于真实工作方式的通过
+Take-home project + onsite discuss 的方式来进行招聘。
+
+所以 Hiring 到底是不是 Broken，这个问题归根结底是怎样在一定的资源限制下（包括时
+间、金钱等等）快速评估一个人的技术能力。事实上最好的评估一个人的技术能力的办法，
+就是和他一起工作一段时间，但是这个成本，无论是时间成本还是金钱成本，无论是对个人
+还是公司，都太高了。而我也越来越有种感觉，就是流水线化标准的 Phone Screening +
+Onsite Interview，恐怕也会越来越不再适应新时代的发展了。
+
+Hiring 会走向何方？我认为未鹏几年前的的文章《[[http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/][怎样花两年时间去面试一个人]]》提供了
+一个很好的思路。
+
+此记。
+
+[1] 事实上，对于非专业的算法选手，网络流算法的在实际应用中是相当少见的，[[https://www.zhihu.com/question/54539746/answer/141266553][这里]]有现
+任搜狗公司 CEO 王小川先生参加 96 年 IOI 比赛时的一个小故事。
+
+[2] 所以有些诸如“编程是个青春饭，只能干到 35 岁”的说法，应该是个伪命题吧，:-)
