@@ -12,8 +12,11 @@ header.row.article-head
     noscript Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
   aside.four.wide.column
     .ui.small.header License
-    a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-      img.cc-license src="/static/image/cc_byncsa.flat.guokr.svg"
+    - if @item.key?(:license) and @item[:license] == "private"
+      p Private License
+    - else
+      a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        img.cc-license src="/static/image/cc_byncsa.flat.guokr.svg"
 
     .ui.small.header Committed
     date
