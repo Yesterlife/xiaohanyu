@@ -6,8 +6,10 @@ rm -rf output
 # install the latest pandoc
 sudo apt-get update && sudo apt-get -y install jq
 # Get the latest .deb released.
-wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
+wget $(curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))' -O pandoc.deb)
 sudo dpkg -i pandoc.deb
+
+GITHUB_REPO_SLUG=$(git remote -v | grep origin | head -1 | awk '{print $2}' | awk -F: '{print $2}' | sed 's/.git$//g')
 
 # config
 git config --global user.email "xiaohanyu1988@gmail.com"
@@ -32,7 +34,7 @@ else
 Auto deployed by circle-ci.
 
 Projects used for this deployment:
-- https://github.com/xiaohanyu/xiaohanyu/commit/${CIRCLE_SHA1}
+- https://github.com/$GITHUB_REPO_SLUG/commit/${CIRCLE_SHA1}
 EOF
 
     git push -f "https://${GITHUB_TOKEN}@github.com/${GITHUB_PAGES_REPO}.git" master:master
