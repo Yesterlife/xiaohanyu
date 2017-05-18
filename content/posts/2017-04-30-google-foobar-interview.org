@@ -4,7 +4,7 @@
 段网页动画，然后就弹出一句 "You are speaking our language. Up for a challenge?"
 
 #+CAPTION: Google foo.bar invitation
-[[/static/image/2017/google_foobar_invitation.png][file:/static/image/2017/google_foobar_invitation.png]]
+[[/static/image/2017/google-foobar/invitation.png][file:/static/image/2017/google-foobar/invitation.png]]
 
 我有些不明所以，原以为是浏览器出现了一些莫名其妙的 bug，不过并没有太在意，就点了
 "I want to play"，紧接着就进入了一个算法闯关游戏。
@@ -21,16 +21,16 @@ level 2 的题目十分简单，每个题目会给 24--48 个小时的做答时�
 4 的题目就比较难了，会考一些不常见的算法。
 
 #+CAPTION: Google foo.bar welcome page
-[[/static/image/2017/google_foobar_page.png][file:/static/image/2017/google_foobar_welcome.png]]
+[[/static/image/2017/google-foobar/page.png][file:/static/image/2017/google-foobar/welcome.png]]
 
 #+CAPTION: Google foo.bar code editor
-[[/static/image/2017/google_foobar_code_editor.png][file:/static/image/2017/google_foobar_code_editor.png]]
+[[/static/image/2017/google-foobar/code-editor.png][file:/static/image/2017/google-foobar/code-editor.png]]
 
 #+CAPTION: Google foo.bar verify
-[[/static/image/2017/google_foobar_verify.png][file:/static/image/2017/google_foobar_verify.png]]
+[[/static/image/2017/google-foobar/verify.png][file:/static/image/2017/google-foobar/verify.png]]
 
 #+CAPTION: Google foo.bar progress
-[[/static/image/2017/google_foobar_progress.png][file:/static/image/2017/google_foobar_progress.png]]
+[[/static/image/2017/google-foobar/progress.png][file:/static/image/2017/google-foobar/progress.png]]
 
 我大概花了 4--6 个小时的时间完成了 level 1--3 的 6 道题目——其中有 30% 的时间花在
 英文阅读理解上，50% 的时间编码，剩下 20% 的时间 debug 一些 test case。由于
@@ -333,7 +333,7 @@ def answer(n):
 Functional Programming 中常见的 [[https://en.wikipedia.org/wiki/Memoization][Memoization]] 手法有个印象，就能搞定了。
 
 #+CAPTION: Google foo.bar recruiter
-[[/static/image/2017/google_foobar_recruiter.png][file:/static/image/2017/google_foobar_recruiter.png]]
+[[/static/image/2017/google-foobar/recruiter.png][file:/static/image/2017/google-foobar/recruiter.png]]
 
 我做完了 level 3 后，抱着玩一玩的心思，做 level 4 的第一题，直接就栽到了[[https://en.wikipedia.org/wiki/Network_flow][网络流]]的
 大坑里，Google 也知道这类题比较难[1]，因此给了 168 个小时的做答时间。于是我又翻
@@ -606,7 +606,7 @@ solution passes the test cases, it will be removed from your home folder.
 recruiter 的邮件：
 
 #+CAPTION: Google foo.bar recruiter first email
-[[/static/image/2017/google_foobar_recruiter_first_email.jpg][file:/static/image/2017/google_foobar_recruiter_first_email.jpg]]
+[[/static/image/2017/google-foobar/recruiter-first-email.jpg][file:/static/image/2017/google-foobar/recruiter-first-email.jpg]]
 
 于是花了一天的时间，更新了下简历，回复了邮件。接下来 Google recruiter 问了下个人
 倾向于什么岗位，可选 SRE 或者 SWE，我的答复是 SRE。
@@ -635,21 +635,21 @@ onsite 要谨慎一些。
 的技术水准，形式如下：
 
 #+CAPTION: Google foo.bar self-rating form
-[[/static/image/2017/google_foobar_self_rating_form.png][file:/static/image/2017/google_foobar_self_rating_form.png]]
+[[/static/image/2017/google-foobar/self-rating-form.png][file:/static/image/2017/google-foobar/self-rating-form.png]]
 
 与此同时，recruiter 还发送了一份长达 6 页的非常详尽的求职面试指南文档《Guide to
 Getting an SRE job with Google》，内容包含了岗位需求、面试要求、考查题目范围、样
 例面试题目等等。
 
 #+CAPTION: Google foo.bar SRE guide
-[[/static/image/2017/google_foobar_sre_guide.png][file:/static/image/2017/google_foobar_sre_guide.png]]
+[[/static/image/2017/google-foobar/sre-guide.png][file:/static/image/2017/google-foobar/sre-guide.png]]
 
 还有一个非常贴心的细节是，Google 安排面试时，会特别问你有没有一些身体上的
 disability，是否需要一些特别的协助，诸如“documents in an alternate format, a
 sign language interpreter, or specialized equipment.”等等
 
 #+CAPTION: Google foo.bar self-rating form
-[[/static/image/2017/google_foobar_celebrate_difference.jpg][file:/static/image/2017/google_foobar_celebrate_difference.jpg]]
+[[/static/image/2017/google-foobar/celebrate-difference.jpg][file:/static/image/2017/google-foobar/celebrate-difference.jpg]]
 
 我看到这封邮件时真的是有些感动——相较于我以前经历过的国内公司的各种面试，这种对比
 实在是太过强烈——这也让我开始理解，Google 能在竞争如此激烈的互联网领域长期保持领先，
@@ -692,7 +692,7 @@ onsite 了。考虑到 2 月要过个春节长假，加上办签证需要一些�
 onsite 的时间约到了 3 月初。
 
 #+CAPTION: Google foo.bar onsite email
-[[/static/image/2017/google_foobar_onsite_email.png][file:/static/image/2017/google_foobar_onsite_email.png]]
+[[/static/image/2017/google-foobar/onsite-email.png][file:/static/image/2017/google-foobar/onsite-email.png]]
 
 Google 的 onsite 流程安排得非常完备：
 - Google 会报销往返机票、3 天的 4 星级酒店、签证费用，以及每天 50 AUD 的餐费补助
@@ -812,7 +812,7 @@ Troubleshooting 题目正确的交流方式怎么一回事时，时间已然所�
 拒信：
 
 #+CAPTION: Google foo.bar rejection
-[[/static/image/2017/google_foobar_rejection.png][file:/static/image/2017/google_foobar_rejection.png]]
+[[/static/image/2017/google-foobar/rejection.png][file:/static/image/2017/google-foobar/rejection.png]]
 
 拒信里所说的 Troubleshooting 和 Algorithm 方面的问题，我是有所预料的，但是"you
 didn't make much progress in the system design" 实在是让我有些莫名其妙，我最终也
