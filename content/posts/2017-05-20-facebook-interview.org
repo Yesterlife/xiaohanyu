@@ -125,9 +125,9 @@ bug free。
 
 ** 第三轮技术电话面试
 
-第三轮电话面试约在了 6 月 20 日。这期间我买了一本《[[https://book.douban.com/subject/26586598/][性能之巅]]》，花了两周的时间，
-看了约几百页的样子；同时也去 [[https://www.glassdoor.com/][Glassdoor]] 上总结了一些 Facebook Production Engineer
-岗位的面经。加起来准备了差不多有两周的时间，自我感觉是成竹在胸了。
+第三轮电话面试约在了 6 月 20 日。这期间我买了一本《[[https://book.douban.com/subject/26586598/][性能之巅]]》，看了约几百页的样
+子；同时也去 [[https://www.glassdoor.com/][Glassdoor]] 上总结了一些 Facebook Production Engineer岗位的面经。加起
+来准备了差不多有两周的时间，自我感觉是成竹在胸了。
 
 面试之前，recruiter 同样是发了一封长长的邮件，同样是包含了详细的面试内容，以及准
 备策略。
