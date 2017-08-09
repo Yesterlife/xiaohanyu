@@ -253,7 +253,7 @@ life.
 我自称为猫“爸爸”，称妞为猫“妈妈”，有时“爸爸妈妈”地叫得频繁，妞就问我是不是真想“封山育林，播种造人”了，我但莞尔。半年多来，我负责它们饮食起居，给它们洗澡上药，逗它们开心，也喝止它们惹祸，细想起来，还真和养个孩子差不多呢。
 
 #+CAPTION: 小木和小鱼
-[[/static/image/2014-cat.jpg][file:/static/image/2014-cat.jpg]]
+[[/static/image/2014/cat.jpg][file:/static/image/2014/cat.jpg]]
 
 ** 散财
 
