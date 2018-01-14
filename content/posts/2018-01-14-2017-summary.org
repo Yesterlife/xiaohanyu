@@ -1,0 +1,336 @@
+** 序
+
+17 年是暂别自由，迈向未知的一年。
+
+- [[http://xiaohanyu.me/posts/2012-01-01-2011-summary/][再见，2011]]
+- [[http://xiaohanyu.me/posts/2013-01-11-2012-summary/][2012，静水深流]]
+- [[http://xiaohanyu.me/posts/2014-03-03-2013-summary/][2013，青春绝版]]
+- [[http://xiaohanyu.me/posts/2015-04-10-2014-summary/][2014，漫步]]
+- [[http://xiaohanyu.me/posts/2016-04-20-2015-summary/][2015，徘徊]]
+- [[http://xiaohanyu.me/posts/2017-05-23-2016-summary/][2016，清风徐来]]
+
+引用我在 5 月 17 日的一条广播：
+
+#+BEGIN_QUOTE
+正式接受了狮城公司的 offer，Amsterdam 之行应该会取消了。于是乎，在帝都漂了三年，
+杭城散了三年后，接下来要去狮城生活一段时间。至于到底会待多久？Who knows。我倒是
+挺享受这种状态，正如旅行一样，最大的乐趣不在于到达终点，而在于在路上那种可控却不
+完全可知的生活。
+#+END_QUOTE
+
+这一年最重要的变化是暂时告别了三年的自由职业生涯，接受了 [[https://shopee.sg/][Shopee]] 的 offer，离开杭
+州来到新加坡，重新踏入了两点一线的职场生活。
+
+“一切都在掌控之中”，是我一直以来的生活准则，但我又不希望我的生活被这种掌控感限得
+太死，毕竟一眼望到头的生活还是有些过于无聊了，因此我从不排斥生活中多一点变数，让
+可控可知的生活变成可控却不完全可知——这是我喜欢的一种生活状态。
+
+1 月份通过了 Google 的 3 轮电话面试，确定了 3 月份去 Sydney onsite interview 的
+行程；2 月份写了篇«[[http://xiaohanyu.me/posts/2017-02-13-about-education/][教育对人的改变有多大]]»的文章，未曾想火遍中文互联网，在我的生活
+中激起了不小的涟漪；3 月份澳洲之行，一为面试，二是旅行，虽然最终有些可惜，没能拿
+到 Google 的 offer，但毕竟博闻强识，也算不虚此行；4 月份一个偶然的机会通过了
+Shopee 的面试，基本敲定了 offer，和妞简单商议后就决定接受 offer 来新加坡；5 月份
+在国内办理各种手续杂事，月底一个人来到新加坡正式入职。
+
+暂别自由，迈向未知，总得来说，17 年的生活中还是多了许多别样的色彩。
+
+#+CAPTION: 中国美术学院象山校区
+[[/static/image/2018/2017-summary/art-academy-color.jpg][file:/static/image/2018/2017-summary/art-academy-color.jpg]]
+
+
+** 工作
+
+#+CAPTION: Github Contributions 2017
+[[/static/image/2018/2017-summary/github-2017.jpg][file:/static/image/2018/2017-summary/github-2017.jpg]]
+
+*** Freelance
+
+上半年的 freelance 工作，重点是收尾自己的一些小项目，做了一个基于 Semantic-UI 的
+前端的小项目：[[http://semantic-ui-forest.com/][Semantic-UI-Forest]]，目的是想借此加强上自己的前端能力，并进一步熟悉
+下 Semantic-UI 的使用，反馈还可以，但是好长时间没有精力去维护了，惭愧惭愧。
+
+兼职方面，接到了一些零散的网站制作和排版优化方面的订单，断续做到了 6、7 月份才收尾。
+
+除此之外，应朋友之约，5 月 4 日在杭州 36kr 氪空间做了一场关于数字排版的[[http://h5.welian.com/event/i/eyJhaWQiOjMzMzg5fQ==/oUMiajva6J5ljsqqgSJr6hl4_XyA][分享]]，虽
+然听众不多，但是自评讲得还可以，只是承诺的演讲资料一直拖到现在也还没时间整理出来，
+再次惭愧惭愧……
+
+#+CAPTION: 数字排版漫谈，slides 1
+[[/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg][file:/static/image/2018/2017-summary/hangzhou-typography-slides-1.jpg]]
+
+#+CAPTION: 数字排版漫谈，slides 2
+[[/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg][file:/static/image/2018/2017-summary/hangzhou-typography-slides-2.jpg]]
+
+#+CAPTION: 数字排版漫谈 1
+[[/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg][file:/static/image/2018/2017-summary/hangzhou-typography-lecture-1.jpg]]
+
+#+CAPTION: 数字排版漫谈 2
+[[/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg][file:/static/image/2018/2017-summary/hangzhou-typography-lecture-2.jpg]]
+
+#+CAPTION: 数字排版漫谈 3
+[[/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg][file:/static/image/2018/2017-summary/hangzhou-typography-lecture-3.jpg]]
+
+
+*** Shopee
+
+6 月份入职 Shopee Data Engineering 组，工作上大概有以下三点：
+
+- 技术方面，接手了一款基于 [[https://github.com/apache/incubator-superset][Apache Superset]] 做一些内部工具类产品的开发，重整代
+  码结构，开发新的 feature 满足内部各个 team 的需求，并第一次尝试基于 docker 和
+  docker-compose 的开发部署流程，到目前为止，收益良好；
+- 团队方面，全面负责 fullstack web developer 招聘的技术面试，半年以来大概面试了
+  30 多位候选人，通过率大概在 15% 左右，同时尝试了 2--3 次的全英文面试——这一次我
+  是以面试官的身份用英文和候选人交流，别有一番体验；
+- 于此同时，开始以 mentor 的身份带一些新人，这也是我毕业后第一次在企业里担任
+  mentor。坦白讲，自由职业单打独斗的时间长了，面对面的沟通能力是会有所下降的。这
+  个角色也给了我机会，让我恢复下自己的沟通能力，并第一次从团队建设的角度上思考问
+  题。
+
+经过大半年的努力，我的工作获得了组内组外各方面的好评，我所负责的产品也开始在
+Shopee 内部各个团队落地生根。
+
+
+*** Interviews
+
+面试方面，除了 Google 的面试被据，Shopee 面试拿到 offer 外，也拿到了 Booking
+Amsterdam onsite 的机会和 Bloomberg London 的面试邀约，但是由于接受了 Shopee 的
+offer，最终都没有成行；我还体验了一次 Toptal 的面试流程，走到了 [[https://www.toptal.com/top-3-percent][Test Project]] 这
+一轮，但是最终还是失败了，主要原因是我白天要工作，抽不出足够的时间来做 project。
+
+在此之前，我已经自由工作了三年，这几次面试虽然花了一些精力，但好在让我对自己在市
+场上的身价有了一个更清晰的认知。
+
+
+** 学习
+
+*** 阅读
+
+阅读方面，豆瓣上标记过的完整阅读过的书籍大概在 20 本左右，一半是技术一半文史。实
+际上阅读过的书籍要比这个数字要多一些，只是因为没有完全读完，因此没有在豆瓣上做标
+记。
+
+技术方面对我启发最大的是«[[https://book.douban.com/subject/2011397/][Programming Erlang: Software for a Concurrent World]]»；
+文史方面，中译版的«[[https://book.douban.com/subject/7060185/][江城]]»带给我了久违的感动；企业史方面，吴晓波写的«[[https://book.douban.com/subject/26929955/][腾讯传]]»相当棒；
+至于人物传记方面，«[[https://book.douban.com/subject/26664352/][褚时健传]]»则给我带来了相当大的震撼。值得一提的是，后两本书都是
+在杭州家中的马桶上读完的。
+
+购书方面，今年开始转向电子阅读，在多看上充值购买了约千余元的书籍，用以打发地铁通
+勤时光。
+
+*** 技术
+
+技术方面，今年重点学习的技术栈是 [[https://elixir-lang.org/][Elixir]]，并借此机会了解了下 [[https://www.erlang.org/][Erlang]] 以及基于
+Elixir 的 [[http://phoenixframework.org/][Phoenix]] web framework。
+
+在 Shopee 日常工作时，重点实践了基于 docker + docker-compose 的开发部署流程，收
+益良好；与此同时，初步了解了下 [[https://reactjs.org/][React]] 生态，并花了一个月的时间重新阅读了一遍
+«[[https://book.douban.com/subject/7157249/][Professional JavaScript for Web Developers]]»，夯实了下 JavaScript 基础。
+
+
+** 生活
+
+*** 写作
+
+年初和弟弟聊天时，随手写了篇«[[https://www.douban.com/note/606247970/][教育对人的改变有多大]]»的文章，在网络上引起了很大的反
+响——截止到本文发出时，豆瓣上显示的阅读量大概有 26 万左右，“喜欢” 21000，“推荐”
+2700，评论约 2350 条。在文章发表初期，我还收到了约一百封左右的豆邮——就是豆瓣的私
+信系统。
+
+网络上的转载也有很多，在初期有很多默认授权的转载，不过后面太多杂七杂八的网络公众
+号等断章取义，将我的文章随意演绎，让我十分不快，因此到后来我在文末加了比较严格的
+转载授权限制。文章发表初期曾上过豆瓣热门话题的第一名；在 12 月授权[[https://mp.weixin.qq.com/s/5SwqgwO4OH-od_4TxmDnMQ][豆瓣读书]]的官方
+公众号进行全文转载。
+
+当然，网络上还是有很多侵权转载，比如这位号称 6 年互联网品牌积淀知名 IT 博主卢松
+松先生的[[http://lusongsong.com/info/post/8495.html][转载]]。还有一位新东方的教师姐姐未经沟通就把我的文章转成的 [[https://www.lizhi.fm/1593609/2586637918973458438][podcast]]，如若是
+颂读得很好，也就罢了，可惜她的颂读也不很出彩，因此我曾经主动联系让其删除；她也答
+应了下来，没成想过了几天同样的录音 podcast 又上线了，我……我本来是想严肃处理一下
+这些事情的，后来去新加坡后，实在是抽不出精力，就暂且了之了。
+
+纸媒方面，要特别感谢«读者»和«青年文摘»杂志社各自主动提出付费转载的请求，虽然稿费
+不多，但还是让我很感动，因此我毫不犹豫地给予了授权。
+
+这也是我的文字第一次正式见刊，我申请了一些样刊，送给父母一份，送给同学一份，其余
+留作纪念。
+
+#+CAPTION: «青年文摘»封面
+[[/static/image/2018/2017-summary/qingnianwenzhai-1.jpg][file:/static/image/2018/2017-summary/qingnianwenzhai-1.jpg]]
+
+#+CAPTION: «青年文摘»内页
+[[/static/image/2018/2017-summary/qingnianwenzhai-2.jpg][file:/static/image/2018/2017-summary/qingnianwenzhai-2.jpg]]
+
+除此之外，我还借此机会认识了[[http://mindhacks.cn/][未鹏]]，未鹏曾建议我把文章写一个扩充版，详细解释下文中
+那个令人捉摸不透的“转变的契机”到底从何而来，而我一来是比较犹豫，因为要解释清楚，
+就要把自己和家庭放在公众面前进行详细的解剖，二来我也确实写了一点扩充的说明，不过
+并不达意，因此就暂时雪藏，没有发表了。
+
+希望后面当我更从容的时候，能够把这个故事写得更完整些，从而给更多的人带来一些帮助
+吧。
+
+*** 健身
+
+来到新加坡后，前几个月住在有泳池有健身房的 condo 里，因此又拾起了荒废多年的健身
+运动。总得来说，年龄渐长，身体素质有所下降，这是难以避免的事情。腰背方面的问题依
+旧，不过总算没有加重，健身游泳加上装备上的改善，多管齐下，目前看来，完全自愈是很
+难了，但是控制症状不使其加重，应该还是办得到的。
+
+#+CAPTION:
+[[/static/image/2018/2017-summary/body-building.jpg][file:/static/image/2018/2017-summary/body-building.jpg]]
+
+
+*** 经济
+
+全职工作的最大好处也许就是收入比较稳定吧，因此今年有条件购置一些“重型”装备，继续
+迭代自己的工作平台。最大项的投入是购置了 Synology [[https://www.synology.com/en-global/products/DS1517+][DS1517+]] 加上 5 块西数 4 TB 红
+盘，大约 10000 RMB 左右，配合新加坡通畅无墙的网络，工作效率大大提升，原来在国内
+工作日常与 GFW 斗智斗勇的便秘感一扫而光，十分畅快。
+
+#+CAPTION: 个人工作站
+[[/static/image/2018/2017-summary/singapore-workstation.jpg][file:/static/image/2018/2017-summary/singapore-workstation.jpg]]
+
+另外，购置 iPad Pro 10'5、Smart Keyboard 和 Apple Pencil，结合多看，在地铁通勤时
+看一些书籍，总计阅读大概有三五本的样子，应该算是收回成本了。
+
+我还尝试用 Apple Pencil 临了两幅“画作”，虽知贻笑大方，但自得其乐，足矣足矣。
+
+#+CAPTION: Procreate drawing 1 on iPad Pro
+[[/static/image/2018/2017-summary/ipad-pro-drawing-1.png][file:/static/image/2018/2017-summary/ipad-pro-drawing-1.png]]
+
+#+CAPTION: Procreate drawing 2 on iPad Pro
+[[/static/image/2018/2017-summary/ipad-pro-drawing-2.png][file:/static/image/2018/2017-summary/ipad-pro-drawing-2.png]]
+
+** 旅行
+
+*** 澳洲
+
+3 月份借着去 Google Sydney onsite 的机会，花了一周的时间，和妞一起在 Sydney 和
+Melbourne 逛了逛，总得来说还是非常开心的一次旅程。在国内雾茫茫的天空下待得久了，
+来到南太平洋边上透个气，天空蓝得沁人心脾。
+
+对比而言，更喜欢 Melbourne 一些，如果说 Sydney 是一个现代都市，那 Melbourne 则完
+全是被音乐和色彩浸润透的生活。
+
+在 Melbourne 和[[http://wenshanren.org/][肉山]]一起吃了顿饭，还聊了聊 Emacs 和自由软件，很开心，哈哈。
+
+#+CAPTION: 悉尼，情人港
+[[/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg][file:/static/image/2018/2017-summary/australia-sydney-darling-harbor.jpg]]
+
+#+CAPTION: 悉尼街头
+[[/static/image/2018/2017-summary/australia-sydney-street.jpg][file:/static/image/2018/2017-summary/australia-sydney-street.jpg]]
+
+#+CAPTION: 墨尔本，天空鸽子
+[[/static/image/2018/2017-summary/australia-melbourne-color.jpg][file:/static/image/2018/2017-summary/australia-melbourne-color.jpg]]
+
+#+CAPTION: 墨尔本博物馆
+[[/static/image/2018/2017-summary/australia-melbourne-museum.jpg][file:/static/image/2018/2017-summary/australia-melbourne-museum.jpg]]
+
+#+CAPTION: 墨尔本，南太平洋
+[[/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg][file:/static/image/2018/2017-summary/australia-melbourne-south-pacific.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2018/2017-summary/australia-melbourne-coast.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+
+*** 新加坡
+
+如果我把 2 月份写文章的精力省下来，多去刷几道 Leetcode，那么也许我就能拿到
+Google Sydney 的 offer，留在 Sydney；又或者我没有接受 Shopee 的 offer，那么就有
+可能去灯红酒绿的 Amsterdam。
+
+不过我最终还是来到了新加坡。
+
+到目前为止，还是挺满意的选择。
+
+要感谢阿黎，在前面几个月“收留”我，给了我一个容身之处——虽然两个年近 30 的大老爷们
+挤在一张 1.5 米的小破沙发床上，画面有点美，但是只要你不嫌弃，我也就不嫌你睡觉打
+呼声声响；还要感谢你帮我介绍了很多新加坡的“风土人情”，让我快速适应新的生活。
+
+总得来说，在新加坡的生活还是蛮省心的吧。天气没有想象中的那么热，适逢最近雨季，睡
+觉也不用开空调，还是蛮舒服的；空气环境这些自不必说；于我而言，最大的好处还是在于
+第一次有了完全通畅无阻的网络，让工作学习效率得到了极大的提升。当然，高铁、移动支
+付、物流电商方面还是在天朝生活更加便利。对比而言，我愿意牺牲一些物理世界的便利，
+来换取一些数字世界的好处。
+
+妞在 8 月底的时候过来“省亲”，因此我们花了一周的时间，走了新加坡的很多地方，还是
+蛮开心的。
+
+#+CAPTION: 新加坡街头
+[[/static/image/2018/2017-summary/singapore-street.jpg][file:/static/image/2018/2017-summary/singapore-street.jpg]]
+
+#+CAPTION: 新加坡落日晚霞
+[[/static/image/2018/2017-summary/singapore-sunset.jpg][file:/static/image/2018/2017-summary/singapore-sunset.jpg]]
+
+#+CAPTION: 新加坡，Galaxis
+[[/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg][file:/static/image/2018/2017-summary/singapore-galaxis-office-view.jpg]]
+
+#+CAPTION: 新加坡荷兰村
+[[/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg][file:/static/image/2018/2017-summary/singapore-drink-with-eddie.jpg]]
+
+#+CAPTION: 新加坡滨海湾花园
+[[/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg][file:/static/image/2018/2017-summary/singapore-marina-bay-garden-night.jpg]]
+
+#+CAPTION: 新加坡滨海湾金沙酒店夜景
+[[/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg][file:/static/image/2018/2017-summary/singapore-marina-bay-sands-hotel.jpg]]
+
+#+CAPTION: 新加坡艺术科学博物馆
+[[/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg][file:/static/image/2018/2017-summary/singapore-artscience-museum-color.jpg]]
+
+#+CAPTION: 新加坡动物园
+[[/static/image/2018/2017-summary/singapore-zoo.jpg][file:/static/image/2018/2017-summary/singapore-zoo.jpg]]
+
+#+CAPTION: 新加坡圣陶沙岛
+[[/static/image/2018/2017-summary/singapore-sentosa.jpg][file:/static/image/2018/2017-summary/singapore-sentosa.jpg]]
+
+** 尾
+
+“人生得意须尽欢，莫使金樽空对月”。
+
+一个人读书写码累了的时候，常常会对着下面这张照片发会呆。豆瓣上有人在这张照片下[[https://www.douban.com/people/xiaohanyu/status/1965706471/][留
+言]]给我说：“牵着的两只手让人感觉安详又甜美”。
+
+“安详又甜美”，嗯，2017 年过去了，我很怀念它。
+
+#+CAPTION:
+[[/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg][file:/static/image/2018/2017-summary/australia-sydney-theatre-with-my-girl.jpg]]
+
+#+BEGIN_QUOTE
+阵阵晚风吹动着松涛
+
+吹响这风铃声如天籁
+
+站在这城市的寂静处
+
+让一切喧嚣走远
+
+只有青山藏在白云间
+
+蝴蝶自由穿行在清涧
+
+看那晚霞盛开在天边
+
+有一群向西归鸟
+
+谁画出这天地
+
+又画下我和你
+
+让我们的世界绚丽多彩
+
+谁让我们哭泣
+
+又给我们惊喜
+
+让我们就这样相爱相遇
+
+总是要说再见
+
+相聚又分离
+
+总是走在漫长的路上
+
+--- 许巍 «旅行»
+#+END_QUOTE
