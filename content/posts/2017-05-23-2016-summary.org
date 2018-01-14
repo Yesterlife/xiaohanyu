@@ -14,7 +14,7 @@
 从何下手。
 
 #+CAPTION: Cat Ass
-[[/static/image/2017/2017-summary/cat-ass.jpg][file:/static/image/2017/2017-summary/cat-ass.jpg]]
+[[/static/image/2017/2016-summary/cat-ass.jpg][file:/static/image/2017/2016-summary/cat-ass.jpg]]
 
 1 月做兼职；2 月一整月休假，回家乡过春节，之后在云南自驾 15 天，行程约 4000 公里，
 非常开心的一次旅行经历；3、4 月一半的时间做兼职，剩下一半的时间学习财税法入门知
@@ -35,7 +35,7 @@ Machines should work; people should think.
 ** 工作
 
 #+CAPTION: Github Contributions 2016
-[[/static/image/2017/2017-summary/github-2016.jpg][file:/static/image/2017/2017-summary/github-2016.jpg]]
+[[/static/image/2017/2016-summary/github-2016.jpg][file:/static/image/2017/2016-summary/github-2016.jpg]]
 
 *** Freelance
 
@@ -75,7 +75,7 @@ and without you?
 的排版质量。
 
 #+CAPTION: PPResume Web
-[[/static/image/2017/2017-summary/ppresume.jpg][file:/static/image/2017/2017-summary/ppresume.jpg]]
+[[/static/image/2017/2016-summary/ppresume.jpg][file:/static/image/2017/2016-summary/ppresume.jpg]]
 
 事实上，PPResume 网站第一行代码写于 2015 年 9 月 1 日；初版网站上线是在 2015 年
 9 月底；2016 年 3 月接到第一份订单；2016 年 8 月底发布《[[http://ppresume.com/notes/guide-zh.html][PPResume 中英文简历撰写
@@ -107,7 +107,7 @@ Pi，花了几天的时间熟悉并折腾了下 Raspberry Pi 的[[https://www.do
 一周的时间才差不多解决这个问题。
 
 #+CAPTION: PPResume Poster for Campus 2016
-[[/static/image/2017/2017-summary/ppresume-poster-for-campus-2016-08-08.jpg][file:/static/image/2017/2017-summary/ppresume-poster-for-campus-2016-08-08.jpg]]
+[[/static/image/2017/2016-summary/ppresume-poster-for-campus-2016-08-08.jpg][file:/static/image/2017/2016-summary/ppresume-poster-for-campus-2016-08-08.jpg]]
 
 一个人做产品，需要"Be an expert in all aspects"。每天在代码、文案、设计、商业之
 间辗转徘徊，对一个人的脑力和体力是巨大的考验。我个人的工作和生活也是因此再也无法
@@ -217,7 +217,7 @@ Github 上通过 Pull Request 相互 review 对方的工作；通过 Skype 共�
 团队只有 2 个人吧——一个人工作，无论再怎么高效，终究是有一个上限的。
 
 #+CAPTION: Remote work with tarvos
-[[/static/image/2017/2017-summary/remote-work-with-tarvos.png][file:/static/image/2017/2017-summary/remote-work-with-tarvos.png]]
+[[/static/image/2017/2016-summary/remote-work-with-tarvos.png][file:/static/image/2017/2016-summary/remote-work-with-tarvos.png]]
 
 
 *** Facebook and Google Interview
@@ -260,7 +260,7 @@ foo.bar 面试记]]》这两篇文章。
 #+END_QUOTE
 
 #+CAPTION: Girl and Cats
-[[/static/image/2017/2017-summary/girl-and-cats.jpg][file:/static/image/2017/2017-summary/girl-and-cats.jpg]]
+[[/static/image/2017/2016-summary/girl-and-cats.jpg][file:/static/image/2017/2016-summary/girl-and-cats.jpg]]
 
 *** 搬家
 
@@ -272,7 +272,7 @@ foo.bar 面试记]]》这两篇文章。
 装、收发快递、办理证件等等。
 
 #+CAPTION: 2016-07-house-move
-[[/static/image/2017/2017-summary/house-move.jpg][file:/static/image/2017/2017-summary/house-move.jpg]]
+[[/static/image/2017/2016-summary/house-move.jpg][file:/static/image/2017/2016-summary/house-move.jpg]]
 
 入住自己家的最大好处，在于可以按照自己的想法，非常奢侈地置办一些大件物品而不必担
 心空间问题。比如妞看我搬家辛苦，因此把整个“客厅”赏给了我作为工作空间，并另外打赏
@@ -282,10 +282,10 @@ foo.bar 面试记]]》这两篇文章。
 
 
 #+CAPTION: Workstation 1
-[[/static/image/2017/2017-summary/workstation1.jpg][file:/static/image/2017/2017-summary/workstation1.jpg]]
+[[/static/image/2017/2016-summary/workstation1.jpg][file:/static/image/2017/2016-summary/workstation1.jpg]]
 
 #+CAPTION: Workstation 2
-[[/static/image/2017/2017-summary/workstation2.jpg][file:/static/image/2017/2017-summary/workstation2.jpg]]
+[[/static/image/2017/2016-summary/workstation2.jpg][file:/static/image/2017/2016-summary/workstation2.jpg]]
 
 
 *** 家庭
@@ -325,45 +325,45 @@ foo.bar 面试记]]》这两篇文章。
 油菜花开，香蕉林盛，是西双版纳。
 
 #+BEGIN_EXPORT html
-<video src="/static/image/2017/2017-summary/yunnan-kunming-dianchi.mov"
+<video src="/static/image/2017/2016-summary/yunnan-kunming-dianchi.mov"
        width="100%"
        controls>
 </video>
 #+END_EXPORT
 
 #+CAPTION: 云南，滇池
-[[/static/image/2017/2017-summary/yunnan-kunming-dianchi.jpg][file:/static/image/2017/2017-summary/yunnan-kunming-dianchi.jpg]]
+[[/static/image/2017/2016-summary/yunnan-kunming-dianchi.jpg][file:/static/image/2017/2016-summary/yunnan-kunming-dianchi.jpg]]
 
 #+CAPTION: 云南，大理苍山
-[[/static/image/2017/2017-summary/yunnan-dali-cangshan.jpg][file:/static/image/2017/2017-summary/yunnan-dali-cangshang.jpg]]
+[[/static/image/2017/2016-summary/yunnan-dali-cangshan.jpg][file:/static/image/2017/2016-summary/yunnan-dali-cangshang.jpg]]
 
 #+CAPTION: 云南，丽江
-[[/static/image/2017/2017-summary/yunnan-lijiang1.jpg][file:/static/image/2017/2017-summary/yunnan-lijiang1.jpg]]
+[[/static/image/2017/2016-summary/yunnan-lijiang1.jpg][file:/static/image/2017/2016-summary/yunnan-lijiang1.jpg]]
 
 #+CAPTION: 云南，丽江
-[[/static/image/2017/2017-summary/yunnan-lijiang2.jpg][file:/static/image/2017/2017-summary/yunnan-lijiang2.jpg]]
+[[/static/image/2017/2016-summary/yunnan-lijiang2.jpg][file:/static/image/2017/2016-summary/yunnan-lijiang2.jpg]]
 
 #+BEGIN_EXPORT html
-<video src="/static/image/2017/2017-summary/yunnan-dianzang.mp4"
+<video src="/static/image/2017/2016-summary/yunnan-dianzang.mp4"
        width="100%"
        controls>
 </video>
 #+END_EXPORT
 
 #+CAPTION: 云南，滇藏线
-[[/static/image/2017/2017-summary/yunnan-dianzang1.jpg][file:/static/image/2017/2017-summary/yunnan-dianzang1.jpg]]
+[[/static/image/2017/2016-summary/yunnan-dianzang1.jpg][file:/static/image/2017/2016-summary/yunnan-dianzang1.jpg]]
 
 #+CAPTION: 云南，滇藏线
-[[/static/image/2017/2017-summary/yunnan-dianzang2.jpg][file:/static/image/2017/2017-summary/yunnan-dianzang2.jpg]]
+[[/static/image/2017/2016-summary/yunnan-dianzang2.jpg][file:/static/image/2017/2016-summary/yunnan-dianzang2.jpg]]
 
 #+CAPTION: 云南，西双版纳
-[[/static/image/2017/2017-summary/yunnan-xishuangbanna.jpg][file:/static/image/2017/2017-summary/yunnan-xishuangbanna.jpg]]
+[[/static/image/2017/2016-summary/yunnan-xishuangbanna.jpg][file:/static/image/2017/2016-summary/yunnan-xishuangbanna.jpg]]
 
 #+CAPTION: 云南，景洪
-[[/static/image/2017/2017-summary/yunnan-jinghong1.jpg][file:/static/image/2017/2017-summary/yunnan-jinghong1.jpg]]
+[[/static/image/2017/2016-summary/yunnan-jinghong1.jpg][file:/static/image/2017/2016-summary/yunnan-jinghong1.jpg]]
 
 #+CAPTION: 云南，景洪
-[[/static/image/2017/2017-summary/yunnan-jinghong2.jpg][file:/static/image/2017/2017-summary/yunnan-jinghong2.jpg]]
+[[/static/image/2017/2016-summary/yunnan-jinghong2.jpg][file:/static/image/2017/2016-summary/yunnan-jinghong2.jpg]]
 
 *** 安徽
 
@@ -371,22 +371,22 @@ foo.bar 面试记]]》这两篇文章。
 景致还不错。上一次去黄山还是 10 年前，匆匆岁月。
 
 #+CAPTION: 杭州去黄山
-[[/static/image/2017/2017-summary/hangzhou-to-huangshan.jpg][file:/static/image/2017/2017-summary/hangzhou-to-huangshan.jpg]]
+[[/static/image/2017/2016-summary/hangzhou-to-huangshan.jpg][file:/static/image/2017/2016-summary/hangzhou-to-huangshan.jpg]]
 
 #+CAPTION: 黄山
-[[/static/image/2017/2017-summary/anhui-huangshan1.jpg][file:/static/image/2017/2017-summary/anhui-huangshan1.jpg]]
+[[/static/image/2017/2016-summary/anhui-huangshan1.jpg][file:/static/image/2017/2016-summary/anhui-huangshan1.jpg]]
 
 #+CAPTION: 黄山
-[[/static/image/2017/2017-summary/anhui-huangshan2.jpg][file:/static/image/2017/2017-summary/anhui-huangshan2.jpg]]
+[[/static/image/2017/2016-summary/anhui-huangshan2.jpg][file:/static/image/2017/2016-summary/anhui-huangshan2.jpg]]
 
 #+CAPTION: 黄山
-[[/static/image/2017/2017-summary/anhui-huangshan3.jpg][file:/static/image/2017/2017-summary/anhui-huangshan3.jpg]]
+[[/static/image/2017/2016-summary/anhui-huangshan3.jpg][file:/static/image/2017/2016-summary/anhui-huangshan3.jpg]]
 
 #+CAPTION: 西递
-[[/static/image/2017/2017-summary/anhui-xidi1.jpg][file:/static/image/2017/2017-summary/anhui-xidi1.jpg]]
+[[/static/image/2017/2016-summary/anhui-xidi1.jpg][file:/static/image/2017/2016-summary/anhui-xidi1.jpg]]
 
 #+CAPTION: 西递
-[[/static/image/2017/2017-summary/anhui-xidi2.jpg][file:/static/image/2017/2017-summary/anhui-xidi2.jpg]]
+[[/static/image/2017/2016-summary/anhui-xidi2.jpg][file:/static/image/2017/2016-summary/anhui-xidi2.jpg]]
 
 
 ** 尾
@@ -399,7 +399,7 @@ foo.bar 面试记]]》这两篇文章。
 少时光，到最终下定决心把自己绑在椅子上码完这一万多字，就到 7 月底了……
 
 #+CAPTION: Cat Sunshine
-[[/static/image/2017/2017-summary/cat-sunshine.jpg][file:/static/image/2017/2017-summary/cat-sunshine.jpg]]
+[[/static/image/2017/2016-summary/cat-sunshine.jpg][file:/static/image/2017/2016-summary/cat-sunshine.jpg]]
 
 Better late than never，拖沓归拖沓，但是我毕竟不指望这些文字给我带来些什么，因此
 奢求一点“拖稿”的自由，应该也算不上是“罪大恶极”吧，哈。
