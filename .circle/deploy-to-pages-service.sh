@@ -6,7 +6,7 @@ rm -rf output
 # install the latest pandoc
 sudo apt-get update && sudo apt-get -y install jq
 # Get the latest .deb released.
-wget $(curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))') -O pandoc.deb
+wget $(curl https://api.github.com/repos/jgm/pandoc/releases/5350011 | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))') -O pandoc.deb
 sudo dpkg -i pandoc.deb
 
 GITHUB_REPO_SLUG=$(git remote -v | grep origin | head -1 | awk '{print $2}' | awk -F: '{print $2}' | sed 's/.git$//g')
