@@ -42,7 +42,7 @@ module Attributes
       when Array
         post[key].map{ |e| e }.include? (attrib)
       end
-    end
+    end.sort_by { |post| post[:created_at] }
   end
   memoize :articles_with_attribute
 
