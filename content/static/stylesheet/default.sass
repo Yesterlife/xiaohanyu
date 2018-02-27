@@ -85,6 +85,7 @@ img
 .ui
   &.menu
     box-shadow: none
+    margin-top: 0
     margin-bottom: 0
     +font-feature-settings(0, 0)
 
@@ -161,9 +162,13 @@ img
 #disqus_thread
   margin-top: 2rem
 
+@media only screen and (min-width: 768px)
+  .mobile
+    display: none !important
+
 @media only screen and (max-width: 767px)
-  .ui.menu .item.desktop-only
-    display: none
+  .desktop
+    display: none !important
 
   .ui[class*="padded"].segment
     padding: 1.5rem
