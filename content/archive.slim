@@ -6,7 +6,7 @@ lang: en
 header.row.article-head
   .column
     h1.font-kai Archives
-    .ui.divider
+    .ui.divider.desktop
 .row.article-body
   section.eleven.wide.column
     - sorted_articles.group_by { |article| article[:created_at].to_date.year }.each_pair do |year, articles|
