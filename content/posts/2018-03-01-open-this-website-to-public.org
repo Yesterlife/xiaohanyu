@@ -1,0 +1,50 @@
+** 序
+
+时局“动荡”之下[1]，找个能自由写字的地方，似乎是越来越难了。
+
+** 源
+
+这个网站的第一次 [[https://github.com/xiaohanyu/xiaohanyu/commit/f084f1ab0e704990de94a479f7566060e1917e66][commit]] 起于 2014 年 3 月 24 日，当时我正在北大的某间教室里系统
+化地学习 [[https://getbootstrap.com/][Bootstrap]]，想给自己找个实战项目练练手，于是就琢磨着把自己原来在
+[[http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/][is-programmer]] 上的 blog 静态化并迁移到独立的域名之下，于是就奢侈地花了一个月的时
+间，完成了初版。
+
+再后来我又学习了 [[https://semantic-ui.com][Semantic-UI]] 并用之重新设计实现了网站的第二版，加上自己对字体排
+版的理解有所深入，因此自觉就设计和细节上而言，比初版要上一个档次。
+
+17 年 2 月份又花了十几天的时间，把原有 is-programmer 上所写的百十来篇不成文章的
+文章统一迁移并作了大量[[http://xiaohanyu.me/posts/2017-04-26-notes-about-migrating-data/][修订]]，一并合到了这个网站里。
+
+这两日趁休假在家，又花了些许精力给网站增加了响应式支持。不知不觉中，算上写文章，
+码代码，累计已经有 500 次迭代，所投入的时间应该不少于 500--1000 小时了。
+
+** 思
+
+在知识付费蓬勃生机，社交平台层出不穷的时景之下，维护这样一个独立博客，似乎有些太
+耗精力了……然而我们也看到，在世界上某个巨大的互联网生态孤岛中，我们越来越难以获取
+我们想要看到的信息，越来越多的词被标记成“敏感”，躲在一个个光鲜网站背后夜以继日工
+作的审查员们悄无声息地埋葬着这个互联网孤岛上的一丝又一丝的光明，虽说“全世界的黑
+暗，都不足以影响一枝蜡烛的光辉”，然而作为一只蜡烛，它的寿命终究是有限的，在有限
+的生命燃尽之后，世界终究还是一片黑暗。
+
+我只是希望，哪怕世界一片黑暗，蜡烛燃尽，这个世界上终究还是能留下些什么。
+
+“天空未留痕迹，鸟儿却已飞过”，也许鸟儿确实没有在天空中留下些什么，然后我们的课本
+上却多了这么一句诗。
+
+** 结
+
+开放这个网站的源码，是想给那些想独立建站自由表达的朋友们一些参考。我几乎没有多少
+时间去整理这个网站的技术细节和文档，因为本来这个网站从最初诞生就没有被设计成一个
+通用的项目——毕竟这只是我个人的一个私人空间而已——然而在这几日看到越来越多“乱七八
+糟”的时局新闻后，我还是决定再花些时间，给网站加上响应式的支持，然后把网站“源码”
+开放出来，是的，所有代码采用 [[https://tldrlegal.com/license/bsd-3-clause-license-(revised)][BSD 3-Clause License]]，而文章除特别说明，全部采用 CC
+[[https://creativecommons.org/licenses/by-nc-sa/4.0/][BY-NC-SA]] License。
+
+- 网站源码：[[https://github.com/xiaohanyu/xiaohanyu][xiaohanyu/xiaohanyu]]
+- 文章源码：[[https://github.com/xiaohanyu/xiaohanyu/tree/master/content/posts][xiaohanyu/content/posts]]
+- 生成静态网站：[[https://github.com/xiaohanyu/xiaohanyu.github.io][xiaohanyu/xiaohanyu.github.io]]
+
+希望对有缘人有用，我会再抽些时间整理下技术文档。
+
+[1] https://www.nytimes.com/2018/02/25/world/asia/china-xi-jinping.html
