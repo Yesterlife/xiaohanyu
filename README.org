@@ -1,0 +1,81 @@
+** Introduction
+
+This is the source code for my personal page: [[https://xiaohanyu.me][https://xiaohanyu.me]].
+
+*** Features
+
+- Use customized [[https://semantic-ui.com/][Semantic-UI]] for design and styling
+- Use [[https://en.wikipedia.org/wiki/Linux_Libertine][Linux Libertine]] font for English text
+- Use [[https://nanoc.ws/][Nanoc]] to build and compile
+- Use [[https://pandoc.org/][Pandoc]] to convert documents
+- jQuery to implement some random [[https://github.com/xiaohanyu/xiaohanyu/tree/master/content/quotes][quotes]]
+- Responsive
+- I, personally, use [[https://orgmode.org/][org-mode]] to write post, you can use markdown if you like,
+  as long as if pandoc support it.
+
+
+*** How to build
+
+You need ruby 2.x installed. I only test the build on ruby 2.4. Don't forget to
+install [[https://bundler.io/][bundler]] to manage ruby gem packages.
+
+Besides, you also need [[https://pandoc.org/][pandoc]] installed. I only test pandoc [[https://github.com/jgm/pandoc/releases/tag/1.19.2.1][1.19.2.x]] version.
+
+Steps to ~compile~ the site:
+
+#+BEGIN_SRC sh
+git clone git@github.com:xiaohanyu/xiaohanyu
+bundle install
+bundle exec nanoc compile
+#+END_SRC
+
+It may take several minutes to build the whole site. You can check the compiled
+site in ~output~ directory.
+
+My website is hosted on [[https://pages.github.com/][github pages]]. You can push the contents under ~output~
+directory to github pages. If you have customized DNS, don't forget to modify
+[[https://github.com/xiaohanyu/xiaohanyu/blob/master/content/CNAME][CNAME]] for your website.
+
+
+*** Website metadata
+
+Most of the website metadata is stored in [[https://github.com/xiaohanyu/xiaohanyu/blob/master/nanoc.yaml][nanoc.yaml]] file, like the author,
+title, keywords, etc.
+
+
+*** Development
+
+Besides compile, you can write post and build website simultaneously:
+
+- use ~bundle exec guard~ to watch for file changes and run ~nanoc compile~.
+- you can use [[https://browsersync.io/][browsersync]] as ~cd output; browser-sync start --server
+  --files="**/*"~ to watch the compiled changes in browser simultaneously.
+
+
+*** List of files to modify for your fork
+
+| File       | Description                       |
+|------------+-----------------------------------|
+| [[https://github.com/xiaohanyu/xiaohanyu/blob/master/nanoc.yaml][nanoc.yaml]] | Website metadata                  |
+| [[https://github.com/xiaohanyu/xiaohanyu/blob/master/content/CNAME][CNAME]]      | Github pages cname DNS            |
+| [[https://github.com/xiaohanyu/xiaohanyu/blob/master/content/about.slim][about.slim]] | Don't copy my about page          |
+| [[https://github.com/xiaohanyu/xiaohanyu/tree/master/content/static/favicon][favicon]]    | Please generate your own favicons |
+| [[https://github.com/xiaohanyu/xiaohanyu/tree/master/content/posts][posts]]      | Ah, this is my post               |
+
+
+*** Reference
+
+All in Chinese.
+
+How this website was born:
+
+- [[http://xiaohanyu.me/posts/2014-04-16-new-blog-new-start/][New Blog, New Start]]
+
+Initial technical design:
+
+- [[http://xiaohanyu.me/posts/2014-05-04-build-static-site-with-nanoc-1/][Build Static Site with Nanoc (I)]]
+- [[http://xiaohanyu.me/posts/2014-07-25-build-static-site-with-nanoc-2/][Built Static Site with Nanoc (II)]]
+
+Open Source:
+
+- [[http://xiaohanyu.me/posts/2018-03-01-open-this-website-to-public/][Why open source this website]]
