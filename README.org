@@ -37,6 +37,14 @@ directory to github pages. If you have customized DNS, don't forget to modify
 [[https://github.com/xiaohanyu/xiaohanyu/blob/master/content/CNAME][CNAME]] for your website.
 
 
+**** Automatic build with CircleCI
+
+I've also write a simple [[https://github.com/xiaohanyu/xiaohanyu/blob/master/.circle/deploy-to-pages-service.sh][script]] for auto-build the website by [[https://circleci.com/][CircleCI]].
+
+You need to generate github [[https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/][token]], and you need to configure ~GITHUB_TOKEN~ and
+~{GITHUB_PAGES_REPO}~ in circleci configuration for you repository.
+
+
 *** Website metadata
 
 Most of the website metadata is stored in [[https://github.com/xiaohanyu/xiaohanyu/blob/master/nanoc.yaml][nanoc.yaml]] file, like the author,
