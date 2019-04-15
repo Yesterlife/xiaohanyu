@@ -15,9 +15,9 @@
 #   because “*” matches zero or more characters.
 
 pandoc_ext_from = {
-  'org'      => :org,
-  'md'       => :markdown,
-  'markdown' => :markdown
+  'org'      => 'org',
+  'md'       => 'markdown+smart',
+  'markdown' => 'markdown+smart'
 }
 
 route '/static/favicon/**/*' do
@@ -55,7 +55,7 @@ compile '/posts/**/*' do
     filter :slim
   when /md|markdown|org/
     filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext],
-                                      :to => :html5}, :toc, :smart]
+                                      :to => :html5}, :toc]
     filter :han
   end
   layout '/post.*'
@@ -85,7 +85,7 @@ compile '**/*' do
       filter :slim
     when /md|markdown|org/
       filter :pandoc, args: [:mathjax, {:from => pandoc_ext_from[ext],
-                                        :to => :html5}, :toc, :smart]
+                                        :to => :html5}, :toc]
     end
     layout '/content.*'
     layout item[:layout] || '/default.*'
