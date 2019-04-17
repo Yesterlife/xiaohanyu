@@ -1,0 +1,400 @@
+** 序
+
+18 年史无前例地在一家公司连续不断地工作了一年，因此这一年年终总结的题目就叫“两点
+一线”吧。
+
+1 月两点一线；2 月去了趟马来西亚，回国，过年，看病，住院；3 月两点一线；4 月底和
+妞一起去了印尼的小岛；5 月两点一线；6 月转到新组并接手了新的工作，约了妞去了泰国
+曼谷；7 月两点一线；8 月约了弟弟去了台湾北部；9 月去了越南胡志明市参加公司培训；
+10月两点一线；11 月约了妞一起去了台湾南部；12 月两点一线。
+
+*新加坡是一个四季如夏恒温如常没有季节变化的地方，在这里待久了，回忆里会缺少一些时
+间的刻度，脑海里时间线上的回忆场景全部都被压在了一张白纸之上，交叠渗透在一起。* 总
+的来说呢，这一年过得波澜不惊，生活两点一线，工作一如往常，想妞聚少离多，与往年的
+唯一不同，大概就是多去了几个国家，多飞了几趟航班吧，如是而已。
+
+** 工作
+
+#+CAPTION: Github Contributions 2018
+[[/static/image/2019/2018-summary/github-2017.png][file:/static/image/2019/2018-summary/github-2018.png]]
+
+*** Shopee
+
+前半年继续在 data engineering 组从事数据可视化产品的开发工作，加上 17 年半年，我
+做为 lead developer，带领三五人的小团队，累记花了一年的时间，将基于 [[https://github.com/apache/incubator-superset][Apache
+Superset]] 的数据分析及可视化产品在 Shopee 落地生根——及至我离开 data engineering
+组，这个产品服务了 Shopee 25% 的员工，日活 1000，每日生成报表 dashboard 数千，每
+周帮助公司节省数十人年的工作量。作为一款内部产品，可以说是很好得满足了公司内部的
+需求。
+
+3 月下旬，Shopee 做东，主持了一个 Python User Group Singapore (PUGS) 的 [[http://pugs.org.sg/2018-mar-meetup.html][Meetup]]，
+我作为主讲人分享了下 Superset 在 Shopee 的一些开发部署流程及应用场景。这也是我第
+一次在数百人面前做公共演讲，而且还是全英文的，讲之前紧张到爆炸，但是开口讲了几句
+就进入了状态，整体发挥还是蛮不错的。可惜 PUGS 的录像设备出了故障，因此没有录下我
+演讲的视频，略有遗憾。及至后来我去参加一个 tech meetup，还有人认出了我是 Shopee
+的工程师。
+
+#+CAPTION: Shopee PUGS lecture
+[[/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg][file:/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-1.jpg]]
+
+#+CAPTION: Shopee PUGS lecture
+[[/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg][file:/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-2.jpg]]
+
+#+CAPTION: Shopee PUGS lecture
+[[/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg][file:/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg]]
+
+Superset 的项目做到后期，无尽的 feature request 和 bug fix，及其本身固有的缺陷，
+让我对日复一日的开发及每周发布渐感厌烦。因此在年中，借由 [[https://cmgs.me/][cmgs]] 和 [[https://www.textarea.com/zhicheng/][zhicheng]] 加入
+Shopee 的契机，我申请转到 Shopee 的 platform engineering 组，开始着手写另一款内
+部产品——基于 [[https://redis.io/topics/cluster-tutorial][redis cluster]] 的 cache cloud 平台。
+
+cmgs 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准的工程师，我在这个项目
+中学到了相当多的东西。三人之中，只有我具备专业的前端水准，所以写产品前端这个重任
+就落在了我的身上，而我亦不负所望，大概花了两个月的时间写了个寡淡但不失专业水准的
+前端，界面大致如下：
+
+#+CAPTION: Shopee Cache Cloud
+[[/static/image/2019/2018-summary/shopee-cache-cloud.png][file:/static/image/2019/2018-summary/shopee-cache-cloud.png]]
+
+整体的设计和交互灵感源自 [[https://www.qingcloud.com/][QingCloud]] 。这里不得不再次感叹一下，抛开云计算本身的技
+术水准，QingCloud 的交互和设计水准相当之高，作者吕婷的演讲《[[http://2015.qconbeijing.com/speakers/201767/][与产品紧密 前端工程
+师的成与责]]》给了我相当多的启发。
+
+经过半年实践，我有自信，假以时日，我有能力写出一个和 QingCloud 前端相匹敌的 Web
+App，可惜时不与待……这又是后话了。
+
+*** Semantic-UI-Forest
+
+下半年花了几个月的业余时间，把 17 年做的小项目 [[https://semantic-ui-forest.com/][Semantic-UI-Forest]] 重构了一下，重
+新梳理了全部模板，并基于 [[https://zeit.co/now][zeit/now]] 及 [[https://nextjs.org/][Next.js]] 重写了整个网站，操练下来，对 React
+服务端渲染技术及场景有了些一手经验。
+
+** 学习
+
+*** 阅读
+
+阅读方面，今年读过的实体书很少，累记大概 15 本左右。
+- 《[[https://book.douban.com/subject/26689184/][Kubernetes 权威指南]]》，了解下 kubernetes 的应用场景及基本概念。
+- 《[[https://book.douban.com/subject/3816827/][沸腾十五年]]》，中国互联网发展史概略，但是大局观上比吴军的《[[https://book.douban.com/subject/3816827/][浪潮之巅]]》还是差很
+  多。
+- 《[[https://book.douban.com/subject/26971561/][Redis 开发与运维]]》，[[https://github.com/sohutv/cachecloud][sohutv/cachecloud]] 作者的书，相当实用的工具书。
+- 《[[https://book.douban.com/subject/5348144/][SEO 实战密码]]》，从 SEO 入手，可以了解到网站的流量生意到底是怎么回事，这本书
+  写得很详尽。
+
+除了书籍，今年还阅读了较多的线上资料，包括 Kubernetes [[https://kubernetes.io/docs/][documentation]]，[[https://developers.google.com/web/tools/chrome-devtools/][Chrome
+DevTools]]，React [[https://reactjs.org/docs/getting-started.html][docs]]，[[https://developer.mozilla.org/en-US/][MDN]]——我还给 MDN 贡献了几个 [[https://developer.mozilla.org/en-US/dashboards/revisions?user=xiaohanyu][patch]]。
+
+*** 技术
+
+技术方面，今年在前端领域的耕耘与进步甚多，基本上了解了现代前端体系生态，有能力
+cover 住一个中小型网站的完整前端。
+
+后端领域，对 docker 的生态体系及基于 redis 的 cache 架构有了更深入的理解，这要感
+谢 [[https://cmgs.me/][cmgs]] 的帮助。
+
+工具方面，仔细研究了新一代 PaaS 平台 [[https://zeit.co/now][zeit/now]] 和身份认证鉴权服务 [[https://auth0.com/][Auth0]]。两者的体
+验都相当棒，对个人产品而言助力很大。
+
+** 生活
+
+*** 生病
+
+年初时感觉到身体不太对，大脑不太舒服，偶尔有一些不受控的放电的感觉，因此趁着春节
+回国期间，请了年假 + 病假 + 住院假，在杭州的医院里住了两天，好在诊断结果并无大碍，
+医生给开了一些药，嘱托规律作息，禁酒禁茶禁可乐禁咖啡，慢慢调节。经过近一年的调节，
+症状已经减轻很多。
+
+#+CAPTION: 杭州，住院
+[[/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg][file:/static/image/2019/2018-summary/hangzhou-20180304-hospital.jpg]]
+
+至于诸如“身体是革命的本钱”这类的大道理我就不在这里嘴碎了，显而易见的是，人到了一
+定年龄，身体素质及精力的下降是一件无可避免的事，如何平衡学习、工作、生活三者之间
+的关系，是一个需要关注终身的大问题。
+
+*** 健身
+
+#+BEGIN_QUOTE
+健身有感：身体，精神，亲密关系是一个人体面生活于世的三大支柱，任何一点的坍塌退化
+都会导致其余两点受到影响，而每一项要维持良好的状态都是一个长期的系统工程。健康的
+身体需要持久的锻炼，积极的精神需要不断的调整，良好的亲密关系更是需要持续不断的经
+营。人过三十之后要对抗生理机能衰退的自然机制，更是需要持久且有意识的锻炼调节来把
+良好的身体精神和亲密关系尽可能的长久的维持下去。
+
+--- 2018-09-15
+#+END_QUOTE
+
+我于 18 年 7 月份正式加入 [[https://www.fitnessfirst.com.sg/][Fitness First]] 会员计划，在工作日的中午去健身房运动健身，
+风雨无阻——除开某些极特殊的情形，累记缺席锻炼不超过三天，效果也是显而易见的——困扰
+多年的肩颈背腰的问题大有缓解，几乎一扫而光，身体力量、有氧素质均有大幅提高。
+
+形成习惯之后，每日中午健身就成了例行公事，没有任何滞碍，这种感觉相当好。
+
+#+CAPTION: Body Building
+[[/static/image/2019/2018-summary/singapore-20181129-body-building.jpg][file:/static/image/2019/2018-summary/singapore-20181129-body-building.jpg]]
+
+*** 写作
+
+写作方面，18 年少有成果，盖因工作繁忙，无暇笔耕。有两篇小文，都是一些简单的 head
+dump，不成体系，只能草就两篇，记于豆瓣日记上。
+
+- [[https://www.douban.com/note/669226158/][码农杂谈：Taste]]
+- [[https://www.douban.com/note/697152979/][码农杂谈：造奔驰，还是拖拉机]]
+
+
+*** 经济
+
+经济方面，年初在杭州投资了一套小公寓，耗光了我和妞两人的年终奖金并提前透支了大半
+年的收入。因此今年除开旅行支出外，全年度没有购置电子产品。
+
+年度旅行支出估计应该在 4--5 万人民币左右，具体我没有算啦，经济方面我是一个粗手粗
+脚的人，搞不来出行预算记账这一套……
+
+来年还是多赚些钱，多攒些家底吧。
+
+** 旅行
+
+旅行方面，除日常在新加坡岛上溜弯外，还去了马来西亚，印度尼西亚，泰国，台湾，越南，
+所获颇丰。无暇写游记，值此总结，随发些照片，是以为记。
+
+*** 新加坡
+
+新加坡的工作比之国内 996 还是要轻松一些，当然这种轻松并不是说，你可以在公司无所
+事事——该出的活一样要出，be professional，但是除开正常的工作外，周末双休以及该有
+的八小时外的休息时间还是有保证的。
+
+除开周一周五工作，周六我一般会在家写写代码看看书，然后周日一天在岛上遛弯放空，这
+样一年下来几乎走遍了新加坡岛的各个角落。
+
+总的来说呢，新加坡确实是个很宜居的地方，干净、安全，除开国家太小气候如常待久无聊
+之外，没有特别明显的缺点短板，是个安家置业的好地方。
+
+西海岸公园
+#+CAPTION: 新加坡，西海岸公园
+[[/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg][file:/static/image/2019/2018-summary/singapore-20180318-west-cost-park.jpg]]
+
+Kent Kidge Park
+#+CAPTION: 新加坡，kent ridge park
+[[/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg][file:/static/image/2019/2018-summary/singapore-20180510-kent-ridge-park.jpg]]
+
+东海岸公园
+#+CAPTION: 新加坡，东海岸公园
+[[/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg][file:/static/image/2019/2018-summary/singapore-20180517-east-coast-park.jpg]]
+
+金沙酒店
+#+CAPTION: 新加坡，金沙酒店
+[[/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg][file:/static/image/2019/2018-summary/singapore-20180722-marina-bay-sands-hotel.jpg]]
+
+
+*** 马来西亚
+
+2 月，约了妞一起去马来西亚，妞打头阵，拖着感冒的病体先行到达吉隆坡。我们累记在马
+来西亚待了四天。总体感觉，吉隆坡的城市建设和规划比新加坡差很多，特别是对行人很不
+友好。倒是小城马六甲很有意思，值得一去。马六甲，对，就是马六甲海峡的那个马六甲，
+是个悠闲的小城，消费很低，人在新加坡，若有两三天闲暇时光，无妨一去。
+
+吉隆坡
+#+CAPTION: 马来西亚，吉隆坡
+[[/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg][file:/static/image/2019/2018-summary/malaysia-20180210-kuala-lumpur-girl.jpg]]
+
+马六甲
+#+CAPTION: 马来西亚，马六甲
+[[/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg][file:/static/image/2019/2018-summary/malaysia-20180211-malacca.jpg]]
+
+
+*** 印度尼西亚
+
+4 月底，妞来新加坡省亲，于是我们坐船去了趟印尼的[[https://zh.wikipedia.org/wiki/%25E6%25B0%2591%25E4%25B8%25B9%25E5%25B3%25B6][民丹岛]]。民丹岛距离新加坡船程约 1
+小时，岛的北部据说印尼的特区，上世纪 90 年代租借给新加坡 80 年，属于新加坡与印尼
+全面合作开发的区域，因此这里可以说是新加坡的后花园，其食宿酒水基本上也是新加坡的
+消费水准，并不便宜。
+
+于我而言，岛上的浮潜项目及红树木项目都是相当新鲜的体验，可以说是不虚此行。
+
+#+CAPTION: 印度尼西亚，印尼盾
+[[/static/image/2019/2018-summary/indonesia-20180428-cash.jpg][file:/static/image/2019/2018-summary/indonesia-20180428-cash.jpg]]
+
+#+CAPTION: 印度尼西亚，民丹岛浮潜
+[[/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg][file:/static/image/2019/2018-summary/indonesia-20180429-bintan.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2019/2018-summary/indonesia-20180429-bintan-boat-on-the-sea.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+#+CAPTION: 印度尼西亚，民丹岛红树林
+[[/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg][file:/static/image/2019/2018-summary/indonesia-20180430-bintan.jpg]]
+
+
+*** 泰国
+
+6 月中旬，飞曼谷，与妞会合。对曼谷印象最深的一点，应该就是曼谷的堵车了——北
+京所谓首堵的堵车相较于曼谷，简直是小巫见大巫。另，泰语中的“萨瓦迪卡”真是甜得发腻。
+
+我们在曼谷逗留了三天，总体感觉曼谷的旅游服务确实比较到位，国际化程度也很高，确实
+是背包客的天堂。
+
+曼谷，[[http://en.bacc.or.th/][BACC]]
+#+CAPTION: 泰国，曼谷，BACC
+[[/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg][file:/static/image/2019/2018-summary/thailand-20180615-bangkok-1.jpg]]
+
+曼谷，妞
+#+CAPTION: 泰国，曼谷，妞
+[[/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg][file:/static/image/2019/2018-summary/thailand-20180615-bangkok-2.jpg]]
+
+曼谷，展览
+#+CAPTION: 泰国，曼谷，展览
+[[/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg][file:/static/image/2019/2018-summary/thailand-20180615-bangkok-3.jpg]]
+
+曼谷，书店
+#+CAPTION: 泰国，曼谷，书店
+[[/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg][file:/static/image/2019/2018-summary/thailand-20180615-bangkok-4.jpg]]
+
+曼谷，Cabbages & Condoms
+#+CAPTION: 泰国，曼谷，Cabbages & Condoms
+[[/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg][file:/static/image/2019/2018-summary/thailand-20180617-bangkok-1.jpg]]
+
+*** 台湾
+
+8 月和 11 月，两度到访台湾，第一次约了弟弟，游览了台北故宫博物院、自由广场、
+101 大厦、象山、宜兰、[[https://zh.wikipedia.org/zh-cn/%25E8%2598%2587%25E8%258A%25B1%25E5%2585%25AC%25E8%25B7%25AF][苏花公路]]，第二次约了妞，游览台中东海大学、高美湿地，阿里山、
+日月潭，台南奇美博物馆，高雄西子湾。
+
+两次台湾之行累记八天，第一次近身体会了中华文明的另一种形态，引发诸多思考，所获颇
+丰。
+
+南部鸟瞰
+#+CAPTION: 台湾，南部鸟瞰
+[[/static/image/2019/2018-summary/taiwan-20180808-flight.jpg][file:/static/image/2019/2018-summary/taiwan-20180808-flight.jpg]]
+
+台北街头广告
+#+CAPTION: 台湾，台北街头广告
+[[/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg][file:/static/image/2019/2018-summary/taiwan-20180808-taipei.jpg]]
+
+台北 101 大厦
+#+CAPTION: 台湾，台北 101 大厦
+[[/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg][file:/static/image/2019/2018-summary/taiwan-20180809-taipei-101-1.jpg]]
+
+台北 101 大厦
+#+CAPTION: 台湾，台北 101 大厦
+[[/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg][file:/static/image/2019/2018-summary/taiwan-20180809-taipei-101-2.jpg]]
+
+台北故宫博物院，翠玉白菜
+#+CAPTION: 台湾，台北故宫博物院，翠玉白菜
+[[/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg][file:/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-1.jpg]]
+
+台北故宫博物院，肉形石
+#+CAPTION: 台湾，台北故宫博物院，肉形石
+[[/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg][file:/static/image/2019/2018-summary/taiwan-20180809-taipei-museum-2.jpg]]
+
+苏澳港
+#+CAPTION: 台湾，苏澳港
+[[/static/image/2019/2018-summary/taiwan-20180812-suao.jpg][file:/static/image/2019/2018-summary/taiwan-20180812-suao.jpg]]
+
+宜兰
+#+CAPTION: 台湾，宜兰
+[[/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg][file:/static/image/2019/2018-summary/taiwan-20180812-yilan.jpg]]
+
+台中，东海大学
+#+CAPTION: 台湾，台中，东海大学
+[[/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg][file:/static/image/2019/2018-summary/taiwan-20181102-taizhong.jpg]]
+
+阿里山，火车上山
+#+CAPTION: 台湾，阿里山，火车上山
+[[/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg][file:/static/image/2019/2018-summary/taiwan-20181104-alishan.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2019/2018-summary/taiwan-20181104-alishan-train.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+台南，奇美博物馆，Pokeman Go
+#+CAPTION: 台湾，台南，奇美博物馆，Pokeman Go
+[[/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg][file:/static/image/2019/2018-summary/taiwan-20181105-tainan.jpg]]
+
+高雄，旗津半岛
+#+CAPTION: 台湾，高雄，旗津半岛
+[[/static/image/2019/2018-summary/taiwan-20181106.jpg][file:/static/image/2019/2018-summary/taiwan-20181106.jpg]]
+
+*** 越南
+
+9 月下旬，公司安排七八个国家一行二十人到越南胡志明市参考为期两天的 leadership 培
+训项目。周四周五培训之外，我利用周六周日两天时间在胡志明市转了转。
+
+话说回来，胡志明市给我的第一印象极差——盖因我刚出机场就被套路，虽然略有防备叫了
+Grab 但还是被偷了 150 新币，而同行的 20 人中，约有三分之一的人都或多或少被偷了几
+十甚至几百新币等值现金。
+
+总的来说呢，越南给我的感觉是很像一个“小中国”，胡志明市街头的海报也是各种宣传党宣
+传社会主义之类的，就连海关入境检查官员，穿的制服也是一水的米黄色，很像中国的军大
+衣的颜色。
+
+越南自 1986 年开始学习中国大陆由邓小平等人所创立的改革开放，并实行经济改革，向中
+国借鉴和学习。其一系列的政策在中文界被称为[[https://zh.wikipedia.org/zh-cn/%25E9%259D%25A9%25E6%2596%25B0%25E9%2596%258B%25E6%2594%25BE][革新开放]]。不过越南至今的人均 GDP 还很
+低，大概只有 2000 美金左右，整个越南约 1 亿人口，其国家 GDP 还比不上只有 600 万
+人口的新加坡，国家发展程度可见一般。就连越南最发达的胡志明市，其城市建设及规划水
+平，比国内的二三线城市还尚有不如。所以其国家门户入境机场小偷猖獗，也在预料之中了。
+
+胡志明市，Shopee office
+#+CAPTION: 越南，胡志明市，Shopee office
+[[/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg][file:/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-1.jpg]]
+
+胡志明市，胡志明雕像
+#+CAPTION: 越南，胡志明市，胡志明雕像
+[[/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg][file:/static/image/2019/2018-summary/vietnam-20180920-ho-chi-minh-city-2.jpg]]
+
+胡志明市，海报
+#+CAPTION: 越南，胡志明市，海报
+[[/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg][file:/static/image/2019/2018-summary/vietnam-20180923-ho-chi-minh-city-1.jpg]]
+
+** 尾
+
+18 年的总结差不多磨了一周的时间才“憋”出来，anyway, better late than never.
+
+新加坡的气候有如恒温暖箱，日叠一日，日子过得格外的快，30 岁就这样到来了。回想起
+来，这一年还是做了一些事，赚了一些钱，码了一些字，也影响了一些人，未有大成，也无
+小憾。
+
+只有与妞聚少离多，多有想念，算是美中不足吧。
+
+2018 年过去了，我有点想念它。
+
+#+BEGIN_QUOTE
+我在异乡的夜半醒来
+
+看着完全陌生的窗外
+
+没有一盏熟悉的灯可以打开
+
+原来习惯是那么难改
+
+我在异乡的街道徘徊
+
+听着完全陌生的对白
+
+当初那么多的勇气让我离开
+
+我却连时差都调不回来
+
+
+我的夜晚是你的白天
+
+当我思念时你正入眠
+
+戴的手表是你的时间
+
+回想着你疼爱我的脸
+
+我的夜晚是你的白天
+
+当你醒时我梦里相见
+
+只为了和你再见一面
+
+我会不分昼夜的想念
+
+--- 侃侃 «想念»
+#+END_QUOTE
