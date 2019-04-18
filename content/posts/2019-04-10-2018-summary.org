@@ -29,7 +29,7 @@ Superset]] 的数据分析及可视化产品在 Shopee 落地生根——及至�
 
 3 月下旬，Shopee 做东，主持了一个 Python User Group Singapore (PUGS) 的 [[http://pugs.org.sg/2018-mar-meetup.html][Meetup]]，
 我作为主讲人分享了下 Superset 在 Shopee 的一些开发部署流程及应用场景。这也是我第
-一次在数百人面前做公共演讲，而且还是全英文的，讲之前紧张到爆炸，但是开口讲了几句
+一次在数百人面前做公共演讲，而且还是全英文的。讲之前紧张到爆炸，但是开口讲了几句
 就进入了状态，整体发挥还是蛮不错的。可惜 PUGS 的录像设备出了故障，因此没有录下我
 演讲的视频，略有遗憾。及至后来我去参加一个 tech meetup，还有人认出了我是 Shopee
 的工程师。
@@ -44,11 +44,11 @@ Superset]] 的数据分析及可视化产品在 Shopee 落地生根——及至�
 [[/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg][file:/static/image/2019/2018-summary/shopee-20180327-pugs-lecture-3.jpg]]
 
 Superset 的项目做到后期，无尽的 feature request 和 bug fix，及其本身固有的缺陷，
-让我对日复一日的开发及每周发布渐感厌烦。因此在年中，借由 [[https://cmgs.me/][cmgs]] 和 [[https://www.textarea.com/zhicheng/][zhicheng]] 加入
+让我对日复一日的开发及每周发布渐感厌烦。因此在年中，借由 [[https://cmgs.me/][CMGS]] 和 [[https://www.textarea.com/zhicheng/][zhicheng]] 加入
 Shopee 的契机，我申请转到 Shopee 的 platform engineering 组，开始着手写另一款内
 部产品——基于 [[https://redis.io/topics/cluster-tutorial][redis cluster]] 的 cache cloud 平台。
 
-cmgs 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准的工程师，我在这个项目
+CMGS 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准的工程师，我在这个项目
 中学到了相当多的东西。三人之中，只有我具备专业的前端水准，所以写产品前端这个重任
 就落在了我的身上，而我亦不负所望，大概花了两个月的时间写了个寡淡但不失专业水准的
 前端，界面大致如下：
@@ -57,8 +57,8 @@ cmgs 和 zhicheng 是我有限的职业生涯中合作过的最具专业水准�
 [[/static/image/2019/2018-summary/shopee-cache-cloud.png][file:/static/image/2019/2018-summary/shopee-cache-cloud.png]]
 
 整体的设计和交互灵感源自 [[https://www.qingcloud.com/][QingCloud]] 。这里不得不再次感叹一下，抛开云计算本身的技
-术水准，QingCloud 的交互和设计水准相当之高，作者吕婷的演讲《[[http://2015.qconbeijing.com/speakers/201767/][与产品紧密 前端工程
-师的成与责]]》给了我相当多的启发。
+术水准，QingCloud 的交互和设计水准相当之高，作者吕婷的演讲《[[http://2015.qconbeijing.com/speakers/201767/][前端工程师的成与责]]》
+给了我相当多的启发。
 
 经过半年实践，我有自信，假以时日，我有能力写出一个和 QingCloud 前端相匹敌的 Web
 App，可惜时不与待……这又是后话了。
@@ -74,7 +74,7 @@ App，可惜时不与待……这又是后话了。
 *** 阅读
 
 阅读方面，今年读过的实体书很少，累记大概 15 本左右。
-- 《[[https://book.douban.com/subject/26689184/][Kubernetes 权威指南]]》，了解下 kubernetes 的应用场景及基本概念。
+- 《[[https://book.douban.com/subject/26689184/][Kubernetes 权威指南]]》，了解下 Kubernetes 的应用场景及基本概念。
 - 《[[https://book.douban.com/subject/3816827/][沸腾十五年]]》，中国互联网发展史概略，但是大局观上比吴军的《[[https://book.douban.com/subject/3816827/][浪潮之巅]]》还是差很
   多。
 - 《[[https://book.douban.com/subject/26971561/][Redis 开发与运维]]》，[[https://github.com/sohutv/cachecloud][sohutv/cachecloud]] 作者的书，相当实用的工具书。
@@ -90,7 +90,7 @@ DevTools]]，React [[https://reactjs.org/docs/getting-started.html][docs]]，[[h
 cover 住一个中小型网站的完整前端。
 
 后端领域，对 docker 的生态体系及基于 redis 的 cache 架构有了更深入的理解，这要感
-谢 [[https://cmgs.me/][cmgs]] 的帮助。
+谢 [[https://cmgs.me/][CMGS]] 的帮助。
 
 工具方面，仔细研究了新一代 PaaS 平台 [[https://zeit.co/now][zeit/now]] 和身份认证鉴权服务 [[https://auth0.com/][Auth0]]。两者的体
 验都相当棒，对个人产品而言助力很大。
@@ -188,7 +188,7 @@ Kent Kidge Park
 *** 马来西亚
 
 2 月，约了妞一起去马来西亚，妞打头阵，拖着感冒的病体先行到达吉隆坡。我们累记在马
-来西亚待了四天。总体感觉，吉隆坡的城市建设和规划比新加坡差很多，特别是对行人很不
+来西亚游览了四天。总体感觉，吉隆坡的城市建设和规划比新加坡差很多，特别是对行人很不
 友好。倒是小城马六甲很有意思，值得一去。马六甲，对，就是马六甲海峡的那个马六甲，
 是个悠闲的小城，消费很低，人在新加坡，若有两三天闲暇时光，无妨一去。
 
@@ -232,7 +232,7 @@ Kent Kidge Park
 6 月中旬，飞曼谷，与妞会合。对曼谷印象最深的一点，应该就是曼谷的堵车了——北
 京所谓首堵的堵车相较于曼谷，简直是小巫见大巫。另，泰语中的“萨瓦迪卡”真是甜得发腻。
 
-我们在曼谷逗留了三天，总体感觉曼谷的旅游服务确实比较到位，国际化程度也很高，确实
+我们在曼谷游览了三天，总体感觉曼谷的旅游服务确实比较到位，国际化程度也很高，确实
 是背包客的天堂。
 
 曼谷，[[http://en.bacc.or.th/][BACC]]
@@ -321,7 +321,7 @@ Kent Kidge Park
 
 *** 越南
 
-9 月下旬，公司安排七八个国家一行二十人到越南胡志明市参考为期两天的 leadership 培
+9 月下旬，公司安排七八个国家一行二十人到越南胡志明市参加为期两天的 leadership 培
 训项目。周四周五培训之外，我利用周六周日两天时间在胡志明市转了转。
 
 话说回来，胡志明市给我的第一印象极差——盖因我刚出机场就被套路，虽然略有防备叫了
@@ -332,11 +332,11 @@ Grab 但还是被偷了 150 新币，而同行的 20 人中，约有三分之一
 传社会主义之类的，就连海关入境检查官员，穿的制服也是一水的米黄色，很像中国的军大
 衣的颜色。
 
-越南自 1986 年开始学习中国大陆由邓小平等人所创立的改革开放，并实行经济改革，向中
-国借鉴和学习。其一系列的政策在中文界被称为[[https://zh.wikipedia.org/zh-cn/%25E9%259D%25A9%25E6%2596%25B0%25E9%2596%258B%25E6%2594%25BE][革新开放]]。不过越南至今的人均 GDP 还很
-低，大概只有 2000 美金左右，整个越南约 1 亿人口，其国家 GDP 还比不上只有 600 万
-人口的新加坡，国家发展程度可见一般。就连越南最发达的胡志明市，其城市建设及规划水
-平，比国内的二三线城市还尚有不如。所以其国家门户入境机场小偷猖獗，也在预料之中了。
+越南自 1986 年开始学习中国大陆的改革开放，并实行经济改革，向中国借鉴和学习。其一
+系列的政策在中文界被称为[[https://zh.wikipedia.org/zh-cn/%25E9%259D%25A9%25E6%2596%25B0%25E9%2596%258B%25E6%2594%25BE][革新开放]]。不过越南至今的人均 GDP 还很低，大概只有 2000
+美金左右，整个越南约 1 亿人口，其国家 GDP 还比不上只有 600 万人口的新加坡，国家
+发展程度可见一斑。就连越南最发达的胡志明市，其城市建设及规划水平，比国内的二三线
+城市还尚有不如。所以其国家门户入境机场小偷猖獗，也在预料之中了。
 
 胡志明市，Shopee office
 #+CAPTION: 越南，胡志明市，Shopee office
@@ -398,3 +398,13 @@ Grab 但还是被偷了 150 新币，而同行的 20 人中，约有三分之一
 
 --- 侃侃 «想念»
 #+END_QUOTE
+
+** Ref
+
+- [[http://xiaohanyu.me/posts/2012-01-01-2011-summary/][再见，2011]]
+- [[http://xiaohanyu.me/posts/2013-01-11-2012-summary/][2012，静水深流]]
+- [[http://xiaohanyu.me/posts/2014-03-03-2013-summary/][2013，青春绝版]]
+- [[http://xiaohanyu.me/posts/2015-04-10-2014-summary/][2014，漫步]]
+- [[http://xiaohanyu.me/posts/2016-04-20-2015-summary/][2015，徘徊]]
+- [[http://xiaohanyu.me/posts/2017-05-23-2016-summary/][2016，清风徐来]]
+- [[https://xiaohanyu.me/posts/2018-01-14-2017-summary/][2017，迈向未知]]
