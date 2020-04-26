@@ -16,7 +16,7 @@
 ** 工作
 
 #+CAPTION: Github Contributions 2018
-[[/static/image/2019/2018-summary/github-2017.png][file:/static/image/2019/2018-summary/github-2018.png]]
+[[/static/image/2019/2018-summary/github-2018.png][file:/static/image/2019/2018-summary/github-2018.png]]
 
 *** Shopee
 
@@ -73,7 +73,7 @@ App，可惜时不与待……这又是后话了。
 
 *** 阅读
 
-阅读方面，今年读过的实体书很少，累记大概 15 本左右。
+阅读方面，今年读过的实体书很少，累计大概 15 本左右。
 - 《[[https://book.douban.com/subject/26689184/][Kubernetes 权威指南]]》，了解下 Kubernetes 的应用场景及基本概念。
 - 《[[https://book.douban.com/subject/3816827/][沸腾十五年]]》，中国互联网发展史概略，但是大局观上比吴军的《[[https://book.douban.com/subject/3816827/][浪潮之巅]]》还是差很
   多。

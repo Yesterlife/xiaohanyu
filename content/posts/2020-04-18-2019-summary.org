@@ -1,0 +1,607 @@
+** 序
+
+19 年全年飞了 32 个航班，累计里程约 135300 公里，光屁股钉在飞机上的时间就有 200
+个小时左右。有鉴于此，19 年总结的关键字就选为“飘来荡去”吧。
+
+| 时间  | 出发地   | 目的地   | 里程（公里） | 备注         |
+|-------+----------+----------+--------------+--------------|
+| 1 月  | 杭州     | 新加坡   |         3600 |              |
+| 2 月  | 新加坡   | 北京     |         4900 |              |
+| 2 月  | 北京     | 新加坡   |         4900 |              |
+| 3 月  | 新加坡   | 洛杉机   |        13600 | 经停马尼拉   |
+| 3 月  | 西雅图   | 纽约     |         3800 |              |
+| 3 月  | 纽约     | 新加坡   |        16700 | 经停法兰克福 |
+| 3 月  | 新加坡   | 杭州     |         3600 |              |
+| 4 月  | 杭州     | 深圳     |         1300 |              |
+| 4 月  | 深圳     | 杭州     |         1300 |              |
+| 5 月  | 杭州     | 新加坡   |         3600 |              |
+| 5 月  | 新加坡   | 班加罗尔 |         3200 |              |
+| 6 月  | 班加罗尔 | 新加坡   |         3200 |              |
+| 6 月  | 新加坡   | 班加罗尔 |         3200 |              |
+| 6 月  | 班加罗尔 | 新加坡   |         3200 |              |
+| 8 月  | 新加坡   | 雅加达   |         1700 |              |
+| 8 月  | 雅加达   | 新加坡   |         1700 |              |
+| 8 月  | 新加坡   | 宁波     |         3700 |              |
+| 8 月  | 宁波     | 雅加达   |         3700 |              |
+| 8 月  | 新加坡   | 雅加达   |         1700 |              |
+| 9 月  | 雅加达   | 新加坡   |         1700 |              |
+| 9 月  | 新加坡   | 雅加达   |         1700 |              |
+| 9 月  | 雅加达   | 新加坡   |         1700 |              |
+| 10 月 | 新加坡   | 班加罗尔 |         3200 |              |
+| 10 月 | 班加罗尔 | 新加坡   |         3200 |              |
+| 11 月 | 新加坡   | 旧金山   |        13600 |              |
+| 11 月 | 旧金山   | 新加坡   |        13600 |              |
+| 11 月 | 新加坡   | 雅加达   |         1700 |              |
+| 11 月 | 雅加达   | 新加坡   |         1700 |              |
+| 12 月 | 新加坡   | 宁波     |         3700 |              |
+| 12 月 | 宁波     | 南宁     |         1600 |              |
+| 12 月 | 南宁     | 宁波     |         1600 |              |
+| 12 月 | 宁波     | 新加坡   |         3700 |              |
+
+32 个航班中，从新加坡往返班加罗尔的 6 个航班、从新加坡往返雅加达的 8 个航班、以
+及 11 月份从新加坡往返旧金山的 2 个航班，均为工作出差；其余 16 个航班为探亲旅游。
+
+除开频繁的工作差旅，生活上搬了个新家，购置了一些新的装备；工作上离开了 Shopee 加
+入了 Gojek；学习方面最大的成就是啃完了 1400 页的巨著《[[http://man7.org/tlpi/][The Linux Programming
+Interface]]》，复习了下 Clojure 并写了几千行生产代码，开始学习 Go 语言；健身方面依
+旧保持着良好的习惯，体重控制得不错。不足的地方是 Github 上的生产力骤降，主因么，
+年龄渐长，精力收缩，导致很多项目处于长草烂尾的状态中……就连这篇 blog 也是拖到了
+2020 年 4 月份才开始着墨，磨蹭了三周，还没有搞定，惭愧惭愧。
+
+回顾下来，19 年过得还是相当紧凑的，且容我娓娓道来。
+
+** 工作
+
+#+CAPTION: Github Contributions 2019
+[[/static/image/2020/2019-summary/github-2019.png][file:/static/image/2020/2019-summary/github-2019.png]]
+
+*** Shopee
+
+如《[[http://xiaohanyu.me/posts/2019-04-10-2018-summary/][2018 年总结]]》中所述，18 年下半年转到 Shopee 的平台组之后，我跟 [[https://cmgs.me/][CMGS]] 和 [[https://www.textarea.com/zhicheng/][zhicheng]]
+一起做 Shopee Cloud，也上线了基于 redis cluster 的 cache cloud 平台。不过因为种
+种原因，我的角色始终被限定为一个前端，做了半年之后，觉得有些无聊，就萌生了跳槽的想法。
+
+1 月份面试，2 月春节敲定了 offer，然后提辞呈，交接工作一个月，3 月 15 日 last day。
+
+#+CAPTION: Shopee last day
+[[/static/image/2020/2019-summary/singapore-20190315-shopee-last-day.jpg][file:/static/image/2020/2019-summary/singapore-20190315-shopee-last-day.jpg]]
+
+*** Gojek
+
+[[https://blog.gojekengineering.com/go-jek-recruitment-process-58dbed5d8992][Gojek]] 的面试还是蛮有意思的，与多数互联网公司不同，Gojek 的面试并不会特别侧重算法，
+相反，Gojek 会给 candidate 一个 take-home project，而这恰好是我所擅长的。花了十
+几个小时时间做完 project，通过之后又经过 3.5 小时的 onsite interview，顺利拿到了
+offer，2 月敲定，3 月离职 Shopee 之后，和朋友一起去美国东西海岸旅游了两周。原本
+计划美国旅游结束之后就回来继续搬砖上班，但中途新的工作签证申请出了一些问题，导致
+入职日期顺延到了 5 月 6 日。于是乎整个 4 个在杭州休假，难得清闲，乐不思“坡”，还
+去深圳逛了三天。
+
+我在 Gojek 的 line manager 是 [[https://www.linkedin.com/in/alielgamal/?originalSubdomain=sg][Ali Elgamal]]，入职第一天 1v1 告诉我的第一件事是让我
+准备去印度的签证……我所在的团队是 Growth，负责公司产品的获客、增长、留存及用户体
+验优化等等。Head of Growth 是 [[https://www.linkedin.com/in/crystalwidjaja/][Crystal Widjaja]]，看履历比我还要年轻个三四岁，[[https://www.youtube.com/watch?v=WRUSryfaxhk&app=desktop][气场
+非常强]]，整个 Growth 团队的组织规划也是整整有条，very impressive。
+
+Gojek 的后端技术栈是 Clojure、Go 以及 JRuby，我没有 Go 语言的经验，但是前几年学
+Lisp 的时候顺手了解了下 Clojure，新看了本《[[https://book.douban.com/subject/26363669/][Clojure for the Brave and True]]》就上
+手 Clojure 了，开始参与一些项目，同时我也开始系统地学习 Go 语言，看完了
+《[[https://book.douban.com/subject/26337545/][The Go Programming Language]]》。
+
+5 月到 10 月，我在印度班加罗尔 onboarding，新加坡与印尼雅加达之间往返出差，和团
+队结队编程，致力于增强公司内部的一个 AB 测试平台 [[https://blog.gojekengineering.com/introducing-litmus-gojeks-own-experimentation-platform-3803467b6a53][Litmus]]，主要的产出是主导完成了
+基于 [[https://github.com/ben-manes/caffeine][caffeine]] 的 Clojure binding，同时重度参与了基于 [[https://blog.gojekengineering.com/reducing-latency-with-sidecar-cdb09705cc27][sidecar]] 模式的 latency 优化。
+
+10 月下旬组织架构调整，转到新团队，出差少了很多，也开始写一些 Go 和 TypeScript
+的项目。
+
+整个工作期间重度参与了公司的面试，candidate 哪来的都有，印度的新加坡的欧洲的缅甸
+的巴西的。
+
+Gojek 的文化总体还是比较开放的，作为工程师，大部分的代码都是内部开源的，外部的[[https://github.com/gojek][开
+源]]也有模有样；同时，各种商业数据、设计及文案也是开放的。我在这种开放的团队环境中
+学到了很多。
+
+Gojek 的基础设施平台也不错，有一点点 Google 的影子。比较新奇的这边的结对编程文化。
+所谓结对编程，简单来说，就是两个程序员共用一台电脑共同编程。工作这么多年经历了多
+家公司团队，第一次尝试结对编程，于我而言还是蛮新奇的。结对编程看上去降低了团队的
+效率，但是实际操作下来，就我的体验而言，实际上效率并没有降低太多，而质量则有了很
+大的提高。Last but not least，两个程序员一起结对编程的话，摸鱼的时间就大大减少了，
+因此可以说是相当的累，非常消耗脑力。
+
+我在 Gojek 工作半年多，觉得印尼本土能出一家这样的独角兽，真的是另人刮目相看。
+Gojek 里也有大量的印度工程师，其工作产出和代码质量都可圈可点，可见诸如“印度工程
+师不靠谱”这类的种种传闻偏见，还是要因人而定，不要先入为主。
+
+** 学习
+
+阅读方面，因为出差出行较多，全面转向电子阅读，累计约 15 本左右。
+
+- 《[[https://book.douban.com/subject/4292217/][The Linux Programming Interface]]》: 1400 页的大部头，巨细靡遗，我花了两个月全
+  部的业余时间从头到尾啃了一遍。
+- 《[[https://book.douban.com/subject/27609265/][Kafka: The Definitive Guide]]》: Kafka 手册。
+- 《[[https://book.douban.com/subject/30335935/][从零开始学架构]]》: 不错的关于互联网后端架构设计的科普书。
+- 《[[https://book.douban.com/subject/26337545/][The Go Programming Language]]》: 书中的示例程序比较有意思。
+- 《[[https://book.douban.com/subject/26363669/][Clojure for the Brave and True]]》：不错的入门 Clojure 的教程。
+
+技术方面，除开上面书籍上学到的 Go/Clojure/Kafka，深入了解了下 Java 的 [[https://github.com/ben-manes/caffeine][caffeine]] 缓
+存库并实现了一个 Clojure binding；了解了下 AB 测试平台的原理及实现。
+
+** 生活
+
+*** 搬家
+
+社会在发展，时代在进步，7 月份搬新家，我终于住上了有独立卫生间的主卧。新家在 30
+层，视野通风具佳，住起来相当舒服。
+
+#+CAPTION: 新加坡，Commonwealth
+[[/static/image/2020/2019-summary/singapore-20190702-commonwealth.jpg][file:/static/image/2020/2019-summary/singapore-20190702-commonwealth.jpg]]
+
+*** 健身
+
+19 年健身坚持的还算不错，除开回国过节、探亲及休假的日子，工作日基本上做到了每天
+健身 40--60 分钟。在新加坡的时候去公司附近的 Fitness First，出差的时候就基本在酒
+店内部的小健身房。在雅加达的时候还用 Fitness First 的会员卡去 Fitness First 雅加
+达的健身房去了一两周。
+
+体重控制得不错，全年体重基本保持稳定。
+
+#+CAPTION: 印度尼西亚，雅加达酒店
+[[/static/image/2020/2019-summary/indonesia-20190202-jakarta.jpg][file:/static/image/2020/2019-summary/indonesia-20190202-jakarta.jpg]]
+
+#+CAPTION: 新加坡，Fitness First Club
+[[/static/image/2020/2019-summary/singapore-20190903-fitness-first.jpg][file:/static/image/2020/2019-summary/singapore-20190903-fitness-first.jpg]]
+
+#+CAPTION: 新加坡，Fitness First Club
+[[/static/image/2020/2019-summary/singapore-20191106-fitness-first.jpg][file:/static/image/2020/2019-summary/singapore-20191106-fitness-first.jpg]]
+
+*** 新装备
+
+购置 iMac 5k 2019 顶配，外加 LG 27UK850 显示器一台，生产力神器。
+
+购置 Fujifilm X-T3，一机三镜，两万人民币左右，十年没有买过相机了。
+
+购置 Herman Miller New Aeron 座椅一把，2200 新币。
+
+[[/static/image/2020/2019-summary/singapore-20190706-herman-miller-new-aeron.jpg][file:/static/image/2020/2019-summary/singapore-20190706-herman-miller-new-aeron.jpg]]
+
+** 差旅
+
+*** 宁波
+
+19 年妞一整年都在宁波工作。我回国几次都经停宁波，1 月份参观了著名的[[https://zh.wikipedia.org/wiki/%E5%AE%81%E6%B3%A2%E5%8D%9A%E7%89%A9%E9%A6%86][宁波博物馆]]，4
+月份在[[https://zh.wikipedia.org/wiki/%E5%AE%81%E6%B3%A2%E5%A4%A7%E5%AD%A6%E5%9B%AD%E5%8C%BA%E5%9B%BE%E4%B9%A6%E9%A6%86][宁波大学园区图书馆]]待了两三天；8 月份去了奉化溪口参观蒋式故居；12 月份荡舟
+宁波东钱湖，天气不错，甚是惬意。
+
+相较于杭州，宁波的城市规模要小一些，城市面貌也差一些。宁波博物馆确实是别有篇章和
+设计，但是东钱湖比之西湖，就完全差一个档次了。溪口的小镇氛围还算不错，但是门票还
+是贵了些。
+
+#+CAPTION: 中国，宁波博物馆
+[[/static/image/2020/2019-summary/china-20190103-ningbo-museum.jpg][file:/static/image/2020/2019-summary/china-20190103-ningbo-museum.jpg]]
+
+#+CAPTION: 中国，宁波大学园区图书馆
+[[/static/image/2020/2019-summary/china-20190428-ningbo-library.jpg][file:/static/image/2020/2019-summary/china-20190428-ningbo-library.jpg]]
+
+#+CAPTION: 中国，宁波大学园区图书馆
+[[/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-1.jpg][file:/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-1.jpg]]
+
+#+CAPTION: 中国，宁波大学园区图书馆
+[[/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-2.jpg][file:/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-2.jpg]]
+
+#+CAPTION: 中国，宁波大学园区图书馆
+[[/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-3.jpg][file:/static/image/2020/2019-summary/china-20190816-ningbo-fenghua-xikou-3.jpg]]
+
+#+CAPTION: 中国，宁波东钱湖
+[[/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-1.jpg][file:/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-1.jpg]]
+
+#+CAPTION: 中国，宁波东钱湖
+[[/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-2.jpg][file:/static/image/2020/2019-summary/china-20191215-ningbo-dongqian-lake-2.jpg]]
+
+
+*** 深圳
+
+整个 4 月都在国内休假，等 Gojek 的工作签证。下旬蹭着妞出差的机会，去深圳逛了三天。
+这是第二次来深圳逛。三天时间去参观了下腾讯的滨海大厦、深圳大学、深圳湾公园、深圳
+中心公园，还特地去逛了逛华强北电子市场。
+
+腾讯的滨海大厦还是蛮宏伟壮观的，和阿里巴巴杭州的西溪园区完全是两种不同的风格流派。
+豆瓣上一位友邻引导我参观，还请我吃了顿午饭，感谢感谢。
+
+在深圳令我印象比较深刻的一件小事是，我跟妞在路口打车，刚一上车司机就提醒说后排也
+要系安全带，不系的话原来罚三百现在要罚五百了，还要扣分。深圳确实不愧为开全国风气
+之先的城市。
+
+深圳湾公园的视野和天际线也不错。
+
+我个人觉得深圳和新加坡还是有点像的，都比较小，靠海，城市干净整洁，同样都是短短几
+十年发展起来的现代化城市，缺少一些文化底蕴，同样，房价也都很贵……
+
+三天行程匆匆忙忙，期待下次。
+
+#+CAPTION: 中国，深圳腾讯滨海大厦
+[[/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-1.jpg][file:/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-1.jpg]]
+
+#+CAPTION: 中国，深圳腾讯滨海大厦
+[[/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-2.jpg][file:/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-2.jpg]]
+
+#+CAPTION: 中国，深圳腾讯滨海大厦
+[[/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-3.jpg][file:/static/image/2020/2019-summary/china-20190422-shenzhen-tencent-office-3.jpg]]
+
+#+CAPTION: 中国，深圳湾公园
+[[/static/image/2020/2019-summary/china-20190423-shenzhen-park.jpg][file:/static/image/2020/2019-summary/china-20190423-shenzhen-park.jpg]]
+
+*** 广西北海
+
+12 月下旬，和妞一起去了趟广西北海，三天行程，经停南宁，匆匆忙忙。
+
+南宁的城市面貌很差，给人的感觉是整个城市还停留在 90 年代。在南宁短暂经停后我们到
+了北海。北海是一个海滨城市，老城步行街很有一种 80 年代中国小县城的感觉。广西和越
+南接壤，所以北海老街上有很多越南产的小物件。
+
+次日我们搭乘轮渡去了[[https://zh.wikipedia.org/wiki/%E6%B6%A0%E6%B4%B2%E5%B2%9B][涠洲岛]]。涠洲岛是中国最大、地质年龄最年轻的火山岛。涠洲岛整体
+的旅游基础设施还是比较差。我们去涠洲岛国家地质公园的时候，坐公交车到站下车之时，
+还要花上几十元额外搭乘专用的电动车走两三公里才能到公园入口。而电动车旁边就是一条
+步行道。感觉这条路完全就是为游人特别设置的障碍。两三公里，说长不长说短不短，但是
+如果你想坐车，OK，先花二三十元买张电动车的票再说。
+
+国家地质公园还算不错，有一些火山地质地貌。但是岛内其余的景点就显得非常的简陋了，
+交通可达性也比较差，旅游基础设施非常一般。
+
+#+CAPTION: 中国，广西北海老街
+[[/static/image/2020/2019-summary/china-20191219-guangxi-beihai-1.jpg][file:/static/image/2020/2019-summary/china-20191219-guangxi-beihai-1.jpg]]
+
+#+CAPTION: 中国，广西北海老街
+[[/static/image/2020/2019-summary/china-20191219-guangxi-beihai-2.jpg][file:/static/image/2020/2019-summary/china-20191219-guangxi-beihai-2.jpg]]
+
+#+CAPTION: 中国，广西北海涠洲岛
+[[/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-1.jpg][file:/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-1.jpg]]
+
+#+CAPTION: 中国，广西北海涠洲岛
+[[/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-2.jpg][file:/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-2.jpg]]
+
+#+CAPTION: 中国，广西北海涠洲岛
+[[/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-3.jpg][file:/static/image/2020/2019-summary/china-20191220-guangxi-beihai-weizhou-3.jpg]]
+
+*** 新加坡
+
+搬新家后，实际上一半的时候在外面差旅，在新加坡待的时间不到一半。新的办公室视野很
+不错。平时周末也会去周边转转。一成不变的热带气候会抹去时间刻度，将记忆压缩成一张
+白纸。
+
+#+CAPTION: 新加坡，AXA Tower
+[[/static/image/2020/2019-summary/singapore-20190506-axa-tower.jpg][file:/static/image/2020/2019-summary/singapore-20190506-axa-tower.jpg]]
+
+#+CAPTION: 新加坡，落地航班
+[[/static/image/2020/2019-summary/singapore-20191123-flight.jpg][file:/static/image/2020/2019-summary/singapore-20191123-flight.jpg]]
+
+#+CAPTION: 新加坡，圣淘沙
+[[/static/image/2020/2019-summary/singapore-20191201-sentosa.jpg][file:/static/image/2020/2019-summary/singapore-20191201-sentosa.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2020/2019-summary/singapore-20191213-axa-tower.mp4"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+#+CAPTION: 新加坡，落地航班
+[[/static/image/2020/2019-summary/singapore-20191222-flight.jpg][file:/static/image/2020/2019-summary/singapore-20191222-flight.jpg]]
+
+
+*** 美国
+
+19 年去了两次美国。
+
+3 月 15 日 Shopee last day。次日与 [[https://www.textarea.com/zhicheng][zhicheng]] 一起，从新加坡经停马尼拉落地洛杉矶，
+与我的弟弟汇合。之后在洛杉矶两日，参观了[[https://zh.wikipedia.org/zh-hans/%E6%A0%BC%E9%87%8C%E6%96%90%E6%96%AF%E5%A4%A9%E6%96%87%E5%8F%B0][格里斐斯天文台]]，然后自驾加州一号公路到旧
+金山，感谢 [[http://samos-it.com/][Sam]] 招待。参观了斯坦福、伯克利，金门大桥。感谢[[https://zeyi.fan/][饭团]]招待，去参观了下
+Facebook Menlo Park 总部。
+
+#+CAPTION: 美国，洛杉矶天文台
+[[/static/image/2020/2019-summary/us-20190319-los-angeles.jpg][file:/static/image/2020/2019-summary/us-20190317-los-angeles.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2020/2019-summary/us-20190318-california-route-1.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+#+CAPTION: 美国，加州一号公路
+[[/static/image/2020/2019-summary/us-20190318-california-route-1.jpg][file:/static/image/2020/2019-summary/us-20190318-california-route-1.jpg]]
+
+#+CAPTION: 美国，旧金山，Sam 家
+[[/static/image/2020/2019-summary/us-20190319-san-francisco-sam-home.jpg][file:/static/image/2020/2019-summary/us-20190319-san-francisco-sam-home.jpg]]
+
+#+CAPTION: 美国，加州伯克利大学
+[[/static/image/2020/2019-summary/us-20190322-berkeley.jpg][file:/static/image/2020/2019-summary/us-20190322-berkeley.jpg]]
+
+#+CAPTION: 美国，加州斯坦福大学
+[[/static/image/2020/2019-summary/us-20190322-stanford.jpg][file:/static/image/2020/2019-summary/us-20190322-stanford.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2020/2019-summary/us-20190321-san-francisco-golden-gate.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+在旧金山逗留三日，驱车去 Sacramento，会见老友 Chen Jingjing，之后匆忙赶路去[[https://www.youtube.com/watch?v=_pKWxqEpomQ][过火]]
+后的 [[https://en.wikipedia.org/wiki/Paradise,_California][Paradise]] 看了一眼，然后直接北上经 Portland 去西雅图。在 Oregon 的时候经停
+[[https://www.nps.gov/crla/index.htm][Crater Lake]]，见到了比车还高的两米多的雪，还参加了一次“林海雪原”的徙步活动，很有
+意思。
+
+#+CAPTION: 美国，加州，Sacramento
+[[/static/image/2020/2019-summary/us-20190322-sacramento.jpg][file:/static/image/2020/2019-summary/us-20190322-sacramento.jpg]]
+
+#+CAPTION: 美国，俄勒冈
+[[/static/image/2020/2019-summary/us-20190324-oregon-snow-1.jpg][file:/static/image/2020/2019-summary/us-20190324-oregon-snow-1.jpg]]
+
+#+CAPTION: 美国，俄勒冈
+[[/static/image/2020/2019-summary/us-20190324-oregon-snow-2.jpg][file:/static/image/2020/2019-summary/us-20190324-oregon-snow-2.jpg]]
+
+在 Oregon 路上走了两天多，到西雅图，感谢 Yuqi 招待。在西雅图两日，参观了华盛顿大
+学、太空针塔、[[https://www.mopop.org/][MoPOP Museum]]、Amazon 的大玻璃球办公室。还跟[[http://mindhacks.cn/][刘未鹏]]一起吃了顿饭，参
+观了下 Microsoft 的办公室，很受益。
+
+#+CAPTION: 美国，西雅图，华盛顿大学
+[[/static/image/2020/2019-summary/us-20190324-seattle-university-of-washington.jpg][file:/static/image/2020/2019-summary/us-20190324-seattle-university-of-washington.jpg]]
+
+#+CAPTION: 美国，西雅图，Amazon office
+[[/static/image/2020/2019-summary/us-20190325-seattle-amazon-office.jpg][file:/static/image/2020/2019-summary/us-20190325-seattle-amazon-office.jpg]]
+
+#+CAPTION: 美国，西雅图
+[[/static/image/2020/2019-summary/us-20190325-seattle-weipeng.jpg][file:/static/image/2020/2019-summary/us-20190325-seattle-weipeng.jpg]]
+
+离开西雅图，直飞纽约，宿 Brooklyn 一家 Airbnb 的小单间。之后在纽约逛了三四天，参
+观了[[https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%83%BD%E6%9C%83%E8%97%9D%E8%A1%93%E5%8D%9A%E7%89%A9%E9%A4%A8][纽约大都会艺术博物馆]]，自由女神、911 纪念广场、时代广场、第五大道。与在纽约的
+同学会吃了顿饭，很开心；Jiaqi 引导，去参观了下高盛的 office。中途抽时间去了趟波
+士顿，探望下老友 Tanran 夫妇，参观了下 Harvard 和 MIT，吃了波士顿大龙虾。
+
+#+CAPTION: 美国，纽约
+[[/static/image/2020/2019-summary/us-20190328-new-york-1.jpg][file:/static/image/2020/2019-summary/us-20190328-new-york-1.jpg]]
+
+#+CAPTION: 美国，纽约
+[[/static/image/2020/2019-summary/us-20190328-new-york-2.jpg][file:/static/image/2020/2019-summary/us-20190328-new-york-2.jpg]]
+
+#+CAPTION: 美国，波士顿，Harward
+[[/static/image/2020/2019-summary/us-20190329-boston-harward.jpg][file:/static/image/2020/2019-summary/us-20190329-boston-harward.jpg]]
+
+#+CAPTION: 美国，波士顿
+[[/static/image/2020/2019-summary/us-20190329-boston-tanran.jpg][file:/static/image/2020/2019-summary/us-20190329-boston-tanran.jpg]]
+
+纽约最后一日去逛了逛华尔街，下午去参观了下纽约大学电影学院，与“著名”电影导演[[https://zhongchou.modian.com/item/35667.html][元圆]]
+同学进行了亲切而友好的会谈。之后打 uber 花了八十多美金到机场，坐全球最长航线，经
+停法兰克福，飞了约 20 个小时，落地新加坡，结束了两周的美国之旅。
+
+#+CAPTION: 美国，纽约，NYU
+[[/static/image/2020/2019-summary/us-20190330-nyu-yuanyuan.jpg][file:/static/image/2020/2019-summary/us-20190330-nyu-yuanyuan.jpg]]
+
+#+CAPTION: 美国，纽约
+[[/static/image/2020/2019-summary/us-20190330-new-york.jpg][file:/static/image/2020/2019-summary/us-20190330-new-york.jpg]]
+
+两周美国之行，走了东西海岸五个州，看了五六家公司和七八所大学，看了山河湖海，过了
+春冬雨雪，吃了四家不同品牌的 burger，见了约二十位同学朋友，所获颇丰，可以说是这
+几年出行之最。尤其感谢各位同学朋友热情款待，海内存知己，天涯若比邻。
+
+11 月中旬，公司出差去加州参加 [[https://developer.chrome.com/devsummit/][Chrome Dev Summit]] 及 Google 内部一个关于 Google
+Assistant 的一个小型分享会。借此机会再度游览加州。这次提前去了两天，利用周末的时
+间去了趟[[https://zh.wikipedia.org/zh-hans/%E5%A4%AA%E6%B5%A9%E6%B9%96][太浩湖]]，看到了此生最好看的日出。
+
+#+CAPTION: 美国，加州太浩湖
+[[/static/image/2020/2019-summary/us-20191111-lake-tahoe-1.jpg][file:/static/image/2020/2019-summary/us-20191111-lake-tahoe-1.jpg]]
+
+#+CAPTION: 美国，加州太浩湖
+[[/static/image/2020/2019-summary/us-20191111-lake-tahoe-2.jpg][file:/static/image/2020/2019-summary/us-20191111-lake-tahoe-2.jpg]]
+
+#+BEGIN_EXPORT html
+<video src="/static/image/2020/2019-summary/us-20191111-lake-tahoe-sunrise.mov"
+       width="100%"
+       controls>
+</video>
+#+END_EXPORT
+
+#+CAPTION: 美国，加州
+[[/static/image/2020/2019-summary/us-20191111-california.jpg][file:/static/image/2020/2019-summary/us-20191111-california.jpg]]
+
+周一周二两天参加 Chrome Dev Summit，公司给订了家富丽堂皇的酒店。两天 Summit 听下
+来还是挺累的，见到了 [[https://developer.chrome.com/devsummit/sessions/keynote/][Guillermo Rauch]] 真人。
+
+周三无事，在旧金山市区乱逛了逛，再见 Chen Jingjing，聊了聊工作的日常。
+
+周四周五两天在 Google Mountain View 总部参加 Google Assistant Partner 分享会。老
+实说我听起来有点昏昏欲睡，不完既然是公司指派，全当上班了。周五下午会议结束，我们
+“早退”，又驱车乱转去 Apple 总部周边逛了逛。晚上去了 Sam 家吃饭。
+
+再来旧金山，街头醉人的大麻味和尿骚味也让我印象深刻，而 IT 天堂硅谷给我的感觉则是
+一大农村，晚上尤其荒凉。这时又有点怀念新加坡的干净整洁，生气勃勃。没有天堂，只有
+选择。
+
+周六回坡，这次是直飞，16 个小时。
+
+#+CAPTION: 美国，旧金山
+[[/static/image/2020/2019-summary/us-20191112-san-francisco-1.jpg][file:/static/image/2020/2019-summary/us-20191112-san-francisco-1.jpg]]
+
+#+CAPTION: 美国，旧金山
+[[/static/image/2020/2019-summary/us-20191112-san-francisco-2.jpg][file:/static/image/2020/2019-summary/us-20191112-san-francisco-2.jpg]]
+
+#+CAPTION: 美国，旧金山，Chrome Dev Summit
+[[/static/image/2020/2019-summary/us-20191112-san-francisco-chrome-dev-summit.jpg][file:/static/image/2020/2019-summary/us-20191112-san-francisco-chrome-dev-summit.jpg]]
+
+#+CAPTION: 美国，旧金山，Google Mountain View
+[[/static/image/2020/2019-summary/us-20191114-california-google-mtv.jpg][file:/static/image/2020/2019-summary/us-20191114-california-google-mtv.jpg]]
+
+#+CAPTION: 美国，旧金山，Apple Store
+[[/static/image/2020/2019-summary/us-20191115-california-apple-store.jpg][file:/static/image/2020/2019-summary/us-20191115-california-apple-store.jpg]]
+
+
+*** 班加罗尔
+
+工作原因出差去了三次印度的[[https://zh.wikipedia.org/wiki/%E7%8F%AD%E5%8A%A0%E7%BD%97%E5%B0%94][班加罗尔]]。班加罗尔信息业的产值占印度三分之一以上。但是
+基础设施实在是差强人意。酒店和写字楼里时不时的就会停电，高峰时期每天断电两三次，
+每次断电三五分钟。
+
+班加罗尔的气候真心是蛮舒服的，德干高原，海拔一千，不冷不热，不干不潮。可惜市容基
+建一塌糊涂，街头巷尾垃圾遍地，河塘水池臭气冲天，牛屎人尿肆意挥洒。
+
+一如印度大部门的城市，贫民窟和星级酒店亦往往比邻而居。比如我第一次下榻的酒店，旁
+边有一个高尔夫球场，有一小片贫民窟，有正常的居民楼，还有一条臭水沟。酒店常年配备
+安检设备，我每次出入酒店都要过安检机。
+
+一如传闻，牛在城市街道十分常见，相伴而来的，街道马路上也常常洒满新鲜热乎刚出炉的
+牛粪，配上刚下的雨水，味道可以说是十分醉人。我有一次中奖，下班路上还一脚踩到了牛
+粪上。
+
+值得一提的是，中国的手机品牌，小米、Oppo/Vivo 在班加罗尔街头很常见。
+
+再，印度城市内水网的污染真是触目惊心。我目之所视看到的大部分的市内河流，水都是黑
+色发臭的。
+
+三次印度之行，累计两个月，我总体感觉是，印度的基础设施建设任重道远，不解决这个问
+题，所谓的[[https://zh.wikipedia.org/wiki/%E9%BE%99%E8%B1%A1%E4%B9%8B%E4%BA%89][龙象之争]]，有生之年，这个命题恐怕很难成真。
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20190516-bangalore.jpg][file:/static/image/2020/2019-summary/india-20190516-bangalore.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20190518-bangalore-memorial-hall.jpg][file:/static/image/2020/2019-summary/india-20190518-bangalore-memorial-hall.jpg]]
+
+#+CAPTION: 印度，班加罗尔，购物中心
+[[/static/image/2020/2019-summary/india-20190518-bangalore-shopping-mall.jpg][file:/static/image/2020/2019-summary/india-20190518-bangalore-shopping-mall.jpg]]
+
+#+CAPTION: 印度，班加罗尔，酒店泳池
+[[/static/image/2020/2019-summary/india-20190518-bangalore-hotel.jpg][file:/static/image/2020/2019-summary/india-20190518-bangalore-hotel.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20190527-bangalore.jpg][file:/static/image/2020/2019-summary/india-20190527-bangalore.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20190605-bangalore-rain.jpg][file:/static/image/2020/2019-summary/india-20190605-bangalore-rain.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20190606-bangalore.jpg][file:/static/image/2020/2019-summary/india-20190606-bangalore.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20191013-bangalore-1.jpg][file:/static/image/2020/2019-summary/india-20191013-bangalore-1.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20191013-bangalore-2.jpg][file:/static/image/2020/2019-summary/india-20191013-bangalore-2.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20191023-bangalore.jpg][file:/static/image/2020/2019-summary/india-20191023-bangalore.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20191026-bangalore-1.jpg][file:/static/image/2020/2019-summary/india-20191026-bangalore-1.jpg]]
+
+#+CAPTION: 印度，班加罗尔
+[[/static/image/2020/2019-summary/india-20191026-bangalore-2.jpg][file:/static/image/2020/2019-summary/india-20191026-bangalore-2.jpg]]
+
+*** 雅加达
+
+工作原因出差去了四次印度尼西亚的[[https://zh.wikipedia.org/wiki/%E9%9B%85%E5%8A%A0%E8%BE%BE][雅加达]]。
+
+对比班加罗尔，雅加达的情况要好得多，至少在门面上来讲，雅加达的 CBD 其实建得相当
+不错的，干净整洁，有板有眼，天际线在东南亚城市中也排得进第一梯队。
+
+#+CAPTION: 印度尼西亚，雅加达 CBD
+[[/static/image/2020/2019-summary/indonesia-20190901-jakarta-1.jpg][file:/static/image/2020/2019-summary/indonesia-20190901-jakarta-1.jpg]]
+
+#+CAPTION: 印度尼西亚，雅加达 Google office
+[[/static/image/2020/2019-summary/indonesia-20191121-jakarta-google.jpg][file:/static/image/2020/2019-summary/indonesia-20191121-jakarta-google.jpg]]
+
+但是金玉其外、 败絮其中，雅加达城市规划最大的败笔就是对行人的极度不友好和不尊重。
+最令我震惊的一点是，就在我公司外，步行道花坛竟然用尖口金属栅栏，如果是小孩玩耍或
+者成人不小心失足，碰到这些尖口栅栏，非死即伤。
+
+#+CAPTION: 印度尼西亚，雅加达步行道
+[[/static/image/2020/2019-summary/indonesia-20190823-jakarta.jpg][file:/static/image/2020/2019-summary/indonesia-20190823-jakarta.jpg]]
+
+Grab 和 Gojek 在印尼街头斗得如火如荼，每次出门走在路上，满眼望去，一片绿油油的，
+那是 Grab 和 Gojek 摩托骑手工作制服的颜色。说来也是巧，两家公司工作制服都是绿色。
+
+#+CAPTION: 印度尼西亚，雅加达街头，Grab VS Gojek
+[[/static/image/2020/2019-summary/indonesia-20190819-jakarta-grab-vs-gojek.jpg][file:/static/image/2020/2019-summary/indonesia-20190819-jakarta-grab-vs-gojek.jpg]]
+
+8 月某日出门，发现 office 门口聚集了一群人，同事提醒我注意把工牌藏起来，后来才得
+知这是一群 Gojek driver 在公司门口集会[[https://www.thejakartapost.com/news/2019/08/05/drivers-stage-protest-burn-tire-in-front-of-gojek-office.html][抗议]]。抗议持续了有两三天的样子，还在楼下焚
+烧了一些东西，那几日办公楼的安检都非常严格，门口都是警察保卫。
+
+#+CAPTION: 印度尼西亚，雅加达街头抗议
+[[/static/image/2020/2019-summary/indonesia-20190805-jakarta.jpg][file:/static/image/2020/2019-summary/indonesia-20190805-jakarta.jpg]]
+
+雅加达的移动互联网普及率还不错，特别是电子支付，目前处于春秋战国时代，各家移动支
+付提供商在街头商贩打满了广告。想必 Grab 和 Gojek 两大 SuperApp 都从中国的
+SuperApp 模式中学到了不少吧。
+
+#+CAPTION: 印度尼西亚，雅加达，Gojek Home Screen
+[[/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-homescreen.jpg][file:/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-homescreen.jpg]]
+
+#+CAPTION: 印度尼西亚，雅加达，Gojek Home Screen
+[[/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-payment-screen.jpg][file:/static/image/2020/2019-summary/indonesia-20190805-jakarta-gojek-app-payment-screen.jpg]]
+
+** 尾
+
+19 年总结拖拖拉拉了小半年，20 年伊始，新冠席卷全球，世界恐怕再也回不到 19 年的样
+子了吧。
+
+于个人而言，19 年全年花了近一个月的时间周转于中国、美国、新加坡、印度、印度尼西
+亚，所获颇丰。特别是美国之行，增长见闻，游学访友，甚为开心。
+
+加入 Gojek，所学甚多，开始了解移动互联网商业的生态规则，对这个印尼本土的独角兽公
+司刮目相看。
+
+20 世纪的第二个十年，过去了。
+
+#+begin_quote
+青春的岁月
+
+我们身不由己
+
+只因这胸中
+
+燃烧的梦想
+
+青春的岁月
+
+放浪的生涯
+
+就任这时光
+
+奔腾如流水
+
+体会这狂野
+
+体会孤独
+
+体会这欢乐
+
+爱恨离别
+
+体会这狂野
+
+体会孤独
+
+这是我的完美生活
+
+也是你的完美生活
+
+我多想看到你
+
+那依旧灿烂的笑容
+
+再一次释放自己
+
+胸中那灿烂的情感
+
+--- 许巍 «完美生活»
+#+end_quote
+
+** Ref
+
+- [[http://xiaohanyu.me/posts/2012-01-01-2011-summary/][再见，2011]]
+- [[http://xiaohanyu.me/posts/2013-01-11-2012-summary/][2012，静水深流]]
+- [[http://xiaohanyu.me/posts/2014-03-03-2013-summary/][2013，青春绝版]]
+- [[http://xiaohanyu.me/posts/2015-04-10-2014-summary/][2014，漫步]]
+- [[http://xiaohanyu.me/posts/2016-04-20-2015-summary/][2015，徘徊]]
+- [[http://xiaohanyu.me/posts/2017-05-23-2016-summary/][2016，清风徐来]]
+- [[https://xiaohanyu.me/posts/2018-01-14-2017-summary/][2017，迈向未知]]
+- [[http://xiaohanyu.me/posts/2019-04-10-2018-summary/][2018，两点一线]]
